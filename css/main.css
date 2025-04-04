@@ -149,59 +149,82 @@ body {
 .nav__list {
     display: flex;
     list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
     background: #fff;
     border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    margin-bottom: 30px;
-    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .nav__item {
     flex: 1;
+    text-align: center;
 }
 
 .nav__link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
     padding: 15px;
-    color: var(--primary-color);
+    color: #666;
     text-decoration: none;
     transition: all 0.3s ease;
-    font-weight: 500;
 }
 
 .nav__link i {
     margin-right: 8px;
-    color: var(--primary-color);
 }
 
 .nav__link:hover,
 .nav__link.active {
-    background: var(--primary-color);
-    color: #fff;
-}
-
-.nav__link:hover i,
-.nav__link.active i {
+    background: var(--sidebar-bg);
     color: #fff;
 }
 
 /* Content Sections */
-.content-section {
-    background: #fff;
-    padding: 30px;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    margin-bottom: 30px;
+.content-sections {
+    position: relative;
+    min-height: 100vh;
 }
 
-.content-section h2 {
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--primary-color);
-    font-weight: 600;
+.content-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.content-section.active {
+    display: block;
+    opacity: 1;
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Blog Section */
+.blog-content {
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* Skills */
@@ -282,8 +305,7 @@ body {
     }
     
     .nav__link {
-        justify-content: flex-start;
-        padding: 12px 20px;
+        padding: 12px;
     }
 }
 
@@ -724,13 +746,13 @@ body {
     line-height: 40px;
     border-radius: 50%;
     background: white;
-    color: #4A89DC;
+    color: var(--sidebar-bg);
     text-align: center;
     transition: all 0.3s ease;
 }
 
 .portfolio-zoom:hover {
-    background: #4A89DC;
+    background: var(--sidebar-bg);
     color: white;
 }
 

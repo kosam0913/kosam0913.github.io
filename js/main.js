@@ -461,32 +461,35 @@ jQuery(document).ready(function($) {
         return false;
     });
 
-    document.addEventListener('DOMContentLoaded', function() {
-        // 获取所有导航链接和内容区域
-        const navLinks = document.querySelectorAll('.nav__link');
-        const contentSections = document.querySelectorAll('.content-section');
-
-        // 为每个导航链接添加点击事件
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                // 移除所有活动状态
-                navLinks.forEach(l => l.classList.remove('active'));
-                contentSections.forEach(s => s.classList.remove('active'));
-                
-                // 添加新的活动状态
-                link.classList.add('active');
-                const targetId = link.getAttribute('href').substring(1);
-                document.getElementById(targetId).classList.add('active');
-            });
+    // Tab Switching
+    $(document).ready(function() {
+        // 使用jQuery选择器
+        var $navLinks = $('.nav__link');
+        var $contentSections = $('.content-section');
+        
+        // 初始状态处理 - 确保Profile是初始活动标签
+        $('#profile').addClass('active').show();
+        $('a[href="#profile"]').addClass('active');
+        
+        // 隐藏其他sections
+        $contentSections.not('#profile').removeClass('active').hide();
+        
+        // 给导航链接添加点击事件
+        $navLinks.on('click', function(e) {
+            e.preventDefault();
+            
+            var targetId = $(this).attr('href');
+            
+            // 移除所有active状态
+            $navLinks.removeClass('active');
+            $contentSections.removeClass('active').hide();
+            
+            // 添加active状态到当前点击的链接和对应section
+            $(this).addClass('active');
+            $(targetId).addClass('active').fadeIn(300);
+            
+            console.log('Clicked on tab:', targetId);
         });
-
-        // 初始化第一个标签为活动状态
-        if (navLinks.length > 0 && contentSections.length > 0) {
-            navLinks[0].classList.add('active');
-            contentSections[0].classList.add('active');
-        }
     });
 
     // 添加页面加载动画

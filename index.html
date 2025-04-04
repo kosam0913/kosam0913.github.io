@@ -87,7 +87,7 @@
                 <ul class="nav__list">
                     <li class="nav__item">
                         <a href="#blog" class="nav__link">
-                            <i class="fa fa-briefcase"></i>
+                            <i class="fa fa-newspaper-o"></i>
                             <span>Blog</span>
                         </a>
                     </li>
@@ -108,8 +108,17 @@
 
             <!-- Content Sections -->
             <div class="content-sections">
+
+                <!-- Blog Section -->
+                <section id="blog" class="content-section">
+                    <div class="text_content">BLOG</div>
+                    <div class="blog-content">
+                        <p>Coming soon...</p>
+                    </div>
+                </section>
+
                 <!-- Profile Section -->
-                <section id="profile" class="content-section active">
+                <section id="profile" class="content-section active" style="display: block;">
 
                     <!-- Experience -->
                     <div class="experience-section">
@@ -303,25 +312,10 @@
             </div>
         </div>
 
-        <!-- .slideshow -->
-        <ul class="cb-slideshow" id="cb_slideshow" style="display:none">
-            <li><span>Image 01</span><div></div></li>
-            <li><span>Image 02</span><div></div></li>
-            <li><span>Image 03</span><div></div></li>
-            <li><span>Image 04</span><div></div></li>
-            <li><span>Image 05</span><div></div></li>
-            <li><span>Image 06</span><div></div></li>
-        </ul> 
-        <!-- /.slideshow --> 
-
-        <!-- Switcher -->
-        <!-- End Switcher -->
-
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script> 
         <script type="text/javascript" src="js/jquery.cycle2.min.js"></script>
         <script type="text/javascript" src="js/jquery.mixitup.min.js"></script> 
-        <script type="text/javascript" src="js/HeadImage.js"></script>
         <script type="text/javascript" src="js/easyResponsiveTabs.min.js"></script> 
         <script type="text/javascript" src="js/jsSwitcher/jquery.cookie.js"></script>
         <script type="text/javascript" src="js/jsSwitcher/switcher.js"></script>
@@ -330,49 +324,54 @@
         <script type="text/javascript" src="js/gmaps.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
         <script type="text/javascript">
+            // 禁用旧的HeadImage功能
+            $(document).ready(function() {
+                $('#cb_slideshow').hide();
+            });
 
+            /*
             var mouseX;
             var mouseY;
             var imageOne;
 
-            /* Calling the initialization function */
+            // Calling the initialization function
             $(init);
 
-            /* The images need to re-initialize on load and on resize, or else the areas
-             * where each image is displayed will be wrong. */
+            // The images need to re-initialize on load and on resize, or else the areas
+            // where each image is displayed will be wrong.
             $(window).load(init);
             $(window).resize(init);
 
-            /* Setting the mousemove event caller */
+            // Setting the mousemove event caller
             $(window).mousemove(getMousePosition);
 
-            /* This function is called on document ready, on load and on resize
-             * and initiallizes all the images */
+            // This function is called on document ready, on load and on resize
+            // and initiallizes all the images
             function init() {
 
-                /* Instanciate the mouse position variables */
+                // Instanciate the mouse position variables
                 mouseX = 0;
                 mouseY = 0;
 
-                /* Instanciate a HeadImage class for every image */
+                // Instanciate a HeadImage class for every image
                 imageOne = new HeadImage("one");
 
             }
 
-            /* This function is called on mouse move and gets the mouse position. 
-             * It also calls the HeadImage function to display the correct image*/
+            // This function is called on mouse move and gets the mouse position. 
+            // It also calls the HeadImage function to display the correct image
             function getMousePosition(event) {
 
-                /* Setting the mouse position variables */
+                // Setting the mouse position variables
                 mouseX = event.pageX;
                 mouseY = event.pageY;
 
-                /*Calling the setImageDirection function of the HeadImage class
-                 * to display the correct image*/
+                // Calling the setImageDirection function of the HeadImage class
+                // to display the correct image
                 imageOne.setImageDirection();
 
             }
-
+            */
         </script>
 
     </body>
