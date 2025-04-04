@@ -461,6 +461,75 @@ jQuery(document).ready(function($) {
         return false;
     });
 
+    // Tab Switching
+    $(document).ready(function() {
+        // 使用jQuery选择器
+        var $navLinks = $('.nav__link');
+        var $contentSections = $('.content-section');
+        
+        // 初始状态处理 - 确保Profile是初始活动标签
+        $('#profile').addClass('active').show();
+        $('a[href="#profile"]').addClass('active');
+        
+        // 隐藏其他sections
+        $contentSections.not('#profile').removeClass('active').hide();
+        
+        // 给导航链接添加点击事件
+        $navLinks.on('click', function(e) {
+            e.preventDefault();
+            
+            var targetId = $(this).attr('href');
+            
+            // 移除所有active状态
+            $navLinks.removeClass('active');
+            $contentSections.removeClass('active').hide();
+            
+            // 添加active状态到当前点击的链接和对应section
+            $(this).addClass('active');
+            $(targetId).addClass('active').fadeIn(300);
+            
+            console.log('Clicked on tab:', targetId);
+        });
+    });
 
+    // 添加页面加载动画
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            preloader.style.display = 'none';
+        }
+    });
+
+    // 加载Markdown文件
+    function loadMarkdownContent(filePath, targetElementId) {
+        fetch(filePath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(markdown => {
+                if (typeof marked !== 'undefined') {
+                    // 使用marked.js将Markdown转换为HTML
+                    document.getElementById(targetElementId).innerHTML = marked.parse(markdown);
+                    console.log("Markdown content loaded successfully");
+                } else {
+                    console.error("Marked.js library not loaded");
+                }
+            })
+            .catch(error => {
+                console.error('Error loading Markdown:', error);
+                document.getElementById(targetElementId).innerHTML = `<p>Error loading content: ${error.message}</p>`;
+            });
+    }
+
+    // 使用示例
+    // $(document).ready(function() {
+    //     // 加载博客内容
+    //     loadMarkdownContent('blog/week1.md', 'week1-content');
+    //     loadMarkdownContent('blog/week2.md', 'week2-content');
+    //     loadMarkdownContent('blog/week3.md', 'week3-content');
+    // });
 
 });

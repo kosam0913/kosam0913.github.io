@@ -1,1225 +1,399 @@
 <!DOCTYPE html>
-<html class="no-js"> 
+<html lang="en">
     <head>
-        <title>Xinjie Hu</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Xinjie Hu - Technical Artist & Full Stack Developer">
+        <meta name="author" content="Xinjie Hu">
 
-        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-        <meta name="description" content="FlexyCodes - FlexyCard vCard Template. Creating my personal page!"/>
-
-        <link  rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-
-        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
-
-
-        <link rel="stylesheet" type="text/css" href="css/animate.min.css" />
-
-        <link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css" />
-        <link rel="stylesheet" type="text/css" href="css/colors/DarkBlue.css" id="colors-style" />
-        <link rel="stylesheet" type="text/css" href="css/switcher.css" />
-        <link rel="stylesheet" type="text/css" href="css/main.css" />
-        <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css"/> 
+        <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="images/favicon/favicon.ico">
 
-      
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/animate.min.css">
+        <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+        <link rel="stylesheet" href="css/colors/DarkBlue.css" id="colors-style">
+        <link rel="stylesheet" href="css/switcher.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/prettyPhoto.css">
 
         <style>
-            @media only screen and (max-width : 1000px){
+            @media only screen and (max-width: 1000px) {
                 .resp-vtabs .resp-tabs-container {
                     margin-left: 13px;
                 }
             }
-			
-			@media only screen and (min-width : 900px) and (max-width : 1000px){
+            
+            @media only screen and (min-width: 900px) and (max-width: 1000px) {
                 .resp-vtabs .resp-tabs-container {
                     margin-left: 13px;
-					width:89%;
+                    width: 89%;
                 }
-            }		
-
+            }
         </style>
-
     </head>
 
     <body>
 
-        <div id="preloader"><div id="spinner"></div></div>
-
-        <!-- .slideshow -->
-        <ul class="cb-slideshow" id="cb_slideshow" style="display:none">
-            <li><span>Image 01</span><div></div></li>
-            <li><span>Image 02</span><div></div></li>
-            <li><span>Image 03</span><div></div></li>
-            <li><span>Image 04</span><div></div></li>
-            <li><span>Image 05</span><div></div></li>
-            <li><span>Image 06</span><div></div></li>
-        </ul> 
-        <!-- /.slideshow --> 
-
-        <!-- .wrapper --> 
-        <div class="wrapper">
-
-            <!--- .Content --> 
-            <section class="tab-content">
-                <div class="container">
-
-                    <div class="row">
-
-                        <div class="col-md-12">
-
-                            <div class="row">   
-
-                                <div class="col-md-2 widget-profil">
-                                    <div class="row">
-
-    <!-- Profile Image -->
-    <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12 ">
-    	 
-		 
-                                
-         <div class="image-holder one" id="pic_prof_1" style="display:block">
-        
-                <img class="head-image up circle" src="images/img/avatar2.jpg" width="150" height="150" alt="" />
-        
-                
-        </div>
-        
-        <!-- style for simple image profile -->		
-   		<div class="circle-img" id="pic_prof_2" style="display:none"></div>
-       
-    
-    </div>
-    <!-- End Profile Image -->
-  
-    <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
-    
-    
-        <!-- Profile info -->
-        <div id="profile_info">
-            <h1 id="name" class="transition-02">Hu Xinjie</h1>
-            <h4 class="line">VFX &amp; PROGRAMMER</h4>
-            <h6><span class="fa fa-map-marker"></span> Singapore</h6>
-        </div>
-        <!-- End Profile info -->  
-
-        
-        <!-- Name --> 
-         <div id="profile_social"  >
-		<center style="text-align: center" >
-            <h6>Social Profiles</h6>		
-            <a target="_blank" href="https://www.facebook.com/konny.hu.5"><i class="fa fa-facebook"></i></a>
-            <a target="_blank" href="https://www.linkedin.com/in/hu-xinjie-574070125/"><i class="fa fa-linkedin"></i></a>
-            <a target="_blank" href="https://github.com/Asdfghjkl0913"><i class="fa fa fa-github"></i></a>
-            <div class="clear"></div>
-		</center>
-        </div>
-        <!-- End Name -->  
-    </div>
-  
-</div>                                </div>
-
-                                <div class="col-md-10 flexy_content" style="padding-left: 0;padding-right: 0;">
-
-                                    <!-- verticalTab menu -->
-                                    <div id="verticalTab">
-
-                                        <ul class="resp-tabs-list">
-                                            <li class="tabs-profile hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a profile" data-tab-name="profile">			
-                                                <span class="tite-list">profile</span>
-                                                <i class="fa fa-user icon_menu icon_menu_active"></i>
-                                            </li>
-
-                                            <li class="tabs-resume hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="resume"> 
-                                                <span class="tite-list">resume</span>
-                                                <i class="fa fa-tasks icon_menu"></i>
-                                            </li>
-
-                                            <li class="tabs-portfolio hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="portfolio"> 
-                                                <span class="tite-list">portfolio</span>
-                                                <i class="fa fa-briefcase icon_menu"></i>
-                                            </li>
-
-                                            <li class="tabs-contact hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="contact" style="margin-bottom: 48px !important;"> 
-                                                <span class="tite-list">contact</span>
-                                                <i class="fa fa-envelope icon_menu"></i> 
-                                            </li>
-
-                                            <a href="#" id="print"><i class="fa fa-print icon_print"></i> </a>
-                                            <a href="#" id="downlowd"><i class="fa fa-download icon_print"></i> </a>
-                                        </ul>
-                                        <!-- /resp-tabs-list -->
-
-
-
-                                        <!-- resp-tabs-container --> 
-                                        <div class="resp-tabs-container">
-
-<!-- profile -->
-<div id="profile" class="content_2">
- <!-- .title -->
-<h1 class="h-bloc">Profile</h1>
-
-<div class="row top-p">
-    <div class="col-md-6 profile-l">
- 		
-        <!--About me-->
-        <div class="title_content">
-            <div class="text_content">Xinjie Hu</div>
-            <div class="clear"></div>
+        <div id="preloader">
+            <div id="spinner"></div>
         </div>
 
-		   <ul class="about">
-            <li>
-                <i class="glyphicon glyphicon-envelope"></i>
-                <label>Email</label>
-                <span class="value">kosam0913@gmail.com</span>
-                <div class="clear"></div>
-            </li>
-
-            <li>
-                <i class="glyphicon glyphicon-phone"></i>
-                <label>Phone</label>
-                <span class="value">+65 9894-9785 </span>
-				<span class="value">+86 1599-740-6676</span>
-                <div class="clear"></div>
-            </li>
-
-            <li>
-                <i class="glyphicon glyphicon-globe"></i>
-                <label>Website</label>
-                <span class="value"><a href="#" target="_blank">kosam0913.github.io</a></span>
-                <div class="clear"></div>
-            </li>
-
-        </ul>
-
-        <p style="margin-bottom:20px">
-            <i class="fa fa-quote-left"></i>       
-            Hello! Xinjie here, an ILMer currently working as a Pipeline TD at studio in Singapore . I am diving deeper and seeking my career path as a tech in VFX and Game industry. 
-        </p>
-        
-         <p style="margin-bottom:20px">
-            <i class="fa fa-quote-left"></i>       
-            Thanks for your time to visit here. Looking forward to further cooperaion in future :）
-        </p>
-
-    </div>
-    <!-- End left-wrap -->
-    <div class="col-md-6 profile-r">
-        <div class="cycle-slideshow">
-            <img src="images/img-profile/2.jpg" alt="" />
-        </div>
-    </div>
-</div>
-    <div class="clear"></div>
-</div>
-<!-- End .profile -->
-<!-- .resume -->
-<div id="resume" class="content_2">
-<!-- .title -->
-<h1 class="h-bloc">Resume</h1> 
-
-<div class="row">
-
-   <!-- .resume-right -->
-    <div class="col-md-4">
-	
-<!-- .title_content -->
-        <div class="title_content" style="float: none;">
-            <div class="text_content">Programming Skills</div>
-            <div class="clear"></div>
-        </div>
-        <!-- /.title_content -->
-        
-        <div class="skills">
-            <!-- .skillbar -->
-            <div class="skillbar clearfix" data-percent="85%">
-                <div class="skillbar-title"><span>Python</span></div>
-                <div class="skillbar-bar"></div>
-                <div class="skill-bar-percent">85%</div>
-            </div>
-            <!-- /.skillbar -->
-            
-            <!-- .skillbar -->
-            <div class="skillbar clearfix" data-percent="80%">
-                <div class="skillbar-title"><span>C++</span></div>
-                <div class="skillbar-bar"></div>
-                <div class="skill-bar-percent">80%</div>
-            </div>
-            <!-- /.skillbar -->
-            
-            <!-- .skillbar -->
-            <div class="skillbar clearfix" data-percent="60%">
-                <div class="skillbar-title"><span>HTML, CSS</span></div>
-                <div class="skillbar-bar"></div>
-                <div class="skill-bar-percent">60%</div>
-            </div>
-            <!-- /.skillbar -->
-            
-             <!-- .skillbar -->
-            <div class="skillbar clearfix" data-percent="40%">
-                <div class="skillbar-title"><span>Javascript</span></div>
-                <div class="skillbar-bar"></div>
-                <div class="skill-bar-percent">40%</div>
-            </div>
-            <!-- /.skillbar --> 
-        </div>
-		
-        <!-- .title_content -->
-        <div class="title_content" style="float: none;">
-            <div class="text_content">CG skills</div>
-            <div class="clear"></div>
-        </div>
-        <!-- /.title_content -->
-        
-        <div class="skills">
-            <!-- .skillbar -->
-            <div class="skillbar clearfix" data-percent="90%">
-                <div class="skillbar-title"><span>CorelDRAW</span></div>
-                <div class="skillbar-bar"></div>
-                <div class="skill-bar-percent">90%</div>
-            </div>
-    
-            <!-- /.skillbar -->
-            
-            <!-- .skillbar -->
-            <div class="skillbar clearfix" data-percent="75%">
-                <div class="skillbar-title"><span>AE PR PS</PRe></PRe></span></div>
-                <div class="skillbar-bar"></div>
-                <div class="skill-bar-percent">75%</div>
-            </div>
-            <!-- /.skillbar -->
-            
-            <!-- .skillbar -->
-            <div class="skillbar clearfix" data-percent="65%">
-                <div class="skillbar-title"><span>Unity3D</span></div>
-                <div class="skillbar-bar"></div>
-                <div class="skill-bar-percent">65%</div>
-            </div>
-            <!-- /.skillbar -->
-            
-            <!-- .skillbar -->
-            <div class="skillbar clearfix" data-percent="25%">
-                <div class="skillbar-title"><span>Houdini(Learning)</span></div>
-                <div class="skillbar-bar"></div>
-                <div class="skill-bar-percent">25%</div>
-            </div>
-            <!-- /.skillbar -->
-        </div>
-
-
-        <!-- .title_content -->
-        <div class="title_content" style="float: none;">
-            <div class="text_content">Other Skill...?</div>
-            <div class="clear"></div>
-        </div>
-        <!-- /.title_content -->
-        
-        <div class="skills">
-            <!-- .skillbar -->
-            <div class="skillbar clearfix" data-percent="50%">
-                    <div class="skillbar-title"><span>PADI Diver</span></div>
-                    <div class="skillbar-bar"></div>   
-                    <div class="skill-bar-percent">AOW + Nitrox</div>   
-            </div>
-
-            <div class="skillbar clearfix" data-percent="50%">
-                    <div class="skillbar-title"><span>Drummer</span></div>
-                    <div class="skillbar-bar"></div>      
-                    <div class="skill-bar-percent">Ing</div>
-            </div>
-
-            <div class="skillbar clearfix" data-percent="50%">
-                    <div class="skillbar-title"><span>Guitarer</span></div>
-                    <div class="skillbar-bar"></div>      
-                    <div class="skill-bar-percent">Classic</div>
-            </div>
-
-            <div class="skillbar clearfix" data-percent="50%">
-                    <div class="skillbar-title"><span>First Aider</span></div>
-                    <div class="skillbar-bar"></div>   
-                    <div class="skill-bar-percent">Red Cross</div>   
-            </div>
-                
-        </div>
-            <!-- /.skillbar -->
-
-        <!-- .title_content -->
-        <div class="title_content" style="float: none;">
-            <div class="text_content">My Resume</div>
-            <div class="clear"></div>
-        </div>
-        <!-- /.title_content -->
-        
-        <!-- .download_resume -->
-        <a class="download" style="margin:0;float: left;" href="\Data\Ms.XinjieHu_Resume.pdf"> 
-            <span data-hover="Download My Resume"><i class="glyphicon glyphicon-download-alt"></i> Download My Resume</span>
-        </a>
-        <!-- /.download_resume -->
-    </div>
-     <!-- /.resume-right -->
-    
-     
-     
-     <!-- .resume-left -->
-    <div class="col-md-8 resume-left">    
-        <!-- .Working -->
-        <div class="title_content" style="margin-bottom:5px">
-                <div class="text_content">Experience</div>
-                <div class="clear"></div>
-            </div>
-            
-            <ul class="attributes">
-               <li class="first">
-                            <h5>Pipeline TD<span class="duration"><i class="fa fa-calendar color"></i>Jul 2017 - Now</span></h5>
-                            <h6><span class="fa fa-briefcase"></span> <a href="http://flyingchalks.com/">Industrial Light &amp; Magic</a></h6>
-                        </li>
-                <li>
-                    <h5>Web UI/UX Designer <span class="duration"><i class="fa fa-calendar color"></i>Aug 2016 - Nov 2016</span></h5>
-                    <h6><span class="fa fa-briefcase"></span> <a href="http://flyingchalks.com/">Flying Chalks</a></h6>
-                </li>
-                
-                <li>
-                    <h5>CG Internship<span class="duration"><i class="fa fa-calendar color"></i> Jun 2014 - Aug 2014</span></h5>
-                    <h6><span class="fa fa-briefcase"></span> The Yangtze River Water Resource Commission Remote Sensing Laboratory</h6>
-                </li>
-    
-            </ul>
-        <br>
-        <!-- Education -->
-        <div class="title_content" "margin-bottom:5px">
-            <div class="text_content">Education</div>
-            <div class="clear"></div>
-        </div>
-
-        <ul class="attributes">
-            <li class="first">
-                <h5>MSc.Digital Media Technology <span class="duration"><i class="fa fa-calendar color"></i>Jul 2016 - Current</span></h5>
-                <h6><span class="fa fa-book"></span> Nanyang Technological University, Singapore</h6>
-            </li>
-            <li>
-                <h5>BSc.Geographic Information System<span class="duration"><i class="fa fa-calendar color"></i>Sep 2012 - Jun 2016</span></h5>
-                <h6><span class="fa fa-book"></span> Wuhan University, China</h6>
-            </li>
-        </ul>
-        <!-- /.attributes -->
-        <br>  
-		
-        
-       <!-- .Projects -->
-        <div class="title_content">
-            <div class="text_content">Projects</div>
-            <div class="clear"></div>
-        </div>
-        <!-- /.title_content -->
-        
-        <!-- .attributes -->
-        <ul class="attributes"> 
-		<li class="first">
-                <h5>MAGIC Game Challenge 2016<span class="duration"><i class="fa fa-calendar color"></i>Aug 2016 - Nov 2016</span></h5>
-                <h6>Multi-plAtform Game Innovation Centre<span class="fa fa-book"></span> </h6>
-                
-            </li>
-			<li class="first">
-                <h5>Advanced Computer Graphics<span class="duration"><i class="fa fa-calendar color"></i>Oct 2016 - Nov 2016</span></h5>
-                <h6>Nanyang Tehcnological Unversity<span class="fa fa-book"></span> </h6>
-                
-            </li>
-			<li class="first">
-                <h5>3D Modelling and Reconstruction<span class="duration"><i class="fa fa-calendar color"></i>Sep 2016 - Oct 2016</span></h5>
-                <h6>Nanyang Tehcnological Unversity<span class="fa fa-book"></span> </h6>
-                
-            </li>
-			<li class="first">
-                <h5>China National Scientific Research Project <span class="duration"><i class="fa fa-calendar color"></i>May 2014 - Jun 2016</span></h5>
-                <h6>Wuhan Unversity<span class="fa fa-book"></span> </h6>
-                <p>Hyperspectral Image Classification using Sparse Representation in Face of the Small Sample Size Problem </p>
-            </li>
-            <li>
-                <h5>DMSP/OLS data and Cellular Automata Research<span class="duration"><i class="fa fa-calendar color"></i>Mar 2015 - Jun 2015</span></h5>
-                <h6><span class="fa fa-book"></span> Wuhan University, China</h6>
-            </li>
-        </ul>
-        <br>  
-		<!-- /.attributes -->
-      
-	  <!-- .Awards -->
-        <div class="title_content">
-            <div class="text_content">Awards</div>
-            <div class="clear"></div>
-        </div>
-        <!-- /.title_content -->
-        
-        <!-- .attributes -->
-        <ul class="attributes">
-            <li class="first">
-                <h5>First Price Winner of MAGIC Game Challenge<span class="duration"><i class="fa fa-calendar color"></i> Aug - Nov 2016</span></h5>
-                <h6><span class="fa fa-trophy"></span> Multi-plAtform Game Innovation Centre</h6>
-                <p><a href='http://magic.ntu.edu.sg/education/gameassignmentprojects#2016'>#MAGIC Game Challenge 2016, Temojeno</a></p>
-            </li>
-			<li>
-                <h5>Gold Medal of Badminton IGS Open Game<span class="duration"><i class="fa fa-calendar color"></i> Nov 2016</span></h5>
-                <h6><span class="fa fa-trophy"></span> Interdisciplinary Graduate School</h6>
-            </li>
-            <li>
-                <h5>The 2nd Prize of National Scholarship<span class="duration"><i class="fa fa-calendar color"></i>Dec 2014 - Dec 2015</span></h5>
-                <h6><span class="fa fa-trophy"></span> Ministry of Education of The People's Republic of China</h6>
-            </li>
-  
-        </ul>
-        <!-- /.attributes -->
-        <br>  
-        
-    </div>
-    <!-- /.resume-left -->
-</div>
-
-<div style="clear: both"></div>  
-
-<!-- client reference -->
-<div class="row">
-    <div class="col-md-12"> 
-    
-<div class="reference clearfix"> 
-            
-         <!-- .title_content -->
-        <div class="title_content" style="margin-bottom:5px">
-            <div class="text_content">Reference</div>
-            <div class="clear"></div>
-        </div>
-        <!-- /.title_content -->
-        
-
-        <ul>
-            <li class="clearfix">
-                <img src="http://placehold.it/100x100" class="img_reference" width="100" height="100" alt="">
-                <p>“In my practical course, most students liked to ask questions about their observations and seemingly bugs, but few would try their best finding related references by themselves. Yet, Ms.Hu was the one who tried to work out her puzzles on her own before discussing them with me. ”</p>
-                <span>Huanfeng Shen, Professor</span>
-            </li>
-            <li class="clearfix">
-                <img src="http://placehold.it/100x100" class="img_reference" width="100" height="100" alt="">
-                <p>“Hu impressed me most for her strong learning ability and creativity in the research. ”</p>
-                <span>Hongyan Zhang, Supervisor</span>
-            </li>
-        </ul>
-</div>
- </div>
-     
-
-     
-     
-     <div style="clear: both"></div>   
-</div>
-
-</div>
- <!-- End .resume -->
-
-<!-- .portfolio -->
- <div id="Showreel" class="content_2">
-                                                
-                                                <!-- .title -->
-                                                <h1 class="h-bloc">Showreel</h1>
-
-                                                <!-- .container-portfolio -->
-                                                <div class="container-portfolio">
-
-                                                    <!-- #filters -->
-                                                    <ul id="filters" class="clearfix">
-                                                        <li><span class="filter active" data-filter="catProgram catGraphic catDesign catPhoto">All</span></li>
-                                                        <li><span class="filter" data-filter="catProgram">Programming</span></li>
-                                                        <li><span class="filter" data-filter="catGraphic">Poster Design</span></li>
-                                                        <li><span class="filter" data-filter="catDesign">Characters Design</span></li>
-                                                        <li><span class="filter" data-filter="catPhoto">Photography</span></li>
-														 <li><span class="filter" data-filter="catVideo">Video</span></li>
-                                                    </ul>
-                                                    <!-- /#filters -->
-                                    
-                                                    <!-- #portfoliolist -->
-                                                    <div id="portfoliolist">
-
-                                                        <!-- .portfolio -->
-                                                        <div class="portfolio catGraphic" data-cat="catGraphic">	
-                                                            <!-- .portfolio-wrapper -->
-                                                            <div class="portfolio-wrapper">		
-                                                                <a href="images/portfolio/HXJ-Poster1.jpg" rel="portfolio" title="FlyingChalks China Poster">
-                                                                    <img src="images/portfolio/HXJ-Poster1.jpg" alt="Visual Infography" />
-                                                                    <div class="label">
-                                                                        <div class="label-text">
-                                                                            <a class="text-title">FlyingChalks China Poster</a>
-                                                                            <span class="text-category">Poster Design</span>
-                                                                        </div>
-                                                                        <div class="label-bg"></div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <!-- /.portfolio-wrapper -->
-                                                        </div>		
-                                                        <!-- /.portfolio -->
-
- 
-
-                                                        <!-- .portfolio -->
-                                                        <div class="portfolio catGraphic" data-cat="catGraphic">	
-                                                            <!-- .portfolio-wrapper -->
-                                                            <div class="portfolio-wrapper">		
-                                                                <a href="images/portfolio/HXJ-Poster2.jpg" rel="portfolio">
-                                                                    <img src="images/portfolio/HXJ-Poster2.jpg" alt="Poster Design" />
-                                                                    <div class="label">
-                                                                        <div class="label-text">
-                                                                            <a class="text-title">FlyingChalks China Taiwan Poster</a>
-                                                                            <span class="text-category">Poster Design</span>
-                                                                        </div>
-                                                                        <div class="label-bg"></div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <!-- /.portfolio-wrapper -->
-                                                        </div>		
-                                                        <!-- /.portfolio -->
- 
-                                                        <!-- .portfolio -->
-                                                        <div class="portfolio catGraphic" data-cat="catGraphic">
-                                                            <!-- .portfolio-wrapper -->
-                                                            <div class="portfolio-wrapper">			
-                                                                <a href="images/portfolio/HXJ-Poster3.jpg" rel="portfolio">
-                                                                    <img src="images/portfolio/HXJ-Poster3.jpg" alt="Adobe-Inspired Design" />
-                                                                    <div class="label">
-                                                                        <div class="label-text">
-                                                                            <a class="text-title">Adobe-Inspired Design</a>
-                                                                            <span class="text-category">Poster Design</span>
-                                                                        </div>
-                                                                        <div class="label-bg"></div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <!-- /.portfolio-wrapper -->
-                                                        </div>				
-                                                        <!-- /.portfolio -->
-
-                                                        <!-- .portfolio -->
-                                                        <div class="portfolio catDesign" data-cat="catDesign">
-                                                            <!-- .portfolio-wrapper -->
-                                                            <div class="portfolio-wrapper">			
-                                                                <a href="images/portfolio/HXJ-Design1.jpg" rel="portfolio">
-                                                                    <img src="images/portfolio/HXJ-Design1.jpg" alt="3D Tower Defence Game" />
-                                                                    <div class="label">
-                                                                        <div class="label-text">
-                                                                            <a class="text-title">Game Characters Design</a>
-                                                                            <span class="text-category">Temojeno- Collecting Tower Draft</span>
-                                                                        </div>
-                                                                        <div class="label-bg"></div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <!-- /.portfolio-wrapper -->
-                                                        </div>	
-                                                        <!-- /.portfolio -->
-
-                                                        <!-- .portfolio -->
-                                                        <div class="portfolio catDesign" data-cat="catDesign">
-                                                            <!-- .portfolio-wrapper -->
-                                                            <div class="portfolio-wrapper">
-                                                                <a href="images/portfolio/HXJ-Design2.jpg" title="Etiam quis mi eu elit tempor facilisis id et neque. Nulla sit amet sem sapien." rel="portfolio">
-                                                                    <img src="images/portfolio/HXJ-Design2.jpg" alt="3D Tower Defence Game" />
-                                                                    <div class="label">
-                                                                        <div class="label-text">
-                                                                            <a class="text-title">Game Characters Design</a>
-                                                                            <span class="text-category">Temojeno- Healing Tower Draft</span>
-                                                                        </div>
-                                                                        <div class="label-bg"></div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <!-- /.portfolio-wrapper -->
-                                                        </div>	
-                                                        <!-- /.portfolio -->
-
-                                                        <!-- .portfolio -->
-                                                        <div class="portfolio catDesign" data-cat="catDesign">
-                                                            <!-- .portfolio-wrapper -->
-                                                            <div class="portfolio-wrapper">		
-                                                                <a href="images/portfolio/HXJ-Design3.jpg" rel="portfolio">				
-                                                                    <img src="images/portfolio/HXJ-Design3.jpg" alt="3D Tower Defence Game" />
-                                                                    <div class="label">
-                                                                        <div class="label-text">
-                                                                            <a class="text-title">Game Characters Design</a>
-                                                                            <span class="text-category">Temojeno- Damaging Tower Draft</span>
-                                                                        </div>
-                                                                        <div class="label-bg"></div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <!-- /.portfolio-wrapper -->
-                                                        </div>															
-                                                        <!-- /.portfolio -->
-														
-                                                        <!-- .portfolio -->
-                                                        <div class="portfolio catPhoto" data-cat="catPhoto">
-                                                            <!-- .portfolio-wrapper -->
-                                                            <div class="portfolio-wrapper">		
-                                                                <a href="images/portfolio/Photo1.png" rel="portfolio">				
-                                                                    <img src="images/portfolio/Photo1.png" alt="Cannon EOS 700D" />
-                                                                    <div class="label">
-                                                                        <div class="label-text">
-                                                                            <a class="text-title">East Lake</a>
-                                                                            <span class="text-category">Photo</span>
-                                                                        </div>
-                                                                        <div class="label-bg"></div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <!-- /.portfolio-wrapper -->
-                                                        </div>
-                                                        <!-- /.portfolio -->
-														
-                                                        <!-- .portfolio -->
-														<div class="portfolio catPhoto" data-cat="catPhoto">
-                                                            <!-- .portfolio-wrapper -->
-                                                            <div class="portfolio-wrapper">		
-                                                                <a href="images/portfolio/Photo3.png" rel="portfolio">
-                                                                    <img src="images/portfolio/Photo3.png" alt="Sony NEX 5"/>
-                                                                    <div class="label">
-                                                                        <div class="label-text">
-                                                                            <a class="text-title">Prague Vltava River</a>
-                                                                            <span class="text-category">Photo of Prague Vltava River</span>
-                                                                        </div>
-                                                                        <div class="label-bg"></div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <!-- /.portfolio-wrapper -->
-                                                        </div>	
-														<!-- /.portfolio -->
-														
-                                                        <!-- .portfolio -->
-														<div class="portfolio catPhoto" data-cat="catPhoto">
-                                                            <!-- .portfolio-wrapper -->
-                                                            <div class="portfolio-wrapper">		
-                                                                <a href="images/portfolio/Photo4.png" rel="portfolio">
-                                                                    <img src="images/portfolio/Photo4.png" alt="Sony NEX 5" />
-                                                                    <div class="label">
-                                                                        <div class="label-text">
-                                                                            <a class="text-title">Prague Charles Bridge</a>
-                                                                            <span class="text-category">Photo took in Prague Charles Bridge</span>
-                                                                        </div>
-                                                                        <div class="label-bg"></div>
-                                                                    </div>
-                                                                </a>
-                                                            </div> 
-														</div>
-														<!-- /.portfolio -->
-														
-                                                        <!-- .portfolio -->
-														<div class="portfolio catPhoto" data-cat="catPhoto">
-                                                            <!-- .portfolio-wrapper -->
-                                                            <div class="portfolio-wrapper">		
-                                                                <a href="images/portfolio/Vienna.png" rel="portfolio">
-                                                                    <img src="images/portfolio/Vienna.png" alt="Sony NEX 5" />
-                                                                    <div class="label">
-                                                                        <div class="label-text">
-                                                                            <a class="text-title">Vienna</a>
-                                                                            <span class="text-category">The Orange</span>
-                                                                        </div>
-                                                                        <div class="label-bg"></div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-														
-														<div class="portfolio catPhoto" data-cat="catPhoto">
-                                                            <!-- .portfolio-wrapper -->
-                                                            <div class="portfolio-wrapper">		
-                                                                <a href="images/portfolio/Przasnysz.png" rel="portfolio">
-                                                                    <img src="images/portfolio/Przasnysz.png" alt="Sony NEX 5" />
-                                                                    <div class="label">
-                                                                        <div class="label-text">
-                                                                            <a class="text-title">Przasnysz</a>
-                                                                            <span class="text-category">Muzeum Historyczne w Przasnyszu</span>
-                                                                        </div>
-                                                                        <div class="label-bg"></div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-														
-														<div class="portfolio catPhoto" data-cat="catPhoto">
-                                                            <!-- .portfolio-wrapper -->
-                                                            <div class="portfolio-wrapper">		
-                                                                <a href="images/portfolio/Photo5.png" rel="portfolio">
-                                                                    <img src="images/portfolio/Photo5.png" alt="Sony NEX 5" />
-                                                                    <div class="label">
-                                                                        <div class="label-text">
-                                                                            <a class="text-title">Prague</a>
-                                                                            <span class="text-category">Prague Castle</span>
-                                                                        </div>
-                                                                        <div class="label-bg"></div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-														
-                                                        <!-- /.portfolio -->
-														
-                                                        <!-- .portfolio -->
-                                                        <div class="portfolio catProgram" data-cat="catProgram">
-                                                            <!-- .portfolio-wrapper -->
-															<div class="portfolio-wrapper">			
-                                                                <a href="images/portfolio/HXJ-Program1.jpg" title="Graph Plotting" rel="portfolio">
-                                                                    <img src="images/portfolio/HXJ-Program1.jpg" alt="Graph Plotting" />
-                                                                    <div class="label">
-                                                                        <div class="label-text">
-                                                                            <a class="text-title">Mesh Viewer</a>
-                                                                            <span class="text-category">Advanced Computer Graphic</span>
-                                                                        </div>
-                                                                        <div class="label-bg"></div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <!-- /.portfolio-wrapper -->
-                                                        </div>	
-                                                        <!-- /.portfolio -->
-														<div class="portfolio catProgram" data-cat="catProgram">
-                                                            <!-- .portfolio-wrapper -->
-                                                            <div class="portfolio-wrapper">			
-                                                                <a href="images/portfolio/HXJ-Program2.jpg" title="Game Characters" rel="portfolio">
-                                                                    <img src="images/portfolio/HXJ-Program2.jpg" alt="Maya" />
-                                                                    <div class="label">
-                                                                        <div class="label-text">
-                                                                            <a class="text-title">Game Characters</a>
-                                                                            <span class="text-category">Temojano</span>
-                                                                        </div>
-                                                                        <div class="label-bg"></div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <!-- /.portfolio-wrapper -->
-                                                        </div>	
-														
-														<div class="portfolio catDesign" data-cat="catDesign">
-                                                            <!-- .portfolio-wrapper -->
-                                                            <div class="portfolio-wrapper">		
-                                                                <a href="images/portfolio/Welcomepic.jpg" rel="portfolio">				
-                                                                    <img src="images/portfolio/Welcomepic.jpg" alt="Welcome Page Frame Design" />
-                                                                    <div class="label">
-                                                                        <div class="label-text">
-                                                                            <a class="text-title">Flying Chalks</a>
-                                                                            <span class="text-category">Welcome Page Frame Design</span>
-                                                                        </div>
-                                                                        <div class="label-bg"></div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-														</div>
-                                                            <!-- /.portfolio-wrapper -->
-														<div class="portfolio catProgram" data-cat="catProgram">
-                                                            <!-- .portfolio-wrapper -->
-                                                            <div class="portfolio-wrapper">		
-                                                                <a href="images/portfolio/LightData.gif" rel="portfolio">				
-                                                                    <img src="images/portfolio/LightData.gif" alt="DMSP/OLS data and Cellular Automata Research" />
-                                                                    <div class="label">
-                                                                        <div class="label-text">
-                                                                            <a class="text-title">DMSP/OLS data</a>
-                                                                            <span class="text-category">Hangzhou Bay Construction PCrediction</span>
-                                                                        </div>
-                                                                        <div class="label-bg"></div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>	
-														<!-- /.portfolio-wrapper -->
-														
-														<div class="portfolio catProgram" data-cat="catProgram">
-                                                            <!-- .portfolio-wrapper -->
-                                                            <div class="portfolio-wrapper">		
-                                                                <a href="images/portfolio/HXJ-Image-merging.jpg" rel="portfolio">				
-                                                                    <img src="images/portfolio/HXJ-Image-merging.jpg" alt="Image-merging" />
-                                                                    <div class="label">
-                                                                        <div class="label-text">
-                                                                            <a class="text-title">Image-merging</a>
-                                                                            <span class="text-category">Based on ENVI RS Image Merging Process</span>
-                                                                        </div>
-                                                                        <div class="label-bg"></div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>	
-														<!-- .portfolio-wrapper -->
-														<div class="portfolio catProgram" data-cat="catProgram">
-                                                            
-                                                            <div class="portfolio-wrapper">		
-                                                                <a href="images/portfolio/RS.png" rel="portfolio">				
-                                                                    <img src="images/portfolio/RS.png" alt="Image-merging" />
-                                                                    <div class="label">
-                                                                        <div class="label-text">
-                                                                            <a class="text-title">RS Image</a>
-                                                                            <span class="text-category">GIS Visualization</span>
-                                                                        </div>
-                                                                        <div class="label-bg"></div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>	
-														
-														<div class="portfolio catVideo" data-cat="catVideo">
-                                                            <div class="portfolio-wrapper">		
-                                                                <a href="http://www.bilibili.com/video/av7991670/">	
-																<img src="images/portfolio/adventure.jpg" alt="Video"/ ></a>	
-                                                                    <div class="label">
-                                                                        <div class="label-text">
-                                                                            <a class="text-title">Advanture of a lifetime</a>
-                                                                            <span class="text-category">Europe Trip</span>
-                                                                        </div>
-                                                                        <div class="label-bg"></div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>	
-														
-														<div class="portfolio catVideo" data-cat="catVideo">
-                                                            <div class="portfolio-wrapper">		
-                                                                <a href="https://www.youtube.com/watch?v=pVJ91DogxfE/">	
-																<img src="images/portfolio/Temoji.jpg" alt="Video"/ ></a>	
-                                                                    <div class="label">
-                                                                        <div class="label-text">
-                                                                            <a class="text-title">Temoji</a>
-                                                                            <span class="text-category">2016 MAGIC Game Design Challen1, Trailor</span>
-                                                                        </div>
-                                                                        <div class="label-bg"></div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>	
-														
-                                                        <div class="clear"></div>
-
-                                                    </div>
-                                                    <!-- #portfoliolist -->
-                                                </div>
-                                                <!-- /.container-portfolio -->
-</div>
- <!-- End .portfolio -->
-
- <!-- .blog -->
-<div id="blog" class="content_2">
-<h1 class="h-bloc">About me</h1><br> 
-
-<div class="col-md-12">
-    <div class="row">
-
-        <!-- Page Blog -->
-        <div class="col-md-12" id="blog_page">
-            <!-- start Page Blog -->
-            <section id="blog-page">
-
-                <!-- Post 1 -->	
-                <article id="post-1" class="blog-article">                    
-
-                    <div class="col-md-12">
-
-                        <div class="row">
-
-                            <div class="col-md-12 post_media">
-                                <div class="post-format-icon">
-                                    <a href="#" class="item-date"><span class="fa fa-picture-o"></span></a>
-                                </div>
-                                <div class="media">
-                                    <div class="he-wrap tpl2">
-                                        <div id="carousel-1" class="carousel slide" data-ride="carousel">
-
-                                            <ol class="carousel-indicators">
-                                                <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
-                                                <li data-target="#carousel-1" data-slide-to="1"></li>
-                                                <li data-target="#carousel-1" data-slide-to="2"></li>
-                                            </ol>
-
-                                            <div class="carousel-inner">
-
-                                                <div class="item">
-                                                    <img src="images/blog/blog-1.jpg" alt="" />
-                                                    <div class="carousel-caption">
-                                                        <h4>Guitarer</h4>
-                                                     
-                                                    </div>
-                                                </div>
-
-                                                <div class="item active">
-                                                        <img src="images/blog/blog-3.jpg" alt="" />
-                                                        <div class="carousel-caption">
-                                                            <h4>Diver</h4>
-                                                        </div>
-                                                </div>
-
-                                                <div class="item">
-                                                    <img src="images/blog/blog-2.jpg" alt="" />
-                                                    <div class="carousel-caption">
-                                                        <h4>Traveller</h4>
-                                                    </div>
-                                                </div>
-
-                                                
-
-                                            </div>
-
-                                            <a class="left carousel-control" href="#carousel-1" data-slide="prev">
-                                                <span class="glyphicon glyphicon-chevron-left"></span>
-                                            </a>
-
-                                            <a class="right carousel-control" href="#carousel-1" data-slide="next">
-                                                <span class="glyphicon glyphicon-chevron-right"></span>
-                                            </a>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12 post_content">
-                                <div class="content post_format_standart">
-								
-								 <div class="top_c ">
-
-                                        <div class="title_content">
-                                            <div class="text_content">Self Evaluation</a></div>
-                                            <div class="clear"></div>
-                                        </div>
-
-                                        <ul class="info">
-                                            <li><i class="glyphicon glyphicon-tag"></i>Preference: Art and Tech</li>
-                                        </ul>
-
-                                        <div class="blog-content">
-                                            <p><i class="fa fa-quote-left"></i> Some of my hobbies have accompanied me more than 10 years. With humble attitude and sincere heart, I also want to dedicate this perseverance and passion to my dream industry.</p></div>
-                                </div>
-                                    
-                                </div>	
-                            </div>
-                        </div>
-
+        <!-- Sidebar -->
+        <div class="widget-profile">
+            <div class="row">
+                <!-- Profile Image -->
+                <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
+                    <div class="profile__image">
+                        <img src="images/img/avatar2.jpg" alt="Xinjie Hu" class="img-responsive" />
                     </div>
-                </article>
-                <!-- End Post 1 -->
-
-                <div class="clear"></div>
-
-                <!-- Post 2 -->
-                <article id="post-2" class="blog-article">                    
-
-                    <div class="col-md-12">
-
-                        <div class="row">
-
-                            <div class="col-md-12 post_media">
-
-                                <div class="post-format-icon">
-                                    <a href="#" class="item-date"><span class="fa fa-pencil"></span></a>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12 post_content">
-                                <div class="content post_format_standart">
-                                   
-								   
-								 <div class="top_c ">
-
-                                        <div class="title_content">
-                                            <div class="text_content">Stay Hungry, stay Foolish</a></div>
-                                            <div class="clear"></div>
-                                        </div>
-
-                                        <ul class="info">
-                                            <li><i class="glyphicon glyphicon-comment"></i> 15 countries</li>
-                                            <li><i class="glyphicon glyphicon-heart"></i> Guitar and Drum</li>
-                                            <li><i class="glyphicon glyphicon-user"></i> Death Mental </li>
-                                            <li><i class="glyphicon glyphicon-tag"></i> half-marathon, diver, enthusiastic</li>
-                                        </ul>
-
-                                        <div class="blog-content">
-                                            <p><i class="fa fa-quote-left"></i> Life is Beautiful</p></div>
-                                    </div>  
-                                </div>	
-                            </div>
-                        </div>
-
+                </div>
+                
+                <!-- Profile Info -->
+                <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
+                    <div class="profile__info">
+                        <h1 class="profile__name">Hu Xinjie</h1>
+                        <h4 class="profile__title">Full Stack Developer</h4>
+                        <h4 class="profile__title"> Technical Artist</h4>
+                        <h6 class="profile__location"><i class="fa fa-map-marker"></i> Abu Dhabi, UAE</h6>
                     </div>
-                </article>
-                <!-- End Post 2 -->
-
-                <div class="clear"></div>
-
-                <!-- Post 3 -->
-                <article id="post-3" class="blog-article">                    
-
-                    <div class="col-md-12">
-
-                        <div class="row">
-
-                            <div class="col-md-12 post_media">
-
-                                <div class="post-format-icon">
-                                    <a href="#" class="item-date"><span class="fa fa-picture-o"></span></a>
-                                </div>
-
-                                <div class="media">
-                                    <div class="he-wrap tpl2">
-                                        <img src="images/blog/blog-4.jpg"  alt="" />
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12 post_content">
-                                <div class="content post_format_standart">
-                                    <div class="top_c ">
-
-                                        <div class="title_content">
-                                            <div class="text_content">Join Me</div>
-                                            <div class="clear"></div>
-                                        </div>
-
-                                        <ul class="info">
-                                            <li><i class="glyphicon glyphicon-comment"></i>Linkin Park</li>
-                                            <li><i class="glyphicon glyphicon-play-circle"></i>Hiroyuki Sawano</li>
-                                            <li><i class="glyphicon glyphicon-user"></i>Per-Olov Kindgren</li>
-                                            <li><i class="glyphicon glyphicon-tag"></i> Love Animation</li>
-                                        </ul>
-                                    </div>
-                                </div>	
-                            </div>
-                        </div>
-
+                    <div class="profile__social">
+                        <a href="https://www.facebook.com/kosam0913" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/in/xinjie-hu-574070125/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                        <a href="https://github.com/kosam0913" target="_blank"><i class="fa fa-github"></i></a>
                     </div>
-                </article>
-
-                <!-- End Post 3 -->
-
-            </section>
-
-            <!-- End Page Blog -->
-
-
-
-            <!-- Page Blog - Post 1 -->            
-            <!-- End Page Blog - Post 1 -->
-
-            <!-- Page Blog - Post 2 -->
-            <!-- End Page Blog - Post 2 -->
-			
-            <!-- Page Blog - Post 3 -->
-            <!-- End Page Blog - Post 3 -->
-
-
+                    <div class="profile__contact">
+                        <a href="mailto:xinjie.hu@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
 
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Navigation -->
+            <nav>
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#blog" class="nav__link">
+                            <i class="fa fa-newspaper-o"></i>
+                            <span>Blog</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#profile" class="nav__link active">
+                            <i class="fa fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#portfolio" class="nav__link">
+                            <i class="fa fa-briefcase"></i>
+                            <span>Portfolio</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
 
-        
+            <!-- Content Sections -->
+            <div class="content-sections">
 
-    </div>
-</div>
-                                            </div>
-                                            <!-- End .blog -->
-
-                                            <!-- .contact -->
-                                           
-
-
-
-                                        </div>
-									</div>
-                                            <!-- End .contact -->
-
+                <!-- Blog Section -->
+                <section id="blog" class="content-section">
+                    <div class="text_content">INDEPENDENT DEVELOPER WEEKLY THOUGHTS</div>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Week 1 - May 10, 2023</div>
+                            <div class="timeline-content">
+                                <div id="week1-content">
+                                    <!-- 这里的内容将从week1.md加载 -->
+                                    <h3>Starting My Independent Journey</h3>
+                                    <p>Loading content...</p>
                                 </div>
-                                        <!-- End #resp-tabs-container --> 
+                                <div class="timeline-tags">
+                                    <span>Vue.js</span>
+                                    <span>WeChat</span>
+                                    <span>Planning</span>
+                                </div>
+                            </div>
+                        </div>
 
-                        </div><!-- End verticalTab -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Week 2 - May 17, 2023</div>
+                            <div class="timeline-content">
+                                <div id="week2-content">
+                                    <!-- 这里的内容将从week2.md加载 -->
+                                    <h3>Prototype Development</h3>
+                                    <p>Loading content...</p>
+                                </div>
+                                <div class="timeline-tags">
+                                    <span>Prototype</span>
+                                    <span>Cloud Functions</span>
+                                    <span>State Management</span>
+                                </div>
+                            </div>
+                        </div>
 
-                    </div><!-- End flexy_content -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Week 3 - May 24, 2023</div>
+                            <div class="timeline-content">
+                                <div id="week3-content">
+                                    <!-- 这里的内容将从week3.md加载 -->
+                                    <h3>User Testing & Feedback</h3>
+                                    <p>Loading content...</p>
+                                </div>
+                                <div class="timeline-tags">
+                                    <span>User Testing</span>
+                                    <span>Feedback</span>
+                                    <span>Optimization</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <script>
+                        // 当文档加载完成后运行
+                        $(document).ready(function() {
+                            // 加载博客内容
+                            loadMarkdownContent('blog/week1.md', 'week1-content');
+                            loadMarkdownContent('blog/week2.md', 'week2-content');
+                            loadMarkdownContent('blog/week3.md', 'week3-content');
+                        });
+                    </script>
+                </section>
 
+                <!-- Profile Section -->
+                <section id="profile" class="content-section active" style="display: block;">
 
-                </div><!-- End row -->
+                    <!-- Experience -->
+                    <div class="experience-section">
+                        <div class="text_content">PROFESSIONAL EXPERIENCE</div>
+                        <ul class="attributes">
+                             <li>
+                                <h5>
+                                    <span class="fa fa-briefcase"></span><span class="position-info">Founder & Full Stack Developer @ Shiran Tech, Abu Dhabi, UAE</span>
+                                    <span class="duration"><i class="fa fa-calendar color"></i>Dec 2025 - Now</span>
+                                </h5>
+                                <p>• Independently built and launched a WeChat Mini Program for Chinese community in UAE, using Vue, TDesign, and cloud database</p>
+                                <p>• Designed and implemented full-stack architecture with fast iteration and user feedback loop</p>
+                            </li>
+                            <li>
+                                <h5>
+                                    <span class="fa fa-briefcase"></span><span class="position-info">Motion Technical Director  @  miHoYo, Shanghai, China</span>
+                                    <span class="duration"><i class="fa fa-calendar color"></i>Nov 2022 - Dec 2024</span>
+                                </h5>
+                                <p>• Developed and automated AI model training process with distributed computing cluster, achieving 20x iteration speed improvement</p>
+                                <p>• Optimized model algorithms with feature engineering for production requirements</p>
+                                <p>• Implemented data validation and version control for model integrity</p>
+                                <p>• Designed motion capture toolkit and automation pipeline</p>
+                            </li>
+                            
+                            <li>
+                                <h5>
+                                    <span class="fa fa-briefcase"></span><span class="position-info">Pipeline Technical Director  @  miHoYo, Shanghai, China</span>
+                                    <span class="duration"><i class="fa fa-calendar color"></i>Aug 2021 - Nov 2022</span>
+                                </h5>
+                                <p>• Implemented automation pipeline for motion capture data processing</p>
+                                <p>• Developed production pipelines using Shotgun and Rez packages</p>
+                                <p>• Designed distributed computing cluster workflow with Kafka</p>
+                                <p>• Created specialized Unreal Engine launcher with CI/CD automation</p>
+                            </li>
 
-                        </div><!-- End col-md-12 -->
+                            <li>
+                                <h5>
+                                    <span class="fa fa-briefcase"></span><span class="position-info">Associate Production Engineer  @  Industrial Light & Magic, Singapore</span>
+                                    <span class="duration"><i class="fa fa-calendar color"></i>Jul 2017 - Jul 2021</span>
+                                </h5>
+                                <p>• Provided technical support and developed pipeline tools</p>
+                                <p>• Implemented render data analytics with Elasticsearch and Kibana</p>
+                                <p>• Developed Clarisse resource allocation optimization</p>
+                                <p>• Projects: Red Notice, Aquaman, Solo: A Star Wars Story, Ready Player One</p>
+                            </li>
+                        </ul>
+                    </div>
 
-                    </div><!-- End row -->
+                    <!-- Education -->
+                    <div class="education-section">
+                        <div class="text_content">EDUCATION</div>
+                        <ul class="attributes">
+                            <li class="first">
+                                <h5>
+                                    <span class="fa fa-book"></span><span class="position-info">MSc. Digital Media Technology  @  Nanyang Technological University, Singapore</span>
+                                    <span class="duration"><i class="fa fa-calendar color"></i>Jul 2016 - Jun 2017</span>
+                                </h5>
+                                <p>CGPA: 4.00 / 5.00</p>
+                                <p>Specialization: Advanced Computer Graphics</p>
+                            </li>
+                            
+                            <li>
+                                <h5>
+                                    <span class="fa fa-book"></span><span class="position-info">BSc. Geographic Information System  @  Wuhan University, China</span>
+                                    <span class="duration"><i class="fa fa-calendar color"></i>Sep 2012 - Jun 2016</span>
+                                </h5>
+                                <p>Second Upper Honors (CGPA: 3.42 / 4.00)</p>
+                                <p>Specialization: Computer Graphics & Digital Image Processing</p>
+                            </li>
+                        </ul>
+                    </div>
 
-                </div><!-- End container -->
+                    <!-- Certifications -->
+                    <div class="certifications-section">
+                        <div class="text_content">CERTIFICATIONS</div>
+                        <ul class="attributes">
+                            <li>
+                                <h5>
+                                    <span class="fa fa-certificate"></span><span class="position-info">TensorFlow Developer Certificate  @  DeepLearning.AI on Coursera</span>
+                                    <span class="duration"><i class="fa fa-calendar color"></i>2022</span>
+                                </h5>
+                            </li>
+                            <li>
+                                <h5>
+                                    <span class="fa fa-certificate"></span><span class="position-info">Deep Learning Certificate  @  DeepLearning.AI on Coursera</span>
+                                    <span class="duration"><i class="fa fa-calendar color"></i>2021</span>
+                                </h5>
+                            </li>
+                            <li>
+                                <h5>
+                                    <span class="fa fa-certificate"></span><span class="position-info">Machine Learning Engineering for Production (MLOps)  @  DeepLearning.AI on Coursera</span>
+                                    <span class="duration"><i class="fa fa-calendar color"></i>2021</span>
+                                </h5>
+                            </li>
+                        </ul>
+                    </div>
 
-            </section>
-            <!-- End Content -->
+                    <!-- Technical Skills -->
+                    <div class="skills-section">
+                        <div class="text_content">SKILLS</div>
+                        <ul class="attributes skills-grid">
+                            <li>
+                                <h5>Programming</h5>
+                                <p>Python, TensorFlow (Keras), Git, Perforce, Linux, Shell scripting</p>
+                            </li>
+                            <li>
+                                <h5>Software</h5>
+                                <p>CorelDRAWX4, Autodesk DCC series, Adobe Creative Suitcase (AE PR PS)</p>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
 
+                <!-- Portfolio Section -->
+                <section id="portfolio" class="content-section">
+                    <div class="text_content">DESIGN PORTFOLIO</div>
+                    
+                    <!-- Portfolio Grid -->
+                    <div class="portfolio-grid">
+                        <div class="portfolio-item">
+                            <div class="portfolio-image">
+                                <img src="Design/Logo/HXJ-Poster1.jpg" alt="Poster Design 1">
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-info">
+                                        <h3>Poster Design</h3>
+                                        <a href="Design/Logo/HXJ-Poster1.jpg" class="portfolio-zoom" data-rel="prettyPhoto"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="portfolio-item">
+                            <div class="portfolio-image">
+                                <img src="Design/Logo/HXJ-Poster2.jpg" alt="Poster Design 2">
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-info">
+                                        <h3>Poster Design</h3>
+                                        <a href="Design/Logo/HXJ-Poster2.jpg" class="portfolio-zoom" data-rel="prettyPhoto"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="portfolio-item">
+                            <div class="portfolio-image">
+                                <img src="Design/Logo/HXJ-Poster3.jpg" alt="Poster Design 3">
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-info">
+                                        <h3>Poster Design</h3>
+                                        <a href="Design/Logo/HXJ-Poster3.jpg" class="portfolio-zoom" data-rel="prettyPhoto"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-item">
+                            <div class="portfolio-image">
+                                <img src="Design/Logo/HXJ-Design1.jpg" alt="Design 1">
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-info">
+                                        <h3>Logo Design</h3>
+                                        <a href="Design/Logo/HXJ-Design1.jpg" class="portfolio-zoom" data-rel="prettyPhoto"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-item">
+                            <div class="portfolio-image">
+                                <img src="Design/Logo/HXJ-Design2.jpg" alt="Design 2">
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-info">
+                                        <h3>Logo Design</h3>
+                                        <a href="Design/Logo/HXJ-Design2.jpg" class="portfolio-zoom" data-rel="prettyPhoto"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-item">
+                            <div class="portfolio-image">
+                                <img src="Design/Logo/HXJ-Design3.jpg" alt="Design 3">
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-info">
+                                        <h3>Logo Design</h3>
+                                        <a href="Design/Logo/HXJ-Design3.jpg" class="portfolio-zoom" data-rel="prettyPhoto"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-item">
+                            <div class="portfolio-image">
+                                <img src="Design/Logo/Logo2.jpg" alt="Logo Design">
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-info">
+                                        <h3>Logo Design</h3>
+                                        <a href="Design/Logo/Logo2.jpg" class="portfolio-zoom" data-rel="prettyPhoto"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
-        <!-- End wrapper -->
 
-        <!-- Switcher -->
-        <!-- End Switcher -->
-
-
-
-
+        <!-- 添加Markdown解析库 -->
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script> 
         <script type="text/javascript" src="js/jquery.cycle2.min.js"></script>
         <script type="text/javascript" src="js/jquery.mixitup.min.js"></script> 
-        <script type="text/javascript" src="js/HeadImage.js"></script>
         <script type="text/javascript" src="js/easyResponsiveTabs.min.js"></script> 
         <script type="text/javascript" src="js/jsSwitcher/jquery.cookie.js"></script>
         <script type="text/javascript" src="js/jsSwitcher/switcher.js"></script>
         <script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>	
         <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
-        <script type="text/javascript" src="js/gmaps.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
         <script type="text/javascript">
-
-            var mouseX;
-            var mouseY;
-            var imageOne;
-
-            /* Calling the initialization function */
-            $(init);
-
-            /* The images need to re-initialize on load and on resize, or else the areas
-             * where each image is displayed will be wrong. */
-            $(window).load(init);
-            $(window).resize(init);
-
-            /* Setting the mousemove event caller */
-            $(window).mousemove(getMousePosition);
-
-            /* This function is called on document ready, on load and on resize
-             * and initiallizes all the images */
-            function init() {
-
-                /* Instanciate the mouse position variables */
-                mouseX = 0;
-                mouseY = 0;
-
-                /* Instanciate a HeadImage class for every image */
-                imageOne = new HeadImage("one");
-
-            }
-
-            /* This function is called on mouse move and gets the mouse position. 
-             * It also calls the HeadImage function to display the correct image*/
-            function getMousePosition(event) {
-
-                /* Setting the mouse position variables */
-                mouseX = event.pageX;
-                mouseY = event.pageY;
-
-                /*Calling the setImageDirection function of the HeadImage class
-                 * to display the correct image*/
-                imageOne.setImageDirection();
-
-            }
+            // 禁用旧的HeadImage功能
+            $(document).ready(function() {
+                $('#cb_slideshow').hide();
+            });
 
         </script>
 
