@@ -461,6 +461,40 @@ jQuery(document).ready(function($) {
         return false;
     });
 
+    document.addEventListener('DOMContentLoaded', function() {
+        // 获取所有导航链接和内容区域
+        const navLinks = document.querySelectorAll('.nav__link');
+        const contentSections = document.querySelectorAll('.content-section');
 
+        // 为每个导航链接添加点击事件
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // 移除所有活动状态
+                navLinks.forEach(l => l.classList.remove('active'));
+                contentSections.forEach(s => s.classList.remove('active'));
+                
+                // 添加新的活动状态
+                link.classList.add('active');
+                const targetId = link.getAttribute('href').substring(1);
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+
+        // 初始化第一个标签为活动状态
+        if (navLinks.length > 0 && contentSections.length > 0) {
+            navLinks[0].classList.add('active');
+            contentSections[0].classList.add('active');
+        }
+    });
+
+    // 添加页面加载动画
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            preloader.style.display = 'none';
+        }
+    });
 
 });
