@@ -54,7 +54,7 @@ body {
     position: fixed;
     left: 0;
     top: 0;
-    width: 250px;
+    width: 180px;
     height: 100vh;
     background: var(--sidebar-bg);
     color: #fff;
@@ -65,8 +65,8 @@ body {
 }
 
 .profile__image {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     margin: 0 auto 20px;
     border-radius: 50%;
     overflow: hidden;
@@ -113,18 +113,11 @@ body {
     padding-top: 20px;
 }
 
-.profile__social h6 {
-    color: var(--text-color);
-    margin-bottom: 15px;
-    font-size: 14px;
-}
-
 .profile__social a {
     display: inline-block;
     width: 35px;
     height: 35px;
     line-height: 35px;
-    margin: 0 5px;
     border-radius: 50%;
     background: var(--primary-color);
     color: #fff;
@@ -139,10 +132,13 @@ body {
 
 /* Main Content Area */
 .main-content {
-    margin-left: 250px;  /* 与sidebar宽度相同 */
-    padding: 30px;
+    margin-left: 200px;  /* 从250px减少到200px */
+    padding: 30px 20px 30px 30px; /* 右侧padding减少 */
     min-height: 100vh;
     background: transparent;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden; /* 防止水平滚动 */
 }
 
 /* Navigation */
@@ -153,7 +149,6 @@ body {
     margin: 0 0 20px 0;
     background: #fff;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .nav__item {
@@ -183,6 +178,8 @@ body {
 .content-sections {
     position: relative;
     min-height: 100vh;
+    width: 100%;
+    overflow: hidden; /* 防止内容溢出 */
 }
 
 .content-section {
@@ -198,6 +195,7 @@ body {
     left: 0;
     width: 100%;
     z-index: 1;
+    box-sizing: border-box; /* 确保padding不会增加宽度 */
 }
 
 .content-section.active {
@@ -217,6 +215,24 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* 修复Portfolio右侧缝隙 */
+.content-section#portfolio {
+    padding-right: 0;
+    margin-right: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0;
+    margin: 20px 0 0 0;
+    width: 100%;
 }
 
 /* Blog Section */
@@ -676,13 +692,6 @@ body {
     }
 }
 
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
 .portfolio-item {
     position: relative;
     border-radius: 8px;
@@ -759,7 +768,122 @@ body {
 @media (max-width: 768px) {
     .portfolio-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        padding: 10px;
         gap: 15px;
+        padding: 0;
+    }
+}
+
+/* Timeline Style */
+.timeline {
+    position: relative;
+    padding: 30px 0;
+    margin: 0 20px;
+}
+
+/* 垂直线 */
+.timeline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 40px;
+    height: 100%;
+    width: 3px;
+    background: #4A89DC;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+/* 时间节点圆点 */
+.timeline-dot {
+    position: absolute;
+    left: 36px;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #5D9CEC;
+    border: 2px solid #4A89DC;
+    box-shadow: 0 0 0 4px rgba(93, 156, 236, 0.2);
+    z-index: 2;
+}
+
+/* 日期样式 */
+.timeline-date {
+    position: relative;
+    padding-left: 70px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #4A89DC;
+    font-size: 1em;
+}
+
+/* 内容块样式 */
+.timeline-content {
+    position: relative;
+    margin-left: 70px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    color: #4A89DC;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.timeline-content p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.timeline-content ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.timeline-content li {
+    margin-bottom: 5px;
+}
+
+/* 标签样式 */
+.timeline-tags {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.timeline-tags span {
+    display: inline-block;
+    padding: 3px 10px;
+    background: rgba(93, 156, 236, 0.1);
+    color: #4A89DC;
+    border-radius: 15px;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .timeline:before {
+        left: 20px;
+    }
+    
+    .timeline-dot {
+        left: 16px;
+    }
+    
+    .timeline-date {
+        padding-left: 50px;
+    }
+    
+    .timeline-content {
+        margin-left: 50px;
     }
 }

@@ -4,10 +4,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Xinjie Hu - Motion Technical Director & Full Stack Developer">
+        <meta name="description" content="Xinjie Hu - Technical Artist & Full Stack Developer">
         <meta name="author" content="Xinjie Hu">
-
-        <title>Xinjie Hu @ Motion Technical Director & Full Stack Developer</title>
 
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="images/favicon/favicon.ico">
@@ -21,12 +19,6 @@
         <link rel="stylesheet" href="css/switcher.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/prettyPhoto.css">
-
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
 
         <style>
             @media only screen and (max-width: 1000px) {
@@ -111,10 +103,70 @@
 
                 <!-- Blog Section -->
                 <section id="blog" class="content-section">
-                    <div class="text_content">BLOG</div>
-                    <div class="blog-content">
-                        <p>Coming soon...</p>
+                    <div class="text_content">INDEPENDENT DEVELOPER WEEKLY THOUGHTS</div>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Week 1 - May 10, 2023</div>
+                            <div class="timeline-content">
+                                <div id="week1-content">
+                                    <!-- 这里的内容将从week1.md加载 -->
+                                    <h3>Starting My Independent Journey</h3>
+                                    <p>Loading content...</p>
+                                </div>
+                                <div class="timeline-tags">
+                                    <span>Vue.js</span>
+                                    <span>WeChat</span>
+                                    <span>Planning</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Week 2 - May 17, 2023</div>
+                            <div class="timeline-content">
+                                <div id="week2-content">
+                                    <!-- 这里的内容将从week2.md加载 -->
+                                    <h3>Prototype Development</h3>
+                                    <p>Loading content...</p>
+                                </div>
+                                <div class="timeline-tags">
+                                    <span>Prototype</span>
+                                    <span>Cloud Functions</span>
+                                    <span>State Management</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Week 3 - May 24, 2023</div>
+                            <div class="timeline-content">
+                                <div id="week3-content">
+                                    <!-- 这里的内容将从week3.md加载 -->
+                                    <h3>User Testing & Feedback</h3>
+                                    <p>Loading content...</p>
+                                </div>
+                                <div class="timeline-tags">
+                                    <span>User Testing</span>
+                                    <span>Feedback</span>
+                                    <span>Optimization</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
+                    <script>
+                        // 当文档加载完成后运行
+                        $(document).ready(function() {
+                            // 加载博客内容
+                            loadMarkdownContent('blog/week1.md', 'week1-content');
+                            loadMarkdownContent('blog/week2.md', 'week2-content');
+                            loadMarkdownContent('blog/week3.md', 'week3-content');
+                        });
+                    </script>
                 </section>
 
                 <!-- Profile Section -->
@@ -124,6 +176,14 @@
                     <div class="experience-section">
                         <div class="text_content">PROFESSIONAL EXPERIENCE</div>
                         <ul class="attributes">
+                             <li>
+                                <h5>
+                                    <span class="fa fa-briefcase"></span><span class="position-info">Founder & Full Stack Developer @ Shiran Tech, Abu Dhabi, UAE</span>
+                                    <span class="duration"><i class="fa fa-calendar color"></i>Dec 2025 - Now</span>
+                                </h5>
+                                <p>• Independently built and launched a WeChat Mini Program for Chinese community in UAE, using Vue, TDesign, and cloud database</p>
+                                <p>• Designed and implemented full-stack architecture with fast iteration and user feedback loop</p>
+                            </li>
                             <li>
                                 <h5>
                                     <span class="fa fa-briefcase"></span><span class="position-info">Motion Technical Director  @  miHoYo, Shanghai, China</span>
@@ -188,16 +248,22 @@
                         <div class="text_content">CERTIFICATIONS</div>
                         <ul class="attributes">
                             <li>
-                                <h5>TensorFlow Developer Certificate</h5>
-                                <h6><span class="fa fa-certificate"></span>DeepLearning.AI on Coursera</h6>
+                                <h5>
+                                    <span class="fa fa-certificate"></span><span class="position-info">TensorFlow Developer Certificate  @  DeepLearning.AI on Coursera</span>
+                                    <span class="duration"><i class="fa fa-calendar color"></i>2022</span>
+                                </h5>
                             </li>
                             <li>
-                                <h5>Deep Learning Certificate </h5>
-                                <h6><span class="fa fa-certificate"></span>DeepLearning.AI on Coursera</h6>
+                                <h5>
+                                    <span class="fa fa-certificate"></span><span class="position-info">Deep Learning Certificate  @  DeepLearning.AI on Coursera</span>
+                                    <span class="duration"><i class="fa fa-calendar color"></i>2021</span>
+                                </h5>
                             </li>
                             <li>
-                                <h5>Machine Learning Engineering for Production (MLOps)</h5>
-                                <h6><span class="fa fa-certificate"></span>DeepLearning.AI on Coursera</h6>
+                                <h5>
+                                    <span class="fa fa-certificate"></span><span class="position-info">Machine Learning Engineering for Production (MLOps)  @  DeepLearning.AI on Coursera</span>
+                                    <span class="duration"><i class="fa fa-calendar color"></i>2021</span>
+                                </h5>
                             </li>
                         </ul>
                     </div>
@@ -312,6 +378,7 @@
             </div>
         </div>
 
+        <!-- 添加Markdown解析库 -->
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script> 
         <script type="text/javascript" src="js/jquery.cycle2.min.js"></script>
@@ -321,7 +388,6 @@
         <script type="text/javascript" src="js/jsSwitcher/switcher.js"></script>
         <script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>	
         <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
-        <script type="text/javascript" src="js/gmaps.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
         <script type="text/javascript">
             // 禁用旧的HeadImage功能
@@ -329,49 +395,6 @@
                 $('#cb_slideshow').hide();
             });
 
-            /*
-            var mouseX;
-            var mouseY;
-            var imageOne;
-
-            // Calling the initialization function
-            $(init);
-
-            // The images need to re-initialize on load and on resize, or else the areas
-            // where each image is displayed will be wrong.
-            $(window).load(init);
-            $(window).resize(init);
-
-            // Setting the mousemove event caller
-            $(window).mousemove(getMousePosition);
-
-            // This function is called on document ready, on load and on resize
-            // and initiallizes all the images
-            function init() {
-
-                // Instanciate the mouse position variables
-                mouseX = 0;
-                mouseY = 0;
-
-                // Instanciate a HeadImage class for every image
-                imageOne = new HeadImage("one");
-
-            }
-
-            // This function is called on mouse move and gets the mouse position. 
-            // It also calls the HeadImage function to display the correct image
-            function getMousePosition(event) {
-
-                // Setting the mouse position variables
-                mouseX = event.pageX;
-                mouseY = event.pageY;
-
-                // Calling the setImageDirection function of the HeadImage class
-                // to display the correct image
-                imageOne.setImageDirection();
-
-            }
-            */
         </script>
 
     </body>

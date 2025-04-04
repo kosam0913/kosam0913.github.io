@@ -500,4 +500,36 @@ jQuery(document).ready(function($) {
         }
     });
 
+    // 加载Markdown文件
+    function loadMarkdownContent(filePath, targetElementId) {
+        fetch(filePath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(markdown => {
+                if (typeof marked !== 'undefined') {
+                    // 使用marked.js将Markdown转换为HTML
+                    document.getElementById(targetElementId).innerHTML = marked.parse(markdown);
+                    console.log("Markdown content loaded successfully");
+                } else {
+                    console.error("Marked.js library not loaded");
+                }
+            })
+            .catch(error => {
+                console.error('Error loading Markdown:', error);
+                document.getElementById(targetElementId).innerHTML = `<p>Error loading content: ${error.message}</p>`;
+            });
+    }
+
+    // 使用示例
+    // $(document).ready(function() {
+    //     // 加载博客内容
+    //     loadMarkdownContent('blog/week1.md', 'week1-content');
+    //     loadMarkdownContent('blog/week2.md', 'week2-content');
+    //     loadMarkdownContent('blog/week3.md', 'week3-content');
+    // });
+
 });
