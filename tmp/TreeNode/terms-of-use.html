@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务条款 | Terms of Service - TreeNode - Shiran Tech</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Helvetica Neue", "Microsoft YaHei", sans-serif;
+            background-color: #0a1a3a;
+            color: #ffffff;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 60px;
+        }
+        
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #87cefa;
+        }
+        
+        .language-switch {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        
+        .language-switch button {
+            background: transparent;
+            border: 1px solid #87cefa;
+            color: #87cefa;
+            padding: 5px 15px;
+            margin-left: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .language-switch button.active {
+            background: #87cefa;
+            color: #0a1a3a;
+        }
+        
+        .language-switch button:hover {
+            background: rgba(135, 206, 250, 0.2);
+        }
+        
+        .content {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        section h2 {
+            color: #87cefa;
+            margin: 25px 0 15px;
+            font-size: 22px;
+        }
+        
+        section p {
+            margin-bottom: 15px;
+            color: #e0e0e0;
+        }
+        
+        .logo-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo-section img {
+            height: 60px;
+        }
+        
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+        }
+        
+        a {
+            color: #87cefa;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .en, .zh {
+            display: none;
+        }
+        
+        .lang-en .en {
+            display: block;
+        }
+        
+        .lang-zh .zh {
+            display: block;
+        }
+    </style>
+</head>
+<body class="lang-zh">
+    <div class="container">
+        <div class="language-switch">
+            <button onclick="switchLanguage('zh')" class="active" id="zh-btn">中文</button>
+            <button onclick="switchLanguage('en')" id="en-btn">English</button>
+        </div>
+        
+        <div class="logo-section">
+            <a href="../index.html">
+                <img src="../logo_only.png" alt="Shiran Tech Logo">
+            </a>
+        </div>
+        
+        <header>
+            <h1 class="zh">服务条款</h1>
+            <h1 class="en">Terms of Service</h1>
+        </header>
+        
+        <div class="content">
+            <section>
+                <h2 class="zh">1. 服务概述</h2>
+                <h2 class="en">1. Service Overview</h2>
+                <p class="zh">TreeNode是由适然科技（Shiran Tech）提供的一款Chrome浏览器插件，旨在为用户提供Notion任务数据库的树形视图展示功能。本服务允许用户以树形结构直观地查看和管理Notion中的任务完成情况。</p>
+                <p class="en">TreeNode is a Chrome browser extension provided by Shiran Tech, designed to offer a tree view display of Notion task databases. This service allows users to intuitively view and manage task completion status in Notion through a tree structure.</p>
+            </section>
+
+            <section>
+                <h2 class="zh">2. 数据安全</h2>
+                <h2 class="en">2. Data Security</h2>
+                <p class="zh">TreeNode不会在服务器端存储任何用户数据。所有数据都直接从用户的Notion账户获取并实时显示。我们不会收集、存储或传输任何用户数据。</p>
+                <p class="en">TreeNode does not store any user data on the server side. All data is retrieved directly from the user's Notion account and displayed in real-time. We do not collect, store, or transmit any user data.</p>
+            </section>
+
+            <section>
+                <h2 class="zh">3. 服务限制</h2>
+                <h2 class="en">3. Service Limitations</h2>
+                <p class="zh">TreeNode可能存在功能限制或与特定Notion账户的兼容性问题。我们不保证服务完全不受干扰或无错误。用户理解Notion平台的政策变更可能影响服务功能。</p>
+                <p class="en">TreeNode may have functional limitations or compatibility issues with specific Notion accounts. We do not guarantee that the service will be entirely uninterrupted or error-free. Users understand that changes in Notion platform policies may affect service functionality.</p>
+            </section>
+
+            <section>
+                <h2 class="zh">4. 修改与终止</h2>
+                <h2 class="en">4. Modification and Termination</h2>
+                <p class="zh">适然科技保留随时修改、暂停或终止TreeNode服务的权利。在可能的情况下，我们将通过Chrome Web Store通知用户重大变更。</p>
+                <p class="en">Shiran Tech reserves the right to modify, suspend, or terminate TreeNode services at any time. When possible, we will notify users of significant changes through the Chrome Web Store.</p>
+            </section>
+
+            <section>
+                <h2 class="zh">5. 法律适用与争议解决</h2>
+                <h2 class="en">5. Applicable Law and Dispute Resolution</h2>
+                <p class="zh">本条款适用中华人民共和国法律。因使用TreeNode产生的任何争议，双方应友好协商解决；协商不成时，可提交至适然科技所在地有管辖权的法院。</p>
+                <p class="en">These terms are governed by the laws of the People's Republic of China. Any disputes arising from the use of TreeNode should be resolved through friendly negotiation; if negotiations fail, disputes may be submitted to the court with jurisdiction where Shiran Tech is located.</p>
+            </section>
+            
+            <section>
+                <p class="zh">使用TreeNode即表示您同意遵守本服务条款。如有任何问题或疑虑，请通过 <a href="mailto:shirantech913@gmail.com">shirantech913@gmail.com</a> 联系我们。</p>
+                <p class="en">By using TreeNode, you agree to comply with these Terms of Service. If you have any questions or concerns, please contact us at <a href="mailto:shirantech913@gmail.com">shirantech913@gmail.com</a>.</p>
+            </section>
+        </div>
+        
+        <footer>
+            <p class="zh">&copy; 2025 适然科技 Shiran Tech. 保留所有权利。</p>
+            <p class="en">&copy; 2025 Shiran Tech. All Rights Reserved.</p>
+            <p><a href="privacy-policy.html" class="zh">隐私政策</a> <a href="privacy-policy.html" class="en">Privacy Policy</a></p>
+        </footer>
+    </div>
+    
+    <script>
+        function switchLanguage(lang) {
+            document.body.className = 'lang-' + lang;
+            
+            // Update buttons
+            document.getElementById('zh-btn').classList.remove('active');
+            document.getElementById('en-btn').classList.remove('active');
+            document.getElementById(lang + '-btn').classList.add('active');
+            
+            // Store preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+        
+        // Check for saved language preference
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang) {
+                switchLanguage(savedLang);
+            }
+        });
+    </script>
+</body>
+</html> 

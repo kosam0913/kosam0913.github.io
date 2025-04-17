@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TreeNode - Notion任务树形视图 | Notion Task Tree View - Shiran Tech</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Helvetica Neue", "Microsoft YaHei", sans-serif;
+            background-color: #0a1a3a;
+            color: #ffffff;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 40px;
+        }
+        
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #87cefa;
+        }
+        
+        header p {
+            font-size: 18px;
+            color: #e0e0e0;
+        }
+        
+        .language-switch {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        
+        .language-switch button {
+            background: transparent;
+            border: 1px solid #87cefa;
+            color: #87cefa;
+            padding: 5px 15px;
+            margin-left: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            height: 36px;
+            min-width: 80px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .language-switch button.active {
+            background: #87cefa;
+            color: #0a1a3a;
+        }
+        
+        .language-switch button:hover {
+            background: rgba(135, 206, 250, 0.2);
+        }
+        
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 60px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-image {
+            flex: 0 0 200px;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            width: 128px;
+            height: 128px;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+        
+        .hero-content {
+            flex: 1 1 400px;
+        }
+        
+        .hero-content h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #87cefa;
+        }
+        
+        .hero-content p {
+            margin-bottom: 20px;
+            color: #e0e0e0;
+            font-size: 16px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #87cefa;
+            color: #0a1a3a;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #a0d6ff;
+            transform: translateY(-2px);
+        }
+        
+        section {
+            margin-bottom: 60px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        section h2 {
+            color: #87cefa;
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        
+        .feature h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #87cefa;
+        }
+        
+        .feature p {
+            color: #e0e0e0;
+            font-size: 15px;
+        }
+        
+        .installation-steps {
+            list-style-position: inside;
+            margin: 20px 0;
+            padding: 0 20px;
+        }
+        
+        .installation-steps li {
+            margin-bottom: 10px;
+            color: #e0e0e0;
+        }
+        
+        .installation-steps a {
+            color: #ffffff;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        
+        .installation-steps a:hover {
+            color: #a0d6ff;
+        }
+        
+        .usage-steps {
+            margin: 20px 0;
+        }
+        
+        .usage-step {
+            margin-bottom: 20px;
+        }
+        
+        .usage-step h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #87cefa;
+        }
+        
+        .prerequisites {
+            list-style-position: inside;
+            margin: 20px 0;
+            padding: 0 20px;
+        }
+        
+        .prerequisites li {
+            margin-bottom: 10px;
+            color: #e0e0e0;
+        }
+        
+        .prerequisites ul {
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+        
+        .prerequisites ul li {
+            margin-bottom: 5px;
+        }
+        
+        .installation-steps a, .prerequisites a {
+            color: #ffffff;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        
+        .installation-steps a:hover, .prerequisites a:hover {
+            color: #a0d6ff;
+        }
+        
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+        
+        footer a {
+            color: #87cefa;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .logo-section {
+            text-align: left;
+            margin-bottom: 30px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        
+        .logo-section img {
+            height: 60px;
+        }
+        
+        .en, .zh {
+            display: none;
+        }
+        
+        .lang-en .en {
+            display: block;
+        }
+        
+        .lang-zh .zh {
+            display: block;
+        }
+
+        /* 修复按钮显示问题 */
+        a.cta-button.en, a.cta-button.zh {
+            display: none;
+        }
+        
+        .lang-en a.cta-button.en {
+            display: inline-block;
+        }
+        
+        .lang-zh a.cta-button.zh {
+            display: inline-block;
+        }
+
+        .screenshots {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .screenshot {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .screenshots {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="lang-zh">
+    <div class="logo-section">
+        <a href="../index.html">
+            <img src="../logo_only.png" alt="Shiran Tech Logo">
+        </a>
+    </div>
+    
+    <div class="container">
+        <div class="language-switch">
+            <button onclick="switchLanguage('zh')" class="active" id="zh-btn">中文</button>
+            <button onclick="switchLanguage('en')" id="en-btn">EN</button>
+        </div>
+        
+        <header>
+            <h1 class="zh">TreeNode - Notion任务树形视图</h1>
+            <h1 class="en">TreeNode - Notion Task Tree View</h1>
+            <p class="zh">可视化你的Notion数据库任务为树状结构</p>
+            <p class="en">Visualize your Notion database tasks as a tree structure</p>
+        </header>
+         <div class="hero">
+            <div class="screenshot">
+                <img src="./screenshot.png" alt="TreeNode Screenshot 1">
+            </div>
+            <div class="hero-image">
+                <img src="./logo.jpg" alt="TreeNode Logo">
+            </div>
+            <div class="hero-content">
+                <p class="zh">TreeNode是一个Chrome浏览器扩展，它能将您的Notion数据库任务以树形视图的方式展示，帮助您更直观地理解和管理任务的层级关系，提高工作效率。</p>
+                <p class="en">TreeNode is a Chrome browser extension that displays your Notion database tasks in a tree view, helping you more intuitively understand and manage task hierarchies, improving your productivity.</p>
+                <a href="https://chrome.google.com/webstore/category/extensions" class="cta-button zh">即将上线 Chrome网上应用店</a>
+                <a href="https://chrome.google.com/webstore/category/extensions" class="cta-button en">Coming Soon to Chrome Web Store</a>
+            </div>
+        </div>
+        
+
+        <section id="features">
+            <h2 class="zh">✨ 功能特性</h2>
+            <h2 class="en">✨ Features</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3 class="zh">🔄 实时数据刷新</h3>
+                    <h3 class="en">🔄 Real-time Data Refresh</h3>
+                    <p class="zh">每次打开插件时自动获取最新数据，确保您始终看到最新的任务状态</p>
+                    <p class="en">Automatically fetches the latest data each time you open the extension, ensuring you always see the most up-to-date task status</p>
+                </div>
+                
+                <div class="feature">
+                    <h3 class="zh">🌳 树状结构可视化</h3>
+                    <h3 class="en">🌳 Tree Structure Visualization</h3>
+                    <p class="zh">以树状图形式直观展示任务的层级关系，帮助您更好地了解任务结构</p>
+                    <p class="en">Intuitively displays task hierarchical relationships in a tree form, helping you better understand task structure</p>
+                </div>
+                
+                <div class="feature">
+                    <h3 class="zh">🔌 简单集成</h3>
+                    <h3 class="en">🔌 Simple Integration</h3>
+                    <p class="zh">只需连接到您的Notion集成，几步操作即可开始使用</p>
+                    <p class="en">Simply connect to your Notion integration, and you can start using it in just a few steps</p>
+                </div>
+                
+                <div class="feature">
+                    <h3 class="zh">🔍 自动检测数据库</h3>
+                    <h3 class="en">🔍 Auto-Detect Database</h3>
+                    <p class="zh">在Notion页面上自动检测数据库ID，无需手动输入</p>
+                    <p class="en">Automatically detects database ID on Notion pages, no manual input required</p>
+                </div>
+                
+                <div class="feature">
+                    <h3 class="zh">🔢 进度显示</h3>
+                    <h3 class="en">🔢 Progress Display</h3>
+                    <p class="zh">直观地显示任务完成进度，帮助您跟踪项目状态</p>
+                    <p class="en">Intuitively displays task completion progress, helping you track project status</p>
+                </div>
+                
+                <div class="feature">
+                    <h3 class="zh">🌐 多语言支持</h3>
+                    <h3 class="en">🌐 Multi-language Support</h3>
+                    <p class="zh">支持中文和英文界面，根据浏览器设置自动切换</p>
+                    <p class="en">Supports Chinese and English interfaces, automatically switching based on browser settings</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="installation">
+            <h2 class="zh">🔧 安装方法</h2>
+            <h2 class="en">🔧 Installation</h2>
+            
+            <div class="zh">
+                <h3>从Chrome网上应用店安装</h3>
+                <ol class="installation-steps">
+                    <li>访问 <a href="https://chrome.google.com/webstore/category/extensions" target="_blank">Chrome网上应用店</a> (即将上线)</li>
+                    <li>搜索"Notion Tree View"</li>
+                    <li>点击"添加到Chrome"</li>
+                </ol>
+            </div>
+            
+            <div class="en">
+                <h3>From Chrome Web Store</h3>
+                <ol class="installation-steps">
+                    <li>Visit <a href="https://chrome.google.com/webstore/category/extensions" target="_blank">Chrome Web Store</a> (Coming soon)</li>
+                    <li>Search for "Notion Tree View"</li>
+                    <li>Click "Add to Chrome"</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="usage">
+            <h2 class="zh">📖 使用指南</h2>
+            <h2 class="en">📖 Usage Guide</h2>
+            
+            <div class="usage-steps zh">
+                <div class="usage-step">
+                    <h3>1. 连接到Notion</h3>
+                    <p>安装扩展后，点击Chrome工具栏中的扩展图标，然后点击"连接到Notion"。在弹出窗口中授权应用程序。</p>
+                </div>
+                
+                <div class="usage-step">
+                    <h3>2. 查看任务树</h3>
+                    <p>访问任何Notion数据库页面，点击扩展图标查看任务树状图。任务会根据父子关系自动布局。</p>
+                </div>
+                
+                <div class="usage-step">
+                    <h3>3. 刷新数据</h3>
+                    <p>数据会在每次打开插件时自动刷新，确保您始终看到最新的任务状态。</p>
+                </div>
+            </div>
+            
+            <div class="usage-steps en">
+                <div class="usage-step">
+                    <h3>1. Connect to Notion</h3>
+                    <p>After installing the extension, click the extension icon in the Chrome toolbar, then click "Connect to Notion". Authorize the application in the pop-up window.</p>
+                </div>
+                
+                <div class="usage-step">
+                    <h3>2. View Task Tree</h3>
+                    <p>Visit any Notion database page, click the extension icon to view the task tree. Tasks will be automatically arranged according to parent-child relationships.</p>
+                </div>
+                
+                <div class="usage-step">
+                    <h3>3. Refresh Data</h3>
+                    <p>Data will be automatically refreshed each time you open the plugin, ensuring you always see the latest task status.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="prerequisites">
+            <h2 class="zh">🔗 前提条件</h2>
+            <h2 class="en">🔗 Prerequisites</h2>
+            
+            <div class="zh">
+                <p>要使用TreeNode，您需要：</p>
+                <ul class="prerequisites">
+                    <li>一个包含任务的Notion数据库</li>
+                    <li>数据库需要有以下字段:
+                        <ul>
+                            <li>标题 (Title)</li>
+                            <li>状态 (Status): 用于跟踪任务进度</li>
+                            <li>父任务 (Parent task): 关联类型字段，用于建立任务间的层级关系</li>
+                            <li>子任务 (Sub-task): 关联类型字段，用于建立任务间的层级关系</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="en">
+                <p>To use TreeNode, you need:</p>
+                <ul class="prerequisites">
+                    <li>A Notion database containing tasks</li>
+                    <li>The database needs to have the following fields:
+                        <ul>
+                            <li>Title</li>
+                            <li>Status: For tracking task progress</li>
+                            <li>Parent task: Relation type field, used to establish hierarchical relationships between tasks</li>
+                            <li>Sub-task: Relation type field, used to establish hierarchical relationships between tasks</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <footer>
+            <p class="zh">&copy; 2025 适然科技 Shiran Tech. 保留所有权利。</p>
+            <p class="en">&copy; 2025 Shiran Tech. All Rights Reserved.</p>
+            <div>
+                <a href="terms-of-use.html" class="zh">服务条款</a>
+                <a href="privacy-policy.html" class="zh">隐私政策</a>
+                <a href="terms-of-use.html" class="en">Terms of Service</a>
+                <a href="privacy-policy.html" class="en">Privacy Policy</a>
+            </div>
+            <p class="zh">如有问题或建议，请通过 <a href="mailto:shirantech913@gmail.com">shirantech913@gmail.com</a> 联系我们</p>
+            <p class="en">For questions or suggestions, please contact us at <a href="mailto:shirantech913@gmail.com">shirantech913@gmail.com</a></p>
+        </footer>
+    </div>
+    
+    <script>
+        function switchLanguage(lang) {
+            document.body.className = 'lang-' + lang;
+            
+            // Update buttons
+            document.getElementById('zh-btn').classList.remove('active');
+            document.getElementById('en-btn').classList.remove('active');
+            document.getElementById(lang + '-btn').classList.add('active');
+            
+            // Store preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+        
+        // Check for saved language preference
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang) {
+                switchLanguage(savedLang);
+            }
+        });
+    </script>
+</body>
+</html> 

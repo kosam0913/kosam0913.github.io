@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐私政策 | Privacy Policy - TreeNode - Shiran Tech</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Helvetica Neue", "Microsoft YaHei", sans-serif;
+            background-color: #0a1a3a;
+            color: #ffffff;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 60px;
+        }
+        
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #87cefa;
+        }
+        
+        .language-switch {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        
+        .language-switch button {
+            background: transparent;
+            border: 1px solid #87cefa;
+            color: #87cefa;
+            padding: 5px 15px;
+            margin-left: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .language-switch button.active {
+            background: #87cefa;
+            color: #0a1a3a;
+        }
+        
+        .language-switch button:hover {
+            background: rgba(135, 206, 250, 0.2);
+        }
+        
+        .content {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        section h2 {
+            color: #87cefa;
+            margin: 25px 0 15px;
+            font-size: 22px;
+        }
+        
+        section p {
+            margin-bottom: 15px;
+            color: #e0e0e0;
+        }
+        
+        .logo-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo-section img {
+            height: 60px;
+        }
+        
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+        }
+        
+        a {
+            color: #87cefa;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .en, .zh {
+            display: none;
+        }
+        
+        .lang-en .en {
+            display: block;
+        }
+        
+        .lang-zh .zh {
+            display: block;
+        }
+    </style>
+</head>
+<body class="lang-zh">
+    <div class="container">
+        <div class="language-switch">
+            <button onclick="switchLanguage('zh')" class="active" id="zh-btn">中文</button>
+            <button onclick="switchLanguage('en')" id="en-btn">English</button>
+        </div>
+        
+        <div class="logo-section">
+            <a href="../index.html">
+                <img src="../logo_only.png" alt="Shiran Tech Logo">
+            </a>
+        </div>
+        
+        <header>
+            <h1 class="zh">隐私政策</h1>
+            <h1 class="en">Privacy Policy</h1>
+        </header>
+        
+        <div class="content">
+            <section>
+                <h2 class="zh">1. 信息收集</h2>
+                <h2 class="en">1. Information Collection</h2>
+                <p class="zh">TreeNode作为Chrome浏览器插件，不会收集或存储任何用户数据。所有数据都直接从用户的Notion账户获取并实时显示。我们不会收集任何个人信息或Notion数据。</p>
+                <p class="en">As a Chrome browser extension, TreeNode does not collect or store any user data. All data is retrieved directly from the user's Notion account and displayed in real-time. We do not collect any personal information or Notion data.</p>
+            </section>
+
+            <section>
+                <h2 class="zh">2. 数据安全</h2>
+                <h2 class="en">2. Data Security</h2>
+                <p class="zh">TreeNode采用安全的Notion API进行数据访问，所有数据都直接在用户的浏览器中处理。我们不会在服务器端存储任何数据，也不会将数据传输到任何第三方服务器。</p>
+                <p class="en">TreeNode uses secure Notion API for data access, and all data is processed directly in the user's browser. We do not store any data on the server side, nor do we transmit data to any third-party servers.</p>
+            </section>
+
+            <section>
+                <h2 class="zh">3. 数据访问</h2>
+                <h2 class="en">3. Data Access</h2>
+                <p class="zh">TreeNode仅访问用户授权的Notion任务数据库，用于显示树形视图。我们不会访问或修改用户的任何其他Notion数据。</p>
+                <p class="en">TreeNode only accesses the Notion task database authorized by the user for displaying the tree view. We do not access or modify any other Notion data of the user.</p>
+            </section>
+
+            <section>
+                <h2 class="zh">4. 用户控制</h2>
+                <h2 class="en">4. User Control</h2>
+                <p class="zh">用户可以随时通过Chrome扩展管理界面禁用或卸载TreeNode。禁用或卸载后，插件将立即停止访问Notion数据。</p>
+                <p class="en">Users can disable or uninstall TreeNode at any time through the Chrome extension management interface. After disabling or uninstalling, the extension will immediately stop accessing Notion data.</p>
+            </section>
+
+            <section>
+                <h2 class="zh">5. 政策更新</h2>
+                <h2 class="en">5. Policy Updates</h2>
+                <p class="zh">本隐私政策可能会不时更新，我们将通过Chrome Web Store或官方网站发布更新版本。</p>
+                <p class="en">This privacy policy may be updated from time to time. We will post updated versions through the Chrome Web Store or official website.</p>
+            </section>
+            
+            <section>
+                <p class="zh">如有任何问题或疑虑，请通过 <a href="mailto:shirantech913@gmail.com">shirantech913@gmail.com</a> 联系我们。</p>
+                <p class="en">If you have any questions or concerns, please contact us at <a href="mailto:shirantech913@gmail.com">shirantech913@gmail.com</a>.</p>
+            </section>
+        </div>
+        
+        <footer>
+            <p class="zh">&copy; 2025 适然科技 Shiran Tech. 保留所有权利。</p>
+            <p class="en">&copy; 2025 Shiran Tech. All Rights Reserved.</p>
+            <p><a href="terms-of-use.html" class="zh">服务条款</a> <a href="terms-of-use.html" class="en">Terms of Service</a></p>
+        </footer>
+    </div>
+    
+    <script>
+        function switchLanguage(lang) {
+            document.body.className = 'lang-' + lang;
+            
+            // Update buttons
+            document.getElementById('zh-btn').classList.remove('active');
+            document.getElementById('en-btn').classList.remove('active');
+            document.getElementById(lang + '-btn').classList.add('active');
+            
+            // Store preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+        
+        // Check for saved language preference
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang) {
+                switchLanguage(savedLang);
+            }
+        });
+    </script>
+</body>
+</html> 
