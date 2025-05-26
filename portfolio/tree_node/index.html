@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TreeNode - Notion Task Tree Viewer</title>
+    <link rel="stylesheet" href="../../css/main-style.css">
+    <style>
+        .project-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 100px 20px 40px;
+        }
+        
+        .back-button {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #f6f8fa;
+            border: 1px solid #e1e4e8;
+            color: #0366d6;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-bottom: 32px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .back-button:hover {
+            background: #e1e4e8;
+        }
+        
+        .project-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        
+        .project-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .project-header h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #24292e;
+        }
+        
+        .project-header p {
+            font-size: 1rem;
+            color: #586069;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #0366d6;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            margin: 0 8px;
+        }
+        
+        .cta-button:hover {
+            background: #0256cc;
+        }
+        
+        .screenshot-section {
+            margin: 48px 0;
+            text-align: center;
+        }
+        
+        .screenshot-section img {
+            max-width: 100%;
+            border-radius: 8px;
+            border: 1px solid #e1e4e8;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content-section {
+            margin: 48px 0;
+        }
+        
+        .content-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #24292e;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #e1e4e8;
+            padding-bottom: 8px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 24px 0;
+        }
+        
+        .feature-card {
+            background: #f6f8fa;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            padding: 24px;
+        }
+        
+        .feature-card h3 {
+            color: #24292e;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .feature-card p {
+            color: #586069;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        .content-box {
+            background: #f6f8fa;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        
+        .content-box h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #24292e;
+            margin-bottom: 16px;
+        }
+        
+        .content-box ol, .content-box ul {
+            padding-left: 20px;
+            margin: 16px 0;
+        }
+        
+        .content-box li {
+            margin: 8px 0;
+            color: #586069;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        .content-box a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+        
+        .content-box a:hover {
+            text-decoration: underline;
+        }
+        
+        .content-box strong {
+            color: #24292e;
+        }
+        
+        @media (max-width: 768px) {
+            .project-container {
+                padding: 80px 16px 40px;
+            }
+            
+            .project-header h1 {
+                font-size: 1.75rem;
+            }
+            
+            .cta-button {
+                display: block;
+                margin: 8px 0;
+                text-align: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../../index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+                    <img src="../../images/img/avatar2.jpg" alt="Xinjie Hu" class="nav-avatar">
+                    <span class="nav-name">Xinjie Hu</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../../index.html#profile">Profile</a>
+                <a href="../../index.html#portfolio">Portfolio</a>
+                <a href="../../index.html#blog">Blog</a>
+                <a href="../../index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="project-container">
+        <a href="../../index.html#portfolio" class="back-button">
+            ← Back to Portfolio
+        </a>
+        
+        <div class="project-header">
+            <div class="project-logo">
+                <img src="logo.png" alt="TreeNode Logo">
+            </div>
+            <h1>TreeNode - Notion Task Tree Viewer</h1>
+            <p>Visualize your Notion database tasks as a tree structure to improve project management efficiency</p>
+            
+            <div class="cta-buttons">
+                <a href="https://chromewebstore.google.com/detail/notion-task-tree-viewer/ckoknomfbeadbnmkppidchmhmeaflbka" class="cta-button" target="_blank">Chrome Web Store</a>
+            </div>
+        </div>
+        
+        <div class="screenshot-section">
+            <img src="screenshot.png" alt="TreeNode Screenshot">
+        </div>
+        
+        <section class="content-section">
+            <h2>✨ Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🌳 Tree Structure Visualization</h3>
+                    <p>Display tasks from Notion database in an intuitive tree structure, clearly showing hierarchical relationships between tasks.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>🔌 Simple Integration</h3>
+                    <p>One-click Chrome extension installation, no complex configuration needed, works on any Notion page.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>🔍 Auto-Detect Database</h3>
+                    <p>Intelligently recognizes the Notion database structure of the current page and automatically parses task relationships.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>🔢 Progress Display</h3>
+                    <p>Real-time display of task completion status to help track project progress.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2>🔧 Installation</h2>
+            
+            <div class="content-box">
+                <h3>From Chrome Web Store</h3>
+                <ol>
+                    <li>Visit <a href="https://chromewebstore.google.com/detail/notion-task-tree-viewer/ckoknomfbeadbnmkppidchmhmeaflbka" target="_blank">Chrome Web Store</a></li>
+                    <li>Click "Add to Chrome" button</li>
+                    <li>Click "Add extension" in the confirmation dialog</li>
+                    <li>After installation, the extension icon will appear in the Chrome toolbar</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2>📖 Usage Guide</h2>
+            
+            <div class="content-box">
+                <h3>Usage Steps</h3>
+                <ol>
+                    <li><strong>Open Notion Database:</strong> Open a Notion database page containing tasks in your browser</li>
+                    <li><strong>Click Extension Icon:</strong> Click the TreeNode extension icon in the Chrome toolbar</li>
+                    <li><strong>View Tree Structure:</strong> The extension will automatically analyze the database structure and generate a tree view</li>
+                    <li><strong>Interactive Operations:</strong> You can expand/collapse nodes and view task details</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2>🔗 Prerequisites</h2>
+            
+            <div class="content-box">
+                <p>To use TreeNode, your Notion database needs to contain the following fields:</p>
+                <ul>
+                    <li><strong>Title:</strong> Task name</li>
+                    <li><strong>Status:</strong> Select field for tracking task progress</li>
+                    <li><strong>Parent task:</strong> Relation type field for establishing hierarchical relationships between tasks</li>
+                    <li><strong>Sub-task:</strong> Relation type field for establishing hierarchical relationships between tasks</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2>💡 Product Thinking</h2>
+            
+            <div class="content-box">
+                <h3>User Pain Point Analysis</h3>
+                <ul>
+                    <li><strong>Visualization Need:</strong> Notion's native interface lacks intuitive hierarchical relationship display</li>
+                    <li><strong>Project Management Efficiency:</strong> Task relationships in complex projects are difficult to understand and track</li>
+                    <li><strong>Cognitive Load:</strong> Traditional table view increases user understanding cost</li>
+                </ul>
+                
+                <h3>Solution Design</h3>
+                <ul>
+                    <li><strong>Tree Visualization:</strong> Uses intuitive tree structure to display task hierarchy</li>
+                    <li><strong>Seamless Integration:</strong> As a browser extension, doesn't affect existing workflow</li>
+                    <li><strong>Automated Processing:</strong> Intelligently parses database structure, reducing user configuration</li>
+                </ul>
+                
+                <h3>Technical Implementation Highlights</h3>
+                <ul>
+                    <li><strong>Chrome Extension API:</strong> Leverages browser extension capabilities to access page data</li>
+                    <li><strong>DOM Parsing:</strong> Intelligently recognizes Notion page structure and data</li>
+                    <li><strong>Data Visualization:</strong> Uses libraries like D3.js to implement interactive tree diagrams</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Xinjie Hu. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html> 
