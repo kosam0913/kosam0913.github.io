@@ -1,98 +1,89 @@
 # Xinjie Hu - Personal Website
 
-## Overview
+A modern, minimalist personal website showcasing my experience as a Technical Product Manager and Full Stack Developer.
 
-Personal GitHub Pages website showcasing my background as a Technical Product Manager candidate with extensive engineering experience. The site features a clean, professional design optimized for potential employers and collaborators.
+## 🚀 Live Site
+Visit: [kosam0913.github.io](https://kosam0913.github.io)
 
-## Features
-
-### 🎨 Clean Design
-- Modern white theme with GitHub-inspired styling
-- Compact layout with high information density
-- Professional typography and spacing
-
-### 📱 Responsive Layout
-- Optimized for desktop, tablet, and mobile devices
-- Consistent experience across all screen sizes
-
-### 🚀 Content Organization
-- **Profile**: Technical background, skills, and professional experience
-- **Portfolio**: Personal projects and professional work showcase
-- **Blog**: Technical insights and product management thoughts
-- **Contact**: Professional contact information and resume
-
-## Tech Stack
-
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Styling**: Custom CSS with GitHub-inspired design system
-- **Deployment**: GitHub Pages
-- **Performance**: Optimized for fast loading and smooth interactions
-
-## Site Structure
+## 📁 Project Structure
 
 ```
-├── index.html                 # Main page
-├── css/
-│   └── main-style.css        # Main stylesheet
-├── portfolio/
-│   └── tree_node/
-│       └── index.html        # TreeNode project details
-├── images/                   # Image assets
-└── README.md                # Project documentation
+kosam0913.github.io/
+├── assets/                 # Static assets
+│   ├── css/               # Stylesheets
+│   │   └── main-style.css # Main CSS file
+│   ├── images/            # All images
+│   │   ├── bg/           # Background images
+│   │   ├── favicon/      # Favicon files
+│   │   ├── img/          # Profile images
+│   │   └── portfolio/    # Project images
+│   └── docs/             # Documents
+│       ├── *.docx        # Resume files
+│       └── *.pdf
+├── content/              # Content organization
+│   ├── blog/            # Blog posts
+│   └── portfolio/       # Portfolio projects
+│       └── tree_node/   # TreeNode project details
+├── ref/                 # Reference materials
+├── index.html          # Main website file
+├── deploy.bat          # Deployment script
+└── README.md           # This file
 ```
 
-## Featured Projects
+## 🛠️ Technology Stack
 
-### Personal Projects
-- **TreeNode**: Chrome extension for Notion Database visualization (1000+ users)
-- **UCG Community Platform**: WeChat Mini Program for Chinese community in UAE
+- **Frontend**: HTML5, CSS3, Vanilla JavaScript
+- **Design**: Modern glass-morphism with responsive grid layout
+- **Icons**: Font Awesome 6.0
+- **Hosting**: GitHub Pages
 
-### Professional Work
-- **AI Model Training Automation @ miHoYo**: 95% iteration time reduction
-- **Motion Capture Pipeline @ miHoYo**: Comprehensive toolkit and workflow optimization
+## 🎨 Design Features
 
-## Career Objective
+- **Three-column layout**: Personal info sidebar, main content, navigation sidebar
+- **Responsive design**: Optimized for desktop, tablet, and mobile
+- **Glass-morphism effects**: Modern backdrop-filter blur effects
+- **Compact information density**: Optimized for professional presentation
+- **Smooth scrolling navigation**: Enhanced user experience
 
-**Technical Product Manager** - Combining extensive engineering background with product thinking to build user-centered solutions. Focus areas include:
+## 📱 Responsive Breakpoints
 
-- Product strategy and planning
-- User research and requirements analysis
-- Cross-functional team leadership
-- 0-to-1 product development
-- Technical feasibility assessment
+- **Desktop**: 1200px+ (Full three-column layout)
+- **Tablet**: 768px-1199px (Stacked layout)
+- **Mobile**: <768px (Single column)
 
-## Contact
+## 🚀 Deployment
 
-- **Email**: xinjie.hu@gmail.com
-- **LinkedIn**: [linkedin.com/in/xinjie-hu-574070125](https://www.linkedin.com/in/xinjie-hu-574070125/)
-- **GitHub**: [github.com/kosam0913](https://github.com/kosam0913)
+The site is automatically deployed to GitHub Pages when changes are pushed to the main branch.
 
-## Local Development
-
+For manual deployment:
 ```bash
-# Start local server
-python -m http.server 8000
-
-# Visit website
-http://localhost:8000
-```
-
-## Deployment
-
-The site is automatically deployed to GitHub Pages. For manual deployment:
-
-```bash
-# Run deployment script
 ./deploy.bat
 ```
 
-## Design Principles
+## 📝 Content Management
 
-- **Information Density**: Compact layout maximizing content visibility
-- **Professional Aesthetics**: Clean, GitHub-inspired design language
-- **User Experience**: Intuitive navigation and smooth interactions
-- **Performance**: Fast loading and responsive design
+### Adding Blog Posts
+1. Create new `.md` file in `content/blog/`
+2. Update blog section in `index.html`
 
----
+### Adding Portfolio Projects
+1. Create project folder in `content/portfolio/`
+2. Add project images to `assets/images/portfolio/`
+3. Update portfolio section in `index.html`
 
-© 2025 Xinjie Hu. All rights reserved. 
+## 🔧 Development
+
+1. Clone the repository
+2. Open `index.html` in a browser
+3. Make changes to HTML/CSS files
+4. Test responsiveness across different screen sizes
+
+## 📄 License
+
+© 2025 Xinjie Hu. All rights reserved.
+
+## 📞 Contact
+
+- **Email**: xinjie.hu@gmail.com
+- **LinkedIn**: [linkedin.com/in/xinjie-hu-574070125](https://www.linkedin.com/in/xinjie-hu-574070125/)
+- **GitHub**: [github.com/kosam0913](https://github.com/kosam0913) 

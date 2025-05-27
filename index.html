@@ -4,293 +4,482 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Xinjie Hu - Technical Product Manager</title>
-        <link rel="stylesheet" href="css/main-style.css">
-        <link rel="shortcut icon" type="image/x-icon" href="images/favicon/favicon.ico">
+        <link rel="stylesheet" href="assets/css/main-style.css">
+        <link rel="shortcut icon" type="image/x-icon" href="assets/images/icons/favicon.ico">
         <!-- Font Awesome for icons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     </head>
 
     <body>
-        <div class="layout-container">
-            <!-- Left Sidebar - Personal Info -->
-            <aside class="sidebar-left">
-                <div class="profile-card">
-                    <div class="profile-image">
-                        <img src="images/img/avatar2.jpg" alt="Xinjie Hu" />
-                    </div>
-                    <h1>Xinjie Hu</h1>
-                    <h2>Full Stack Developer</h2>
-                    <div class="profile-location">
-                        <span>📍 Abu Dhabi, UAE</span>
-                    </div>
-                    <div class="profile-social">
-                        <a href="https://www.linkedin.com/in/xinjie-hu-574070125/" target="_blank" title="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
+        <!-- Left Sidebar Navigation -->
+        <nav class="left-sidebar">
+            <div class="sidebar-header">
+                <h1><a href="#home">xinjie.dev</a></h1>
+            </div>
+            
+            <div class="sidebar-nav">
+                <ul class="nav-tree">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link" data-section="home">
+                            <i class="fas fa-home"></i> Home
                         </a>
-                        <a href="https://github.com/kosam0913" target="_blank" title="GitHub">
-                            <i class="fab fa-github"></i>
+                    </li>
+                    
+                    <li class="nav-item has-children">
+                        <a href="#blog" class="nav-link" data-section="blog">
+                            <i class="fas fa-blog"></i> Blog
                         </a>
-                        <a href="mailto:xinjie.hu@gmail.com" title="Email">
-                            <i class="fas fa-envelope"></i>
+                        <ul class="nav-children">
+                            <li><a href="#blog-2025" class="nav-sublink" data-section="blog" data-filter="2025">2025</a></li>
+                            <li><a href="#blog-2024" class="nav-sublink" data-section="blog" data-filter="2024">2024</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item has-children">
+                        <a href="#projects" class="nav-link" data-section="projects">
+                            <i class="fas fa-folder"></i> Projects
+                        </a>
+                        <ul class="nav-children">
+                            <li><a href="content/portfolio/tree_node/index.html" class="nav-sublink external">TreeNode</a></li>
+                            <li><a href="#ucg" class="nav-sublink" data-section="projects" data-filter="ucg">UCG Platform</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="#profile" class="nav-link" data-section="profile">
+                            <i class="fas fa-user"></i> Profile
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link" data-section="about">
+                            <i class="fas fa-envelope"></i> About
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div class="main-layout">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-content">
+                    <div class="breadcrumb">
+                        <span id="current-section">Home</span>
+                    </div>
+                    <div class="header-actions">
+                        <a href="assets/docs/Ms.XinjieHu_202407_Resume.docx" download class="btn-download">
+                            <i class="fas fa-download"></i> Resume
                         </a>
                     </div>
                 </div>
-            </aside>
+            </header>
 
-            <!-- Right Sidebar - Navigation -->
-            <aside class="sidebar-right">
-                <nav class="vertical-nav">
-                    <div class="nav-header">Contents</div>
-                    <ul class="nav-list">
-                        <li><a href="#profile">Profile</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-            </aside>
-
-            <!-- Main Content -->
-            <main class="main-content">
-                <section id="profile" class="section">
-                    <h2>Profile</h2>
-                    <div class="profile-content">
-                        <p>Technical Product Manager with extensive engineering background, specializing in AI/ML, automation, and full-stack development. Former Technical Director at miHoYo with experience in building products from 0 to 1.</p>
-                        
-                        <div class="skills-section">
-                            <div class="skills-grid">
-                                <div class="skill-category">
-                                    <h4>Product Management</h4>
-                                    <ul>
-                                        <li>Product Strategy & Planning</li>
-                                        <li>User Research & Analysis</li>
-                                        <li>Agile Development</li>
-                                        <li>Cross-functional Leadership</li>
-                                    </ul>
-                                </div>
-                                <div class="skill-category">
-                                    <h4>Technical Skills</h4>
-                                    <ul>
-                                        <li>Python, JavaScript, Vue.js</li>
-                                        <li>AI/ML Model Training</li>
-                                        <li>Cloud Computing</li>
-                                        <li>System Architecture</li>
-                                    </ul>
-                                </div>
-                                <div class="skill-category">
-                                    <h4>Experience</h4>
-                                    <ul>
-                                        <li>0-to-1 Product Development</li>
-                                        <li>Technical Team Leadership</li>
-                                        <li>Process Automation</li>
-                                        <li>User-Centered Design</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="experience-section">
-                            <h3>Professional Experience</h3>
-                            <div class="timeline">
-                                <div class="timeline-item">
-                                    <div class="timeline-date">Dec 2024 - Present</div>
-                                    <div class="timeline-content">
-                                        <h4>Independent Product Developer</h4>
-                                        <p>Building community-focused products and Chrome extensions. Focus on user research, rapid prototyping, and iterative development based on user feedback.</p>
+            <!-- Content Area -->
+            <main class="content-area">
+                <!-- Home Section -->
+                <section id="home" class="section active">
+                    <div class="section-content">
+                        <div class="hero-section">
+                            <div class="hero-content">
+                                <div class="profile-intro">
+                                    <img src="assets/images/profile/avatar.jpg" alt="Xinjie Hu" class="profile-avatar">
+                                    <div class="intro-text">
+                                        <h2>About Me</h2>
+                                        <p>I'm Xinjie, Technical Product Manager and Full Stack Developer. Former miHoYo Technical Director building products that users love. 🚀</p>
                                     </div>
                                 </div>
                                 
-                                <div class="timeline-item">
-                                    <div class="timeline-date">Nov 2022 - Dec 2024</div>
-                                    <div class="timeline-content">
-                                        <h4>Motion Technical Director @ miHoYo</h4>
-                                        <p>Led AI model training automation, achieving 20x iteration speed improvement. Designed motion capture toolkit and production pipeline optimization.</p>
+                                <div class="quick-links">
+                                    <h3>Stay Connected</h3>
+                                    <div class="social-links">
+                                        <a href="mailto:xinjie.hu@gmail.com" class="social-link">
+                                            <i class="fas fa-envelope"></i> Email
+                                        </a>
+                                        <a href="https://www.linkedin.com/in/xinjie-hu-574070125/" target="_blank" class="social-link">
+                                            <i class="fab fa-linkedin"></i> LinkedIn
+                                        </a>
+                                        <a href="https://github.com/kosam0913" target="_blank" class="social-link">
+                                            <i class="fab fa-github"></i> GitHub
+                                        </a>
                                     </div>
                                 </div>
-                                
-                                <div class="timeline-item">
-                                    <div class="timeline-date">Mar 2021 - Nov 2022</div>
-                                    <div class="timeline-content">
-                                        <h4>Pipeline Technical Director @ miHoYo</h4>
-                                        <p>Led technical team developing game production pipeline tools. Implemented automated workflows improving team efficiency.</p>
+
+                                <div class="featured-content">
+                                    <h3>Featured</h3>
+                                    <div class="featured-grid">
+                                        <div class="featured-item">
+                                            <h4>TreeNode Chrome Extension</h4>
+                                            <p>Notion Database visualization tool with 1000+ users</p>
+                                        </div>
+                                        <div class="featured-item">
+                                            <h4>AI Model Training Automation</h4>
+                                            <p>20x iteration speed improvement at miHoYo</p>
+                                        </div>
+                                        <div class="featured-item">
+                                            <h4>UCG Community Platform</h4>
+                                            <p>WeChat Mini Program for Chinese community in UAE</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                
-                <section id="portfolio" class="section">
-                    <h2>Portfolio</h2>
-                    
-                    <div class="portfolio-category">
-                        <h3>Personal Projects</h3>
-                        <div class="projects-grid">
-                            <div class="project-card">
-                                <div class="project-image">
-                                    <img src="portfolio/tree_node/logo.png" alt="TreeNode">
-                                </div>
-                                <div class="project-info">
-                                    <h4>TreeNode</h4>
-                                    <p>Chrome extension for Notion Database visualization. Transforms flat task lists into intuitive tree structures, improving project management workflow for 1000+ users.</p>
-                                    <div class="project-tags">
-                                        <span>Chrome Extension</span>
-                                        <span>JavaScript</span>
-                                        <span>Product Design</span>
-                                    </div>
-                                    <div class="project-links">
-                                        <a href="https://chromewebstore.google.com/detail/notion-task-tree-viewer/ckoknomfbeadbnmkppidchmhmeaflbka" target="_blank">Chrome Store</a>
-                                        <a href="portfolio/tree_node/">Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="project-card">
-                                <div class="project-image">
-                                    <img src="images/portfolio/ucg-icon.jpg" alt="UCG">
-                                </div>
-                                <div class="project-info">
-                                    <h4>UCG Community Platform</h4>
-                                    <p>WeChat Mini Program serving Chinese community in UAE. Complete product development from user research to launch, focusing on community engagement and local services.</p>
-                                    <div class="project-tags">
-                                        <span>WeChat Mini Program</span>
-                                        <span>Vue.js</span>
-                                        <span>Community Product</span>
-                                    </div>
-                                    <div class="project-links">
-                                        <a href="#">Coming Soon</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="portfolio-category">
-                        <h3>Professional Work</h3>
-                        <div class="work-projects">
-                            <div class="work-item">
-                                <h4>AI Model Training Automation @ miHoYo</h4>
-                                <p>Designed and implemented automated ML pipeline reducing model training iteration time by 95%. Led cross-functional team to deliver production-ready AI solutions for game development.</p>
-                                <div class="work-tags">
-                                    <span>AI/ML</span>
-                                    <span>Python</span>
-                                    <span>Process Automation</span>
-                                </div>
-                            </div>
-                            
-                            <div class="work-item">
-                                <h4>Motion Capture Pipeline @ miHoYo</h4>
-                                <p>Built comprehensive motion capture toolkit and automated workflow. Improved team productivity and standardized production processes across multiple game projects.</p>
-                                <div class="work-tags">
-                                    <span>Pipeline Development</span>
-                                    <span>Team Leadership</span>
-                                    <span>Workflow Optimization</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                
+                <!-- Blog Section -->
                 <section id="blog" class="section">
-                    <h2>Blog</h2>
-                    <div class="blog-grid">
-                        <article class="blog-post">
-                            <div class="blog-meta">
-                                <span class="blog-date">Coming Soon</span>
-                                <span class="blog-category">Product Management</span>
-                            </div>
-                            <h3>From Technical Director to Product Manager: A Journey</h3>
-                            <p>Reflections on transitioning from pure technical roles to product management, and how engineering background enhances product thinking.</p>
-                            <a href="#" class="blog-link">Read More →</a>
-                        </article>
+                    <div class="section-content">
+                        <div class="section-header">
+                            <h2>Blog</h2>
+                            <p>Personal notes about product management, development, and everything else.</p>
+                        </div>
                         
-                        <article class="blog-post">
-                            <div class="blog-meta">
-                                <span class="blog-date">Coming Soon</span>
-                                <span class="blog-category">Development</span>
+                        <div class="posts-by-year">
+                            <h3>2025</h3>
+                            <div class="post-list">
+                                <article class="post-item">
+                                    <h4><a href="#">From Technical Director to Product Manager: A Journey</a></h4>
+                                    <time>Coming Soon</time>
+                                    <p>Reflections on transitioning from pure technical roles to product management, and how engineering background enhances product thinking.</p>
+                                </article>
                             </div>
-                            <h3>Building Chrome Extensions: Lessons from TreeNode</h3>
-                            <p>Technical insights and product decisions behind creating a successful Chrome extension for Notion users.</p>
-                            <a href="#" class="blog-link">Read More →</a>
-                        </article>
-                        
-                        <article class="blog-post">
-                            <div class="blog-meta">
-                                <span class="blog-date">Coming Soon</span>
-                                <span class="blog-category">AI/ML</span>
+
+                            <h3>2024</h3>
+                            <div class="post-list">
+                                <article class="post-item">
+                                    <h4><a href="#">Building Chrome Extensions: Lessons from TreeNode</a></h4>
+                                    <time>Coming Soon</time>
+                                    <p>Technical insights and product decisions behind creating a successful Chrome extension for Notion users.</p>
+                                </article>
+                                
+                                <article class="post-item">
+                                    <h4><a href="#">Scaling AI Model Training: Automation at miHoYo</a></h4>
+                                    <time>Coming Soon</time>
+                                    <p>How we achieved 20x speed improvement in ML model iteration through intelligent automation and process optimization.</p>
+                                </article>
                             </div>
-                            <h3>Scaling AI Model Training: Automation at miHoYo</h3>
-                            <p>How we achieved 20x speed improvement in ML model iteration through intelligent automation and process optimization.</p>
-                            <a href="#" class="blog-link">Read More →</a>
-                        </article>
+                        </div>
                     </div>
                 </section>
-                
-                <section id="contact" class="section">
-                    <h2>Contact</h2>
-                    <div class="contact-content">
-                        <p>I'm actively seeking Technical Product Manager opportunities. Let's connect if you're interested in my background!</p>
+
+                <!-- Projects Section -->
+                <section id="projects" class="section">
+                    <div class="section-content">
+                        <div class="section-header">
+                            <h2>Projects</h2>
+                            <p>Personal projects and professional work showcase.</p>
+                        </div>
                         
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <span class="contact-label">Email:</span>
-                                <a href="mailto:xinjie.hu@gmail.com">xinjie.hu@gmail.com</a>
+                        <div class="projects-overview">
+                            <div class="project-category">
+                                <h3>Personal Projects</h3>
+                                <div class="project-grid">
+                                    <div class="project-card" data-project="treenode">
+                                        <div class="project-image">
+                                            <img src="content/portfolio/tree_node/logo.png" alt="TreeNode">
+                                        </div>
+                                        <div class="project-info">
+                                            <h4>TreeNode</h4>
+                                            <p>Chrome extension for Notion Database visualization. Transforms flat task lists into intuitive tree structures.</p>
+                                            <div class="project-tags">
+                                                <span>Chrome Extension</span>
+                                                <span>JavaScript</span>
+                                                <span>Product Design</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="project-card" data-project="ucg">
+                                        <div class="project-image">
+                                            <img src="assets/images/projects/ucg/icon.jpg" alt="UCG">
+                                        </div>
+                                        <div class="project-info">
+                                            <h4>UCG Community Platform</h4>
+                                            <p>WeChat Mini Program serving Chinese community in UAE. Complete product development from user research to launch.</p>
+                                            <div class="project-tags">
+                                                <span>WeChat Mini Program</span>
+                                                <span>Vue.js</span>
+                                                <span>Community Product</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="contact-item">
-                                <span class="contact-label">LinkedIn:</span>
-                                <a href="https://www.linkedin.com/in/xinjie-hu-574070125/" target="_blank">linkedin.com/in/xinjie-hu-574070125</a>
+
+                            <div class="project-category">
+                                <h3>Professional Work</h3>
+                                <div class="work-list">
+                                    <div class="work-item">
+                                        <h4>AI Model Training Automation @ miHoYo</h4>
+                                        <p>Designed and implemented automated ML pipeline reducing model training iteration time by 95%. Led cross-functional team to deliver production-ready AI solutions for game development.</p>
+                                        <div class="work-tags">
+                                            <span>AI/ML</span>
+                                            <span>Python</span>
+                                            <span>Process Automation</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="work-item">
+                                        <h4>Motion Capture Pipeline @ miHoYo</h4>
+                                        <p>Built comprehensive motion capture toolkit and automated workflow. Improved team productivity and standardized production processes across multiple game projects.</p>
+                                        <div class="work-tags">
+                                            <span>Pipeline Development</span>
+                                            <span>Team Leadership</span>
+                                            <span>Workflow Optimization</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="contact-item">
-                                <span class="contact-label">Resume:</span>
-                                <a href="Ms.XinjieHu_202407_Resume.docx" download>Download PDF</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Profile Section -->
+                <section id="profile" class="section">
+                    <div class="section-content">
+                        <div class="section-header">
+                            <h2>Profile</h2>
+                            <p>Technical background, skills, and professional experience.</p>
+                        </div>
+                        
+                        <div class="profile-overview">
+                            <div class="intro-section">
+                                <p>Technical Product Manager with extensive engineering background, specializing in AI/ML, automation, and full-stack development. Former Technical Director at miHoYo with experience in building products from 0 to 1.</p>
+                            </div>
+
+                            <div class="skills-section">
+                                <h3>Core Skills</h3>
+                                <div class="skills-grid">
+                                    <div class="skill-category">
+                                        <h4>Product Management</h4>
+                                        <ul>
+                                            <li>Product Strategy & Planning</li>
+                                            <li>User Research & Analysis</li>
+                                            <li>Agile Development</li>
+                                            <li>Cross-functional Leadership</li>
+                                        </ul>
+                                    </div>
+                                    <div class="skill-category">
+                                        <h4>Technical Skills</h4>
+                                        <ul>
+                                            <li>Python, JavaScript, Vue.js</li>
+                                            <li>AI/ML Model Training</li>
+                                            <li>Cloud Computing</li>
+                                            <li>System Architecture</li>
+                                        </ul>
+                                    </div>
+                                    <div class="skill-category">
+                                        <h4>Experience</h4>
+                                        <ul>
+                                            <li>0-to-1 Product Development</li>
+                                            <li>Technical Team Leadership</li>
+                                            <li>Process Automation</li>
+                                            <li>User-Centered Design</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="experience-section">
+                                <h3>Professional Experience</h3>
+                                <div class="timeline">
+                                    <div class="timeline-item">
+                                        <div class="timeline-date">Dec 2024 - Present</div>
+                                        <div class="timeline-content">
+                                            <h4>Independent Product Developer</h4>
+                                            <p>Building community-focused products and Chrome extensions. Focus on user research, rapid prototyping, and iterative development based on user feedback.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-item">
+                                        <div class="timeline-date">Nov 2022 - Dec 2024</div>
+                                        <div class="timeline-content">
+                                            <h4>Motion Technical Director @ miHoYo</h4>
+                                            <p>Led AI model training automation, achieving 20x iteration speed improvement. Designed motion capture toolkit and production pipeline optimization.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-item">
+                                        <div class="timeline-date">Mar 2021 - Nov 2022</div>
+                                        <div class="timeline-content">
+                                            <h4>Pipeline Technical Director @ miHoYo</h4>
+                                            <p>Led technical team developing game production pipeline tools. Implemented automated workflows improving team efficiency.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- About Section -->
+                <section id="about" class="section">
+                    <div class="section-content">
+                        <div class="section-header">
+                            <h2>About</h2>
+                            <p>Get in touch and learn more about my background.</p>
+                        </div>
+                        
+                        <div class="about-content">
+                            <div class="contact-section">
+                                <h3>Contact Information</h3>
+                                <p>I'm actively seeking Technical Product Manager opportunities. Let's connect if you're interested in my background!</p>
+                                
+                                <div class="contact-info">
+                                    <div class="contact-item">
+                                        <span class="contact-label">Email:</span>
+                                        <a href="mailto:xinjie.hu@gmail.com">xinjie.hu@gmail.com</a>
+                                    </div>
+                                    <div class="contact-item">
+                                        <span class="contact-label">LinkedIn:</span>
+                                        <a href="https://www.linkedin.com/in/xinjie-hu-574070125/" target="_blank">linkedin.com/in/xinjie-hu-574070125</a>
+                                    </div>
+                                    <div class="contact-item">
+                                        <span class="contact-label">Location:</span>
+                                        <span>Abu Dhabi, UAE</span>
+                                    </div>
+                                    <div class="contact-item">
+                                        <span class="contact-label">Resume:</span>
+                                        <a href="assets/docs/Ms.XinjieHu_202407_Resume.docx" download>Download Resume</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
             </main>
         </div>
-
-        <footer>
-            <div class="container">
-                <p>&copy; 2025 Xinjie Hu. All rights reserved.</p>
-            </div>
-        </footer>
         
         <script>
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-
-            // Highlight active section in navigation
-            window.addEventListener('scroll', function() {
-                const sections = document.querySelectorAll('section[id]');
-                const navLinks = document.querySelectorAll('.nav-list a');
+            // Navigation functionality
+            document.addEventListener('DOMContentLoaded', function() {
+                const navLinks = document.querySelectorAll('.nav-link');
+                const navSublinks = document.querySelectorAll('.nav-sublink');
+                const sections = document.querySelectorAll('.section');
+                const currentSectionSpan = document.getElementById('current-section');
                 
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    if (window.scrollY >= sectionTop - 100) {
-                        current = section.getAttribute('id');
+                // Show/hide sections based on navigation
+                function showSection(targetId) {
+                    sections.forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
                     }
-                });
-
+                    
+                    // Update active nav link
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    
+                    const activeLink = document.querySelector(`[data-section="${targetId}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                    
+                    // Update breadcrumb
+                    const sectionNames = {
+                        'home': 'Home',
+                        'blog': 'Blog',
+                        'projects': 'Projects',
+                        'profile': 'Profile',
+                        'about': 'About'
+                    };
+                    currentSectionSpan.textContent = sectionNames[targetId] || 'Home';
+                }
+                
+                // Handle main navigation clicks
                 navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + current) {
-                        link.classList.add('active');
-                    }
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('data-section');
+                        showSection(targetId);
+                        
+                        // Update URL without page reload
+                        history.pushState(null, null, `#${targetId}`);
+                    });
                 });
+                
+                // Handle sub-navigation clicks
+                navSublinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        if (!this.classList.contains('external')) {
+                            e.preventDefault();
+                            const targetId = this.getAttribute('data-section');
+                            showSection(targetId);
+                            
+                            // Update URL without page reload
+                            history.pushState(null, null, `#${targetId}`);
+                        }
+                    });
+                });
+                
+                // Handle browser back/forward
+                window.addEventListener('popstate', function() {
+                    const hash = window.location.hash.substring(1) || 'home';
+                    showSection(hash);
+                });
+                
+                // Initialize with current hash or default to home
+                const initialHash = window.location.hash.substring(1) || 'home';
+                showSection(initialHash);
+                
+                // Project card navigation
+                const projectCards = document.querySelectorAll('.project-card');
+                projectCards.forEach(card => {
+                    card.addEventListener('click', function() {
+                        const project = this.getAttribute('data-project');
+                        if (project === 'treenode') {
+                            window.location.href = 'content/portfolio/tree_node/index.html';
+                        } else if (project === 'ucg') {
+                            console.log('UCG project page - coming soon');
+                        }
+                    });
+                });
+                
+                // Tree navigation toggle
+                const hasChildrenItems = document.querySelectorAll('.has-children > .nav-link');
+                hasChildrenItems.forEach(item => {
+                    item.addEventListener('click', function(e) {
+                        const parent = this.parentElement;
+                        const isExpanded = parent.classList.contains('expanded');
+                        
+                        // If clicking on a parent item that has children, toggle expansion
+                        if (parent.classList.contains('has-children')) {
+                            e.preventDefault();
+                            parent.classList.toggle('expanded');
+                            
+                            // Also show the section if not expanded before
+                            if (!isExpanded) {
+                                const targetId = this.getAttribute('data-section');
+                                showSection(targetId);
+                                history.pushState(null, null, `#${targetId}`);
+                            }
+                        }
+                    });
+                });
+                
+                // Auto-expand parent items when page loads
+                function autoExpandParents() {
+                    const currentHash = window.location.hash.substring(1) || 'home';
+                    
+                    // Expand Blog if we're on a blog page
+                    if (currentHash.startsWith('blog')) {
+                        document.querySelector('.nav-item.has-children:has([data-section="blog"])')?.classList.add('expanded');
+                    }
+                    
+                    // Expand Projects if we're on a projects page
+                    if (currentHash.startsWith('projects') || currentHash === 'ucg') {
+                        document.querySelector('.nav-item.has-children:has([data-section="projects"])')?.classList.add('expanded');
+                    }
+                }
+                
+                // Call auto-expand on load
+                autoExpandParents();
             });
         </script>
     </body>

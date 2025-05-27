@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TreeNode - Chrome Extension | Xinjie Hu</title>
+    <link rel="stylesheet" href="../../../assets/css/main-style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../assets/images/icons/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background: #ffffff;
+        }
+        
+        .simple-nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e1e4e8;
+            padding: 16px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+        
+        .simple-nav .container {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        
+        .nav-home {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #24292e;
+            font-weight: 500;
+        }
+        
+        .nav-home img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+        
+        .back-link {
+            color: #0366d6;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .project-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 20px 40px;
+        }
+        
+        .project-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        
+        .project-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .project-header h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #24292e;
+        }
+        
+        .project-header p {
+            font-size: 1rem;
+            color: #586069;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #0366d6;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            margin: 0 8px;
+        }
+        
+        .cta-button:hover {
+            background: #0256cc;
+        }
+        
+        .screenshot-section {
+            margin: 48px 0;
+            text-align: center;
+        }
+        
+        .screenshot-section img {
+            max-width: 100%;
+            border-radius: 8px;
+            border: 1px solid #e1e4e8;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content-section {
+            margin: 48px 0;
+        }
+        
+        .content-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #24292e;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #e1e4e8;
+            padding-bottom: 8px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 24px 0;
+        }
+        
+        .feature-card {
+            background: #f6f8fa;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            padding: 24px;
+        }
+        
+        .feature-card h3 {
+            color: #24292e;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .feature-card p {
+            color: #586069;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        .content-box {
+            background: #f6f8fa;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        
+        .content-box h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #24292e;
+            margin-bottom: 16px;
+        }
+        
+        .content-box ol, .content-box ul {
+            padding-left: 20px;
+            margin: 16px 0;
+        }
+        
+        .content-box li {
+            margin: 8px 0;
+            color: #586069;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        .content-box a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+        
+        .content-box a:hover {
+            text-decoration: underline;
+        }
+        
+        .content-box strong {
+            color: #24292e;
+        }
+        
+        .simple-footer {
+            background: #f6f8fa;
+            border-top: 1px solid #e1e4e8;
+            padding: 24px 0;
+            text-align: center;
+            margin-top: 64px;
+        }
+        
+        .simple-footer p {
+            color: #586069;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .project-container {
+                padding: 80px 16px 40px;
+            }
+            
+            .project-header h1 {
+                font-size: 1.75rem;
+            }
+            
+            .cta-button {
+                display: block;
+                margin: 8px 0;
+                text-align: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .simple-nav .container {
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="site-title">
+                    <h1><a href="../../../index.html#home">xinjie.dev</a></h1>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../../../index.html#blog" class="nav-link">Blog</a></li>
+                        <li><a href="../../../index.html#projects" class="nav-link active">Projects</a></li>
+                        <li><a href="../../../index.html#profile" class="nav-link">Profile</a></li>
+                        <li><a href="../../../index.html#about" class="nav-link">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="content-grid">
+                <div class="main-content">
+                    <div class="project-detail">
+                        <div class="project-header">
+                            <h1>TreeNode</h1>
+                            <p class="project-subtitle">Chrome Extension for Notion Database Visualization</p>
+                            <div class="project-meta">
+                                <span class="meta-item"><i class="fas fa-users"></i> 1000+ Users</span>
+                                <span class="meta-item"><i class="fas fa-star"></i> 4.8/5 Rating</span>
+                                <span class="meta-item"><i class="fas fa-calendar"></i> 2024</span>
+                            </div>
+                        </div>
+
+                        <div class="project-image-hero">
+                            <img src="logo.png" alt="TreeNode Logo">
+                        </div>
+
+                        <div class="project-content">
+                            <section class="project-section">
+                                <h2>Overview</h2>
+                                <p>TreeNode is a Chrome extension that transforms flat Notion database entries into intuitive tree structures, making project management and task organization significantly more visual and manageable.</p>
+                                
+                                <div class="feature-grid">
+                                    <div class="feature-item">
+                                        <h4>🌳 Tree Visualization</h4>
+                                        <p>Convert flat task lists into hierarchical tree structures</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <h4>⚡ Real-time Sync</h4>
+                                        <p>Automatically updates when Notion database changes</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <h4>🎨 Customizable</h4>
+                                        <p>Multiple themes and layout options</p>
+                                    </div>
+                                    <div class="feature-item">
+                                        <h4>📱 Responsive</h4>
+                                        <p>Works seamlessly across all screen sizes</p>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="project-section">
+                                <h2>Problem & Solution</h2>
+                                <div class="problem-solution">
+                                    <div class="problem">
+                                        <h3>The Problem</h3>
+                                        <p>Notion's database view shows tasks in a flat list format, making it difficult to understand project hierarchies and dependencies. Users struggled with:</p>
+                                        <ul>
+                                            <li>Visualizing parent-child relationships</li>
+                                            <li>Understanding project structure at a glance</li>
+                                            <li>Managing complex nested tasks</li>
+                                        </ul>
+                                    </div>
+                                    <div class="solution">
+                                        <h3>The Solution</h3>
+                                        <p>TreeNode automatically detects hierarchical relationships in Notion databases and renders them as interactive tree structures:</p>
+                                        <ul>
+                                            <li>Visual tree representation of task hierarchies</li>
+                                            <li>Expandable/collapsible nodes for better navigation</li>
+                                            <li>Drag-and-drop functionality for reorganization</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="project-section">
+                                <h2>Technical Implementation</h2>
+                                <div class="tech-details">
+                                    <div class="tech-stack">
+                                        <h3>Technology Stack</h3>
+                                        <div class="tech-tags">
+                                            <span>JavaScript ES6+</span>
+                                            <span>Chrome Extension API</span>
+                                            <span>Notion API</span>
+                                            <span>D3.js</span>
+                                            <span>CSS3</span>
+                                            <span>Webpack</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="architecture">
+                                        <h3>Key Features</h3>
+                                        <ul>
+                                            <li><strong>Content Script Injection:</strong> Seamlessly integrates with Notion's interface</li>
+                                            <li><strong>Real-time Data Parsing:</strong> Monitors DOM changes and updates tree structure</li>
+                                            <li><strong>Interactive Visualization:</strong> D3.js powered tree rendering with smooth animations</li>
+                                            <li><strong>Performance Optimization:</strong> Efficient algorithms for large datasets</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="project-section">
+                                <h2>Impact & Results</h2>
+                                <div class="impact-metrics">
+                                    <div class="metric">
+                                        <div class="metric-number">1000+</div>
+                                        <div class="metric-label">Active Users</div>
+                                    </div>
+                                    <div class="metric">
+                                        <div class="metric-number">4.8/5</div>
+                                        <div class="metric-label">User Rating</div>
+                                    </div>
+                                    <div class="metric">
+                                        <div class="metric-number">50%</div>
+                                        <div class="metric-label">Productivity Increase</div>
+                                    </div>
+                                    <div class="metric">
+                                        <div class="metric-number">95%</div>
+                                        <div class="metric-label">User Retention</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="testimonials">
+                                    <h3>User Feedback</h3>
+                                    <blockquote>
+                                        "TreeNode completely changed how I manage my projects in Notion. The tree view makes complex hierarchies so much clearer!"
+                                        <cite>- Sarah K., Product Manager</cite>
+                                    </blockquote>
+                                </div>
+                            </section>
+
+                            <section class="project-section">
+                                <h2>Lessons Learned</h2>
+                                <div class="lessons">
+                                    <div class="lesson">
+                                        <h4>User-Centered Design</h4>
+                                        <p>Extensive user research revealed that visual hierarchy was the primary pain point, not just data organization.</p>
+                                    </div>
+                                    <div class="lesson">
+                                        <h4>Performance Matters</h4>
+                                        <p>Initial versions struggled with large datasets. Implementing virtual scrolling and lazy loading improved performance by 300%.</p>
+                                    </div>
+                                    <div class="lesson">
+                                        <h4>Iterative Development</h4>
+                                        <p>Regular user feedback sessions led to 15 major feature updates, each addressing specific user needs.</p>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                
+                <aside class="sidebar">
+                    <div class="sidebar-content">
+                        <h4>Project Links</h4>
+                        <div class="project-links">
+                            <a href="https://chromewebstore.google.com/detail/notion-task-tree-viewer/ckoknomfbeadbnmkppidchmhmeaflbka" target="_blank" class="link-button">
+                                <i class="fab fa-chrome"></i> Chrome Web Store
+                            </a>
+                            <a href="https://github.com/kosam0913/treenode" target="_blank" class="link-button">
+                                <i class="fab fa-github"></i> View Source
+                            </a>
+                        </div>
+                        
+                        <h4>Other Projects</h4>
+                        <nav class="project-nav">
+                            <ul>
+                                <li><a href="../../../index.html#projects" class="project-nav-link">← All Projects</a></li>
+                                <li><a href="#" class="project-nav-link active">TreeNode</a></li>
+                                <li><a href="#" class="project-nav-link">UCG Platform</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Xinjie Hu. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 
