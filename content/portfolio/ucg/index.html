@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCG社区平台 - 胡鑫杰</title>
+    <link rel="stylesheet" href="../../../assets/css/main-style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../assets/images/icons/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background: #ffffff;
+            font-size: 13px;
+        }
+        
+        .project-nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e1e4e8;
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+        
+        .project-nav .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .nav-home {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: #24292e;
+            font-weight: 600;
+            font-size: 0.88rem;
+        }
+        
+        .nav-home img {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        
+        .back-link {
+            color: #0366d6;
+            text-decoration: none;
+            font-size: 0.72rem;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .project-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 2rem 2rem;
+        }
+        
+        .project-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .project-logo {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .project-header h1 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #24292e;
+        }
+        
+        .project-header p {
+            font-size: 0.8rem;
+            color: #586069;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .project-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #0366d6;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.72rem;
+            transition: all 0.2s ease;
+        }
+        
+        .cta-button:hover {
+            background: #0256cc;
+        }
+        
+        .cta-button.secondary {
+            background: rgba(246, 248, 250, 0.8);
+            color: #586069;
+            border: 1px solid #e1e4e8;
+        }
+        
+        .cta-button.secondary:hover {
+            background: #f6f8fa;
+        }
+        
+        .content-section {
+            margin: 3rem 0;
+        }
+        
+        .content-section h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #24292e;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #e1e4e8;
+            padding-bottom: 0.5rem;
+        }
+        
+        .content-section p {
+            color: #586069;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-size: 0.8rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .feature-card {
+            background: #f6f8fa;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            color: #24292e;
+            margin-bottom: 0.75rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .feature-card p {
+            color: #586069;
+            line-height: 1.6;
+            font-size: 0.72rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .tech-stack span {
+            background: #f1f8ff;
+            color: #0366d6;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.68rem;
+            font-weight: 500;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .metric-card {
+            background: #f6f8fa;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .metric-number {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0366d6;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        .metric-label {
+            color: #586069;
+            font-size: 0.68rem;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .project-container {
+                padding: 80px 1rem 2rem;
+            }
+            
+            .project-header h1 {
+                font-size: 1.4rem;
+            }
+            
+            .project-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 200px;
+                text-align: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-nav .container {
+                flex-direction: column;
+                gap: 0.75rem;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="project-nav">
+        <div class="container">
+            <a href="../../../index.html" class="nav-home">
+                <img src="../../../assets/images/profile/avatar.jpg" alt="胡鑫杰">
+                <span>胡鑫杰</span>
+            </a>
+            <a href="../../../index.html#projects" class="back-link">← 返回项目列表</a>
+        </div>
+    </nav>
+
+    <div class="project-container">
+        <div class="project-header">
+            <div class="project-logo">
+                <img src="../../../assets/images/projects/ucg/icon.jpg" alt="UCG">
+            </div>
+            <h1>UCG社区平台</h1>
+            <p>阿联酋华人社区微信小程序，为海外华人提供本地化服务和社区交流平台</p>
+            
+            <div class="project-links">
+                <a href="#" class="cta-button">查看演示</a>
+                <a href="#" class="cta-button secondary">项目文档</a>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>项目概述</h2>
+            <p>UCG（United Chinese Group）社区平台是专为阿联酋华人社区开发的微信小程序。该项目从用户调研开始，经过完整的产品开发流程，最终为海外华人提供了一个集社区服务、活动信息、商家推荐和交流互动于一体的综合性平台。</p>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <span class="metric-number">500+</span>
+                    <span class="metric-label">活跃用户</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">50+</span>
+                    <span class="metric-label">合作商家</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">100+</span>
+                    <span class="metric-label">社区活动</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">4.7/5</span>
+                    <span class="metric-label">用户评分</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>核心功能</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🏪 商家服务</h3>
+                    <p>本地华人商家推荐，包括餐厅、超市、服务机构等，支持在线预订和评价</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📅 活动发布</h3>
+                    <p>社区活动信息发布和报名，包括节日庆典、聚会、讲座等</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💬 社区论坛</h3>
+                    <p>用户交流互动平台，分享生活经验、求助问答、二手交易等</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📰 资讯推送</h3>
+                    <p>本地新闻、政策解读、生活指南等实用信息推送</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔍 便民查询</h3>
+                    <p>签证办理、银行开户、租房买房等生活服务信息查询</p>
+                </div>
+                <div class="feature-card">
+                    <h3>👥 用户社群</h3>
+                    <p>基于兴趣和地区的用户群组，促进线下交流和互助</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>技术实现</h2>
+            <p>项目采用微信小程序原生开发框架，结合现代前端技术栈，确保良好的用户体验和系统稳定性。</p>
+            
+            <h3 style="font-size: 0.88rem; margin: 1.5rem 0 0.75rem 0; color: #24292e;">技术栈</h3>
+            <div class="tech-stack">
+                <span>微信小程序</span>
+                <span>Vue.js</span>
+                <span>Node.js</span>
+                <span>MongoDB</span>
+                <span>微信支付</span>
+                <span>腾讯云</span>
+                <span>Redis</span>
+            </div>
+            
+            <h3 style="font-size: 0.88rem; margin: 1.5rem 0 0.75rem 0; color: #24292e;">架构特点</h3>
+            <ul style="color: #586069; font-size: 0.8rem; line-height: 1.6; padding-left: 1.5rem;">
+                <li>微服务架构设计，模块化开发</li>
+                <li>RESTful API接口，前后端分离</li>
+                <li>Redis缓存优化，提升响应速度</li>
+                <li>CDN加速，图片和静态资源优化</li>
+                <li>微信生态深度集成，支付和分享无缝对接</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>产品亮点</h2>
+            <p><strong>用户调研驱动：</strong>通过深入的用户访谈和问卷调研，了解阿联酋华人社区的真实需求，确保产品功能贴合用户痛点。</p>
+            
+            <p><strong>本地化设计：</strong>针对阿联酋当地法律法规、文化习俗和生活习惯进行深度本地化，提供真正有用的服务。</p>
+            
+            <p><strong>社区运营：</strong>不仅是技术产品，更注重社区运营和用户关系维护，建立了活跃的用户社群。</p>
+            
+            <p><strong>商业模式：</strong>通过商家入驻、广告投放、活动推广等方式实现可持续的商业化运营。</p>
+        </div>
+
+        <div class="content-section">
+            <h2>项目成果</h2>
+            <p>UCG社区平台成功上线后，迅速成为阿联酋华人社区的重要信息和服务平台。项目不仅解决了用户的实际需求，也为当地华人商家提供了有效的推广渠道，形成了良性的生态循环。</p>
+            
+            <p>该项目展现了从0到1的完整产品开发能力，包括市场调研、产品设计、技术实现、运营推广等各个环节，是技术产品经理综合能力的典型体现。</p>
+        </div>
+    </div>
+</body>
+</html> 
