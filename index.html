@@ -8,47 +8,24 @@
         <meta name="author" content="Xinjie Hu">
 
         <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="images/favicon/favicon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="assets/images/icons/favicon.ico">
 
-        <!-- CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/animate.min.css">
-        <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
-        <link rel="stylesheet" href="css/colors/DarkBlue.css" id="colors-style">
-        <link rel="stylesheet" href="css/switcher.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/prettyPhoto.css">
-
-        <style>
-            @media only screen and (max-width: 1000px) {
-                .resp-vtabs .resp-tabs-container {
-                    margin-left: 13px;
-                }
-            }
-            
-            @media only screen and (min-width: 900px) and (max-width: 1000px) {
-                .resp-vtabs .resp-tabs-container {
-                    margin-left: 13px;
-                    width: 89%;
-                }
-            }
-        </style>
+        <!-- Font Awesome for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <!-- Main Stylesheet -->
+        <link rel="stylesheet" href="assets/css/main-style.css">
     </head>
 
     <body>
-
-        <div id="preloader">
-            <div id="spinner"></div>
-        </div>
-
         <!-- Sidebar -->
         <div class="widget-profile">
             <div class="row">
                 <!-- Profile Image -->
                 <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
                     <div class="profile__image">
-                        <img src="images/img/avatar2.jpg" alt="Xinjie Hu" class="img-responsive" />
+                        <img src="assets/images/profile/avatar_prev.jpg" alt="Xinjie Hu" class="img-responsive" />
                     </div>
                 </div>
                 
@@ -61,28 +38,20 @@
                         <h6 class="profile__location"><i class="fa fa-map-marker"></i> Abu Dhabi, UAE</h6>
                     </div>
                     <div class="profile__social">
-                        <a href="https://www.facebook.com/kosam0913" target="_blank"><i class="fa fa-facebook"></i></a>
-                        <a href="https://www.linkedin.com/in/xinjie-hu-574070125/" target="_blank"><i class="fa fa-linkedin"></i></a>
-                        <a href="https://github.com/kosam0913" target="_blank"><i class="fa fa-github"></i></a>
-                    </div>
-                    <div class="profile__contact">
-                        <a href="mailto:xinjie.hu@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+                        <a href="https://www.facebook.com/kosam0913" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/in/xinjie-hu-574070125/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/kosam0913" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="mailto:kosam0913@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
         </div>
-
+        
         <!-- Main Content -->
         <div class="main-content">
             <!-- Navigation -->
             <nav>
                 <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="#blog" class="nav__link">
-                            <i class="fa fa-newspaper-o"></i>
-                            <span>Blog</span>
-                        </a>
-                    </li>
                     <li class="nav__item">
                         <a href="#profile" class="nav__link active">
                             <i class="fa fa-user"></i>
@@ -95,79 +64,17 @@
                             <span>Portfolio</span>
                         </a>
                     </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">
+                            <i class="fa fa-heart"></i>
+                            <span>About</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
 
             <!-- Content Sections -->
             <div class="content-sections">
-
-                <!-- Blog Section -->
-                <section id="blog" class="content-section">
-                    <div class="text_content">INDEPENDENT DEVELOPER WEEKLY THOUGHTS</div>
-                    
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">Week 1 - May 10, 2023</div>
-                            <div class="timeline-content">
-                                <div id="week1-content">
-                                    <!-- 这里的内容将从week1.md加载 -->
-                                    <h3>Starting My Independent Journey</h3>
-                                    <p>Loading content...</p>
-                                </div>
-                                <div class="timeline-tags">
-                                    <span>Vue.js</span>
-                                    <span>WeChat</span>
-                                    <span>Planning</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">Week 2 - May 17, 2023</div>
-                            <div class="timeline-content">
-                                <div id="week2-content">
-                                    <!-- 这里的内容将从week2.md加载 -->
-                                    <h3>Prototype Development</h3>
-                                    <p>Loading content...</p>
-                                </div>
-                                <div class="timeline-tags">
-                                    <span>Prototype</span>
-                                    <span>Cloud Functions</span>
-                                    <span>State Management</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">Week 3 - May 24, 2023</div>
-                            <div class="timeline-content">
-                                <div id="week3-content">
-                                    <!-- 这里的内容将从week3.md加载 -->
-                                    <h3>User Testing & Feedback</h3>
-                                    <p>Loading content...</p>
-                                </div>
-                                <div class="timeline-tags">
-                                    <span>User Testing</span>
-                                    <span>Feedback</span>
-                                    <span>Optimization</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <script>
-                        // 当文档加载完成后运行
-                        $(document).ready(function() {
-                            // 加载博客内容
-                            loadMarkdownContent('blog/week1.md', 'week1-content');
-                            loadMarkdownContent('blog/week2.md', 'week2-content');
-                            loadMarkdownContent('blog/week3.md', 'week3-content');
-                        });
-                    </script>
-                </section>
 
                 <!-- Profile Section -->
                 <section id="profile" class="content-section active" style="display: block;">
@@ -178,43 +85,63 @@
                         <ul class="attributes">
                              <li>
                                 <h5>
-                                    <span class="fa fa-briefcase"></span><span class="position-info">Founder & Full Stack Developer @ Shiran Tech, Abu Dhabi, UAE</span>
-                                    <span class="duration"><i class="fa fa-calendar color"></i>Dec 2025 - Now</span>
+                                    <span class="duration">2025/01 - Present</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-briefcase"></span>
+                                            <span>Indie Full Stack Developer @ Abu Dhabi, UAE</span>
+                                        </div>
+                                        <p>•<span style="margin-left: 12px;"/>Independently built and launched a WeChat Mini Program for Chinese community in UAE, using Vue, TDesign, and cloud database</p>
+                                        <p>•<span style="margin-left: 12px;"/>Designed and implemented full-stack architecture with fast iteration and user feedback loop</p>
+                                    </div>
                                 </h5>
-                                <p>• Independently built and launched a WeChat Mini Program for Chinese community in UAE, using Vue, TDesign, and cloud database</p>
-                                <p>• Designed and implemented full-stack architecture with fast iteration and user feedback loop</p>
                             </li>
                             <li>
                                 <h5>
-                                    <span class="fa fa-briefcase"></span><span class="position-info">Motion Technical Director  @  miHoYo, Shanghai, China</span>
-                                    <span class="duration"><i class="fa fa-calendar color"></i>Nov 2022 - Dec 2024</span>
+                                    <span class="duration">2022/11 - 2024/12</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-briefcase"></span>
+                                            <span>Motion Technical Director  @  miHoYo, Shanghai, China</span>
+                                        </div>
+                                        <p>•<span style="margin-left: 12px;"/>Developed and automated AI model training process with distributed computing cluster, achieving 20x iteration speed improvement</p>
+                                        <p>•<span style="margin-left: 12px;"/>Optimized model algorithms with feature engineering for production requirements</p>
+                                        <p>•<span style="margin-left: 12px;"/>Implemented data validation and version control for model integrity</p>
+                                        <p>•<span style="margin-left: 12px;"/>Designed motion capture toolkit and automation pipeline</p>
+                                    </div>
                                 </h5>
-                                <p>• Developed and automated AI model training process with distributed computing cluster, achieving 20x iteration speed improvement</p>
-                                <p>• Optimized model algorithms with feature engineering for production requirements</p>
-                                <p>• Implemented data validation and version control for model integrity</p>
-                                <p>• Designed motion capture toolkit and automation pipeline</p>
                             </li>
                             
                             <li>
                                 <h5>
-                                    <span class="fa fa-briefcase"></span><span class="position-info">Pipeline Technical Director  @  miHoYo, Shanghai, China</span>
-                                    <span class="duration"><i class="fa fa-calendar color"></i>Aug 2021 - Nov 2022</span>
+                                    <span class="duration">2021/08 - 2022/11</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-briefcase"></span>
+                                            <span>Pipeline Technical Director  @  miHoYo, Shanghai, China</span>
+                                        </div>
+                                        <p>•<span style="margin-left: 12px;"/>Implemented automation pipeline for motion capture data processing</p>
+                                        <p>•<span style="margin-left: 12px;"/>Developed production pipelines using Shotgun and Rez packages</p>
+                                        <p>•<span style="margin-left: 12px;"/>Designed distributed computing cluster workflow with Kafka</p>
+                                        <p>•<span style="margin-left: 12px;"/>Created specialized Unreal Engine launcher with CI/CD automation</p>
+                                    </div>
                                 </h5>
-                                <p>• Implemented automation pipeline for motion capture data processing</p>
-                                <p>• Developed production pipelines using Shotgun and Rez packages</p>
-                                <p>• Designed distributed computing cluster workflow with Kafka</p>
-                                <p>• Created specialized Unreal Engine launcher with CI/CD automation</p>
                             </li>
 
                             <li>
                                 <h5>
-                                    <span class="fa fa-briefcase"></span><span class="position-info">Associate Production Engineer  @  Industrial Light & Magic, Singapore</span>
-                                    <span class="duration"><i class="fa fa-calendar color"></i>Jul 2017 - Jul 2021</span>
+                                    <span class="duration">2017/07 - 2021/07</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-briefcase"></span>
+                                            <span>Associate Production Engineer  @  Industrial Light & Magic, Singapore</span>
+                                        </div>
+                                        <p>•<span style="margin-left: 12px;"/>Provided technical support and developed pipeline tools</p>
+                                        <p>•<span style="margin-left: 12px;"/>Implemented render data analytics with Elasticsearch and Kibana</p>
+                                        <p>•<span style="margin-left: 12px;"/>Developed Clarisse resource allocation optimization</p>
+                                        <p>•<span style="margin-left: 12px;"/>Projects: Red Notice, Aquaman, Solo: A Star Wars Story, Ready Player One</p>
+                                    </div>
                                 </h5>
-                                <p>• Provided technical support and developed pipeline tools</p>
-                                <p>• Implemented render data analytics with Elasticsearch and Kibana</p>
-                                <p>• Developed Clarisse resource allocation optimization</p>
-                                <p>• Projects: Red Notice, Aquaman, Solo: A Star Wars Story, Ready Player One</p>
                             </li>
                         </ul>
                     </div>
@@ -225,46 +152,87 @@
                         <ul class="attributes">
                             <li class="first">
                                 <h5>
-                                    <span class="fa fa-book"></span><span class="position-info">MSc. Digital Media Technology  @  Nanyang Technological University, Singapore</span>
-                                    <span class="duration"><i class="fa fa-calendar color"></i>Jul 2016 - Jun 2017</span>
+                                    <span class="duration">2025/01 - Present</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-book"></span>
+                                            <span>MSE. Data Science  @  University of Pennsylvania, USA</span>
+                                        </div>
+                                        <p>Specialization: Data Science</p>
+                                    </div>
                                 </h5>
-                                <p>CGPA: 4.00 / 5.00</p>
-                                <p>Specialization: Advanced Computer Graphics</p>
+                            </li>
+
+                            <li>
+                                <h5>
+                                    <span class="duration">2016/07 - 2017/06</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-book"></span>
+                                            <span>MSc. Digital Media Technology  @  Nanyang Technological University, Singapore</span>
+                                        </div>
+                                        <p>CGPA: 4.00 / 5.00</p>
+                                        <p>Specialization: Advanced Computer Graphics</p>
+                                    </div>
+                                </h5>
                             </li>
                             
                             <li>
                                 <h5>
-                                    <span class="fa fa-book"></span><span class="position-info">BSc. Geographic Information System  @  Wuhan University, China</span>
-                                    <span class="duration"><i class="fa fa-calendar color"></i>Sep 2012 - Jun 2016</span>
+                                    <span class="duration">2012/09 - 2016/06</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-book"></span>
+                                            <span>BSc. Geographic Information System  @  Wuhan University, China</span>
+                                        </div>
+                                        <p>CGPA: 3.42 / 4.00 (Second Upper Honors)</p>
+                                        <p>Specialization: Computer Graphics & Digital Image Processing</p>
+                                    </div>
                                 </h5>
-                                <p>Second Upper Honors (CGPA: 3.42 / 4.00)</p>
-                                <p>Specialization: Computer Graphics & Digital Image Processing</p>
                             </li>
                         </ul>
                     </div>
-
+                    
                     <!-- Certifications -->
                     <div class="certifications-section">
                         <div class="text_content">CERTIFICATIONS</div>
-                        <ul class="attributes">
+                        <ul class="attributes certifications-list">
                             <li>
                                 <h5>
-                                    <span class="fa fa-certificate"></span><span class="position-info">TensorFlow Developer Certificate  @  DeepLearning.AI on Coursera</span>
-                                    <span class="duration"><i class="fa fa-calendar color"></i>2022</span>
+                                    <span class="duration">2024/05</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-certificate"></span>
+                                            <span>Machine Learning Engineering for Production (MLOps) @ DeepLearning.AI on Coursera</span>
+                                        </div>
+                                    </div>
                                 </h5>
                             </li>
+
                             <li>
                                 <h5>
-                                    <span class="fa fa-certificate"></span><span class="position-info">Deep Learning Certificate  @  DeepLearning.AI on Coursera</span>
-                                    <span class="duration"><i class="fa fa-calendar color"></i>2021</span>
+                                    <span class="duration">2024/02</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-certificate"></span>
+                                            <span>Deep Learning Certificate  @  DeepLearning.AI on Coursera</span>
+                                        </div>
+                                    </div>
                                 </h5>
                             </li>
+
                             <li>
                                 <h5>
-                                    <span class="fa fa-certificate"></span><span class="position-info">Machine Learning Engineering for Production (MLOps)  @  DeepLearning.AI on Coursera</span>
-                                    <span class="duration"><i class="fa fa-calendar color"></i>2021</span>
+                                    <span class="duration">2024/01</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-certificate"></span>
+                                            <span>TensorFlow Developer Certificate  @  DeepLearning.AI on Coursera</span>
+                                        </div>
+                                    </div>
                                 </h5>
                             </li>
+
                         </ul>
                     </div>
 
@@ -286,117 +254,306 @@
 
                 <!-- Portfolio Section -->
                 <section id="portfolio" class="content-section">
-                    <div class="text_content">PROJECT PORTFOLIO</div>
-                    
-                    <!-- 添加TreeNode项目展示 -->
-                    <div class="project-showcase">
-                        <div class="project-row">
-                            <div class="project-info">
-                                <img src="tmp/TreeNode/logo.jpg" alt="TreeNode Logo" class="project-logo">
-                                <div class="project-details">
-                                    <h2>TreeNode - Notion任务树形视图</h2>
-                                    <p>TreeNode是一个帮助用户在Notion中以树形结构可视化管理任务的工具。它提供直观的任务层级展示，让项目管理更加高效。</p>
-                                    <div class="project-tags">
-                                        <span>Notion集成</span>
-                                        <span>项目管理</span>
-                                        <span>Web应用</span>
+                    <div class="projects-showcase">
+                        <div class="projects-grid-4col">
+                            <!-- Data Science -->
+                            <div class="project-card large-project full-cover-image" onclick="openProjectDetail('datascience')" style="grid-column: span 2;">
+                                <div class="project-image">
+                                    <img src="content/portfolio/datascience/logo.jpg" alt="Data Science">
+                                    <div class="project-image-overlay">
+                                        <div class="project-zoom-icon">
+                                            <i class="fa fa-search"></i>
+                                        </div>
                                     </div>
-                                    <div class="project-links">
-                                        <a href="tmp/TreeNode/index.html" target="_blank" class="project-btn">查看演示</a>
-                                        <a href="https://github.com/yourusername/treenode" target="_blank" class="project-btn">GitHub</a>
+                                </div>
+
+                                <div class="project-info">
+                                    <h3>Big Data Analysis</h3>
+                                    <p>Ride Price Factors and Ride-sharing Demand Forecasting</p>
+                                    <div class="project-tags">
+                                        <span>Python</span>
+                                        <span>ML</span>
+                                        <span>Data Analysis</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- UCG -->
+                            <div class="project-card large-project" onclick="openProjectDetail('ucg')" style="grid-column: span 2;">
+                                <div class="project-image">
+                                    <img src="content/portfolio/ucg/logo.jpg" alt="UCG微信小程序">
+                                    <div class="project-image-overlay">
+                                        <div class="project-zoom-icon">
+                                            <i class="fa fa-search"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <h3>UCG WeChat Mini Program</h3>
+                                    <p>A WeChat Mini Program for the UAE Chinese Community</p>
+                                    <div class="project-tags">
+                                        <span>JavaScript</span>
+                                        <span>MySQL</span>
+                                        <span>Flask</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- TreeNode 大项目 -->
+                            <div class="project-card large-project" onclick="openProjectDetail('treenode')" style="grid-column: span 2;">
+                                <div class="project-image">
+                                    <img src="content/portfolio/treenode/logo.jpg" alt="TreeNode">
+                                    <div class="project-image-overlay">
+                                        <div class="project-zoom-icon">
+                                            <i class="fa fa-search"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <h3>Chrome Extension: TreeView</h3>
+                                    <p>Notion Database Visualization Chrome Extension</p>
+                                    <div class="project-tags">
+                                        <span>Product Design</span>
+                                        <span>React</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 其他小项目堆叠 -->
+                            <div class="small-projects-column" style="grid-column: span 2;">
+                                <div class="project-card small-project" onclick="openProjectDetail('design')" style="grid-column: span 2;">
+                                    <div class="project-image-small">
+                                        <img src="content/portfolio/design/design/design_03.jpg" alt="Design Works">
+                                        <div class="project-image-overlay">
+                                            <div class="project-zoom-icon">
+                                                <i class="fa fa-search"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="project-info-small">
+                                        <h4>Visual Design</h4>
+                                        <p>Graphic Portfolio</p>
+                                        <div class="project-tags-small">
+                                            <span>Graphic Design</span>
+                                            <span>Poster Design</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-card small-project" onclick="openProjectDetail('charity')" style="grid-column: span 2;">
+                                    <div class="project-image-small">
+                                        <img src="content/portfolio/public_welfare/logo.jpg" alt="公益活动">
+                                        <div class="project-image-overlay">
+                                            <div class="project-zoom-icon">
+                                                <i class="fa fa-search"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="project-info-small">
+                                        <h4>Public Welfare</h4>
+                                        <p>Rescue and Help</p>
+                                        <div class="project-tags-small">
+                                            <span>Public Welfare</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="project-card small-project" onclick="openProjectDetail('best')" style="grid-column: span 2;">
+                                    <div class="project-image-small">
+                                        <img src="content/portfolio/BEST/logo.jpg" alt="BEST记账">
+                                        <div class="project-image-overlay">
+                                            <div class="project-zoom-icon">
+                                                <i class="fa fa-search"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="project-info-small">
+                                        <h4>BEST Notion Template</h4>
+                                        <p>Apple Shortcuts Budget Expense Tracker</p>
+                                        <div class="project-tags-small">
+                                            <span>Apple Shortcuts</span>
+                                            <span>Notion Template</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        
+                        <!-- 第二行：Poster 项目 -->
+                        <div class="projects-grid-4col" style="margin-top: 30px;">
+                            <!-- Poster 1 -->
+                            <div class="project-card poster-project-small" onclick="openProjectDetail('poster1')" style="grid-column: span 3;">
+                                <div class="project-image">
+                                    <img src="content/portfolio/design/poster1.jpg" alt="Poster Design 1">
+                                    <div class="project-image-overlay">
+                                        <div class="project-zoom-icon">
+                                            <i class="fa fa-search"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <h3>Poster Design</h3>
+                                    <div class="project-tags">
+                                        <span>Graphic Design</span>
+                                        <span>CorelDRAW</span>
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="project-screenshot">
-                                <img src="tmp/TreeNode/screenshot.png" alt="TreeNode Screenshot">
+                            <!-- Poster 2 -->
+                            <div class="project-card poster-project-small" onclick="openProjectDetail('poster2')" style="grid-column: span 3;">
+                                <div class="project-image">
+                                    <img src="content/portfolio/design/poster2.jpg" alt="Poster Design 2">
+                                    <div class="project-image-overlay">
+                                        <div class="project-zoom-icon">
+                                            <i class="fa fa-search"></i>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <h3>Poster Design</h3>
+                                    <div class="project-tags">
+                                        <span>Graphic Design</span>
+                                        <span>CorelDRAW</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 表情包设计 - 大项目 -->
+                            <div class="project-card large-project full-cover-image" onclick="openProjectDetail('emoji')" style="grid-column: span 2;">
+                                <div class="project-image">
+                                    <img src="content/portfolio/emoji/logo.jpg" alt="表情包设计">
+                                    <div class="project-image-overlay">
+                                        <div class="project-zoom-icon">
+                                            <i class="fa fa-search"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <h3>Emoji Design</h3>
+                                    <p>Original Emoji Design Portfolio, inspired by my fighting fish</p>
+                                    <div class="project-tags">
+                                        <span>CorelDRAW</span>
+                                        <span>Original IP</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- 原有的Portfolio Grid -->
-                    <div class="portfolio-grid">
-                        <div class="portfolio-item">
-                            <div class="portfolio-image">
-                                <img src="Design/Logo/HXJ-Poster1.jpg" alt="Poster Design 1">
-                                <div class="portfolio-overlay">
-                                    <div class="portfolio-info">
-                                        <h3>Poster Design</h3>
-                                        <a href="Design/Logo/HXJ-Poster1.jpg" class="portfolio-zoom" data-rel="prettyPhoto"><i class="fa fa-search"></i></a>
-                                    </div>
-                                </div>
+                </section>
+
+                <!-- About Section -->
+                <section id="about" class="content-section">
+                    <!-- 个人介绍卡片 -->
+                    <div class="about-card personal-intro-card">
+                        <div class="personal-intro-content">
+                            <div class="intro-text">
+                                <p>🚀 A technically grounded creative thinker bridging pipelines, product strategy, and human-centered design with a passion for innovation and public impact.</p>
                             </div>
                         </div>
-                        
-                        <div class="portfolio-item">
-                            <div class="portfolio-image">
-                                <img src="Design/Logo/HXJ-Poster2.jpg" alt="Poster Design 2">
-                                <div class="portfolio-overlay">
-                                    <div class="portfolio-info">
-                                        <h3>Poster Design</h3>
-                                        <a href="Design/Logo/HXJ-Poster2.jpg" class="portfolio-zoom" data-rel="prettyPhoto"><i class="fa fa-search"></i></a>
-                                    </div>
+                    </div>
+                    <div class="about-cards">
+                        <!-- 第一行第一个：技术专长 -->
+                        <div class="about-card">
+                            <div class="about-card-header">
+                                <div class="about-card-icon">
+                                    <i class="fas fa-code"></i>
                                 </div>
+                                <h3>Technical Expertise</h3>
                             </div>
-                        </div>
-                        
-                        <div class="portfolio-item">
-                            <div class="portfolio-image">
-                                <img src="Design/Logo/HXJ-Poster3.jpg" alt="Poster Design 3">
-                                <div class="portfolio-overlay">
-                                    <div class="portfolio-info">
-                                        <h3>Poster Design</h3>
-                                        <a href="Design/Logo/HXJ-Poster3.jpg" class="portfolio-zoom" data-rel="prettyPhoto"><i class="fa fa-search"></i></a>
-                                    </div>
-                                </div>
+                            <p>Specialized in AI/ML pipeline development, computer graphics, and motion capture technology. Experienced in building distributed computing systems and automation tools.</p>
+                            <div class="about-card-meta">
+                                <span>8+ Years Experience</span>
+                                <span>Python • TensorFlow • Linux</span>
                             </div>
                         </div>
 
-                        <div class="portfolio-item">
-                            <div class="portfolio-image">
-                                <img src="Design/Logo/HXJ-Design1.jpg" alt="Design 1">
-                                <div class="portfolio-overlay">
-                                    <div class="portfolio-info">
-                                        <h3>Logo Design</h3>
-                                        <a href="Design/Logo/HXJ-Design1.jpg" class="portfolio-zoom" data-rel="prettyPhoto"><i class="fa fa-search"></i></a>
-                                    </div>
-                                </div>
+                        <!-- 第一行第二个：照片1 -->
+                        <div class="about-card photo-card">
+                            <div class="about-photo-container">
+                                <img src="content/about/badminton.jpg" alt="Badminton" class="about-photo">
                             </div>
                         </div>
 
-                        <div class="portfolio-item">
-                            <div class="portfolio-image">
-                                <img src="Design/Logo/HXJ-Design2.jpg" alt="Design 2">
-                                <div class="portfolio-overlay">
-                                    <div class="portfolio-info">
-                                        <h3>Logo Design</h3>
-                                        <a href="Design/Logo/HXJ-Design2.jpg" class="portfolio-zoom" data-rel="prettyPhoto"><i class="fa fa-search"></i></a>
-                                    </div>
+                        <!-- 第一行第三个: 行业经验 -->
+                        <div class="about-card">
+                            <div class="about-card-header">
+                                <div class="about-card-icon">
+                                    <i class="fas fa-film"></i>
                                 </div>
+                                <h3>Industry Experience</h3>
+                            </div>
+                            <p>Worked on major Hollywood productions including Red Notice, Aquaman, and Star Wars. Contributed to cutting-edge visual effects and pipeline development.</p>
+                            <div class="about-card-meta">
+                                <span>Hollywood Productions</span>
+                                <span>VFX • Game • Pipeline</span>
                             </div>
                         </div>
 
-                        <div class="portfolio-item">
-                            <div class="portfolio-image">
-                                <img src="Design/Logo/HXJ-Design3.jpg" alt="Design 3">
-                                <div class="portfolio-overlay">
-                                    <div class="portfolio-info">
-                                        <h3>Logo Design</h3>
-                                        <a href="Design/Logo/HXJ-Design3.jpg" class="portfolio-zoom" data-rel="prettyPhoto"><i class="fa fa-search"></i></a>
-                                    </div>
-                                </div>
+                        <!-- 第二行第一个：照片2 -->
+                        <div class="about-card photo-card">
+                            <div class="about-photo-container">
+                                <img src="content/about/singer.jpg" alt="Music Performance" class="about-photo">
                             </div>
                         </div>
 
-                        <div class="portfolio-item">
-                            <div class="portfolio-image">
-                                <img src="Design/Logo/Logo2.jpg" alt="Logo Design">
-                                <div class="portfolio-overlay">
-                                    <div class="portfolio-info">
-                                        <h3>Logo Design</h3>
-                                        <a href="Design/Logo/Logo2.jpg" class="portfolio-zoom" data-rel="prettyPhoto"><i class="fa fa-search"></i></a>
-                                    </div>
+                        <!-- 第二行第二个：个人理念 -->
+                        <div class="about-card">
+                            <div class="about-card-header">
+                                <div class="about-card-icon">
+                                    <i class="fas fa-lightbulb"></i>
                                 </div>
+                                <h3>Philosophy</h3>
+                            </div>
+                            <p>Passionate about bridging technology and creativity. Believe that innovation in AI/ML can revolutionize the creative industry and improve production workflows.</p>
+                            <div class="about-card-meta">
+                                <span>Innovation • Creativity</span>
+                                <span>AI/ML • Creative Tech</span>
+                            </div>
+                        </div>
+
+                        <!-- 第二行第三个：照片3 -->
+                        <div class="about-card photo-card">
+                            <div class="about-photo-container">
+                                <img src="content/about/ops.jpg" alt="Operations" class="about-photo">
+                            </div>
+                        </div>
+
+                        <!-- 第三行第一个：项目成就 -->
+                        <div class="about-card">
+                            <div class="about-card-header">
+                                <div class="about-card-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <h3>Project Achievements</h3>
+                            </div>
+                            <p>Led development of motion capture AI models achieving 20x iteration speed improvement. Built full-stack WeChat Mini Program (on it way to) serving 500+ users in UAE Chinese community.</p>
+                            <div class="about-card-meta">
+                                <span>20x Performance Boost</span>
+                                <span>500+ Active Users</span>
+                            </div>
+                        </div>
+
+                        <!-- 第三行第二个：照片4 -->
+                        <div class="about-card photo-card">
+                            <div class="about-photo-container">
+                                <img src="content/about/diver.jpg" alt="Diving" class="about-photo">
+                            </div>
+                        </div>
+
+                        <!-- 第三行第三个：联系方式 -->
+                        <div class="about-card">
+                            <div class="about-card-header">
+                                <div class="about-card-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h3>Get In Touch</h3>
+                            </div>
+                            <p>Always open to discussing AI/ML, computer graphics, or any technology-related topics. Feel free to reach out for collaboration opportunities!</p>
+                            <div class="about-card-meta">
+                                <span>Abu Dhabi, UAE</span>
+                                <span>Open to Remote</span>
                             </div>
                         </div>
                     </div>
@@ -404,24 +561,56 @@
             </div>
         </div>
 
-        <!-- 添加Markdown解析库 -->
-        <script type="text/javascript" src="js/jquery.min.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script> 
-        <script type="text/javascript" src="js/jquery.cycle2.min.js"></script>
-        <script type="text/javascript" src="js/jquery.mixitup.min.js"></script> 
-        <script type="text/javascript" src="js/easyResponsiveTabs.min.js"></script> 
-        <script type="text/javascript" src="js/jsSwitcher/jquery.cookie.js"></script>
-        <script type="text/javascript" src="js/jsSwitcher/switcher.js"></script>
-        <script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>	
-        <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript">
-            // 禁用旧的HeadImage功能
-            $(document).ready(function() {
-                $('#cb_slideshow').hide();
+        <script>
+            // Navigation functionality
+            document.addEventListener('DOMContentLoaded', function() {
+                const navLinks = document.querySelectorAll('.nav__link');
+                const sections = document.querySelectorAll('.content-section');
+
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // Remove active class from all links and sections
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        sections.forEach(s => {
+                            s.classList.remove('active');
+                            s.style.display = 'none';
+                        });
+                        
+                        // Add active class to clicked link
+                        this.classList.add('active');
+                        
+                        // Show corresponding section
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetSection = document.getElementById(targetId);
+                        if (targetSection) {
+                            targetSection.classList.add('active');
+                            targetSection.style.display = 'block';
+                        }
+                    });
+                });
             });
 
+            // Project detail functionality
+            function openProjectDetail(projectId) {
+                if (projectId === 'datascience') {
+                    window.open('https://colab.research.google.com/drive/1A3DhtigtOnSK2Jkvbd3zkQkeWm7Pd1_x?usp=sharing', '_blank');
+                } else if (projectId === 'best') {
+                    window.open('https://www.notion.com/templates/budget-expense-smart-tracker', '_blank');
+                } else if (projectId === 'poster1' || projectId === 'poster2' || projectId === 'charity') {
+                    // Poster项目和公益活动暂时无跳转
+                    return;
+                } else if (projectId === 'design') {
+                    window.open(`content/portfolio/design/index.html`, '_blank');
+                } else if (projectId === 'treenode') {
+                    window.open('https://chromewebstore.google.com/detail/notion-treeview/ckoknomfbeadbnmkppidchmhmeaflbka', '_blank');
+                } else {
+                    window.open(`content/portfolio/${projectId}/index.html`, '_blank');
+                }
+            }
         </script>
 
     </body>
 </html>
+

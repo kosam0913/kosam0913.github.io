@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEST系统 - 胡鑫杰</title>
+    <link rel="stylesheet" href="../../../assets/css/main-style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../assets/images/icons/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background: #ffffff;
+            font-size: 13px;
+        }
+        
+        .project-nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e1e4e8;
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+        
+        .project-nav .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .nav-home {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: #24292e;
+            font-weight: 600;
+            font-size: 0.88rem;
+        }
+        
+        .nav-home img {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        
+        .back-link {
+            color: #0366d6;
+            text-decoration: none;
+            font-size: 0.72rem;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .project-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 2rem 2rem;
+        }
+        
+        .project-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .project-logo {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            background: #f6f8fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #0366d6;
+        }
+        
+        .project-header h1 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #24292e;
+        }
+        
+        .project-header p {
+            font-size: 0.8rem;
+            color: #586069;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .project-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #0366d6;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.72rem;
+            transition: all 0.2s ease;
+        }
+        
+        .cta-button:hover {
+            background: #0256cc;
+        }
+        
+        .cta-button.secondary {
+            background: rgba(246, 248, 250, 0.8);
+            color: #586069;
+            border: 1px solid #e1e4e8;
+        }
+        
+        .cta-button.secondary:hover {
+            background: #f6f8fa;
+        }
+        
+        .content-section {
+            margin: 3rem 0;
+        }
+        
+        .content-section h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #24292e;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #e1e4e8;
+            padding-bottom: 0.5rem;
+        }
+        
+        .content-section p {
+            color: #586069;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-size: 0.8rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .feature-card {
+            background: #f6f8fa;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            color: #24292e;
+            margin-bottom: 0.75rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .feature-card p {
+            color: #586069;
+            line-height: 1.6;
+            font-size: 0.72rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .tech-stack span {
+            background: #f1f8ff;
+            color: #0366d6;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.68rem;
+            font-weight: 500;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .metric-card {
+            background: #f6f8fa;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .metric-number {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0366d6;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        .metric-label {
+            color: #586069;
+            font-size: 0.68rem;
+            font-weight: 500;
+        }
+        
+        .architecture-diagram {
+            background: #f6f8fa;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .architecture-diagram h3 {
+            color: #24292e;
+            margin-bottom: 1rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+        
+        .diagram-layers {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .diagram-layer {
+            background: #ffffff;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            padding: 0.75rem;
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: #24292e;
+        }
+        
+        @media (max-width: 768px) {
+            .project-container {
+                padding: 80px 1rem 2rem;
+            }
+            
+            .project-header h1 {
+                font-size: 1.4rem;
+            }
+            
+            .project-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 200px;
+                text-align: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-nav .container {
+                flex-direction: column;
+                gap: 0.75rem;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="project-nav">
+        <div class="container">
+            <a href="../../../index.html" class="nav-home">
+                <img src="../../../assets/images/profile/avatar.jpg" alt="胡鑫杰">
+                <span>胡鑫杰</span>
+            </a>
+            <a href="../../../index.html#projects" class="back-link">← 返回项目列表</a>
+        </div>
+    </nav>
+
+    <div class="project-container">
+        <div class="project-header">
+            <div class="project-logo">
+                <i class="fas fa-cogs"></i>
+            </div>
+            <h1>BEST系统</h1>
+            <p>企业级业务流程管理系统，提供流程建模、执行监控和优化分析的一体化解决方案</p>
+            
+            <div class="project-links">
+                <a href="#" class="cta-button">系统演示</a>
+                <a href="#" class="cta-button secondary">技术文档</a>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>项目概述</h2>
+            <p>BEST（Business Excellence Support Tool）系统是一个企业级业务流程管理平台，旨在帮助企业实现流程标准化、自动化和持续优化。系统集成了流程建模、执行监控、数据分析和优化建议等核心功能。</p>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <span class="metric-number">50+</span>
+                    <span class="metric-label">企业客户</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">200+</span>
+                    <span class="metric-label">流程模板</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">30%</span>
+                    <span class="metric-label">效率提升</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">99.9%</span>
+                    <span class="metric-label">系统可用性</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>核心功能</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>📊 流程建模</h3>
+                    <p>可视化流程设计器，支持BPMN 2.0标准，拖拽式操作，快速构建业务流程</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⚡ 流程引擎</h3>
+                    <p>高性能流程执行引擎，支持并发处理，自动任务分配和状态跟踪</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📈 实时监控</h3>
+                    <p>流程执行状态实时监控，异常预警，性能指标统计和分析</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔄 版本管理</h3>
+                    <p>流程版本控制，支持灰度发布，回滚机制，确保业务连续性</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📋 表单引擎</h3>
+                    <p>动态表单生成，支持多种字段类型，数据验证和权限控制</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔗 系统集成</h3>
+                    <p>RESTful API接口，支持与ERP、CRM等企业系统无缝集成</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>系统架构</h2>
+            <p>BEST系统采用微服务架构设计，确保系统的可扩展性、可维护性和高可用性。</p>
+            
+            <div class="architecture-diagram">
+                <h3>系统架构图</h3>
+                <div class="diagram-layers">
+                    <div class="diagram-layer">前端展示层 - React + TypeScript</div>
+                    <div class="diagram-layer">API网关 - Spring Cloud Gateway</div>
+                    <div class="diagram-layer">业务服务层 - Spring Boot微服务</div>
+                    <div class="diagram-layer">流程引擎 - Activiti/Camunda</div>
+                    <div class="diagram-layer">数据存储层 - MySQL + Redis + MongoDB</div>
+                    <div class="diagram-layer">基础设施层 - Docker + Kubernetes</div>
+                </div>
+            </div>
+            
+            <h3 style="font-size: 0.88rem; margin: 1.5rem 0 0.75rem 0; color: #24292e;">技术栈</h3>
+            <div class="tech-stack">
+                <span>Spring Boot</span>
+                <span>Spring Cloud</span>
+                <span>React</span>
+                <span>TypeScript</span>
+                <span>Activiti</span>
+                <span>MySQL</span>
+                <span>Redis</span>
+                <span>MongoDB</span>
+                <span>Docker</span>
+                <span>Kubernetes</span>
+                <span>Elasticsearch</span>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>核心特性</h2>
+            
+            <h3 style="font-size: 0.88rem; margin: 1.5rem 0 0.75rem 0; color: #24292e;">高性能</h3>
+            <ul style="color: #586069; font-size: 0.8rem; line-height: 1.6; padding-left: 1.5rem;">
+                <li>支持万级并发流程实例执行</li>
+                <li>Redis缓存优化，响应时间小于100ms</li>
+                <li>数据库读写分离，查询性能优化</li>
+                <li>异步消息处理，提升系统吞吐量</li>
+            </ul>
+            
+            <h3 style="font-size: 0.88rem; margin: 1.5rem 0 0.75rem 0; color: #24292e;">高可用</h3>
+            <ul style="color: #586069; font-size: 0.8rem; line-height: 1.6; padding-left: 1.5rem;">
+                <li>微服务架构，服务隔离和容错</li>
+                <li>多活部署，故障自动切换</li>
+                <li>数据备份和恢复机制</li>
+                <li>监控告警，7x24小时运维</li>
+            </ul>
+            
+            <h3 style="font-size: 0.88rem; margin: 1.5rem 0 0.75rem 0; color: #24292e;">安全性</h3>
+            <ul style="color: #586069; font-size: 0.8rem; line-height: 1.6; padding-left: 1.5rem;">
+                <li>OAuth 2.0认证授权</li>
+                <li>RBAC权限控制模型</li>
+                <li>数据加密传输和存储</li>
+                <li>操作日志审计追踪</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>应用场景</h2>
+            <p>BEST系统广泛应用于各行业的业务流程管理场景：</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🏭 制造业</h3>
+                    <p>生产计划管理、质量控制流程、设备维护流程、供应链管理</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🏦 金融业</h3>
+                    <p>贷款审批流程、风险评估流程、合规检查流程、客户服务流程</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🏥 医疗行业</h3>
+                    <p>患者诊疗流程、药品管理流程、医疗设备管理、质量管理体系</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🏢 企业服务</h3>
+                    <p>人事管理流程、财务审批流程、采购管理流程、项目管理流程</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>项目成果</h2>
+            <p>BEST系统自上线以来，已成功服务于多个行业的企业客户，帮助企业实现了显著的效率提升和成本节约：</p>
+            
+            <p><strong>效率提升：</strong>平均帮助企业提升30%的流程执行效率，减少人工干预和错误率。</p>
+            
+            <p><strong>成本节约：</strong>通过流程自动化和优化，帮助企业平均节约20%的运营成本。</p>
+            
+            <p><strong>合规保障：</strong>标准化的流程管理确保企业业务符合行业规范和法律要求。</p>
+            
+            <p><strong>数字化转型：</strong>为企业数字化转型提供了重要的基础设施和技术支撑。</p>
+        </div>
+
+        <div class="content-section">
+            <h2>技术亮点</h2>
+            <p>BEST系统在技术实现上有以下亮点：</p>
+            
+            <p><strong>流程引擎优化：</strong>基于Activiti引擎进行深度定制，支持复杂业务场景和高并发处理。</p>
+            
+            <p><strong>可视化设计：</strong>自研流程设计器，提供直观的拖拽式操作界面，降低使用门槛。</p>
+            
+            <p><strong>智能分析：</strong>集成机器学习算法，提供流程优化建议和异常检测功能。</p>
+            
+            <p><strong>云原生架构：</strong>基于Kubernetes的容器化部署，支持弹性扩缩容和多云部署。</p>
+        </div>
+
+        <div class="content-section">
+            <h2>未来发展</h2>
+            <p>基于市场需求和技术发展趋势，BEST系统的未来发展方向包括：</p>
+            
+            <ul style="color: #586069; font-size: 0.8rem; line-height: 1.6; padding-left: 1.5rem;">
+                <li>AI驱动的智能流程优化和预测分析</li>
+                <li>低代码/无代码平台，降低开发门槛</li>
+                <li>移动端原生应用，支持移动办公场景</li>
+                <li>区块链技术集成，确保流程执行的可信性</li>
+                <li>多租户SaaS模式，服务中小企业市场</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html> 
