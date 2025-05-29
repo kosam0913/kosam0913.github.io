@@ -1,395 +1,387 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design Works - 福心心</title>
-    <link rel="stylesheet" href="../../../assets/css/main-style.css">
-    <link rel="shortcut icon" type="image/x-icon" href="../../../assets/images/icons/favicon.ico">
-    <!-- Font Awesome for icons -->
+    <title>设计作品集 | Hu Xinjie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../assets/css/main-style.css">
     <style>
         body {
-            font-size: 13px;
-            background: #f8f9fa;
+            background-image: url(../../../assets/images/backgrounds/bg5.png);
+            background-repeat: repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
         }
-        
-        .project-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-        
-        .project-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        
-        .project-subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-        
-        .project-tags {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .tag {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            backdrop-filter: blur(10px);
-        }
-        
-        .main-content {
+        .design-gallery-container {
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 32px 24px;
+            margin-left: 240px;
+            margin-right: 40px;
         }
-        
-        .section {
-            margin-bottom: 4rem;
-        }
-        
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #24292e;
-            margin-bottom: 2rem;
+        .design-gallery-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color, #3B5998);
+            margin-bottom: 32px;
             text-align: center;
-            position: relative;
         }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -0.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 2px;
+        .design-group {
+            margin-bottom: 50px;
         }
-        
+        .design-group-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary-color, #3B5998);
+            margin-bottom: 24px;
+            margin-top: 30px;
+            border-bottom: 2px solid #e1e4e8;
+            padding-bottom: 12px;
+        }
         .design-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 24px;
         }
-        
-        .design-card {
-            background: white;
+        .design-item {
+            background: #fafbfc;
             border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(59,89,152,0.08);
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            cursor: pointer;
         }
-        
-        .design-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        .design-item:hover {
+            box-shadow: 0 6px 24px rgba(59,89,152,0.15);
+            transform: translateY(-4px);
         }
-        
-        .design-image {
-            height: 250px;
-            background: #f6f8fa;
+        .design-img-container {
+            height: 250px; /* 让图片容器占据整个卡片 */
+            overflow: hidden;
+            position: relative;
+        }
+        .design-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+        .design-item:hover .design-img {
+            transform: scale(1.05);
+        }
+        /* Photo grid - 更适合摄影作品 */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .photo-item {
+            background: #fafbfc;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(59,89,152,0.06);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .photo-item:hover {
+            box-shadow: 0 4px 16px rgba(59,89,152,0.15);
+            transform: translateY(-2px);
+        }
+        .photo-img-container {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+        .photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+        .photo-item:hover .photo-img {
+            transform: scale(1.03);
+        }
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0; top: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.85);
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox-img {
+            max-width: 90vw;
+            max-height: 85vh;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 50px;
+            font-size: 2.5rem;
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 10000;
+            transition: opacity 0.3s ease;
+        }
+        .lightbox-close:hover {
+            opacity: 0.7;
+        }
+        .back-button {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: #fff;
+            border-radius: 50%;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            z-index: 1000;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(59, 89, 152, 0.3);
         }
-        
-        .design-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .design-placeholder {
-            color: #586069;
-            font-size: 3rem;
-        }
-        
-        .design-info {
-            padding: 1.5rem;
-        }
-        
-        .design-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #24292e;
-            margin-bottom: 0.5rem;
-        }
-        
-        .design-description {
-            color: #586069;
-            font-size: 0.85rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-        
-        .design-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.75rem;
-            color: #586069;
-        }
-        
-        .design-category {
-            background: #f1f8ff;
-            color: #0366d6;
-            padding: 0.25rem 0.75rem;
-            border-radius: 12px;
-            font-weight: 500;
-        }
-        
-        .back-button {
-            position: fixed;
-            top: 2rem;
-            left: 2rem;
-            background: rgba(255, 255, 255, 0.9);
-            color: #24292e;
-            padding: 0.75rem 1rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-        
         .back-button:hover {
-            background: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            background: var(--secondary-color);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(59, 89, 152, 0.4);
         }
-        
-        .skills-section {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        .back-button i {
+            font-size: 18px;
         }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
+        .back-button::after {
+            content: "返回作品集";
+            position: absolute;
+            right: 60px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            pointer-events: none;
         }
-        
-        .skill-item {
-            background: #f6f8fa;
-            padding: 1rem;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid #e1e4e8;
+        .back-button:hover::after {
+            opacity: 1;
+            visibility: visible;
+            right: 65px;
         }
-        
-        .skill-icon {
-            font-size: 2rem;
-            color: #667eea;
-            margin-bottom: 0.5rem;
+        .back-button::before {
+            content: "";
+            position: absolute;
+            right: 55px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 6px solid rgba(0, 0, 0, 0.8);
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
         }
-        
-        .skill-name {
-            font-weight: 600;
-            color: #24292e;
-            margin-bottom: 0.25rem;
+        .back-button:hover::before {
+            opacity: 1;
+            visibility: visible;
+            right: 60px;
         }
-        
-        .skill-description {
-            font-size: 0.75rem;
-            color: #586069;
-        }
-        
         @media (max-width: 768px) {
-            .project-header {
-                padding: 3rem 1rem;
+            .design-gallery-container { 
+                margin-left: 170px;
+                margin-right: 15px;
+                padding: 20px 15px; 
             }
-            
-            .project-title {
-                font-size: 2rem;
-            }
-            
-            .main-content {
-                padding: 2rem 1rem;
-            }
-            
-            .design-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .back-button {
-                top: 1rem;
-                left: 1rem;
-                padding: 0.5rem 0.75rem;
-                font-size: 0.8rem;
+            .design-gallery-title { font-size: 1.5rem; }
+            .design-group-title { font-size: 1.2rem; }
+            .lightbox-close { top: 10px; right: 20px; }
+        }
+        @media (max-width: 480px) {
+            .design-gallery-container { 
+                margin-left: 150px;
+                margin-right: 10px;
+                padding: 15px 10px; 
             }
         }
     </style>
 </head>
 <body>
-    <a href="../../../index.html" class="back-button">
-        <i class="fas fa-arrow-left"></i> 返回主页
+    <!-- Sidebar (copied from main page) -->
+    <div class="widget-profile">
+        <div class="row">
+            <!-- Profile Image -->
+            <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
+                <div class="profile__image">
+                    <img src="../../../assets/images/profile/avatar_prev.jpg" alt="Xinjie Hu" class="img-responsive" />
+                </div>
+            </div>
+            
+            <!-- Profile Info -->
+            <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
+                <div class="profile__info">
+                    <h1 class="profile__name">Hu Xinjie</h1>
+                    <h4 class="profile__title">Full Stack Developer</h4>
+                    <h4 class="profile__title"> Technical Artist</h4>
+                    <h6 class="profile__location"><i class="fa fa-map-marker"></i> Abu Dhabi, UAE</h6>
+                </div>
+                <div class="profile__social">
+                    <a href="https://www.facebook.com/kosam0913" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/xinjie-hu-574070125/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/kosam0913" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:kosam0913@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <a href="../../../index.html#portfolio" class="back-button">
+        <i class="fas fa-arrow-left"></i>
     </a>
 
-    <header class="project-header">
-        <h1 class="project-title">Design Works</h1>
-        <p class="project-subtitle">海报设计与视觉传达作品集</p>
-        <div class="project-tags">
-            <span class="tag">平面设计</span>
-            <span class="tag">海报设计</span>
-            <span class="tag">视觉传达</span>
-            <span class="tag">品牌设计</span>
+    <div class="design-gallery-container">
+        <div class="design-gallery-title">设计作品集</div>
+        
+        <!-- Poster Design Group -->
+        <div class="design-group">
+            <div class="design-group-title">海报设计 Poster Design</div>
+            <div class="design-grid" id="poster-grid"></div>
         </div>
-    </header>
+        
+        <!-- Design Group -->
+        <div class="design-group">
+            <div class="design-group-title">设计作品 Design</div>
+            <div class="design-grid" id="design-grid"></div>
+        </div>
+        
+        <!-- Photography Group -->
+        <div class="design-group">
+            <div class="design-group-title">摄影作品 Photography</div>
+            <div class="photo-grid" id="photo-grid"></div>
+        </div>
+    </div>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <img class="lightbox-img" id="lightbox-img" src="" alt="作品大图">
+    </div>
+    
+    <script>
+        // 配置作品文件
+        const designWorks = {
+            poster: [
+                { file: 'poster1.jpg', title: 'Poster Design 1', description: '科技风格海报设计' },
+                { file: 'poster2.jpg', title: 'Poster Design 2', description: '创意视觉海报设计' },
+                { file: 'poster3.jpg', title: 'Poster Design 3', description: '品牌视觉海报设计' }
+            ],
+            design: [
+                { file: 'design_01.jpg', title: 'Design Work 1', description: '创意设计作品' },
+                { file: 'design_02.jpg', title: 'Design Work 2', description: '视觉设计作品' },
+                { file: 'design_03.jpg', title: 'Design Work 3', description: '平面设计作品' }
+            ],
+            photo: [
+                { file: 'photo_01.jpg', title: 'Photography 1', description: '创意摄影作品' },
+                { file: 'photo_02.jpg', title: 'Photography 2', description: '艺术摄影作品' },
+                { file: 'photo_03.jpg', title: 'Photography 3', description: '人像摄影作品' },
+                { file: 'photo_04.jpg', title: 'Photography 4', description: '风景摄影作品' },
+                { file: 'photo_05.jpg', title: 'Photography 5', description: '街头摄影作品' },
+                { file: 'photo_06.jpg', title: 'Photography 6', description: '建筑摄影作品' },
+                { file: 'photo_07.jpg', title: 'Photography 7', description: '纪实摄影作品' },
+                { file: 'photo_08.jpg', title: 'Photography 8', description: '生活摄影作品' },
+                { file: 'DSC08355.jpg', title: 'DSC Photography 1', description: '专业摄影作品' },
+                { file: 'DSC08378.JPG', title: 'DSC Photography 2', description: '城市风光摄影' },
+                { file: 'DSC08439.jpg', title: 'DSC Photography 3', description: '人像摄影作品' },
+                { file: 'DSC08473.jpg', title: 'DSC Photography 4', description: '环境人像摄影' },
+                { file: 'DSC08642.jpg', title: 'DSC Photography 5', description: '风景摄影作品' },
+                { file: 'DSC09038.JPG', title: 'DSC Photography 6', description: '建筑摄影作品' },
+                { file: 'DSC09126.JPG', title: 'DSC Photography 7', description: '现代建筑摄影' },
+                { file: 'DSC09346.JPG', title: 'DSC Photography 8', description: '自然风光摄影' }
+            ]
+        };
 
-    <main class="main-content">
-        <!-- 设计作品展示 -->
-        <section class="section">
-            <h2 class="section-title">设计作品</h2>
-            <div class="design-grid">
-                <div class="design-card">
-                    <div class="design-image">
-                        <i class="fas fa-image design-placeholder"></i>
-                    </div>
-                    <div class="design-info">
-                        <h3 class="design-title">科技产品发布会海报</h3>
-                        <p class="design-description">为科技产品发布会设计的主视觉海报，采用现代简约风格，突出产品特色和科技感。</p>
-                        <div class="design-meta">
-                            <span class="design-category">商业海报</span>
-                            <span>2024年</span>
-                        </div>
-                    </div>
-                </div>
+        // 创建海报作品 - 修正路径，poster文件在当前目录
+        const posterGrid = document.getElementById('poster-grid');
+        designWorks.poster.forEach((work) => {
+            createDesignItem(posterGrid, '.', work, 'design-item');
+        });
 
-                <div class="design-card">
-                    <div class="design-image">
-                        <i class="fas fa-palette design-placeholder"></i>
-                    </div>
-                    <div class="design-info">
-                        <h3 class="design-title">品牌视觉识别系统</h3>
-                        <p class="design-description">完整的品牌VI设计，包括logo设计、色彩规范、字体选择和应用规范。</p>
-                        <div class="design-meta">
-                            <span class="design-category">品牌设计</span>
-                            <span>2024年</span>
-                        </div>
-                    </div>
-                </div>
+        // 创建设计作品
+        const designGrid = document.getElementById('design-grid');
+        designWorks.design.forEach((work) => {
+            createDesignItem(designGrid, 'design', work, 'design-item');
+        });
 
-                <div class="design-card">
-                    <div class="design-image">
-                        <i class="fas fa-calendar design-placeholder"></i>
-                    </div>
-                    <div class="design-info">
-                        <h3 class="design-title">活动宣传海报系列</h3>
-                        <p class="design-description">为社区活动设计的系列宣传海报，风格统一，信息层次清晰，视觉冲击力强。</p>
-                        <div class="design-meta">
-                            <span class="design-category">活动海报</span>
-                            <span>2023年</span>
-                        </div>
-                    </div>
-                </div>
+        // 创建摄影作品
+        const photoGrid = document.getElementById('photo-grid');
+        designWorks.photo.forEach((work) => {
+            createPhotoItem(photoGrid, 'photo', work, 'photo-item');
+        });
 
-                <div class="design-card">
-                    <div class="design-image">
-                        <i class="fas fa-mobile-alt design-placeholder"></i>
-                    </div>
-                    <div class="design-info">
-                        <h3 class="design-title">移动应用界面设计</h3>
-                        <p class="design-description">简洁现代的移动应用UI设计，注重用户体验和视觉美感的平衡。</p>
-                        <div class="design-meta">
-                            <span class="design-category">UI设计</span>
-                            <span>2023年</span>
-                        </div>
-                    </div>
+        function createDesignItem(grid, folder, work, itemClass) {
+            const imgPath = `${folder}/${work.file}`;
+            const div = document.createElement('div');
+            div.className = itemClass;
+            div.innerHTML = `
+                <div class="design-img-container">
+                    <img class="design-img" src="${imgPath}" alt="${work.title}" onerror="this.parent.style.display='none'">
                 </div>
+            `;
+            div.onclick = function() {
+                document.getElementById('lightbox-img').src = imgPath;
+                document.getElementById('lightbox').classList.add('active');
+            };
+            grid.appendChild(div);
+        }
 
-                <div class="design-card">
-                    <div class="design-image">
-                        <i class="fas fa-book design-placeholder"></i>
-                    </div>
-                    <div class="design-info">
-                        <h3 class="design-title">企业宣传册设计</h3>
-                        <p class="design-description">企业形象宣传册的整体设计，包括版式设计、图片处理和印刷规范。</p>
-                        <div class="design-meta">
-                            <span class="design-category">印刷设计</span>
-                            <span>2023年</span>
-                        </div>
-                    </div>
+        function createPhotoItem(grid, folder, work, itemClass) {
+            const imgPath = `${folder}/${work.file}`;
+            const div = document.createElement('div');
+            div.className = itemClass;
+            div.innerHTML = `
+                <div class="photo-img-container">
+                    <img class="photo-img" src="${imgPath}" alt="${work.title}" onerror="this.parent.style.display='none'">
                 </div>
+            `;
+            div.onclick = function() {
+                document.getElementById('lightbox-img').src = imgPath;
+                document.getElementById('lightbox').classList.add('active');
+            };
+            grid.appendChild(div);
+        }
 
-                <div class="design-card">
-                    <div class="design-image">
-                        <i class="fas fa-globe design-placeholder"></i>
-                    </div>
-                    <div class="design-info">
-                        <h3 class="design-title">网站视觉设计</h3>
-                        <p class="design-description">响应式网站的视觉设计，包括首页设计、内页布局和交互元素设计。</p>
-                        <div class="design-meta">
-                            <span class="design-category">网页设计</span>
-                            <span>2022年</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 设计技能 -->
-        <section class="section">
-            <h2 class="section-title">设计技能</h2>
-            <div class="skills-section">
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <div class="skill-icon">
-                            <i class="fab fa-adobe"></i>
-                        </div>
-                        <div class="skill-name">Adobe Creative Suite</div>
-                        <div class="skill-description">Photoshop, Illustrator, InDesign</div>
-                    </div>
-                    
-                    <div class="skill-item">
-                        <div class="skill-icon">
-                            <i class="fas fa-paint-brush"></i>
-                        </div>
-                        <div class="skill-name">平面设计</div>
-                        <div class="skill-description">海报设计, 品牌设计, 版式设计</div>
-                    </div>
-                    
-                    <div class="skill-item">
-                        <div class="skill-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <div class="skill-name">UI/UX设计</div>
-                        <div class="skill-description">界面设计, 用户体验, 原型设计</div>
-                    </div>
-                    
-                    <div class="skill-item">
-                        <div class="skill-icon">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                        <div class="skill-name">视觉传达</div>
-                        <div class="skill-description">视觉识别, 信息设计, 创意表达</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+        // Lightbox关闭
+        document.getElementById('lightbox-close').onclick = function() {
+            document.getElementById('lightbox').classList.remove('active');
+        };
+        document.getElementById('lightbox').onclick = function(e) {
+            if (e.target === this) this.classList.remove('active');
+        };
+    </script>
 </body>
 </html> 

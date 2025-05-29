@@ -1,157 +1,271 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Hu Xinjie</title>
-        <link rel="stylesheet" href="assets/css/main-style.css">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Xinjie Hu - Technical Artist & Full Stack Developer">
+        <meta name="author" content="Xinjie Hu">
+
+        <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="assets/images/icons/favicon.ico">
+
         <!-- Font Awesome for icons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        <!-- Vue.js -->
-        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-        <style>
-            /* 滚动页面特定样式 */
-            html {
-                scroll-behavior: smooth;
-            }
-            
-            body {
-                font-size: 13px; /* 80% of 16px */
-            }
-            
-            .main-content {
-                margin-left: 300px;
-            }
-            
-            .page-section {
-                min-height: 100vh;
-                padding: 2rem;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-            
-            .section-content {
-                max-width: 1000px;
-                margin: 0 auto;
-                width: 100%;
-            }
-            
-            /* 导航栏活跃状态 */
-            .nav-parent.active {
-                background: rgba(3, 102, 214, 0.12);
-                border-left-color: #0366d6;
-                color: #0366d6;
-            }
-            
-            /* 项目卡片点击跳转样式 */
-            .project-card {
-                cursor: pointer;
-                transition: all 0.3s ease;
-            }
-            
-            .project-card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-                border-color: #0366d6;
-            }
-            
-            @media (max-width: 1024px) {
-                .main-content {
-                    margin-left: 250px;
-                }
-            }
-            
-            @media (max-width: 768px) {
-                .main-content {
-                    margin-left: 0;
-                }
-                
-                .page-section {
-                    padding: 1rem;
-                    min-height: calc(100vh - 200px);
-                }
-            }
-        </style>
+        <!-- Main Stylesheet -->
+        <link rel="stylesheet" href="assets/css/main-style.css">
     </head>
 
     <body>
-        <div id="app">
-            <!-- 左侧树状导航栏 -->
-            <nav class="sidebar-nav">
-                <div class="nav-header">
-                    <div class="nav-profile">
-                        <img src="assets/images/profile/avatar_prev.jpg" alt="福心心" class="nav-avatar">
-                        <h1>Hu Xinjie</h1>
-        </div>
-                    <div class="nav-location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>阿布扎比</span>
-                    </div>
-                </div>
-                
-                <!-- 联系方式 -->
-                <div class="nav-contact">
-                    <div class="contact-icons">
-                        <a href="https://www.linkedin.com/in/xinjie-hu-574070125/" target="_blank" class="contact-icon" title="访问LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                            <span class="tooltip">LinkedIn Profile</span>
-                        </a>
-                        <a href="https://github.com/kosam0913" target="_blank" class="contact-icon" title="访问GitHub">
-                            <i class="fab fa-github"></i>
-                            <span class="tooltip">GitHub Profile</span>
-                        </a>
-                        <a href="mailto:kosam0913@gmail.com" class="contact-icon" title="发送邮件">
-                            <i class="fas fa-envelope"></i>
-                            <span class="tooltip">kosam0913@gmail.com</span>
-                        </a>
-                        <a href="assets/docs/Ms.XinjieHu_202407_Resume.docx" download class="contact-icon resume-icon" title="下载简历">
-                            <i class="fas fa-download"></i>
-                            <span class="tooltip">下载简历</span>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="nav-tree">
-                    <div class="nav-section" v-for="section in navSections" :key="section.id">
-                        <!-- 一级分类 -->
-                        <div class="nav-item nav-parent" 
-                             :class="{ active: activeSection === section.id }"
-                             @click="scrollToSection(section.id)">
-                            <i :class="section.icon"></i>
-                            <span>{{ section.title }}</span>
-                        </div>
 
-                        <!-- 二级分类 -->
-                        <div class="nav-children" v-if="section.children">
-                            <div class="nav-item nav-child" 
-                                 v-for="child in section.children" 
-                                 :key="child.id"
-                                 :class="{ active: activeChild === child.id }"
-                                 @click="selectChild(section, child)">
-                                <i :class="child.icon"></i>
-                                <span>{{ child.title }}</span>
-                            </div>
+        <!-- Sidebar -->
+        <div class="widget-profile">
+            <div class="row">
+                <!-- Profile Image -->
+                <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
+                    <div class="profile__image">
+                        <img src="assets/images/profile/avatar_prev.jpg" alt="Xinjie Hu" class="img-responsive" />
+        </div>
+                </div>
+                
+                <!-- Profile Info -->
+                <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
+                    <div class="profile__info">
+                        <h1 class="profile__name">Hu Xinjie</h1>
+                        <h4 class="profile__title">Full Stack Developer</h4>
+                        <h4 class="profile__title"> Technical Artist</h4>
+                        <h6 class="profile__location"><i class="fa fa-map-marker"></i> Abu Dhabi, UAE</h6>
                     </div>
+                    <div class="profile__social">
+                        <a href="https://www.facebook.com/kosam0913" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/in/xinjie-hu-574070125/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/kosam0913" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="mailto:kosam0913@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
+                    </div>
+                </div>
+                
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Navigation -->
+            <nav>
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#profile" class="nav__link">
+                            <i class="fa fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#portfolio" class="nav__link active">
+                            <i class="fa fa-briefcase"></i>
+                            <span>Portfolio</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">
+                            <i class="fa fa-heart"></i>
+                            <span>About</span>
+                        </a>
+                    </li>
+                </ul>
             </nav>
 
-            <!-- 右侧主内容区 -->
-            <main class="main-content">
-                <!-- Projects 项目展示 -->
-                <section id="projects" class="content-module projects-module">
-                    <div class="module-content">
-                        <h1>项目作品</h1>
+            <!-- Content Sections -->
+            <div class="content-sections">
+
+                <!-- Profile Section -->
+                <section id="profile" class="content-section">
+
+                    <!-- Experience -->
+                    <div class="experience-section">
+                        <div class="text_content">PROFESSIONAL EXPERIENCE</div>
+                        <ul class="attributes">
+                             <li>
+                                <h5>
+                                    <span class="duration">2025/01 - Present</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-briefcase"></span>
+                                            <span>Indie Full Stack Developer @ Abu Dhabi, UAE</span>
+                                        </div>
+                                        <p>•<span style="margin-left: 12px;"/>ndependently built and launched a WeChat Mini Program for Chinese community in UAE, using Vue, TDesign, and cloud database</p>
+                                        <p>•<span style="margin-left: 12px;"/>Designed and implemented full-stack architecture with fast iteration and user feedback loop</p>
+                                    </div>
+                                </h5>
+                            </li>
+                            <li>
+                                <h5>
+                                    <span class="duration">2022/11 - 2024/12</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-briefcase"></span>
+                                            <span>Motion Technical Director  @  miHoYo, Shanghai, China</span>
+                                        </div>
+                                        <p>•<span style="margin-left: 12px;"/>Developed and automated AI model training process with distributed computing cluster, achieving 20x iteration speed improvement</p>
+                                        <p>•<span style="margin-left: 12px;"/>Optimized model algorithms with feature engineering for production requirements</p>
+                                        <p>•<span style="margin-left: 12px;"/>Implemented data validation and version control for model integrity</p>
+                                        <p>•<span style="margin-left: 12px;"/>Designed motion capture toolkit and automation pipeline</p>
+                                    </div>
+                                </h5>
+                            </li>
+                            
+                            <li>
+                                <h5>
+                                    <span class="duration">2021/08 - 2022/11</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-briefcase"></span>
+                                            <span>Pipeline Technical Director  @  miHoYo, Shanghai, China</span>
+                                        </div>
+                                        <p>•<span style="margin-left: 12px;"/>Implemented automation pipeline for motion capture data processing</p>
+                                        <p>•<span style="margin-left: 12px;"/>Developed production pipelines using Shotgun and Rez packages</p>
+                                        <p>•<span style="margin-left: 12px;"/>Designed distributed computing cluster workflow with Kafka</p>
+                                        <p>•<span style="margin-left: 12px;"/>Created specialized Unreal Engine launcher with CI/CD automation</p>
+                                    </div>
+                                </h5>
+                            </li>
+
+                            <li>
+                                <h5>
+                                    <span class="duration">2017/07 - 2021/07</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-briefcase"></span>
+                                            <span>Associate Production Engineer  @  Industrial Light & Magic, Singapore</span>
+                                        </div>
+                                        <p>•<span style="margin-left: 12px;"/>Provided technical support and developed pipeline tools</p>
+                                        <p>•<span style="margin-left: 12px;"/>Implemented render data analytics with Elasticsearch and Kibana</p>
+                                        <p>•<span style="margin-left: 12px;"/>Developed Clarisse resource allocation optimization</p>
+                                        <p>•<span style="margin-left: 12px;"/>Projects: Red Notice, Aquaman, Solo: A Star Wars Story, Ready Player One</p>
+                                    </div>
+                                </h5>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="education-section">
+                        <div class="text_content">EDUCATION</div>
+                        <ul class="attributes">
+                            <li class="first">
+                                <h5>
+                                    <span class="duration">2025/07 - Present</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-book"></span>
+                                            <span>MSE. Data Science  @  University of Pennsylvania, USA</span>
+                                        </div>
+                                        <p>Specialization: Data Science</p>
+                                    </div>
+                                </h5>
+                            </li>
+
+                            <li>
+                                <h5>
+                                    <span class="duration">2016/07 - 2017/06</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-book"></span>
+                                            <span>MSc. Digital Media Technology  @  Nanyang Technological University, Singapore</span>
+                                        </div>
+                                        <p>CGPA: 4.00 / 5.00</p>
+                                        <p>Specialization: Advanced Computer Graphics</p>
+                                    </div>
+                                </h5>
+                            </li>
+                            
+                            <li>
+                                <h5>
+                                    <span class="duration">2012/09 - 2016/06</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-book"></span>
+                                            <span>BSc. Geographic Information System  @  Wuhan University, China</span>
+                                        </div>
+                                        <p>CGPA: 3.42 / 4.00 (Second Upper Honors)</p>
+                                        <p>Specialization: Computer Graphics & Digital Image Processing</p>
+                                    </div>
+                                </h5>
+                            </li>
+                        </ul>
+                </div>
+                
+                    <!-- Certifications -->
+                    <div class="certifications-section">
+                        <div class="text_content">CERTIFICATIONS</div>
+                        <ul class="attributes certifications-list">
+                            <li>
+                                <h5>
+                                    <span class="duration">2024</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-certificate"></span>
+                                            <span>TensorFlow Developer Certificate  @  DeepLearning.AI on Coursera</span>
+                                        </div>
+                                    </div>
+                                </h5>
+                            </li>
+                            <li>
+                                <h5>
+                                    <span class="duration">2024</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-certificate"></span>
+                                            <span>Deep Learning Certificate  @  DeepLearning.AI on Coursera</span>
+                                        </div>
+                        </div>
+                                </h5>
+                            </li>
+                            <li>
+                                <h5>
+                                    <span class="duration">2024</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-certificate"></span>
+                                            <span>Machine Learning Engineering for Production (MLOps) @ DeepLearning.AI on Coursera</span>
+                            </div>
+                    </div>
+                                </h5>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Technical Skills -->
+                    <div class="skills-section">
+                        <div class="text_content">SKILLS</div>
+                        <ul class="attributes skills-grid">
+                            <li>
+                                <h5>Programming</h5>
+                                <p>Python, TensorFlow (Keras), Git, Perforce, Linux, Shell scripting</p>
+                            </li>
+                            <li>
+                                <h5>Software</h5>
+                                <p>CorelDRAWX4, Autodesk DCC series, Adobe Creative Suitcase (AE PR PS)</p>
+                            </li>
+                        </ul>
+                </div>
+                </section>
+
+                <!-- Portfolio Section -->
+                <section id="portfolio" class="content-section active" style="display: block;">
+                    <div class="text_content">PROJECT PORTFOLIO</div>
+                    <div class="projects-showcase">
                         <div class="projects-grid-4col">
-                            <!-- Data Science 大项目 -->
-                            <div class="project-card large-project" @click="openProjectDetail('datascience')">
+                            <!-- Data Science -->
+                            <div class="project-card large-project" onclick="openProjectDetail('datascience')" style="grid-column: span 2;">
                                 <div class="project-image">
-                                    <img src="assets/images/projects/datascience/icon.jpg" alt="Data Science">
+                                    <img src="content/portfolio/datascience/logo.jpg" alt="Data Science">
+                                    <div class="project-image-overlay">
+                                        <div class="project-zoom-icon">
+                                            <i class="fa fa-search"></i>
+                                        </div>
+                                    </div>
                                 </div>
+
                                 <div class="project-info">
                                     <h3>Data Science</h3>
                                     <p>机器学习和数据科学项目集合</p>
@@ -160,17 +274,22 @@
                                         <span>机器学习</span>
                                         <span>数据分析</span>
                                     </div>
-                                    <div class="project-stats">
+                                    <!-- <div class="project-stats">
                                         <span><i class="fas fa-users"></i> 学术项目</span>
                                         <span><i class="fas fa-star"></i> 研究</span>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
 
-                            <!-- UCG 大项目 -->
-                            <div class="project-card large-project" @click="openProjectDetail('ucg')">
+                            <!-- UCG -->
+                            <div class="project-card large-project" onclick="openProjectDetail('ucg')" style="grid-column: span 2;">
                                 <div class="project-image">
-                                    <img src="assets/images/projects/ucg/icon.jpg" alt="UCG微信小程序">
+                                    <img src="content/portfolio/ucg/logo.jpg" alt="UCG微信小程序">
+                                    <div class="project-image-overlay">
+                                        <div class="project-zoom-icon">
+                                            <i class="fa fa-search"></i>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="project-info">
                                     <h3>UCG微信小程序</h3>
@@ -180,17 +299,22 @@
                                         <span>微信原生开发</span>
                                         <span>社区产品</span>
                                     </div>
-                                    <div class="project-stats">
+                                    <!-- <div class="project-stats">
                                         <span><i class="fas fa-users"></i> 500+</span>
                                         <span><i class="fas fa-star"></i> 4.7</span>
+                                    </div> -->
                                 </div>
                             </div>
-                        </div>
 
                             <!-- TreeNode 大项目 -->
-                            <div class="project-card large-project" @click="openProjectDetail('treenode')">
+                            <div class="project-card large-project" onclick="openProjectDetail('treenode')" style="grid-column: span 2;">
                                 <div class="project-image">
-                                    <img src="content/portfolio/treenode/logo.png" alt="TreeNode">
+                                    <img src="content/portfolio/treenode/logo.jpg" alt="TreeNode">
+                                    <div class="project-image-overlay">
+                                        <div class="project-zoom-icon">
+                                            <i class="fa fa-search"></i>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="project-info">
                                     <h3>TreeNode</h3>
@@ -200,32 +324,60 @@
                                         <span>JavaScript</span>
                                         <span>产品设计</span>
                                     </div>
-                                    <div class="project-stats">
+                                    <!-- <div class="project-stats">
                                         <span><i class="fas fa-users"></i> 1000+</span>
                                         <span><i class="fas fa-star"></i> 4.8</span>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
 
                             <!-- 其他小项目堆叠 -->
-                            <div class="small-projects-column">
-                                <div class="project-card small-project" @click="openProjectDetail('design')">
+                            <div class="small-projects-column" style="grid-column: span 2;">
+                                <div class="project-card small-project" onclick="openProjectDetail('design')" style="grid-column: span 2;">
                                     <div class="project-image-small">
-                                        <img src="assets/images/projects/ucg/icon.jpg" alt="Design Works">
+                                        <img src="content/portfolio/design/design/design_03.jpg" alt="Design Works">
+                                        <div class="project-image-overlay">
+                                            <div class="project-zoom-icon">
+                                                <i class="fa fa-search"></i>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="project-info-small">
-                                        <h4>Design Works</h4>
-                                        <p>海报设计和视觉作品集</p>
+                                        <h4>Visual Works</h4>
+                                        <p>平面设计作品集</p>
                                         <div class="project-tags-small">
                                             <span>平面设计</span>
                                             <span>海报设计</span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-
-                                <div class="project-card small-project" @click="openProjectDetail('best')">
+                                <div class="project-card small-project" onclick="openProjectDetail('charity')" style="grid-column: span 2;">
                                     <div class="project-image-small">
-                                        <img src="assets/images/projects/BEST/icon.jpg" alt="BEST记账">
+                                        <img src="content/portfolio/public_welfare/logo.jpg" alt="公益活动">
+                                        <div class="project-image-overlay">
+                                            <div class="project-zoom-icon">
+                                                <i class="fa fa-search"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="project-info-small">
+                                        <h4>公益活动</h4>
+                                        <p>公益活动组织与管理</p>
+                                        <div class="project-tags-small">
+                                            <span>公益活动</span>
+                                            <span>流程管理</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="project-card small-project" onclick="openProjectDetail('best')" style="grid-column: span 2;">
+                                    <div class="project-image-small">
+                                        <img src="content/portfolio/BEST/logo.jpg" alt="BEST记账">
+                                        <div class="project-image-overlay">
+                                            <div class="project-zoom-icon">
+                                                <i class="fa fa-search"></i>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="project-info-small">
                                         <h4>BEST记账</h4>
@@ -237,383 +389,246 @@
                                     </div>
                                 </div>
 
-                                <div class="project-card small-project" @click="openProjectDetail('charity')">
-                                    <div class="project-image-small">
-                                        <img src="assets/images/projects/charity/icon.jpg" alt="公益活动">
-                                    </div>
-                                    <div class="project-info-small">
-                                        <h4>公益活动</h4>
-                                        <p>公益活动组织与管理</p>
-                                        <div class="project-tags-small">
-                                            <span>公益活动</span>
-                                            <span>流程管理</span>
+
+                            </div>
+                        </div>
+                        
+                        <!-- 第二行：Poster 项目 -->
+                        <div class="projects-grid-4col" style="margin-top: 30px;">
+                            <!-- Poster 1 -->
+                            <div class="project-card poster-project-small" onclick="openProjectDetail('poster1')" style="grid-column: span 3;">
+                                <div class="project-image">
+                                    <img src="content/portfolio/design/poster1.jpg" alt="Poster Design 1">
+                                    <div class="project-image-overlay">
+                                        <div class="project-zoom-icon">
+                                            <i class="fa fa-search"></i>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="project-info">
+                                    <h3>Poster Design</h3>
+                                    <div class="project-tags">
+                                        <span>平面设计</span>
+                                        <span>海报设计</span>
+                                        <span>视觉传达</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Poster 2 -->
+                            <div class="project-card poster-project-small" onclick="openProjectDetail('poster2')" style="grid-column: span 3;">
+                                <div class="project-image">
+                                    <img src="content/portfolio/design/poster2.jpg" alt="Poster Design 2">
+                                    <div class="project-image-overlay">
+                                        <div class="project-zoom-icon">
+                                            <i class="fa fa-search"></i>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <h3>Poster Design</h3>
+                                    <div class="project-tags">
+                                        <span>平面设计</span>
+                                        <span>科技风格</span>
+                                        <span>创意设计</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 表情包设计 - 大项目 -->
+                            <div class="project-card large-project" onclick="openProjectDetail('emoji')" style="grid-column: span 2;">
+                                <div class="project-image">
+                                    <img src="content/portfolio/emoji/logo.jpg" alt="表情包设计">
+                                    <div class="project-image-overlay">
+                                        <div class="project-zoom-icon">
+                                            <i class="fa fa-search"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <h3>表情包设计</h3>
+                                    <p>原创表情包设计作品集，包含多种风格和主题的表情包创作</p>
+                                    <div class="project-tags">
+                                        <span>表情包</span>
+                                        <span>创意设计</span>
+                                        <span>插画</span>
+                                        <span>原创IP</span>
+                                    </div>
+                                    <!-- <div class="project-stats">
+                                        <span><i class="fas fa-heart"></i> 原创</span>
+                                        <span><i class="fas fa-palette"></i> 设计</span>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                <div class="section-connector">
-                    <div class="connector-arrow">
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    </div>
-                <!-- Profile 个人档案 -->
-                <section id="profile" class="content-module profile-module">
-                    <div class="module-content">
-                        <h1>个人档案</h1>
-                        
-                        <!-- 技能标签和技能条 - 分两列 -->
-                    <div class="skills-section">
-                            <div class="skills-tags">
-                                <span class="skill-tag" v-for="tag in skillTags" :key="tag">{{ tag }}</span>
-                            </div>
-                            
-                            <div class="skills-columns">
-                                <!-- 软技能 -->
-                                <div class="skills-column">
-                                    <h3>软技能</h3>
-                                    <div class="skills-bars">
-                                        <div class="skill-bar" v-for="skill in softSkills" :key="skill.name">
-                                            <div class="skill-info">
-                                                <span class="skill-name">{{ skill.name }}</span>
-                                            </div>
-                                            <div class="skill-progress">
-                                                <div class="skill-fill soft-skill" :style="{ width: skill.level + '%' }"></div>
-                                            </div>
-                            </div>
-                        </div>
-                    </div>
+
+                <!-- About Section -->
+                <section id="about" class="content-section">
+                    <div class="text_content">ABOUT ME</div>
                     
-                                <!-- 硬技能 -->
-                                <div class="skills-column">
-                                    <h3>硬技能</h3>
-                                    <div class="skills-bars">
-                                        <div class="skill-bar" v-for="skill in hardSkills" :key="skill.name">
-                                            <div class="skill-info">
-                                                <span class="skill-name">{{ skill.name }}</span>
-                                            </div>
-                                            <div class="skill-progress">
-                                                <div class="skill-fill hard-skill" :style="{ width: skill.level + '%' }"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- 认证证书 -->
-                        <div class="profile-section">
-                            <h2>认证证书</h2>
-                            <div class="cert-list">
-                                <div class="cert-item">
-                                    <div class="cert-icon">
-                                        <i class="fab fa-google"></i>
-                                    </div>
-                                    <div class="cert-info">
-                                        <h3>TensorFlow Developer Certificate</h3>
-                                        <p>DeepLearning.AI on Coursera</p>
-                                        <span class="cert-date">2024年</span>
-                                    </div>
-                                </div>
-                                <div class="cert-item">
-                                    <div class="cert-icon">
-                                        <i class="fas fa-brain"></i>
-                                    </div>
-                                    <div class="cert-info">
-                                        <h3>Deep Learning Certificate</h3>
-                                        <p>DeepLearning.AI on Coursera</p>
-                                        <span class="cert-date">2024年</span>
-                            </div>
-                        </div>
-                                <div class="cert-item">
-                                    <div class="cert-icon">
-                                        <i class="fas fa-cogs"></i>
-                                    </div>
-                                    <div class="cert-info">
-                                        <h3>Machine Learning Engineering for Production (MLOps)</h3>
-                                        <p>DeepLearning.AI on Coursera</p>
-                                        <span class="cert-date">2024年</span>
-                                    </div>
-                                </div>
+                    <div class="about-cards">
+                        <!-- 个人生活照片 - No text descriptions -->
+                        <div class="about-card photo-card">
+                            <div class="about-photo-container">
+                                <img src="content/about/badminton.jpg" alt="Badminton" class="about-photo">
                             </div>
                         </div>
 
-                        <!-- 专业经历 -->
-                        <div class="profile-section">
-                            <h2>专业经历</h2>
-                            <div class="professional-list">
-                                <div class="professional-item">
-                                    <div class="prof-icon">
-                                        <i class="fas fa-briefcase"></i>
+                        <!-- 技术专长 -->
+                        <div class="about-card">
+                            <div class="about-card-icon">
+                                <i class="fas fa-code"></i>
                                     </div>
-                                    <div class="prof-info">
-                                        <h3>动作技术总监 @ miHoYo</h3>
-                                        <p>设计开发动作捕捉工具包和自动化流水线，从前端(Vicon)到软件API(Motion Builder)，简化现场操作并提高效率。开发并自动化动作捕捉AI模型训练流程，集成分布式计算集群，实现20倍迭代速度提升。</p>
-                                        <span class="prof-date">2022年11月 - 2024年12月</span>
+                            <h3>Technical Expertise</h3>
+                            <p>Specialized in AI/ML pipeline development, computer graphics, and motion capture technology. Experienced in building distributed computing systems and automation tools.</p>
+                            <div class="about-card-meta">
+                                <span>8+ Years Experience</span>
+                                <span>Python • TensorFlow • Linux</span>
                                     </div>
                                 </div>
-                                <div class="professional-item">
-                                    <div class="prof-icon">
-                                        <i class="fas fa-briefcase"></i>
-                                    </div>
-                                    <div class="prof-info">
-                                        <h3>流水线技术总监 @ miHoYo</h3>
-                                        <p>设计实施动作捕捉数据上传、转换和同步的自动化流水线。使用Shotgun框架和Rez包开发增强通用生产流水线，建立基于Kafka和Linux服务的分布式计算集群资源分配工作流。</p>
-                                        <span class="prof-date">2021年8月 - 2022年11月</span>
-                                    </div>
-                                </div>
-                                <div class="professional-item">
-                                    <div class="prof-icon">
-                                        <i class="fas fa-briefcase"></i>
-                                    </div>
-                                    <div class="prof-info">
-                                        <h3>副制作工程师 @ Industrial Light & Magic</h3>
-                                        <p>为工作室各部门提供日常技术支持，与CG监督/制作/CG艺术家密切合作确保多个项目顺利运行。开发渲染数据提取脚本，设计Clarisse资源分配脚本最大化许可证/硬件资源利用率。参与《红色通缉令》、《海王》、《星球大战外传：侠盗一号》等项目。</p>
-                                        <span class="prof-date">2017年7月 - 2021年7月</span>
-                                    </div>
+
+                        <div class="about-card photo-card">
+                            <div class="about-photo-container">
+                                <img src="content/about/singer.jpg" alt="Music Performance" class="about-photo">
+                            </div>
+                        </div>
+
+                        <!-- 个人介绍卡片 -->
+                        <div class="about-card personal-intro-card">
+                            <div class="personal-intro-content">
+                                <div class="intro-text">
+                                    <p>Technical Director & AI/ML Engineer specialized in computer graphics, motion capture technology, and machine learning applications. Former Technical Director at miHoYo and Associate Production Engineer at Industrial Light & Magic. 🚀</p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- 教育背景 -->
-                        <div class="profile-section">
-                            <h2>教育背景</h2>
-                            <div class="education-list">
-                                <div class="education-item">
-                                    <div class="edu-icon">
+                        <div class="about-card">
+                            <div class="about-card-icon">
                                         <i class="fas fa-graduation-cap"></i>
                                     </div>
-                                    <div class="edu-info">
-                                        <h3>数据科学工程硕士 (在读)</h3>
-                                        <p>宾夕法尼亚大学工程学院 - 机器学习专业</p>
-                                        <span class="edu-date">2025年1月 - 至今</span>
+                            <h3>Education</h3>
+                            <p>Currently pursuing Data Science Engineering Master's at University of Pennsylvania. MSc in Digital Media Technology from NTU Singapore with perfect GPA.</p>
+                            <div class="about-card-meta">
+                                <span>UPenn • NTU</span>
+                                <span>4.00/5.00 GPA</span>
                                     </div>
                                 </div>
-                                <div class="education-item">
-                                    <div class="edu-icon">
-                                        <i class="fas fa-graduation-cap"></i>
-                                    </div>
-                                    <div class="edu-info">
-                                        <h3>数字媒体技术理学硕士</h3>
-                                        <p>南洋理工大学计算机科学与工程学院 - 高级计算机图形学专业 (CGPA: 4.00/5.00)</p>
-                                        <span class="edu-date">2016年7月 - 2017年6月</span>
-                            </div>
-                        </div>
-                                <div class="education-item">
-                                    <div class="edu-icon">
-                                        <i class="fas fa-graduation-cap"></i>
-                                    </div>
-                                    <div class="edu-info">
-                                        <h3>地理信息系统理学学士</h3>
-                                        <p>武汉大学资源与环境科学学院 - 计算机图形学与数字图像处理专业 (CGPA: 3.42/4.00)</p>
-                                        <span class="edu-date">2012年9月 - 2016年6月</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <div class="section-connector">
-                    <div class="connector-arrow">
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                </div>
-                <!-- Blog TODO 博客文章 - 鱼骨图时间轴 -->
-                <!-- About 关于我 -->
-                <section id="about" class="content-module about-module">
-                    <div class="module-content">
-                        <h1>关于我</h1>
-                        
-                        <div class="about-content">
-                            <!-- 个人介绍 - 包含头像 -->
-                            <div class="personal-intro">
-                                <img src="assets/images/profile/avatar.jpg" alt="福心心" class="profile-avatar">
-                                <div class="intro-text">
-                                    <h2>关于我</h2>
-                                    <p>我是胡心洁(Ms. Hu Xinjie)，动作技术总监和AI/ML工程师。前miHoYo技术总监和ILM副制作工程师，专注于计算机图形学、动作捕捉技术和机器学习应用。🚀</p>
-            </div>
-        </div>
 
-                            <!-- 个人分享 -->
-                            <div class="personal-statement">
-                                <h2>个人分享</h2>
-                                <p>作为一名技术总监，我专注于将AI/ML技术应用于计算机图形学和动作捕捉领域。在miHoYo期间，我设计开发了完整的动作捕捉自动化流水线，并通过AI模型优化实现了20倍的迭代速度提升。</p>
-                                <p>我相信技术创新能够推动创意产业的发展，目标是通过深度的技术研究和工程实践，构建更高效、更智能的制作流程。欢迎与我交流AI/ML、计算机图形学或任何技术相关的话题！</p>
+                        <div class="about-card photo-card">
+                            <div class="about-photo-container">
+                                <img src="content/about/diver.jpg" alt="Diving" class="about-photo">
+                            </div>
+                        </div>
+
+                        <!-- 项目成就 -->
+                        <div class="about-card">
+                            <div class="about-card-icon">
+                                <i class="fas fa-trophy"></i>
+                                    </div>
+                            <h3>Project Achievements</h3>
+                            <p>Led development of motion capture AI models achieving 20x iteration speed improvement. Built full-stack WeChat Mini Program serving 500+ users in UAE Chinese community.</p>
+                            <div class="about-card-meta">
+                                <span>20x Performance Boost</span>
+                                <span>500+ Active Users</span>
+                                    </div>
+                                </div>
+
+                        <!-- 行业经验 -->
+                        <div class="about-card">
+                            <div class="about-card-icon">
+                                <i class="fas fa-film"></i>
+                            </div>
+                            <h3>Industry Experience</h3>
+                            <p>Worked on major Hollywood productions including Red Notice, Aquaman, and Star Wars. Contributed to cutting-edge visual effects and pipeline development.</p>
+                            <div class="about-card-meta">
+                                <span>Hollywood Productions</span>
+                                <span>VFX • Pipeline</span>
+                            </div>
+                        </div>
+
+                        <!-- 个人理念 -->
+                        <div class="about-card">
+                            <div class="about-card-icon">
+                                <i class="fas fa-lightbulb"></i>
+                                    </div>
+                            <h3>Philosophy</h3>
+                            <p>Passionate about bridging technology and creativity. Believe that innovation in AI/ML can revolutionize the creative industry and improve production workflows.</p>
+                            <div class="about-card-meta">
+                                <span>Innovation • Creativity</span>
+                                <span>AI/ML • Creative Tech</span>
+                            </div>
+                        </div>
+
+                        <!-- 联系方式 -->
+                        <div class="about-card">
+                            <div class="about-card-icon">
+                                <i class="fas fa-envelope"></i>
+                                    </div>
+                            <h3>Get In Touch</h3>
+                            <p>Always open to discussing AI/ML, computer graphics, or any technology-related topics. Feel free to reach out for collaboration opportunities!</p>
+                            <div class="about-card-meta">
+                                <span>Abu Dhabi, UAE</span>
+                                <span>Open to Remote</span>
                             </div>
                         </div>
                     </div>
                 </section>
-            </main>
+                    </div>
         </div>
 
         <script>
-            const { createApp } = Vue;
+            // Navigation functionality
+            document.addEventListener('DOMContentLoaded', function() {
+                const navLinks = document.querySelectorAll('.nav__link');
+                const sections = document.querySelectorAll('.content-section');
 
-            createApp({
-                data() {
-                    return {
-                        activeSection: 'projects',
-                        activeChild: null,
-                        navSections: [
-                            {
-                                id: 'projects',
-                                title: 'Projects',
-                                icon: 'fas fa-folder',
-                                children: [
-                                    { id: 'datascience', title: 'Data Science', icon: 'fas fa-circle' },
-                                    { id: 'ucg', title: 'UCG', icon: 'fas fa-circle' },
-                                    { id: 'treenode', title: 'TreeNode', icon: 'fas fa-circle' },
-                                ]
-                            },
-                            {
-                                id: 'profile',
-                                title: 'Profile',
-                                icon: 'fas fa-user',
-                                children: [
-                                    { id: 'certifications', title: 'Certifications', icon: 'fas fa-circle' },
-                                    { id: 'professional', title: 'Professional', icon: 'fas fa-circle' },
-                                    { id: 'education', title: 'Education', icon: 'fas fa-circle' }
-                                ]
-                            },
-                            {
-                                id: 'about',
-                                title: 'About',
-                                icon: 'fas fa-envelope'
-                            }
-                        ],
-                        skillTags: [
-                            '流程开发', 'AI/ML', 'CG全流程', '敏捷开发', '全栈开发', '动作捕捉'
-                        ],
-                        softSkills: [
-                            { name: '流程开发', level: 95 },
-                            { name: '跨部门协作', level: 85 },
-                            { name: '技术支持', level: 90 },
-                        ],
-                        hardSkills: [
-                            { name: 'Python', level: 90 },
-                            { name: 'CICD', level: 85 },
-                            { name: 'AI/MLOps', level: 80 },
-                            { name: 'Git/Perforce', level: 80 },
-                        ],
-                        projectsData: [
-                            {
-                                id: 'datascience',
-                                title: 'Data Science',
-                                description: '机器学习和数据科学项目集合',
-                                image: 'assets/images/projects/datascience/icon.jpg',
-                                tags: ['Python', '机器学习', '数据分析'],
-                                users: '学术项目',
-                                rating: '研究'
-                            },
-                            {
-                                id: 'ucg',
-                                title: 'UCG微信小程序',
-                                description: '阿联酋华人社区微信小程序',
-                                image: 'assets/images/projects/ucg/icon.jpg',
-                                tags: ['微信小程序', '微信原生开发', '社区产品'],
-                                users: '500+',
-                                rating: '4.7'
-                            },
-                            {
-                                id: 'treenode',
-                                title: 'TreeNode',
-                                description: 'Notion数据库可视化Chrome扩展',
-                                image: 'content/portfolio/treenode/logo.png',
-                                tags: ['Chrome扩展', 'JavaScript', '产品设计'],
-                                users: '1000+',
-                                rating: '4.8'
-                            },
-                            {
-                                id: 'best',
-                                title: 'BEST记账',
-                                description: 'Apple Shortcuts记账工具',
-                                image: 'assets/images/projects/BEST/icon.jpg',
-                                tags: ['Apple Shortcuts', '记账工具', '流程管理'],
-                                users: '50+',
-                                rating: '4.9'
-                            },
-                            {
-                                id: 'charity',
-                                title: '公益活动',
-                                description: '公益活动',
-                                image: 'assets/images/projects/charity/icon.jpg',
-                                tags: ['公益活动', '流程管理'],
-                                users: '50+',
-                                rating: '4.9'
-                            },
-                            {
-                                id: 'design',
-                                title: 'Design Works',
-                                description: '海报设计和视觉作品集',
-                                image: 'assets/images/projects/ucg/icon.jpg',
-                                tags: ['平面设计', '海报设计', '视觉传达'],
-                                users: '创意作品',
-                                rating: '设计集'
-                            }
-                        ],
-                    }
-                },
-                methods: {
-                    selectChild(section, child) {
-                        this.activeChild = child.id;
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
                         
-                        // 如果是项目子项，打开详情页
-                        if (section.id === 'projects') {
-                            this.openProjectDetail(child.id);
-                        } else {
-                            // 滚动到对应section
-                            this.scrollToSection(section.id);
+                        // Remove active class from all links and sections
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        sections.forEach(s => {
+                            s.classList.remove('active');
+                            s.style.display = 'none';
+                        });
+                        
+                        // Add active class to clicked link
+                        this.classList.add('active');
+                        
+                        // Show corresponding section
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetSection = document.getElementById(targetId);
+                        if (targetSection) {
+                            targetSection.classList.add('active');
+                            targetSection.style.display = 'block';
                         }
-                    },
-                    scrollToSection(sectionId) {
-                        this.activeSection = sectionId;
-                        const element = document.getElementById(sectionId);
-                        if (element) {
-                            element.scrollIntoView({ 
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }
-                    },
-                    openProjectDetail(projectId) {
-                        if (projectId === 'design') {
+                    });
+                });
+            });
+
+            // Project detail functionality
+            function openProjectDetail(projectId) {
+                if (projectId === 'datascience') {
+                    window.open('https://colab.research.google.com/drive/1A3DhtigtOnSK2Jkvbd3zkQkeWm7Pd1_x?usp=sharing', '_blank');
+                } else if (projectId === 'best') {
+                    window.open('https://www.notion.com/templates/budget-expense-smart-tracker', '_blank');
+                } else if (projectId === 'poster1' || projectId === 'poster2' || projectId === 'charity') {
+                    // Poster项目和公益活动暂时无跳转
+                    return;
+                } else if (projectId === 'design') {
                             window.open(`content/portfolio/design/index.html`, '_blank');
+                        } else if (projectId === 'treenode') {
+                            window.open('https://chromewebstore.google.com/detail/notion-treeview/ckoknomfbeadbnmkppidchmhmeaflbka', '_blank');
                         } else {
                             window.open(`content/portfolio/${projectId}/index.html`, '_blank');
                         }
-                    },
-                    updateActiveSection() {
-                        const sections = ['projects', 'profile', 'about'];
-                        const scrollPosition = window.scrollY + window.innerHeight / 3;
-                        
-                        for (let i = sections.length - 1; i >= 0; i--) {
-                            const element = document.getElementById(sections[i]);
-                            if (element && element.offsetTop <= scrollPosition) {
-                                this.activeSection = sections[i];
-                                break;
-                            }
-                        }
-                    }
-                },
-                mounted() {
-                    // 监听滚动事件
-                    window.addEventListener('scroll', this.updateActiveSection);
-                    
-                    // 处理URL hash
-                    if (window.location.hash) {
-                        const sectionId = window.location.hash.substring(1);
-                        setTimeout(() => {
-                            this.scrollToSection(sectionId);
-                        }, 100);
-                    }
-                },
-                beforeUnmount() {
-                    window.removeEventListener('scroll', this.updateActiveSection);
-                }
-            }).mount('#app');
+            }
         </script>
+
     </body>
 </html>
 
