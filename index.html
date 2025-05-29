@@ -19,7 +19,6 @@
     </head>
 
     <body>
-
         <!-- Sidebar -->
         <div class="widget-profile">
             <div class="row">
@@ -27,7 +26,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
                     <div class="profile__image">
                         <img src="assets/images/profile/avatar_prev.jpg" alt="Xinjie Hu" class="img-responsive" />
-        </div>
+                    </div>
                 </div>
                 
                 <!-- Profile Info -->
@@ -45,22 +44,22 @@
                         <a href="mailto:kosam0913@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                    </div>
-                </div>
-                
+            </div>
+        </div>
+        
         <!-- Main Content -->
         <div class="main-content">
             <!-- Navigation -->
             <nav>
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="#profile" class="nav__link">
+                        <a href="#profile" class="nav__link active">
                             <i class="fa fa-user"></i>
                             <span>Profile</span>
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="#portfolio" class="nav__link active">
+                        <a href="#portfolio" class="nav__link">
                             <i class="fa fa-briefcase"></i>
                             <span>Portfolio</span>
                         </a>
@@ -78,7 +77,7 @@
             <div class="content-sections">
 
                 <!-- Profile Section -->
-                <section id="profile" class="content-section">
+                <section id="profile" class="content-section active" style="display: block;">
 
                     <!-- Experience -->
                     <div class="experience-section">
@@ -92,7 +91,7 @@
                                             <span class="fa fa-briefcase"></span>
                                             <span>Indie Full Stack Developer @ Abu Dhabi, UAE</span>
                                         </div>
-                                        <p>•<span style="margin-left: 12px;"/>ndependently built and launched a WeChat Mini Program for Chinese community in UAE, using Vue, TDesign, and cloud database</p>
+                                        <p>•<span style="margin-left: 12px;"/>Independently built and launched a WeChat Mini Program for Chinese community in UAE, using Vue, TDesign, and cloud database</p>
                                         <p>•<span style="margin-left: 12px;"/>Designed and implemented full-stack architecture with fast iteration and user feedback loop</p>
                                     </div>
                                 </h5>
@@ -153,7 +152,7 @@
                         <ul class="attributes">
                             <li class="first">
                                 <h5>
-                                    <span class="duration">2025/07 - Present</span>
+                                    <span class="duration">2025/01 - Present</span>
                                     <div class="title-content">
                                         <div class="title-with-icon">
                                             <span class="fa fa-book"></span>
@@ -192,15 +191,39 @@
                                 </h5>
                             </li>
                         </ul>
-                </div>
-                
+                    </div>
+                    
                     <!-- Certifications -->
                     <div class="certifications-section">
                         <div class="text_content">CERTIFICATIONS</div>
                         <ul class="attributes certifications-list">
                             <li>
                                 <h5>
-                                    <span class="duration">2024</span>
+                                    <span class="duration">2024/05</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-certificate"></span>
+                                            <span>Machine Learning Engineering for Production (MLOps) @ DeepLearning.AI on Coursera</span>
+                                        </div>
+                                    </div>
+                                </h5>
+                            </li>
+
+                            <li>
+                                <h5>
+                                    <span class="duration">2024/02</span>
+                                    <div class="title-content">
+                                        <div class="title-with-icon">
+                                            <span class="fa fa-certificate"></span>
+                                            <span>Deep Learning Certificate  @  DeepLearning.AI on Coursera</span>
+                                        </div>
+                                    </div>
+                                </h5>
+                            </li>
+
+                            <li>
+                                <h5>
+                                    <span class="duration">2024/01</span>
                                     <div class="title-content">
                                         <div class="title-with-icon">
                                             <span class="fa fa-certificate"></span>
@@ -209,28 +232,7 @@
                                     </div>
                                 </h5>
                             </li>
-                            <li>
-                                <h5>
-                                    <span class="duration">2024</span>
-                                    <div class="title-content">
-                                        <div class="title-with-icon">
-                                            <span class="fa fa-certificate"></span>
-                                            <span>Deep Learning Certificate  @  DeepLearning.AI on Coursera</span>
-                                        </div>
-                        </div>
-                                </h5>
-                            </li>
-                            <li>
-                                <h5>
-                                    <span class="duration">2024</span>
-                                    <div class="title-content">
-                                        <div class="title-with-icon">
-                                            <span class="fa fa-certificate"></span>
-                                            <span>Machine Learning Engineering for Production (MLOps) @ DeepLearning.AI on Coursera</span>
-                            </div>
-                    </div>
-                                </h5>
-                            </li>
+
                         </ul>
                     </div>
 
@@ -247,16 +249,15 @@
                                 <p>CorelDRAWX4, Autodesk DCC series, Adobe Creative Suitcase (AE PR PS)</p>
                             </li>
                         </ul>
-                </div>
+                    </div>
                 </section>
 
                 <!-- Portfolio Section -->
-                <section id="portfolio" class="content-section active" style="display: block;">
-                    <div class="text_content">PROJECT PORTFOLIO</div>
+                <section id="portfolio" class="content-section">
                     <div class="projects-showcase">
                         <div class="projects-grid-4col">
                             <!-- Data Science -->
-                            <div class="project-card large-project" onclick="openProjectDetail('datascience')" style="grid-column: span 2;">
+                            <div class="project-card large-project full-cover-image" onclick="openProjectDetail('datascience')" style="grid-column: span 2;">
                                 <div class="project-image">
                                     <img src="content/portfolio/datascience/logo.jpg" alt="Data Science">
                                     <div class="project-image-overlay">
@@ -267,17 +268,13 @@
                                 </div>
 
                                 <div class="project-info">
-                                    <h3>Data Science</h3>
-                                    <p>机器学习和数据科学项目集合</p>
+                                    <h3>Big Data Analysis</h3>
+                                    <p>Ride Price Factors and Ride-sharing Demand Forecasting</p>
                                     <div class="project-tags">
                                         <span>Python</span>
-                                        <span>机器学习</span>
-                                        <span>数据分析</span>
+                                        <span>ML</span>
+                                        <span>Data Analysis</span>
                                     </div>
-                                    <!-- <div class="project-stats">
-                                        <span><i class="fas fa-users"></i> 学术项目</span>
-                                        <span><i class="fas fa-star"></i> 研究</span>
-                                    </div> -->
                                 </div>
                             </div>
 
@@ -292,17 +289,13 @@
                                     </div>
                                 </div>
                                 <div class="project-info">
-                                    <h3>UCG微信小程序</h3>
-                                    <p>阿联酋华人社区微信小程序</p>
+                                    <h3>UCG WeChat Mini Program</h3>
+                                    <p>A WeChat Mini Program for the UAE Chinese Community</p>
                                     <div class="project-tags">
-                                        <span>微信小程序</span>
-                                        <span>微信原生开发</span>
-                                        <span>社区产品</span>
+                                        <span>JavaScript</span>
+                                        <span>MySQL</span>
+                                        <span>Flask</span>
                                     </div>
-                                    <!-- <div class="project-stats">
-                                        <span><i class="fas fa-users"></i> 500+</span>
-                                        <span><i class="fas fa-star"></i> 4.7</span>
-                                    </div> -->
                                 </div>
                             </div>
 
@@ -317,17 +310,12 @@
                                     </div>
                                 </div>
                                 <div class="project-info">
-                                    <h3>TreeNode</h3>
-                                    <p>Notion数据库可视化Chrome扩展</p>
+                                    <h3>Chrome Extension: TreeView</h3>
+                                    <p>Notion Database Visualization Chrome Extension</p>
                                     <div class="project-tags">
-                                        <span>Chrome扩展</span>
-                                        <span>JavaScript</span>
-                                        <span>产品设计</span>
+                                        <span>Product Design</span>
+                                        <span>React</span>
                                     </div>
-                                    <!-- <div class="project-stats">
-                                        <span><i class="fas fa-users"></i> 1000+</span>
-                                        <span><i class="fas fa-star"></i> 4.8</span>
-                                    </div> -->
                                 </div>
                             </div>
 
@@ -343,11 +331,11 @@
                                         </div>
                                     </div>
                                     <div class="project-info-small">
-                                        <h4>Visual Works</h4>
-                                        <p>平面设计作品集</p>
+                                        <h4>Visual Design</h4>
+                                        <p>Graphic Portfolio</p>
                                         <div class="project-tags-small">
-                                            <span>平面设计</span>
-                                            <span>海报设计</span>
+                                            <span>Graphic Design</span>
+                                            <span>Poster Design</span>
                                         </div>
                                     </div>
                                 </div>
@@ -361,11 +349,10 @@
                                         </div>
                                     </div>
                                     <div class="project-info-small">
-                                        <h4>公益活动</h4>
-                                        <p>公益活动组织与管理</p>
+                                        <h4>Public Welfare</h4>
+                                        <p>Rescue and Help</p>
                                         <div class="project-tags-small">
-                                            <span>公益活动</span>
-                                            <span>流程管理</span>
+                                            <span>Public Welfare</span>
                                         </div>
                                     </div>
                                 </div>
@@ -380,11 +367,11 @@
                                         </div>
                                     </div>
                                     <div class="project-info-small">
-                                        <h4>BEST记账</h4>
-                                        <p>Apple Shortcuts记账工具</p>
+                                        <h4>BEST Notion Template</h4>
+                                        <p>Apple Shortcuts Budget Expense Tracker</p>
                                         <div class="project-tags-small">
                                             <span>Apple Shortcuts</span>
-                                            <span>记账工具</span>
+                                            <span>Notion Template</span>
                                         </div>
                                     </div>
                                 </div>
@@ -408,9 +395,8 @@
                                 <div class="project-info">
                                     <h3>Poster Design</h3>
                                     <div class="project-tags">
-                                        <span>平面设计</span>
-                                        <span>海报设计</span>
-                                        <span>视觉传达</span>
+                                        <span>Graphic Design</span>
+                                        <span>CorelDRAW</span>
                                     </div>
                                 </div>
                             </div>
@@ -428,15 +414,14 @@
                                 <div class="project-info">
                                     <h3>Poster Design</h3>
                                     <div class="project-tags">
-                                        <span>平面设计</span>
-                                        <span>科技风格</span>
-                                        <span>创意设计</span>
+                                        <span>Graphic Design</span>
+                                        <span>CorelDRAW</span>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- 表情包设计 - 大项目 -->
-                            <div class="project-card large-project" onclick="openProjectDetail('emoji')" style="grid-column: span 2;">
+                            <div class="project-card large-project full-cover-image" onclick="openProjectDetail('emoji')" style="grid-column: span 2;">
                                 <div class="project-image">
                                     <img src="content/portfolio/emoji/logo.jpg" alt="表情包设计">
                                     <div class="project-image-overlay">
@@ -446,18 +431,12 @@
                                     </div>
                                 </div>
                                 <div class="project-info">
-                                    <h3>表情包设计</h3>
-                                    <p>原创表情包设计作品集，包含多种风格和主题的表情包创作</p>
+                                    <h3>Emoji Design</h3>
+                                    <p>Original Emoji Design Portfolio, inspired by my fighting fish</p>
                                     <div class="project-tags">
-                                        <span>表情包</span>
-                                        <span>创意设计</span>
-                                        <span>插画</span>
-                                        <span>原创IP</span>
+                                        <span>CorelDRAW</span>
+                                        <span>Original IP</span>
                                     </div>
-                                    <!-- <div class="project-stats">
-                                        <span><i class="fas fa-heart"></i> 原创</span>
-                                        <span><i class="fas fa-palette"></i> 设计</span>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -466,95 +445,67 @@
 
                 <!-- About Section -->
                 <section id="about" class="content-section">
-                    <div class="text_content">ABOUT ME</div>
-                    
+                    <!-- 个人介绍卡片 -->
+                    <div class="about-card personal-intro-card">
+                        <div class="personal-intro-content">
+                            <div class="intro-text">
+                                <p>🚀 A technically grounded creative thinker bridging pipelines, product strategy, and human-centered design with a passion for innovation and public impact.</p>
+                            </div>
+                        </div>
+                    </div>
                     <div class="about-cards">
-                        <!-- 个人生活照片 - No text descriptions -->
+                        <!-- 第一行第一个：技术专长 -->
+                        <div class="about-card">
+                            <div class="about-card-header">
+                                <div class="about-card-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h3>Technical Expertise</h3>
+                            </div>
+                            <p>Specialized in AI/ML pipeline development, computer graphics, and motion capture technology. Experienced in building distributed computing systems and automation tools.</p>
+                            <div class="about-card-meta">
+                                <span>8+ Years Experience</span>
+                                <span>Python • TensorFlow • Linux</span>
+                            </div>
+                        </div>
+
+                        <!-- 第一行第二个：照片1 -->
                         <div class="about-card photo-card">
                             <div class="about-photo-container">
                                 <img src="content/about/badminton.jpg" alt="Badminton" class="about-photo">
                             </div>
                         </div>
 
-                        <!-- 技术专长 -->
+                        <!-- 第一行第三个: 行业经验 -->
                         <div class="about-card">
-                            <div class="about-card-icon">
-                                <i class="fas fa-code"></i>
-                                    </div>
-                            <h3>Technical Expertise</h3>
-                            <p>Specialized in AI/ML pipeline development, computer graphics, and motion capture technology. Experienced in building distributed computing systems and automation tools.</p>
-                            <div class="about-card-meta">
-                                <span>8+ Years Experience</span>
-                                <span>Python • TensorFlow • Linux</span>
-                                    </div>
+                            <div class="about-card-header">
+                                <div class="about-card-icon">
+                                    <i class="fas fa-film"></i>
                                 </div>
+                                <h3>Industry Experience</h3>
+                            </div>
+                            <p>Worked on major Hollywood productions including Red Notice, Aquaman, and Star Wars. Contributed to cutting-edge visual effects and pipeline development.</p>
+                            <div class="about-card-meta">
+                                <span>Hollywood Productions</span>
+                                <span>VFX • Game • Pipeline</span>
+                            </div>
+                        </div>
 
+                        <!-- 第二行第一个：照片2 -->
                         <div class="about-card photo-card">
                             <div class="about-photo-container">
                                 <img src="content/about/singer.jpg" alt="Music Performance" class="about-photo">
                             </div>
                         </div>
 
-                        <!-- 个人介绍卡片 -->
-                        <div class="about-card personal-intro-card">
-                            <div class="personal-intro-content">
-                                <div class="intro-text">
-                                    <p>Technical Director & AI/ML Engineer specialized in computer graphics, motion capture technology, and machine learning applications. Former Technical Director at miHoYo and Associate Production Engineer at Industrial Light & Magic. 🚀</p>
+                        <!-- 第二行第二个：个人理念 -->
+                        <div class="about-card">
+                            <div class="about-card-header">
+                                <div class="about-card-icon">
+                                    <i class="fas fa-lightbulb"></i>
                                 </div>
+                                <h3>Philosophy</h3>
                             </div>
-                        </div>
-
-                        <!-- 教育背景 -->
-                        <div class="about-card">
-                            <div class="about-card-icon">
-                                        <i class="fas fa-graduation-cap"></i>
-                                    </div>
-                            <h3>Education</h3>
-                            <p>Currently pursuing Data Science Engineering Master's at University of Pennsylvania. MSc in Digital Media Technology from NTU Singapore with perfect GPA.</p>
-                            <div class="about-card-meta">
-                                <span>UPenn • NTU</span>
-                                <span>4.00/5.00 GPA</span>
-                                    </div>
-                                </div>
-
-                        <div class="about-card photo-card">
-                            <div class="about-photo-container">
-                                <img src="content/about/diver.jpg" alt="Diving" class="about-photo">
-                            </div>
-                        </div>
-
-                        <!-- 项目成就 -->
-                        <div class="about-card">
-                            <div class="about-card-icon">
-                                <i class="fas fa-trophy"></i>
-                                    </div>
-                            <h3>Project Achievements</h3>
-                            <p>Led development of motion capture AI models achieving 20x iteration speed improvement. Built full-stack WeChat Mini Program serving 500+ users in UAE Chinese community.</p>
-                            <div class="about-card-meta">
-                                <span>20x Performance Boost</span>
-                                <span>500+ Active Users</span>
-                                    </div>
-                                </div>
-
-                        <!-- 行业经验 -->
-                        <div class="about-card">
-                            <div class="about-card-icon">
-                                <i class="fas fa-film"></i>
-                            </div>
-                            <h3>Industry Experience</h3>
-                            <p>Worked on major Hollywood productions including Red Notice, Aquaman, and Star Wars. Contributed to cutting-edge visual effects and pipeline development.</p>
-                            <div class="about-card-meta">
-                                <span>Hollywood Productions</span>
-                                <span>VFX • Pipeline</span>
-                            </div>
-                        </div>
-
-                        <!-- 个人理念 -->
-                        <div class="about-card">
-                            <div class="about-card-icon">
-                                <i class="fas fa-lightbulb"></i>
-                                    </div>
-                            <h3>Philosophy</h3>
                             <p>Passionate about bridging technology and creativity. Believe that innovation in AI/ML can revolutionize the creative industry and improve production workflows.</p>
                             <div class="about-card-meta">
                                 <span>Innovation • Creativity</span>
@@ -562,12 +513,43 @@
                             </div>
                         </div>
 
-                        <!-- 联系方式 -->
+                        <!-- 第二行第三个：照片3 -->
+                        <div class="about-card photo-card">
+                            <div class="about-photo-container">
+                                <img src="content/about/ops.jpg" alt="Operations" class="about-photo">
+                            </div>
+                        </div>
+
+                        <!-- 第三行第一个：项目成就 -->
                         <div class="about-card">
-                            <div class="about-card-icon">
-                                <i class="fas fa-envelope"></i>
-                                    </div>
-                            <h3>Get In Touch</h3>
+                            <div class="about-card-header">
+                                <div class="about-card-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <h3>Project Achievements</h3>
+                            </div>
+                            <p>Led development of motion capture AI models achieving 20x iteration speed improvement. Built full-stack WeChat Mini Program (on it way to) serving 500+ users in UAE Chinese community.</p>
+                            <div class="about-card-meta">
+                                <span>20x Performance Boost</span>
+                                <span>500+ Active Users</span>
+                            </div>
+                        </div>
+
+                        <!-- 第三行第二个：照片4 -->
+                        <div class="about-card photo-card">
+                            <div class="about-photo-container">
+                                <img src="content/about/diver.jpg" alt="Diving" class="about-photo">
+                            </div>
+                        </div>
+
+                        <!-- 第三行第三个：联系方式 -->
+                        <div class="about-card">
+                            <div class="about-card-header">
+                                <div class="about-card-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h3>Get In Touch</h3>
+                            </div>
                             <p>Always open to discussing AI/ML, computer graphics, or any technology-related topics. Feel free to reach out for collaboration opportunities!</p>
                             <div class="about-card-meta">
                                 <span>Abu Dhabi, UAE</span>
@@ -576,7 +558,7 @@
                         </div>
                     </div>
                 </section>
-                    </div>
+            </div>
         </div>
 
         <script>
@@ -620,12 +602,12 @@
                     // Poster项目和公益活动暂时无跳转
                     return;
                 } else if (projectId === 'design') {
-                            window.open(`content/portfolio/design/index.html`, '_blank');
-                        } else if (projectId === 'treenode') {
-                            window.open('https://chromewebstore.google.com/detail/notion-treeview/ckoknomfbeadbnmkppidchmhmeaflbka', '_blank');
-                        } else {
-                            window.open(`content/portfolio/${projectId}/index.html`, '_blank');
-                        }
+                    window.open(`content/portfolio/design/index.html`, '_blank');
+                } else if (projectId === 'treenode') {
+                    window.open('https://chromewebstore.google.com/detail/notion-treeview/ckoknomfbeadbnmkppidchmhmeaflbka', '_blank');
+                } else {
+                    window.open(`content/portfolio/${projectId}/index.html`, '_blank');
+                }
             }
         </script>
 

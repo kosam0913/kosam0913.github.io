@@ -7,377 +7,867 @@
     <link rel="stylesheet" href="../../../assets/css/main-style.css">
     <link rel="shortcut icon" type="image/x-icon" href="../../../assets/images/icons/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            background: #ffffff;
-            font-size: 13px;
+        /* 使用父页面的CSS变量 */
+        :root {
+            --primary-color: #3B5998;
+            --secondary-color: #4c70ba;
+            --text-color: #839ccf;
+            --light-gray: #f5f5f5;
+            --border-radius-base: 5px;      /* 基本圆角 */
+            --border-radius-card: 12px;     /* 卡片圆角 */
+            --border-radius-small: 8px;     /* 小组件圆角 */
+            --transition-speed: 0.3s;
+            --sidebar-bg: #3B5998;
+            --sidebar-hover: #4c70ba;
         }
-        
-        .project-nav {
-            background: #ffffff;
-            border-bottom: 1px solid #e1e4e8;
-            padding: 1rem 0;
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            background-image: url(../../../assets/images/backgrounds/bg5.png);
+            background-repeat: repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 圆形返回按钮 */
+        .back-button {
             position: fixed;
-            top: 0;
+            top: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: #fff;
+            border-radius: 50%;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(59, 89, 152, 0.3);
+        }
+
+        .back-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(59, 89, 152, 0.4);
+        }
+
+        .back-button i {
+            font-size: 18px;
+        }
+
+        .back-button::after {
+            content: "返回项目列表";
+            position: absolute;
+            right: 60px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: var(--border-radius-base);
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .back-button:hover::after {
+            opacity: 1;
+            visibility: visible;
+            right: 65px;
+        }
+
+        /* ===== SIDEBAR PROFILE - 完全使用父页面样式 ===== */
+        .widget-profile {
+            position: fixed;
             left: 0;
-            right: 0;
+            top: 0;
+            width: 180px;
+            height: 100vh;
+            background: var(--sidebar-bg);
+            color: #fff;
+            padding: 20px;
+            padding-top: 50px;
+            overflow-y: auto;
             z-index: 100;
         }
-        
-        .project-nav .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-        
-        .nav-home {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            color: #24292e;
-            font-weight: 600;
-            font-size: 0.88rem;
-        }
-        
-        .nav-home img {
-            width: 20px;
-            height: 20px;
+
+        .profile__image {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
             border-radius: 50%;
-        }
-        
-        .back-link {
-            color: #0366d6;
-            text-decoration: none;
-            font-size: 0.72rem;
-            font-weight: 500;
-        }
-        
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        
-        .project-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 80px 2rem 2rem;
-        }
-        
-        .project-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .project-logo {
-            width: 64px;
-            height: 64px;
-            margin: 0 auto 1.5rem;
-            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border: 10px solid var(--secondary-color);
         }
-        
+
+        .profile__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile__info {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .profile__name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .profile__title {
+            font-size: 14px;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .profile__location {
+            font-size: 14px;
+            color: var(--text-color);
+        }
+
+        .profile__location i {
+            margin-right: 5px;
+        }
+
+        .profile__social {
+            text-align: center;
+            padding-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .profile__social a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .profile__social a:hover {
+            color: var(--primary-color);
+            background: #fff;
+        }
+
+        /* ===== MAIN CONTENT AREA - 使用父页面样式 ===== */
+        .main-content {
+            margin-left: 180px;
+            padding: 30px 20px 30px 30px;
+            min-height: 100vh;
+            background: transparent;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        .project-container {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Content Sections 区域样式 */
+        .content-sections {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: var(--border-radius-base);
+            margin-top: 2rem;
+        }
+
+        /* 项目标题区 */
+        .project-header {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: var(--border-radius-card);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .project-header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .project-info-section {
+            display: flex;
+            align-items: center;
+            flex: 0 0 auto;
+        }
+
+        .project-logo {
+            width: 60px;
+            height: 60px;
+            margin-right: 1rem;
+            border-radius: var(--border-radius-small);
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            flex-shrink: 0;
+        }
+
         .project-logo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
-        .project-header h1 {
-            font-size: 1.6rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: #24292e;
+
+        .project-text {
+            flex: 0 0 auto;
+            margin-right: 2rem;
         }
-        
-        .project-header p {
-            font-size: 0.8rem;
-            color: #586069;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-        
-        .project-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: #0366d6;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 0.72rem;
-            transition: all 0.2s ease;
-        }
-        
-        .cta-button:hover {
-            background: #0256cc;
-        }
-        
-        .cta-button.secondary {
-            background: rgba(246, 248, 250, 0.8);
-            color: #586069;
-            border: 1px solid #e1e4e8;
-        }
-        
-        .cta-button.secondary:hover {
-            background: #f6f8fa;
-        }
-        
-        .content-section {
-            margin: 3rem 0;
-        }
-        
-        .content-section h2 {
+
+        .project-title {
             font-size: 1.2rem;
-            font-weight: 600;
-            color: #24292e;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #e1e4e8;
-            padding-bottom: 0.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.25rem;
+            text-align: left;
         }
-        
-        .content-section p {
-            color: #586069;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-            font-size: 0.8rem;
+
+        .project-subtitle {
+            font-size: 0.65rem;
+            color: #64748b;
+            line-height: 1.4;
+            text-align: left;
+            margin: 0;
+            max-width: 400px;
         }
-        
-        .features-grid {
+
+        .project-stats {
+            display: flex;
+            gap: 1rem;
+            flex: 0 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 0.5rem 0.75rem;
+            background: var(--light-gray);
+            border-radius: var(--border-radius-small);
+            min-width: 80px;
+        }
+
+        .stat-number {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: #64748b;
+            margin-top: 0.25rem;
+        }
+
+        /* 内容区块 */
+        .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+        }
+
+        .content-grid-three {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 1.5rem;
-            margin: 1.5rem 0;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
         }
-        
-        .feature-card {
-            background: #f6f8fa;
-            border: 1px solid #e1e4e8;
-            border-radius: 8px;
-            padding: 1.5rem;
+
+        .content-card {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: var(--border-radius-card);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        
-        .feature-card h3 {
-            color: #24292e;
-            margin-bottom: 0.75rem;
-            font-size: 0.8rem;
+
+        .content-card.full-width {
+            grid-column: 1 / -1;
+            margin-top: 2rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
             font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        
-        .feature-card p {
-            color: #586069;
+
+        .card-content p {
+            color: #64748b;
             line-height: 1.6;
-            font-size: 0.72rem;
+            margin-bottom: 1rem;
         }
-        
-        .tech-stack {
+
+        .tech-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin: 1rem 0;
+            margin-top: 1rem;
         }
-        
-        .tech-stack span {
-            background: #f1f8ff;
-            color: #0366d6;
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            font-size: 0.68rem;
+
+        .tech-tag {
+            background: #eff6ff;
+            color: var(--primary-color);
+            padding: 0.375rem 0.75rem;
+            border-radius: var(--border-radius-card);
+            font-size: 0.75rem;
             font-weight: 500;
         }
-        
-        .metrics-grid {
+
+        /* 紧凑的功能展示 */
+        .features-compact {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
-            margin: 1.5rem 0;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
         }
-        
-        .metric-card {
-            background: #f6f8fa;
-            border: 1px solid #e1e4e8;
-            border-radius: 8px;
-            padding: 1rem;
+
+        .feature-compact {
+            padding: 0.5rem;
+            background: #f8fafc;
+            border-radius: var(--border-radius-small);
+            font-size: 0.875rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        /* 紧凑的海报展示 */
+        .poster-showcase-compact {
             text-align: center;
         }
-        
-        .metric-number {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #0366d6;
-            display: block;
-            margin-bottom: 0.25rem;
+
+        .poster-showcase-compact img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: var(--border-radius-small);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
-        
-        .metric-label {
-            color: #586069;
-            font-size: 0.68rem;
+
+        /* 紧凑的亮点展示 */
+        .highlights-compact {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .highlight-item strong {
+            color: var(--primary-color);
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .highlight-item span {
+            color: #64748b;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        /* App截图展示区 */
+        .app-showcase {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .app-screenshot {
+            background: #ffffff;
+            padding: 1rem;
+            border-radius: var(--border-radius-card);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .app-screenshot img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: var(--border-radius-small);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .screenshot-label {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-top: 1rem;
             font-weight: 500;
         }
-        
-        @media (max-width: 768px) {
-            .project-container {
-                padding: 80px 1rem 2rem;
+
+        /* Poster展示区 */
+        .poster-showcase {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: var(--border-radius-card);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .poster-showcase img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: var(--border-radius-small);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 功能特性网格 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: var(--border-radius-card);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-description {
+            font-size: 0.875rem;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .widget-profile {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
             }
             
-            .project-header h1 {
-                font-size: 1.4rem;
+            .widget-profile.open {
+                transform: translateX(0);
             }
             
-            .project-links {
-                flex-direction: column;
-                align-items: center;
+            .main-content {
+                margin-left: 0;
+                max-width: 100vw;
+                padding: 30px 20px;
             }
             
-            .cta-button {
-                width: 100%;
-                max-width: 200px;
-                text-align: center;
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-grid-three {
+                grid-template-columns: 1fr;
+                margin-top: 1rem;
+            }
+            
+            .project-stats {
+                grid-template-columns: 1fr 1fr;
+                min-width: 200px;
+            }
+            
+            .app-showcase {
+                grid-template-columns: 1fr;
             }
             
             .features-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .project-nav .container {
+
+            .back-button {
+                top: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+
+            .project-header-content {
                 flex-direction: column;
-                gap: 0.75rem;
                 align-items: flex-start;
+                gap: 2rem;
+            }
+
+            .project-info-section {
+                width: 100%;
+            }
+
+            .project-stats {
+                width: 100%;
+                min-width: unset;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 20px 15px;
+            }
+            
+            .project-header {
+                padding: 1rem;
+            }
+            
+            .project-title {
+                font-size: 0.9rem;
+            }
+
+            .project-subtitle {
+                font-size: 0.5rem;
+            }
+            
+            .project-stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.75rem;
+            }
+
+            .widget-profile {
+                width: 180px;
+            }
+
+            .back-button {
+                top: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .back-button i {
+                font-size: 16px;
+            }
+
+            .content-grid-three {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .features-compact {
+                grid-template-columns: 1fr;
+            }
+
+            .project-info-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .project-logo {
+                margin-right: 0;
+                margin-bottom: 0;
+            }
+
+            .project-text {
+                text-align: left;
+            }
+
+            .content-sections {
+                padding: 1rem;
+                margin-top: 1rem;
+            }
+
+            .content-card.full-width {
+                margin-top: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .widget-profile {
+                width: 100%;
+            }
+        }
+
+        /* 移动端菜单按钮 */
+        .mobile-menu-btn {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 200;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: var(--border-radius-base);
+            font-size: 1.25rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 1024px) {
+            .mobile-menu-btn {
+                display: block;
             }
         }
     </style>
 </head>
 <body>
-    <nav class="project-nav">
-        <div class="container">
-            <a href="../../../index.html" class="nav-home">
-                <img src="../../../assets/images/profile/avatar.jpg" alt="胡鑫杰">
-                <span>胡鑫杰</span>
-            </a>
-            <a href="../../../index.html#projects" class="back-link">← 返回项目列表</a>
-        </div>
-    </nav>
+    <!-- 移动端菜单按钮 -->
+    <button class="mobile-menu-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
 
-    <div class="project-container">
-        <div class="project-header">
-            <div class="project-logo">
-                <img src="../../../assets/images/projects/ucg/icon.jpg" alt="UCG">
-            </div>
-            <h1>UCG社区平台</h1>
-            <p>阿联酋华人社区微信小程序，为海外华人提供本地化服务和社区交流平台</p>
-            
-            <div class="project-links">
-                <a href="#" class="cta-button">查看演示</a>
-                <a href="#" class="cta-button secondary">项目文档</a>
-            </div>
-        </div>
+    <!-- 圆形返回按钮 -->
+    <a href="../../../index.html#portfolio" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+    </a>
 
-        <div class="content-section">
-            <h2>项目概述</h2>
-            <p>UCG（United Chinese Group）社区平台是专为阿联酋华人社区开发的微信小程序。该项目从用户调研开始，经过完整的产品开发流程，最终为海外华人提供了一个集社区服务、活动信息、商家推荐和交流互动于一体的综合性平台。</p>
-            
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <span class="metric-number">500+</span>
-                    <span class="metric-label">活跃用户</span>
-                </div>
-                <div class="metric-card">
-                    <span class="metric-number">50+</span>
-                    <span class="metric-label">合作商家</span>
-                </div>
-                <div class="metric-card">
-                    <span class="metric-number">100+</span>
-                    <span class="metric-label">社区活动</span>
-                </div>
-                <div class="metric-card">
-                    <span class="metric-number">4.7/5</span>
-                    <span class="metric-label">用户评分</span>
+    <!-- 左侧导航栏 -->
+    <div class="widget-profile">
+        <div class="row">
+            <!-- Profile Image -->
+            <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
+                <div class="profile__image">
+                    <img src="../../../assets/images/profile/avatar_prev.jpg" alt="Xinjie Hu" class="img-responsive" />
                 </div>
             </div>
-        </div>
-
-        <div class="content-section">
-            <h2>核心功能</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>🏪 商家服务</h3>
-                    <p>本地华人商家推荐，包括餐厅、超市、服务机构等，支持在线预订和评价</p>
+            
+            <!-- Profile Info -->
+            <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
+                <div class="profile__info">
+                    <h1 class="profile__name">Hu Xinjie</h1>
+                    <h4 class="profile__title">Full Stack Developer</h4>
+                    <h4 class="profile__title"> Technical Artist</h4>
+                    <h6 class="profile__location"><i class="fa fa-map-marker"></i> Abu Dhabi, UAE</h6>
                 </div>
-                <div class="feature-card">
-                    <h3>📅 活动发布</h3>
-                    <p>社区活动信息发布和报名，包括节日庆典、聚会、讲座等</p>
-                </div>
-                <div class="feature-card">
-                    <h3>💬 社区论坛</h3>
-                    <p>用户交流互动平台，分享生活经验、求助问答、二手交易等</p>
-                </div>
-                <div class="feature-card">
-                    <h3>📰 资讯推送</h3>
-                    <p>本地新闻、政策解读、生活指南等实用信息推送</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🔍 便民查询</h3>
-                    <p>签证办理、银行开户、租房买房等生活服务信息查询</p>
-                </div>
-                <div class="feature-card">
-                    <h3>👥 用户社群</h3>
-                    <p>基于兴趣和地区的用户群组，促进线下交流和互助</p>
+                <div class="profile__social">
+                    <a href="https://www.facebook.com/kosam0913" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/xinjie-hu-574070125/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/kosam0913" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:kosam0913@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
-        </div>
-
-        <div class="content-section">
-            <h2>技术实现</h2>
-            <p>项目采用微信小程序原生开发框架，结合现代前端技术栈，确保良好的用户体验和系统稳定性。</p>
-            
-            <h3 style="font-size: 0.88rem; margin: 1.5rem 0 0.75rem 0; color: #24292e;">技术栈</h3>
-            <div class="tech-stack">
-                <span>微信小程序</span>
-                <span>Vue.js</span>
-                <span>Node.js</span>
-                <span>MongoDB</span>
-                <span>微信支付</span>
-                <span>腾讯云</span>
-                <span>Redis</span>
-            </div>
-            
-            <h3 style="font-size: 0.88rem; margin: 1.5rem 0 0.75rem 0; color: #24292e;">架构特点</h3>
-            <ul style="color: #586069; font-size: 0.8rem; line-height: 1.6; padding-left: 1.5rem;">
-                <li>微服务架构设计，模块化开发</li>
-                <li>RESTful API接口，前后端分离</li>
-                <li>Redis缓存优化，提升响应速度</li>
-                <li>CDN加速，图片和静态资源优化</li>
-                <li>微信生态深度集成，支付和分享无缝对接</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>产品亮点</h2>
-            <p><strong>用户调研驱动：</strong>通过深入的用户访谈和问卷调研，了解阿联酋华人社区的真实需求，确保产品功能贴合用户痛点。</p>
-            
-            <p><strong>本地化设计：</strong>针对阿联酋当地法律法规、文化习俗和生活习惯进行深度本地化，提供真正有用的服务。</p>
-            
-            <p><strong>社区运营：</strong>不仅是技术产品，更注重社区运营和用户关系维护，建立了活跃的用户社群。</p>
-            
-            <p><strong>商业模式：</strong>通过商家入驻、广告投放、活动推广等方式实现可持续的商业化运营。</p>
-        </div>
-
-        <div class="content-section">
-            <h2>项目成果</h2>
-            <p>UCG社区平台成功上线后，迅速成为阿联酋华人社区的重要信息和服务平台。项目不仅解决了用户的实际需求，也为当地华人商家提供了有效的推广渠道，形成了良性的生态循环。</p>
-            
-            <p>该项目展现了从0到1的完整产品开发能力，包括市场调研、产品设计、技术实现、运营推广等各个环节，是技术产品经理综合能力的典型体现。</p>
         </div>
     </div>
+
+    <!-- 右侧主内容区 -->
+    <div class="main-content">
+        <div class="project-container">
+            <!-- Content Sections 区域 -->
+            <div class="content-sections">
+                 <!-- 项目标题区 -->
+                <div class="project-header">
+                    <div class="project-header-content">
+                        <!-- 左侧：Logo + 文字内容 -->
+                        <div class="project-info-section">
+                            <div class="project-logo">
+                                <img src="logo.jpg" alt="UCG">
+                            </div>
+                            <div class="project-text">
+                                <h1 class="project-title">UCG微信小程序</h1>
+                                <p class="project-subtitle">阿联酋华人社区综合服务平台，为海外华人提供本地化服务和社区交流</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 右侧：2x2 统计数据 -->
+                        <div class="project-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">Beta</span>
+                                <span class="stat-label">测试版本</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">运营中</span>
+                                <span class="stat-label">项目状态</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">小程序</span>
+                                <span class="stat-label">产品形态</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">阿联酋</span>
+                                <span class="stat-label">服务地区</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 <!-- 第一行：项目概述、技术架构、核心功能 -->
+                <div class="content-grid-three">
+                    <!-- 项目概述 -->
+                    <div class="content-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-info-circle" style="color: #10b981;"></i>
+                            项目概述
+                        </h2>
+                        <div class="card-content">
+                            <p>UCG是专为阿联酋华人社区开发的微信小程序平台，集商家服务、活动发布、社区交流于一体的综合性平台。</p>
+                            <p>项目从0到1完成完整产品开发流程，目前正在稳步运营中。</p>
+                        </div>
+                    </div>
+
+                    <!-- 技术架构 -->
+                    <div class="content-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-code" style="color: #3b82f6;"></i>
+                            技术架构
+                        </h2>
+                        <div class="card-content">
+                            <p>采用微信小程序原生开发框架，结合现代前端技术栈，后端采用微服务架构。</p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">微信小程序</span>
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 核心功能精简版 -->
+                    <div class="content-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-star" style="color: #f59e0b;"></i>
+                            核心功能
+                        </h2>
+                        <div class="card-content">
+                            <div class="features-compact">
+                                <div class="feature-compact">📅 活动发布</div>
+                                <div class="feature-compact">💬 社区论坛</div>
+                                <div class="feature-compact">📰 资讯推送</div>
+                                <div class="feature-compact">🔍 便民查询</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- App截图展示 -->
+                <div class="content-card full-width">
+                    <h2 class="card-title">
+                        <i class="fas fa-mobile-alt" style="color: #3b82f6;"></i>
+                        应用界面展示
+                    </h2>
+                    <div class="app-showcase">
+                        <div class="app-screenshot">
+                            <img src="ui1.png" alt="首页界面">
+                            <div class="screenshot-label">首页 - 社区服务入口</div>
+                        </div>
+                        <div class="app-screenshot">
+                            <img src="ui2.png" alt="商家页面">
+                            <div class="screenshot-label">商家 - 本地商户推荐</div>
+                        </div>
+                        <div class="app-screenshot">
+                            <img src="ui3.png" alt="活动页面">
+                            <div class="screenshot-label">活动 - 社区活动发布</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第二行：Poster展示 + 项目亮点 -->
+                <div class="content-grid">
+                    <!-- Poster展示 -->
+                    <div class="content-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-image" style="color: #ec4899;"></i>
+                            产品宣传海报
+                        </h2>
+                        <div class="poster-showcase-compact">
+                            <img src="beta.jpg" alt="UCG Beta版宣传海报">
+                        </div>
+                    </div>
+
+                    <!-- 项目亮点 -->
+                    <div class="content-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-lightbulb" style="color: #8b5cf6;"></i>
+                            项目亮点
+                        </h2>
+                        <div class="card-content">
+                            <div class="highlights-compact">
+                                <div class="highlight-item">
+                                    <strong>用户导向</strong>
+                                    <span>深入用户调研，功能设计贴合实际需求</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <strong>本地化</strong>
+                                    <span>针对阿联酋当地环境深度定制</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <strong>全栈开发</strong>
+                                    <span>独立完成产品设计到技术实现</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <strong>商业运营</strong>
+                                    <span>建立可持续的商业模式</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.widget-profile');
+            sidebar.classList.toggle('open');
+        }
+
+        // 点击主内容区时关闭侧边栏（移动端）
+        document.querySelector('.main-content').addEventListener('click', function() {
+            if (window.innerWidth <= 1024) {
+                document.querySelector('.widget-profile').classList.remove('open');
+            }
+        });
+
+        // 窗口大小改变时的处理
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 1024) {
+                document.querySelector('.widget-profile').classList.remove('open');
+            }
+        });
+    </script>
 </body>
 </html> 

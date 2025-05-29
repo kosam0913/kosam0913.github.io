@@ -16,26 +16,30 @@
             margin: 0;
             font-family: 'Inter', sans-serif;
         }
-        .design-gallery-container {
-            max-width: 1200px;
-            margin: 40px auto;
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-            padding: 32px 24px;
-            margin-left: 240px;
-            margin-right: 40px;
+        
+        /* ===== MAIN CONTENT AREA ===== */
+        .main-content {
+            margin-left: 180px;
+            padding: 30px 20px 30px 30px;
+            min-height: 100vh;
+            background: transparent;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
-        .design-gallery-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-color, #3B5998);
-            margin-bottom: 32px;
-            text-align: center;
+        
+        .design-gallery-container {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            width: 100%;
+            margin: 0 auto;
         }
         .design-group {
             margin-bottom: 50px;
+            background: #fff;
         }
+
         .design-group-title {
             font-size: 1.4rem;
             font-weight: 600;
@@ -211,20 +215,30 @@
             visibility: visible;
             right: 60px;
         }
+        @media (max-width: 1024px) {
+            .main-content {
+                padding: 30px 20px;
+            }
+        }
         @media (max-width: 768px) {
-            .design-gallery-container { 
+            .widget-profile {
+                width: 160px;
+            }
+            
+            .main-content { 
                 margin-left: 170px;
-                margin-right: 15px;
                 padding: 20px 15px; 
             }
-            .design-gallery-title { font-size: 1.5rem; }
             .design-group-title { font-size: 1.2rem; }
             .lightbox-close { top: 10px; right: 20px; }
         }
         @media (max-width: 480px) {
-            .design-gallery-container { 
+            .widget-profile {
+                width: 140px;
+            }
+            
+            .main-content { 
                 margin-left: 150px;
-                margin-right: 10px;
                 padding: 15px 10px; 
             }
         }
@@ -264,25 +278,26 @@
         <i class="fas fa-arrow-left"></i>
     </a>
 
-    <div class="design-gallery-container">
-        <div class="design-gallery-title">设计作品集</div>
-        
-        <!-- Poster Design Group -->
-        <div class="design-group">
-            <div class="design-group-title">海报设计 Poster Design</div>
-            <div class="design-grid" id="poster-grid"></div>
-        </div>
-        
-        <!-- Design Group -->
-        <div class="design-group">
-            <div class="design-group-title">设计作品 Design</div>
-            <div class="design-grid" id="design-grid"></div>
-        </div>
-        
-        <!-- Photography Group -->
-        <div class="design-group">
-            <div class="design-group-title">摄影作品 Photography</div>
-            <div class="photo-grid" id="photo-grid"></div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="design-gallery-container"> 
+            <!-- Poster Design Group -->
+            <div class="design-group">
+                <div class="design-group-title">Poster Design</div>
+                <div class="design-grid" id="poster-grid"></div>
+            </div>
+            
+            <!-- Design Group -->
+            <div class="design-group">
+                <div class="design-group-title">Design Works</div>
+                <div class="design-grid" id="design-grid"></div>
+            </div>
+            
+            <!-- Photography Group -->
+            <div class="design-group">
+                <div class="design-group-title">Photography</div>
+                <div class="photo-grid" id="photo-grid"></div>
+            </div>
         </div>
     </div>
     
