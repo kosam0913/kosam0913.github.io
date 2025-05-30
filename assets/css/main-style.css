@@ -97,16 +97,23 @@ body {
 }
 
 .profile__social a {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
-    line-height: 40px;
     border-radius: 50%;
     background: var(--primary-color);
     color: #fff;
     text-align: center;
     transition: all 0.3s ease;
     text-decoration: none;
+    padding: 0;
+}
+
+.profile__social a i {
+    font-size: 22px;
+    display: block;
 }
 
 .profile__social a:hover {
