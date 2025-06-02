@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UCG社区平台</title>
+    <title>UCG</title>
     <link rel="stylesheet" href="../../../assets/css/main-style.css">
     <link rel="shortcut icon" type="image/x-icon" href="../../../assets/images/icons/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -116,7 +116,7 @@
             margin: 0 auto 20px;
             border-radius: 50%;
             overflow: hidden;
-            border: 10px solid var(--secondary-color);
+            border: 6px solid var(--secondary-color);
         }
 
         .profile__image img {
@@ -156,29 +156,30 @@
 
         .profile__social {
             text-align: center;
-            padding-top: 20px;
             display: flex;
             justify-content: center;
-            gap: 8px;
-            flex-wrap: wrap;
+            gap: 4px;
+            flex-wrap: nowrap;
         }
 
         .profile__social a {
-            display: inline-block;
-            width: 35px;
-            height: 35px;
-            line-height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             background: var(--primary-color);
             color: #fff;
             text-align: center;
             transition: all 0.3s ease;
             text-decoration: none;
+            padding: 0;
         }
 
-        .profile__social a:hover {
-            color: var(--primary-color);
-            background: #fff;
+        .profile__social a i {
+            font-size: 22px;
+            display: block;
         }
 
         /* ===== MAIN CONTENT AREA - 使用父页面样式 ===== */
@@ -715,20 +716,20 @@
                         <!-- 右侧：2x2 统计数据 -->
                         <div class="project-stats">
                             <div class="stat-item">
-                                <span class="stat-number">Beta</span>
                                 <span class="stat-label">测试版本</span>
+                                <span class="stat-number">Beta</span>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-number">运营中</span>
                                 <span class="stat-label">项目状态</span>
+                                <span class="stat-number">审核中</span>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-number">小程序</span>
                                 <span class="stat-label">产品形态</span>
+                                <span class="stat-number">小程序</span>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-number">阿联酋</span>
                                 <span class="stat-label">服务地区</span>
+                                <span class="stat-number">阿联酋</span>
                             </div>
                         </div>
                     </div>
@@ -743,7 +744,7 @@
                             项目概述
                         </h2>
                         <div class="card-content">
-                            <p>UCG是专为阿联酋华人社区开发的微信小程序平台，集商家服务、活动发布、社区交流于一体的综合性平台。</p>
+                            <p>UCG是专为阿联酋华人社区开发的微信小程序平台，集共享出行、商家服务、活动发布、社区交流于一体的综合性平台。</p>
                             <p>项目从0到1完成完整产品开发流程，目前正在稳步运营中。</p>
                         </div>
                     </div>
@@ -758,11 +759,10 @@
                             <p>采用微信小程序原生开发框架，结合现代前端技术栈，后端采用微服务架构。</p>
                             <div class="tech-tags">
                                 <span class="tech-tag">HTML5</span>
-                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">TDesign</span>
                                 <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Nginx</span>
-                                <span class="tech-tag">MySQL</span>
                                 <span class="tech-tag">Linux CentOS (Alicloud ECS)</span>
+                                <span class="tech-tag">MySQL</span>
                             </div>
                         </div>
                     </div>
@@ -791,18 +791,27 @@
                         应用界面展示
                     </h2>
                     <div class="app-showcase">
+
                         <div class="app-screenshot">
-                            <img src="ui1.png" alt="首页界面">
-                            <div class="screenshot-label">首页 - 社区服务入口</div>
+                            <img src="ui2.png" alt="出行页面">
+                            <div class="screenshot-label">共享出行 - 本地出行互助</div>
                         </div>
                         <div class="app-screenshot">
-                            <img src="ui2.png" alt="商家页面">
-                            <div class="screenshot-label">商家 - 本地商户推荐</div>
+                            <img src="ui1.png" alt="论坛页面">
+                            <div class="screenshot-label">论坛 - 社区论坛</div>
                         </div>
                         <div class="app-screenshot">
-                            <img src="ui3.png" alt="活动页面">
+                            <img src="ui3.png" alt="论坛内容页面">
+                            <div class="screenshot-label">论坛 - 社区论坛内容</div>
+                        </div>
+                        <!-- <div class="app-screenshot">
+                            <img src="ui4.png" alt="活动页面">
                             <div class="screenshot-label">活动 - 社区活动发布</div>
                         </div>
+                        <div class="app-screenshot">
+                            <img src="ui5.png" alt="活动页面">
+                            <div class="screenshot-label">用户中心 - 用户信息管理</div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -833,7 +842,7 @@
                                 </div>
                                 <div class="highlight-item">
                                     <strong>本地化</strong>
-                                    <span>针对阿联酋当地环境深度定制</span>
+                                    <span>针对阿联酋当地环境定制</span>
                                 </div>
                                 <div class="highlight-item">
                                     <strong>全栈开发</strong>
