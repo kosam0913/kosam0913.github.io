@@ -92,21 +92,28 @@ body {
     text-align: center;
     display: flex;
     justify-content: center;
-    gap: 4px;
+    gap: 2px;
     flex-wrap: nowrap;
 }
 
 .profile__social a {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     background: var(--primary-color);
     color: #fff;
     text-align: center;
     transition: all 0.3s ease;
     text-decoration: none;
+    padding: 0;
+}
+
+.profile__social a i {
+    font-size: 22px;
+    display: block;
 }
 
 .profile__social a:hover {
