@@ -20,7 +20,7 @@
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   line-height: 1.6;
-    background-image: url(../images/backgrounds/bg5.png);
+    background-image: url(../images/backgrounds/main-bg.png);
     background-repeat: repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -147,7 +147,7 @@ body {
 /* ===== MAIN CONTENT AREA ===== */
 .main-content {
     margin-left: 180px;
-    padding: 30px 20px 30px 30px;
+    padding: 30px;
     min-height: 100vh;
     background: transparent;
     max-width: 100%;

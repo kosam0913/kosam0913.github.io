@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCG</title>
+    <link rel="stylesheet" href="../../assets/css/main-style.css">
+    <link rel="stylesheet" href="../../assets/css/sub-style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/icons/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="ucg-page">
+    <!-- 移动端菜单按钮 -->
+    <button class="mobile-menu-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- 圆形返回按钮 -->
+    <a href="../../index.html#portfolio" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- 左侧导航栏 -->
+    <div class="widget-profile">
+        <div class="row">
+            <!-- Profile Image -->
+            <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
+                <div class="profile__image">
+                    <img src="../../assets/images/profile/avatar_prev.jpg" alt="Xinjie Hu" class="img-responsive" />
+                </div>
+            </div>
+            
+            <!-- Profile Info -->
+            <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
+                <div class="profile__info">
+                    <h1 class="profile__name">Hu Xinjie</h1>
+                    <h4 class="profile__title">Full Stack Developer</h4>
+                    <h4 class="profile__title"> Technical Artist</h4>
+                    <h6 class="profile__location"><i class="fa fa-map-marker"></i> Abu Dhabi, UAE</h6>
+                </div>
+                <div class="profile__social">
+                    <a href="https://www.facebook.com/kosam0913" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/xinjie-hu-574070125/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/kosam0913" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:kosam0913@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 右侧主内容区 -->
+    <div class="main-content">
+        <div class="project-container">
+            <!-- Content Sections 区域 -->
+            <div class="content-sections">
+                 <!-- 项目标题区 -->
+                <div class="project-header">
+                    <div class="project-header-content">
+                        <!-- 左侧：Logo + 文字内容 -->
+                        <div class="project-info-section">
+                            <div class="project-logo">
+                                <img src="logo.jpg" alt="UCG">
+                            </div>
+                            <div class="project-text">
+                                <h1 class="project-title">UCG微信小程序</h1>
+                                <p class="project-subtitle">阿联酋华人社区综合服务平台，为海外华人提供本地化服务和社区交流</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 右侧：2x2 统计数据 -->
+                        <div class="project-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">测试版本</span>
+                                <span class="stat-number">Beta</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">项目状态</span>
+                                <span class="stat-number">审核中</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">产品形态</span>
+                                <span class="stat-number">小程序</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">服务地区</span>
+                                <span class="stat-number">阿联酋</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 <!-- 第一行：项目概述、技术架构、核心功能 -->
+                <div class="content-grid-three">
+                    <!-- 项目概述 -->
+                    <div class="content-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-info-circle" style="color: #10b981;"></i>
+                            项目概述
+                        </h2>
+                        <div class="card-content">
+                            <p>UCG是专为阿联酋华人社区开发的微信小程序平台，集共享出行、商家服务、活动发布、社区交流于一体的综合性平台。</p>
+                            <p>项目从0到1完成完整产品开发流程，目前正在稳步运营中。</p>
+                        </div>
+                    </div>
+
+                    <!-- 技术架构 -->
+                    <div class="content-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-code" style="color: #3b82f6;"></i>
+                            技术架构
+                        </h2>
+                        <div class="card-content">
+                            <p>采用微信小程序原生开发框架，结合现代前端技术栈，后端采用微服务架构。</p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">TDesign</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Linux CentOS (Alicloud ECS)</span>
+                                <span class="tech-tag">MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 核心功能精简版 -->
+                    <div class="content-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-star" style="color: #f59e0b;"></i>
+                            核心功能
+                        </h2>
+                        <div class="card-content">
+                            <div class="features-compact">
+                                <div class="feature-compact">📅 活动发布</div>
+                                <div class="feature-compact">💬 社区论坛</div>
+                                <div class="feature-compact">📰 资讯推送</div>
+                                <div class="feature-compact">🔍 便民查询</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- App截图展示 -->
+                <div class="content-card full-width">
+                    <h2 class="card-title">
+                        <i class="fas fa-mobile-alt" style="color: #3b82f6;"></i>
+                        应用界面展示
+                    </h2>
+                    <div class="app-showcase">
+
+                        <div class="app-screenshot">
+                            <img src="ui2.png" alt="出行页面">
+                            <div class="screenshot-label">共享出行 - 本地出行互助</div>
+                        </div>
+                        <div class="app-screenshot">
+                            <img src="ui1.png" alt="论坛页面">
+                            <div class="screenshot-label">论坛 - 社区论坛</div>
+                        </div>
+                        <div class="app-screenshot">
+                            <img src="ui3.png" alt="论坛内容页面">
+                            <div class="screenshot-label">论坛 - 社区论坛内容</div>
+                        </div>
+                        <!-- <div class="app-screenshot">
+                            <img src="ui4.png" alt="活动页面">
+                            <div class="screenshot-label">活动 - 社区活动发布</div>
+                        </div>
+                        <div class="app-screenshot">
+                            <img src="ui5.png" alt="活动页面">
+                            <div class="screenshot-label">用户中心 - 用户信息管理</div>
+                        </div> -->
+                    </div>
+                </div>
+
+                <!-- 第二行：Poster展示 + 项目亮点 -->
+                <div class="content-grid">
+                    <!-- Poster展示 -->
+                    <div class="content-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-image" style="color: #ec4899;"></i>
+                            产品宣传海报
+                        </h2>
+                        <div class="poster-showcase-compact">
+                            <img src="beta.jpg" alt="UCG Beta版宣传海报">
+                        </div>
+                    </div>
+
+                    <!-- 项目亮点 -->
+                    <div class="content-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-lightbulb" style="color: #8b5cf6;"></i>
+                            项目亮点
+                        </h2>
+                        <div class="card-content">
+                            <div class="highlights-compact">
+                                <div class="highlight-item">
+                                    <strong>用户导向</strong>
+                                    <span>深入用户调研，功能设计贴合实际需求</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <strong>本地化</strong>
+                                    <span>针对阿联酋当地环境定制</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <strong>全栈开发</strong>
+                                    <span>独立完成产品设计到技术实现</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <strong>商业运营</strong>
+                                    <span>建立可持续的商业模式</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.widget-profile');
+            sidebar.classList.toggle('open');
+        }
+
+        // 点击主内容区时关闭侧边栏（移动端）
+        document.querySelector('.main-content').addEventListener('click', function() {
+            if (window.innerWidth <= 1024) {
+                document.querySelector('.widget-profile').classList.remove('open');
+            }
+        });
+
+        // 窗口大小改变时的处理
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 1024) {
+                document.querySelector('.widget-profile').classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html> 

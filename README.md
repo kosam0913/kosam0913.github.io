@@ -20,7 +20,7 @@ kosam0913.github.io/
 │   └── docs/             # Documents
 │       ├── *.docx        # Resume files
 │       └── *.pdf
-├── content/              # Content organization
+├──               # Content organization
 │   ├── blog/            # Blog posts
 │   └── portfolio/       # Portfolio projects
 │       └── tree_node/   # TreeNode project details
@@ -63,11 +63,11 @@ For manual deployment:
 ## 📝 Content Management
 
 ### Adding Blog Posts
-1. Create new `.md` file in `content/blog/`
+1. Create new `.md` file in `blog/`
 2. Update blog section in `index.html`
 
 ### Adding Portfolio Projects
-1. Create project folder in `content/portfolio/`
+1. Create project folder in `portfolio/`
 2. Add project images to `assets/images/portfolio/`
 3. Update portfolio section in `index.html`
 

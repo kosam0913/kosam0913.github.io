@@ -53,13 +53,13 @@
             <nav>
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="#profile" class="nav__link active">
+                        <a href="#profile" class="nav__link">
                             <i class="fa fa-user"></i>
                             <span>Profile</span>
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="#portfolio" class="nav__link">
+                        <a href="#portfolio" class="nav__link active">
                             <i class="fa fa-briefcase"></i>
                             <span>Portfolio</span>
                         </a>
@@ -77,7 +77,7 @@
             <div class="content-sections">
 
                 <!-- Profile Section -->
-                <section id="profile" class="content-section active" style="display: block;">
+                <section id="profile" class="content-section">
 
                     <!-- Experience -->
                     <div class="experience-section">
@@ -255,13 +255,13 @@
                 </section>
 
                 <!-- Portfolio Section -->
-                <section id="portfolio" class="content-section">
+                <section id="portfolio" class="content-section active" style="display: block;">
                     <div class="projects-showcase">
                         <div class="projects-grid-4col">
                             <!-- Data Science -->
                             <div class="project-card large-project full-cover-image" onclick="openProjectDetail('datascience')" style="grid-column: span 2;">
                                 <div class="project-image">
-                                    <img src="content/portfolio/datascience/logo.jpg" alt="Data Science">
+                                    <img src="portfolio/datascience/logo.jpg" alt="Data Science">
                                     <div class="project-image-overlay">
                                         <div class="project-zoom-icon">
                                             <i class="fa fa-search"></i>
@@ -280,10 +280,30 @@
                                 </div>
                             </div>
 
+                            <!-- TreeView大项目 -->
+                            <div class="project-card large-project" onclick="openProjectDetail('treeview')" style="grid-column: span 2;">
+                                <div class="project-image">
+                                    <img src="portfolio/treeview/logo.jpg" alt="TreeView">
+                                    <div class="project-image-overlay">
+                                        <div class="project-zoom-icon">
+                                            <i class="fa fa-search"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <h3>Chrome Extension: TreeView</h3>
+                                    <p>Notion Database Visualization Chrome Extension</p>
+                                    <div class="project-tags">
+                                        <span>Product Design</span>
+                                        <span>React</span>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- UCG -->
                             <div class="project-card large-project" onclick="openProjectDetail('ucg')" style="grid-column: span 2;">
                                 <div class="project-image">
-                                    <img src="content/portfolio/ucg/logo.jpg" alt="UCG微信小程序">
+                                    <img src="portfolio/ucg/logo.jpg" alt="UCG微信小程序">
                                     <div class="project-image-overlay">
                                         <div class="project-zoom-icon">
                                             <i class="fa fa-search"></i>
@@ -301,31 +321,11 @@
                                 </div>
                             </div>
 
-                            <!-- TreeNode 大项目 -->
-                            <div class="project-card large-project" onclick="openProjectDetail('treenode')" style="grid-column: span 2;">
-                                <div class="project-image">
-                                    <img src="content/portfolio/treenode/logo.jpg" alt="TreeNode">
-                                    <div class="project-image-overlay">
-                                        <div class="project-zoom-icon">
-                                            <i class="fa fa-search"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="project-info">
-                                    <h3>Chrome Extension: TreeView</h3>
-                                    <p>Notion Database Visualization Chrome Extension</p>
-                                    <div class="project-tags">
-                                        <span>Product Design</span>
-                                        <span>React</span>
-                                    </div>
-                                </div>
-                            </div>
-
                             <!-- 其他小项目堆叠 -->
                             <div class="small-projects-column" style="grid-column: span 2;">
                                 <div class="project-card small-project" onclick="openProjectDetail('design')" style="grid-column: span 2;">
                                     <div class="project-image-small">
-                                        <img src="content/portfolio/design/design/design_03.jpg" alt="Design Works">
+                                        <img src="portfolio/design/design/design_03.jpg" alt="Design Works">
                                         <div class="project-image-overlay">
                                             <div class="project-zoom-icon">
                                                 <i class="fa fa-search"></i>
@@ -343,7 +343,7 @@
                                 </div>
                                 <div class="project-card small-project" onclick="openProjectDetail('charity')" style="grid-column: span 2;">
                                     <div class="project-image-small">
-                                        <img src="content/portfolio/public_welfare/logo.jpg" alt="公益活动">
+                                        <img src="portfolio/public_welfare/logo.jpg" alt="公益活动">
                                         <div class="project-image-overlay">
                                             <div class="project-zoom-icon">
                                                 <i class="fa fa-search"></i>
@@ -361,7 +361,7 @@
 
                                 <div class="project-card small-project" onclick="openProjectDetail('best')" style="grid-column: span 2;">
                                     <div class="project-image-small">
-                                        <img src="content/portfolio/best/logo.jpg" alt="BEST">
+                                        <img src="portfolio/best/logo.jpg" alt="BEST">
                                         <div class="project-image-overlay">
                                             <div class="project-zoom-icon">
                                                 <i class="fa fa-search"></i>
@@ -385,7 +385,7 @@
                             <!-- Poster 1 -->
                             <div class="project-card poster-project-small" onclick="openProjectDetail('poster1')" style="grid-column: span 3;">
                                 <div class="project-image">
-                                    <img src="content/portfolio/design/poster1.jpg" alt="Poster Design 1">
+                                    <img src="portfolio/design/poster1.jpg" alt="Poster Design 1">
                                     <div class="project-image-overlay">
                                         <div class="project-zoom-icon">
                                             <i class="fa fa-search"></i>
@@ -404,7 +404,7 @@
                             <!-- Poster 2 -->
                             <div class="project-card poster-project-small" onclick="openProjectDetail('poster2')" style="grid-column: span 3;">
                                 <div class="project-image">
-                                    <img src="content/portfolio/design/poster2.jpg" alt="Poster Design 2">
+                                    <img src="portfolio/design/poster2.jpg" alt="Poster Design 2">
                                     <div class="project-image-overlay">
                                         <div class="project-zoom-icon">
                                             <i class="fa fa-search"></i>
@@ -423,7 +423,7 @@
                             <!-- 表情包设计 - 大项目 -->
                             <div class="project-card large-project full-cover-image" onclick="openProjectDetail('emoji')" style="grid-column: span 2;">
                                 <div class="project-image">
-                                    <img src="content/portfolio/emoji/logo.jpg" alt="表情包设计">
+                                    <img src="portfolio/emoji/logo.jpg" alt="表情包设计">
                                     <div class="project-image-overlay">
                                         <div class="project-zoom-icon">
                                             <i class="fa fa-search"></i>
@@ -472,7 +472,7 @@
                         <!-- 第一行第二个：照片1 -->
                         <div class="about-card photo-card">
                             <div class="about-photo-container">
-                                <img src="content/about/badminton.jpg" alt="Badminton" class="about-photo">
+                                <img src="about/badminton.jpg" alt="Badminton" class="about-photo">
                             </div>
                         </div>
 
@@ -494,7 +494,7 @@
                         <!-- 第二行第一个：照片2 -->
                         <div class="about-card photo-card">
                             <div class="about-photo-container">
-                                <img src="content/about/singer.jpg" alt="Music Performance" class="about-photo">
+                                <img src="about/singer.jpg" alt="Music Performance" class="about-photo">
                             </div>
                         </div>
 
@@ -516,7 +516,7 @@
                         <!-- 第二行第三个：照片3 -->
                         <div class="about-card photo-card">
                             <div class="about-photo-container">
-                                <img src="content/about/ops.jpg" alt="Operations" class="about-photo">
+                                <img src="about/ops.jpg" alt="Operations" class="about-photo">
                             </div>
                         </div>
 
@@ -538,7 +538,7 @@
                         <!-- 第三行第二个：照片4 -->
                         <div class="about-card photo-card">
                             <div class="about-photo-container">
-                                <img src="content/about/diver.jpg" alt="Diving" class="about-photo">
+                                <img src="about/diver.jpg" alt="Diving" class="about-photo">
                             </div>
                         </div>
 
@@ -602,15 +602,14 @@
                     // Poster项目和公益活动暂时无跳转
                     return;
                 } else if (projectId === 'design') {
-                    window.open(`content/portfolio/design/index.html`, '_blank');
+                    window.open(`portfolio/design/index.html`, '_blank');
                 } else if (projectId === 'treenode') {
                     window.open('https://chromewebstore.google.com/detail/notion-treeview/ckoknomfbeadbnmkppidchmhmeaflbka', '_blank');
                 } else {
-                    window.open(`content/portfolio/${projectId}/index.html`, '_blank');
+                    window.open(`portfolio/${projectId}/index.html`, '_blank');
                 }
             }
         </script>
 
     </body>
 </html>
-
