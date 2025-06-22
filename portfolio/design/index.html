@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../assets/css/main-style.css">
+    <link rel="stylesheet" href="../../assets/css/main-style.css">
+    <link rel="stylesheet" href="../../assets/css/sub-style.css">
     <style>
         body {
-            background-image: url(../../../assets/images/backgrounds/main-bg.png);
+            background-image: url(../../assets/images/backgrounds/main-bg.png);
             background-repeat: repeat;
             background-position: center center;
             background-attachment: fixed;
@@ -220,38 +221,33 @@
                 padding: 30px 20px;
             }
         }
-        @media (max-width: 768px) {
-            .widget-profile {
-                width: 160px;
-            }
-            
+        @media (max-width: 768px) {            
             .main-content { 
-                margin-left: 170px;
                 padding: 20px 15px; 
             }
             .design-group-title { font-size: 1.2rem; }
             .lightbox-close { top: 10px; right: 20px; }
         }
-        @media (max-width: 480px) {
-            .widget-profile {
-                width: 140px;
-            }
-            
+        @media (max-width: 480px) {            
             .main-content { 
-                margin-left: 150px;
                 padding: 15px 10px; 
             }
         }
     </style>
 </head>
 <body>
+    <!-- 移动端菜单按钮 -->
+    <button class="mobile-menu-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
+
     <!-- Sidebar (copied from main page) -->
     <div class="widget-profile">
         <div class="row">
             <!-- Profile Image -->
             <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
                 <div class="profile__image">
-                    <img src="../../../assets/images/profile/avatar_prev.jpg" alt="Xinjie Hu" class="img-responsive" />
+                    <img src="../../assets/images/profile/avatar_prev.jpg" alt="Xinjie Hu" class="img-responsive" />
                 </div>
             </div>
             
@@ -274,7 +270,7 @@
     </div>
 
     <!-- Back Button -->
-    <a href="../../../index.html#portfolio" class="back-button">
+    <a href="../../index.html#portfolio" class="back-button">
         <i class="fas fa-arrow-left"></i>
     </a>
 
@@ -397,6 +393,26 @@
         document.getElementById('lightbox').onclick = function(e) {
             if (e.target === this) this.classList.remove('active');
         };
+
+        // 移动端侧边栏控制
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.widget-profile');
+            sidebar.classList.toggle('open');
+        }
+
+        // 点击主内容区时关闭侧边栏（移动端）
+        document.querySelector('.main-content').addEventListener('click', function() {
+            if (window.innerWidth <= 1024) {
+                document.querySelector('.widget-profile').classList.remove('open');
+            }
+        });
+
+        // 窗口大小改变时的处理
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 1024) {
+                document.querySelector('.widget-profile').classList.remove('open');
+            }
+        });
     </script>
 </body>
 </html> 
