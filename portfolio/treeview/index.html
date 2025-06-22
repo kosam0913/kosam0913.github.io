@@ -80,17 +80,22 @@
                                 <span class="stat-number">4.8/5</span>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-label">PH Daily Rank</span>
-                                <span class="stat-number">#9</span>
-                            </div>
-                            <div class="stat-item">
                                 <span class="stat-label">下载量</span>
                                 <span class="stat-number">120+</span>
                             </div>
-                            <div class="project-links">
-                                <a href="https://chromewebstore.google.com/detail/ckoknomfbeadbnmkppidchmhmeaflbka?utm_source=item-share-cb" class="cta-button">Chrome商店</a>
+                            <div class="stat-item">
+                                <span class="stat-label">PH Daily Rank</span>
+                                <span class="stat-number">#9</span>
                             </div>
                         </div>
+                    </div>
+                </div>
+                
+                <!-- 产品展示图片 -->
+                <div class="content-card full-width image" style="padding: 0; margin-bottom: 2rem;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: stretch;">
+                        <img src="2.1_cover.png" alt="TreeView 封面展示" style="width: 100%; height: auto; display: block; border-radius: 8px; object-fit: cover;">
+                        <img src="2.1_screenshot.png" alt="TreeView 应用截图" style="width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); object-fit: fill;">
                     </div>
                 </div>
                 
@@ -103,9 +108,8 @@
                             项目概述
                         </h2>
                         <div class="card-content">
-                            <p>TreeNode是一个专为Notion用户设计的Chrome扩展，解决了Notion数据库在展示层次化数据时的局限性。</p>
+                            <p>TreeView是一个专为Notion Database设计的Chrome扩展，解决了Database在展示层次化数据时的局限。</p>
                             <p>通过将平面的数据库条目转换为直观的树状结构，提升项目管理和任务组织的效率。</p>
-
                         </div>
                     </div>
 
@@ -117,12 +121,13 @@
                         </h2>
                         <div class="card-content">
                             <div class="tech-tags">
-                                <span class="tech-tag">JavaScript ES6+</span>
                                 <span class="tech-tag">Chrome Extension API</span>
-                                <span class="tech-tag">D3.js</span>
-                                <span class="tech-tag">CSS3</span>
-                                <span class="tech-tag">Webpack</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">CSS</span>
                                 <span class="tech-tag">Notion API</span>
+                                <span class="tech-tag">Webpack</span>
+                                <span class="tech-tag">Oauth2.0</span>
+                                <span class="tech-tag">Flask</span>
                             </div>
                         </div>
                     </div>
@@ -155,56 +160,14 @@
                         <div class="card-content">
                             <h3 style="color: #1e293b; margin-bottom: 0.5rem; font-size: 1rem;">🎯 核心问题</h3>
                             <ul>
-                                <li>无法直观显示父子关系</li>
-                                <li>层次结构需要通过属性字段推断</li>
-                                <li>项目管理时缺乏整体视图</li>
-                                <li>任务依赖关系不够清晰</li>
+                                <li>项目管理时缺乏整体视图和进度跟踪</li>
+                                <li>多层级任务依赖关系不够清晰</li>
                             </ul>
                             
                             <h3 style="color: #1e293b; margin: 1rem 0 0.5rem 0; font-size: 1rem;">💡 解决方案</h3>
                             <ul>
-                                <li>自动识别Notion数据库中的层次关系</li>
-                                <li>实时生成树状视图</li>
-                                <li>保持与原始数据库的双向同步</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- 功能特性 -->
-                    <div class="content-card">
-                        <h2 class="card-title">
-                            <i class="fas fa-cogs" style="color: #8b5cf6;"></i>
-                            功能特性
-                        </h2>
-                        <div class="card-content">
-                            <ul>
-                                <li><strong>智能树状转换：</strong>自动分析Notion数据库结构，识别父子关系</li>
-                                <li><strong>实时同步：</strong>与Notion数据库保持实时同步</li>
-                                <li><strong>可定制主题：</strong>提供多种视觉主题和布局选项</li>
-                                <li><strong>响应式设计：</strong>在不同屏幕尺寸上都能提供良好体验</li>
-                                <li><strong>快速搜索：</strong>支持在树状结构中快速搜索和定位</li>
-                                <li><strong>统计信息：</strong>显示节点数量、层级深度等统计信息</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 第三行：技术实现 + 产品思考 -->
-                <div class="content-grid">
-                    <!-- 技术实现 -->
-                    <div class="content-card">
-                        <h2 class="card-title">
-                            <i class="fas fa-tools" style="color: #3b82f6;"></i>
-                            技术实现
-                        </h2>
-                        <div class="card-content">
-                            <h3 style="color: #1e293b; margin-bottom: 0.5rem; font-size: 1rem;">核心技术特点</h3>
-                            <ul>
-                                <li><strong>DOM操作优化：</strong>使用虚拟滚动和懒加载处理大型数据集</li>
-                                <li><strong>数据结构算法：</strong>高效的树构建和遍历算法</li>
-                                <li><strong>缓存机制：</strong>智能缓存减少API调用，提升响应速度</li>
-                                <li><strong>错误处理：</strong>完善的错误处理和用户反馈机制</li>
-                                <li><strong>安全性：</strong>遵循Chrome扩展安全最佳实践</li>
+                                <li>参考linux tree命令，平铺展示数据库条目</li>
+                                <li>自动识别Notion数据库中的层次关系，实时生成树状视图</li>
                             </ul>
                         </div>
                     </div>
@@ -216,44 +179,12 @@
                             产品思考
                         </h2>
                         <div class="card-content">
-                            <p>TreeNode的开发过程体现了以用户为中心的产品设计理念：</p>
                             <ul>
-                                <li><strong>用户调研：</strong>深入了解Notion用户的痛点，发现层次化数据展示的需求缺口</li>
-                                <li><strong>MVP验证：</strong>从最小可行产品开始，快速验证核心假设</li>
-                                <li><strong>技术选型：</strong>在功能需求和技术约束之间找到平衡</li>
-                                <li><strong>持续优化：</strong>建立用户反馈收集机制，持续优化产品体验</li>
+                                <li>把自己作为用户，创造自己想用的产品</li>
+                                <li>从最小可行产品开始，快速验证核心假设</li>
+                                <li>宣传和交付一样重要</li>
+                                <li>建立用户反馈收集机制</li>
                             </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 用户价值展示 -->
-                <div class="content-card full-width">
-                    <h2 class="card-title">
-                        <i class="fas fa-users" style="color: #10b981;"></i>
-                        用户价值与未来规划
-                    </h2>
-                    <div class="card-content">
-                        <div class="content-grid">
-                            <div>
-                                <h3 style="color: #1e293b; margin-bottom: 0.5rem; font-size: 1rem;">📈 用户价值</h3>
-                                <ul>
-                                    <li><strong>效率提升：</strong>用户报告项目管理效率平均提升50%</li>
-                                    <li><strong>认知负担：</strong>减少了理解复杂项目结构的认知负担</li>
-                                    <li><strong>协作改善：</strong>团队成员更容易理解项目层次和依赖关系</li>
-                                    <li><strong>决策支持：</strong>清晰的视觉化帮助做出更好的项目决策</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h3 style="color: #1e293b; margin-bottom: 0.5rem; font-size: 1rem;">🚀 未来规划</h3>
-                                <ul>
-                                    <li>支持更多数据源（Airtable、Google Sheets等）</li>
-                                    <li>增加协作功能，支持团队共享视图</li>
-                                    <li>开发移动端应用，扩展使用场景</li>
-                                    <li>集成AI功能，智能推荐最优项目结构</li>
-                                    <li>提供API接口，支持第三方集成</li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>

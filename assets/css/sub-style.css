@@ -36,8 +36,8 @@ body {
 /* ===== 圆形返回按钮 ===== */
 .back-button {
     position: fixed;
-    top: 30px;
-    right: 30px;
+    top: 45px;
+    right: 45px;
     width: 50px;
     height: 50px;
     background: var(--primary-color);
@@ -177,7 +177,7 @@ body {
 /* ===== MAIN CONTENT AREA - 使用父页面样式 ===== */
 .main-content {
     margin-left: 180px;
-    padding: 30px;
+    padding: 15px 30px 30px 30px;
     min-height: 100vh;
     background: transparent;
     max-width: 100%;
@@ -195,7 +195,7 @@ body {
     background: #f8fafc;
     padding: 2rem;
     border-radius: var(--border-radius-base);
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 /* ===== 项目标题区 ===== */
@@ -218,12 +218,13 @@ body {
     display: flex;
     align-items: center;
     flex: 0 0 auto;
+    margin-left: -10px;
 }
 
 .project-logo {
     width: 80px;
     height: 80px;
-    margin-right: 1rem;
+    margin-right: 1.5rem;
     border-radius: var(--border-radius-small);
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -238,7 +239,7 @@ body {
 
 .project-text {
     flex: 0 0 auto;
-    margin-right: 2rem;
+    margin-right: 1rem;
 }
 
 .project-title {
@@ -255,7 +256,7 @@ body {
     line-height: 1.4;
     text-align: left;
     margin: 0;
-    max-width: 400px;
+    max-width: 450px;
 }
 
 .project-stats {
@@ -312,6 +313,12 @@ body {
 .content-card.full-width {
     grid-column: 1 / -1;
     margin-top: 2rem;
+}
+
+
+.content-card.full-width.image {
+    background: transparent;
+    box-shadow: none;
 }
 
 .card-title {
@@ -621,8 +628,8 @@ body {
     }
 
     .back-button {
-        top: 20px;
-        right: 20px;
+        top: 30px;
+        right: 35px;
         width: 45px;
         height: 45px;
     }
@@ -674,8 +681,8 @@ body {
     }
 
     .back-button {
-        top: 15px;
-        right: 15px;
+        top: 20px;
+        right: 25px;
         width: 40px;
         height: 40px;
     }
