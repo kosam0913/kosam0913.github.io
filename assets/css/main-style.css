@@ -93,6 +93,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 2px;
+    gap: 2px;
     flex-wrap: nowrap;
 }
 
@@ -108,6 +109,12 @@ body {
     text-align: center;
     transition: all 0.3s ease;
     text-decoration: none;
+    padding: 0;
+}
+
+.profile__social a i {
+    font-size: 22px;
+    display: block;
     padding: 0;
 }
 

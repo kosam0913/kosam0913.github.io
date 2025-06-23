@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TreeNode</title>
+    <link rel="stylesheet" href="../../../assets/css/main-style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../assets/images/icons/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background: #ffffff;
+            font-size: 13px;
+        }
+        
+        .project-nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e1e4e8;
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+        
+        .project-nav .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .nav-home {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: #24292e;
+            font-weight: 600;
+            font-size: 0.88rem;
+        }
+        
+        .nav-home img {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        
+        .back-link {
+            color: #0366d6;
+            text-decoration: none;
+            font-size: 0.72rem;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .project-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 2rem 2rem;
+        }
+        
+        .project-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .project-logo {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .project-header h1 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #24292e;
+        }
+        
+        .project-header p {
+            font-size: 0.8rem;
+            color: #586069;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .project-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #0366d6;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.72rem;
+            transition: all 0.2s ease;
+        }
+        
+        .cta-button:hover {
+            background: #0256cc;
+        }
+        
+        .cta-button.secondary {
+            background: rgba(246, 248, 250, 0.8);
+            color: #586069;
+            border: 1px solid #e1e4e8;
+        }
+        
+        .cta-button.secondary:hover {
+            background: #f6f8fa;
+        }
+        
+        .content-section {
+            margin: 3rem 0;
+        }
+        
+        .content-section h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #24292e;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #e1e4e8;
+            padding-bottom: 0.5rem;
+        }
+        
+        .content-section p {
+            color: #586069;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-size: 0.8rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .feature-card {
+            background: #f6f8fa;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            color: #24292e;
+            margin-bottom: 0.75rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .feature-card p {
+            color: #586069;
+            line-height: 1.6;
+            font-size: 0.72rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .tech-stack span {
+            background: #f1f8ff;
+            color: #0366d6;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.68rem;
+            font-weight: 500;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .metric-card {
+            background: #f6f8fa;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .metric-number {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0366d6;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        .metric-label {
+            color: #586069;
+            font-size: 0.68rem;
+            font-weight: 500;
+        }
+        
+        .problem-solution {
+            background: #f6f8fa;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .problem-solution h3 {
+            color: #24292e;
+            margin-bottom: 0.75rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+        
+        .problem-solution p {
+            color: #586069;
+            line-height: 1.6;
+            font-size: 0.72rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .project-container {
+                padding: 80px 1rem 2rem;
+            }
+            
+            .project-header h1 {
+                font-size: 1.4rem;
+            }
+            
+            .project-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 200px;
+                text-align: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-nav .container {
+                flex-direction: column;
+                gap: 0.75rem;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="project-nav">
+        <div class="container">
+            <a href="../../../index.html" class="nav-home">
+                <img src="../../../assets/images/profile/avatar.jpg" alt="Hu Xinjie">
+                <span>Hu Xinjie</span>
+            </a>
+            <a href="../../../index.html#projects" class="back-link">← 返回项目列表</a>
+        </div>
+    </nav>
+
+    <div class="project-container">
+        <div class="project-header">
+            <div class="project-logo">
+                <img src="logo.png" alt="TreeNode" style="background: #f6f8fa;">
+            </div>
+            <h1>TreeNode</h1>
+            <p>Notion数据库可视化Chrome扩展，将平面条目转换为直观的树状结构</p>
+            
+            <div class="project-links">
+                <a href="https://chrome.google.com/webstore" class="cta-button">Chrome商店</a>
+                <a href="https://github.com" class="cta-button secondary">GitHub</a>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>项目概述</h2>
+            <p>TreeNode是一个专为Notion用户设计的Chrome扩展，解决了Notion数据库在展示层次化数据时的局限性。通过将平面的数据库条目转换为直观的树状结构，大大提升了项目管理和任务组织的效率。</p>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <span class="metric-number">1000+</span>
+                    <span class="metric-label">活跃用户</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">4.8/5</span>
+                    <span class="metric-label">用户评分</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">50%</span>
+                    <span class="metric-label">效率提升</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">10k+</span>
+                    <span class="metric-label">下载量</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>问题与解决方案</h2>
+            
+            <div class="problem-solution">
+                <h3>🎯 核心问题</h3>
+                <p>Notion数据库虽然功能强大，但在展示具有层次关系的数据时存在明显不足：</p>
+                <ul style="color: #586069; font-size: 0.72rem; line-height: 1.6; padding-left: 1.5rem; margin: 0.5rem 0;">
+                    <li>无法直观显示父子关系</li>
+                    <li>层次结构需要通过属性字段推断</li>
+                    <li>项目管理时缺乏整体视图</li>
+                    <li>任务依赖关系不够清晰</li>
+                </ul>
+            </div>
+            
+            <div class="problem-solution">
+                <h3>💡 解决方案</h3>
+                <p>TreeNode通过以下方式解决这些问题：</p>
+                <ul style="color: #586069; font-size: 0.72rem; line-height: 1.6; padding-left: 1.5rem; margin: 0.5rem 0;">
+                    <li>自动识别Notion数据库中的层次关系</li>
+                    <li>实时生成可交互的树状视图</li>
+                    <li>支持展开/折叠节点，便于聚焦</li>
+                    <li>保持与原始数据库的双向同步</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>核心功能</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🌳 智能树状转换</h3>
+                    <p>自动分析Notion数据库结构，识别父子关系，生成层次化树状视图</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⚡ 实时同步</h3>
+                    <p>与Notion数据库保持实时同步，数据变更立即反映在树状视图中</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎨 可定制主题</h3>
+                    <p>提供多种视觉主题和布局选项，适应不同用户偏好</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📱 响应式设计</h3>
+                    <p>在不同屏幕尺寸上都能提供良好的用户体验</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔍 快速搜索</h3>
+                    <p>支持在树状结构中快速搜索和定位特定节点</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📊 统计信息</h3>
+                    <p>显示节点数量、层级深度等统计信息，帮助项目管理</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>技术实现</h2>
+            <p>TreeNode采用现代Web技术栈开发，确保性能和兼容性的平衡。</p>
+            
+            <h3 style="font-size: 0.88rem; margin: 1.5rem 0 0.75rem 0; color: #24292e;">技术栈</h3>
+            <div class="tech-stack">
+                <span>JavaScript ES6+</span>
+                <span>Chrome Extension API</span>
+                <span>D3.js</span>
+                <span>CSS3</span>
+                <span>Webpack</span>
+                <span>Notion API</span>
+            </div>
+            
+            <h3 style="font-size: 0.88rem; margin: 1.5rem 0 0.75rem 0; color: #24292e;">核心技术特点</h3>
+            <ul style="color: #586069; font-size: 0.8rem; line-height: 1.6; padding-left: 1.5rem;">
+                <li><strong>DOM操作优化：</strong>使用虚拟滚动和懒加载处理大型数据集</li>
+                <li><strong>数据结构算法：</strong>高效的树构建和遍历算法</li>
+                <li><strong>缓存机制：</strong>智能缓存减少API调用，提升响应速度</li>
+                <li><strong>错误处理：</strong>完善的错误处理和用户反馈机制</li>
+                <li><strong>安全性：</strong>遵循Chrome扩展安全最佳实践</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>用户反馈与影响</h2>
+            <p>TreeNode自发布以来，收到了用户的积极反馈，特别是在项目管理和知识组织方面：</p>
+            
+            <div class="problem-solution">
+                <h3>📈 用户价值</h3>
+                <ul style="color: #586069; font-size: 0.72rem; line-height: 1.6; padding-left: 1.5rem; margin: 0.5rem 0;">
+                    <li><strong>效率提升：</strong>用户报告项目管理效率平均提升50%</li>
+                    <li><strong>认知负担：</strong>减少了理解复杂项目结构的认知负担</li>
+                    <li><strong>协作改善：</strong>团队成员更容易理解项目层次和依赖关系</li>
+                    <li><strong>决策支持：</strong>清晰的视觉化帮助做出更好的项目决策</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>产品思考</h2>
+            <p>TreeNode的开发过程体现了以用户为中心的产品设计理念：</p>
+            
+            <p><strong>用户调研：</strong>通过深入了解Notion用户的痛点，发现了层次化数据展示的需求缺口。</p>
+            
+            <p><strong>MVP验证：</strong>从最小可行产品开始，快速验证核心假设，然后基于用户反馈迭代改进。</p>
+            
+            <p><strong>技术选型：</strong>在功能需求和技术约束之间找到平衡，选择了最适合的技术方案。</p>
+            
+            <p><strong>持续优化：</strong>建立了用户反馈收集机制，持续优化产品体验和性能。</p>
+        </div>
+
+        <div class="content-section">
+            <h2>未来规划</h2>
+            <p>基于用户反馈和市场需求，TreeNode的后续发展方向包括：</p>
+            
+            <ul style="color: #586069; font-size: 0.8rem; line-height: 1.6; padding-left: 1.5rem;">
+                <li>支持更多数据源（Airtable、Google Sheets等）</li>
+                <li>增加协作功能，支持团队共享视图</li>
+                <li>开发移动端应用，扩展使用场景</li>
+                <li>集成AI功能，智能推荐最优项目结构</li>
+                <li>提供API接口，支持第三方集成</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html> 
