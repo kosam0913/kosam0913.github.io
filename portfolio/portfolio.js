@@ -17,7 +17,7 @@ class PortfolioManager {
      */
     bindEvents() {
         // 项目卡片点击事件将通过 HTML 的 onclick 属性处理
-        console.log('Portfolio Manager initialized');
+        // Portfolio Manager initialized
     }
 
     /**
@@ -47,35 +47,24 @@ class PortfolioManager {
      */
     async loadPortfolioSection(containerId) {
         try {
-            console.log('Loading portfolio section for container:', containerId);
             const response = await fetch('./portfolio/portfolio.html');
-            console.log('Fetch response status:', response.status);
             
             const html = await response.text();
-            console.log('HTML content length:', html.length);
             
             const container = document.getElementById(containerId);
-            console.log('Container found:', !!container);
             
             if (container) {
                 container.innerHTML = html;
-                console.log('HTML inserted into container');
                 
                 // 找到插入的portfolio section并激活它
                 const portfolioSection = container.querySelector('#portfolio');
                 if (portfolioSection) {
                     portfolioSection.classList.add('active');
                     portfolioSection.style.display = 'block';
-                    console.log('Portfolio section activated');
-                } else {
-                    console.log('Portfolio section not found in inserted HTML');
                 }
                 
                 // 重新绑定事件
                 this.bindEvents();
-                console.log('Events re-bound');
-            } else {
-                console.error('Container not found:', containerId);
             }
         } catch (error) {
             console.error('Error loading portfolio section:', error);

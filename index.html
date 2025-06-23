@@ -24,6 +24,8 @@
         <script src="profile/profile.js"></script>
         <!-- Portfolio Module -->
         <script src="portfolio/portfolio.js"></script>
+        <!-- Blog Module -->
+        <script src="blog/blog.js"></script>
         <!-- Marked.js for Markdown parsing -->
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     </head>
@@ -71,38 +73,10 @@
                     <!-- Portfolio content will be loaded from portfolio/portfolio.html -->
                 </div>
 
-                <!-- Blog Section -->
-                <section id="blog" class="content-section">
-                    <div class="blog-container">
-                        <!-- Loading State -->
-                        <div class="loading-container" id="loading" style="display: none;">
-                            <div class="loading-spinner"></div>
-                            <p style="margin-top: 1rem; color: #64748b;">Loading blog posts...</p>
-                            <p style="margin-top: 0.5rem; color: #9ca3af; font-size: 0.875rem;">🔍 Fetching content from GitHub Issues...</p>
-                        </div>
-
-                        <!-- Error Message -->
-                        <div class="error-message" id="error" style="display: none;">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <span id="error-text">Failed to load blog posts</span>
-                        </div>
-
-                        <!-- Blog Posts Container -->
-                        <div class="blog-posts" id="blog-posts" style="display: none;">
-                            <!-- Posts will be loaded here dynamically -->
-                        </div>
-
-                        <!-- No Posts Message -->
-                        <div class="no-posts" id="no-posts" style="display: block;">
-                            <i class="fas fa-blog" style="font-size: 3rem; margin-bottom: 1rem; color: #e1e4e8;"></i>
-                            <h3>Welcome to My Blog</h3>
-                            <p>This blog is powered by GitHub Issues with the "blog" label.</p>
-                            <div style="margin-top: 1rem; padding: 1rem; background: #f8fafc; border-radius: 8px; color: #64748b; font-size: 0.875rem;">
-                                💡 <strong>For developers:</strong> Create GitHub Issues in this repository with the label "blog" to publish new posts.
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <!-- Blog Section Container -->
+                <div id="blog-container">
+                    <!-- Blog content will be loaded from blog/blog.html -->
+                </div>
             </div>
         </div>
 
@@ -143,7 +117,9 @@
                         e.preventDefault();
                         
                         // Clean up any blog detail/loading/error sections first
-                        cleanupBlogSections();
+                        if (window.blogManager) {
+                            window.blogManager.cleanupBlogSections();
+                        }
                         
                         // Remove active class from all links and sections
                         navLinks.forEach(l => l.classList.remove('active'));
@@ -152,7 +128,7 @@
                             s.style.display = 'none';
                         });
                         
-                        // Also hide profile and portfolio containers
+                        // Also hide profile, portfolio and blog containers
                         const profileContainer = document.getElementById('profile-container');
                         if (profileContainer) {
                             profileContainer.style.display = 'none';
@@ -163,6 +139,11 @@
                             portfolioContainer.style.display = 'none';
                         }
                         
+                        const blogContainer = document.getElementById('blog-container');
+                        if (blogContainer) {
+                            blogContainer.style.display = 'none';
+                        }
+                        
                         // Add active class to clicked link
                         this.classList.add('active');
                         
@@ -171,13 +152,8 @@
                         
                         // Handle profile section dynamically
                         if (targetId === 'profile') {
-                            console.log('Profile navigation clicked');
                             const profileContainer = document.getElementById('profile-container');
-                            console.log('Profile container found:', !!profileContainer);
                             if (profileContainer) {
-                                console.log('Profile container children count:', profileContainer.children.length);
-                                console.log('Profile container innerHTML length:', profileContainer.innerHTML.length);
-                                
                                 // Check if profile content needs to be loaded
                                 const profileSection = profileContainer.querySelector('#profile');
                                 const needsLoading = !profileSection || 
@@ -185,33 +161,22 @@
                                                    profileContainer.innerHTML.trim() === '' ||
                                                    profileContainer.innerHTML.trim() === '<!-- Profile content will be loaded from profile/profile.html -->';
                                 
-                                console.log('Profile section exists:', !!profileSection);
-                                console.log('Needs loading:', needsLoading);
-                                
                                 if (needsLoading) {
-                                    console.log('Loading profile content...');
                                     window.profileManager.loadProfileSection('profile-container');
                                 } else {
                                     // Content already exists, just make sure it's properly activated
                                     if (profileSection) {
                                         profileSection.classList.add('active');
                                         profileSection.style.display = 'block';
-                                        console.log('Profile section re-activated');
                                     }
                                 }
                                 profileContainer.style.display = 'block';
-                                console.log('Profile container display set to block');
                             }
                         } 
                         // Handle portfolio section dynamically
                         else if (targetId === 'portfolio') {
-                            console.log('Portfolio navigation clicked');
                             const portfolioContainer = document.getElementById('portfolio-container');
-                            console.log('Portfolio container found:', !!portfolioContainer);
                             if (portfolioContainer) {
-                                console.log('Portfolio container children count:', portfolioContainer.children.length);
-                                console.log('Portfolio container innerHTML length:', portfolioContainer.innerHTML.length);
-                                
                                 // Check if portfolio content needs to be loaded
                                 const portfolioSection = portfolioContainer.querySelector('#portfolio');
                                 const needsLoading = !portfolioSection || 
@@ -219,546 +184,50 @@
                                                    portfolioContainer.innerHTML.trim() === '' ||
                                                    portfolioContainer.innerHTML.trim() === '<!-- Portfolio content will be loaded from portfolio/portfolio.html -->';
                                 
-                                console.log('Portfolio section exists:', !!portfolioSection);
-                                console.log('Needs loading:', needsLoading);
-                                
                                 if (needsLoading) {
-                                    console.log('Loading portfolio content...');
                                     window.portfolioManager.loadPortfolioSection('portfolio-container');
                                 } else {
                                     // Content already exists, just make sure it's properly activated
                                     if (portfolioSection) {
                                         portfolioSection.classList.add('active');
                                         portfolioSection.style.display = 'block';
-                                        console.log('Portfolio section re-activated');
                                     }
                                 }
                                 portfolioContainer.style.display = 'block';
-                                console.log('Portfolio container display set to block');
+                            }
+                        }
+                        // Handle blog section dynamically
+                        else if (targetId === 'blog') {
+                            const blogContainer = document.getElementById('blog-container');
+                            if (blogContainer) {
+                                // Check if blog content needs to be loaded
+                                const blogSection = blogContainer.querySelector('#blog');
+                                const needsLoading = !blogSection || 
+                                                   blogContainer.children.length === 0 || 
+                                                   blogContainer.innerHTML.trim() === '' ||
+                                                   blogContainer.innerHTML.trim() === '<!-- Blog content will be loaded from blog/blog.html -->';
+                                
+                                if (needsLoading) {
+                                    window.blogManager.loadBlogSection('blog-container');
+                                } else {
+                                    // Content already exists, just make sure it's properly activated
+                                    if (blogSection) {
+                                        blogSection.classList.add('active');
+                                        blogSection.style.display = 'block';
+                                    }
+                                }
+                                blogContainer.style.display = 'block';
                             }
                         } else {
                             const targetSection = document.getElementById(targetId);
                             if (targetSection) {
                                 targetSection.classList.add('active');
                                 targetSection.style.display = 'block';
-                                
-                                // If blog section is activated, load blog posts
-                                if (targetId === 'blog') {
-                                    // Add a small delay to ensure DOM is ready
-                                    setTimeout(() => {
-                                        loadBlogPosts();
-                                    }, 100);
-                                }
                             }
                         }
                     });
                 });
             });
-
-            // Helper function to clean up blog sections
-            function cleanupBlogSections() {
-                const sectionsToCleanup = ['blog-detail', 'blog-loading', 'blog-error'];
-                sectionsToCleanup.forEach(sectionId => {
-                    const section = document.getElementById(sectionId);
-                    if (section) {
-                        section.remove();
-                    }
-                });
-            }
-
-            // Project detail functionality is now handled by portfolio.js
-
-            // Blog functionality
-            // GitHub repository information
-            const GITHUB_OWNER = 'kosam0913';
-            const GITHUB_REPO = 'kosam0913.github.io';
-            
-            // DOM elements
-            const loadingEl = document.getElementById('loading');
-            const errorEl = document.getElementById('error');
-            const errorTextEl = document.getElementById('error-text');
-            const blogPostsEl = document.getElementById('blog-posts');
-            const noPostsEl = document.getElementById('no-posts');
-
-            async function loadBlogPosts() {
-                try {
-                    showLoading();
-                    
-                    const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues?state=open&sort=created&direction=desc&per_page=20`;
-                    
-                    const fetchResponse = await fetch(apiUrl, {
-                        method: 'GET',
-                        headers: {
-                            'Accept': 'application/vnd.github.v3+json'
-                        }
-                    });
-                    
-                    if (!fetchResponse.ok) {
-                        if (fetchResponse.status === 403) {
-                            throw new Error('GitHub API rate limit exceeded. Please try again later.');
-                        } else if (fetchResponse.status === 404) {
-                            throw new Error('Repository not found or no issues with "blog" label exist.');
-                        } else {
-                            throw new Error(`GitHub API error: ${fetchResponse.status} ${fetchResponse.statusText}`);
-                        }
-                    }
-                    
-                    const data = await fetchResponse.json();
-                    const filteredData = data.filter(issue => issue.labels.some(label => label.name === 'blog' || label.name === 'note'));
-                    response = { data: filteredData };
-
-                    const issues = response.data;
-                    
-                    if (issues.length === 0) {
-                        showNoPosts();
-                        return;
-                    }
-
-                    // Render blog posts
-                    renderBlogPosts(issues);
-                    
-                    showBlogPosts();
-                    
-                } catch (error) {
-                    console.error('Error loading blog posts:', error);
-                    
-                    let errorMessage = error.message;
-                    
-                    // 为不同类型的错误提供更有用的提示
-                    if (error.message.includes('rate limit')) {
-                        errorMessage += '\n\n💡 Tip: GitHub API allows 60 requests per hour for unauthenticated requests.';
-                    } else if (error.message.includes('no issues with "blog" label')) {
-                        errorMessage += '\n\n💡 Tip: Create GitHub Issues with the "blog" label to display them here.';
-                    } else if (error.message.includes('Failed to fetch')) {
-                        errorMessage = 'Network error: Please check your internet connection.';
-                    }
-                    showError(errorMessage);
-                }
-            }
-
-
-
-            function renderBlogPosts(issues) {
-                blogPostsEl.innerHTML = '';
-                
-                issues.forEach(issue => {
-                    const postEl = createBlogPostElement(issue);
-                    blogPostsEl.appendChild(postEl);
-                });
-            }
-
-            function extractThumbnail(body) {
-                if (!body) return null;
-                
-                // 提取第一张图片作为缩略图
-                const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/;
-                const match = body.match(imageRegex);
-                
-                if (match) {
-                    return {
-                        alt: match[1] || 'Blog thumbnail',
-                        src: match[2]
-                    };
-                }
-                
-                return null;
-            }
-
-            function createBlogPostElement(issue) {
-                const postEl = document.createElement('article');
-                postEl.className = 'blog-post';
-                
-                // Extract excerpt from issue body
-                const excerpt = getExcerpt(issue.body || '');
-                
-                // Extract thumbnail
-                const thumbnail = extractThumbnail(issue.body || '');
-                
-                // Format date
-                const createdDate = formatDate(new Date(issue.created_at));
-                const updatedDate = formatDate(new Date(issue.updated_at));
-                
-                postEl.innerHTML = `
-                    <div class="blog-post-layout">
-                        <div class="blog-post-thumbnail">
-                            ${thumbnail ? 
-                                `<img src="${thumbnail.src}" alt="${escapeHtml(thumbnail.alt)}" class="blog-thumbnail-img">` :
-                                `<div class="blog-thumbnail-placeholder">
-                                    <i class="fas fa-file-alt"></i>
-                                </div>`
-                            }
-                        </div>
-                        <div class="blog-post-main">
-                    <div class="blog-post-header">
-                        <div class="blog-post-meta">
-                            <div class="blog-post-date">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span>Published: ${createdDate}</span>
-                            </div>
-                            ${issue.updated_at !== issue.created_at ? `
-                            <div class="blog-post-date">
-                                <i class="fas fa-edit"></i>
-                                <span>Updated: ${updatedDate}</span>
-                            </div>
-                            ` : ''}
-                            <div class="blog-post-labels">
-                                ${issue.labels.map(label => 
-                                    `<span class="blog-post-label" style="background: #${label.color}20; color: #${label.color};">${label.name}</span>`
-                                ).join('')}
-                            </div>
-                        </div>
-                        <h2 class="blog-post-title">${escapeHtml(issue.title)}</h2>
-                    </div>
-                    <div class="blog-post-content">
-                        <div class="blog-post-excerpt">${excerpt}</div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                
-                // Add click handler to load blog post
-                postEl.addEventListener('click', (e) => {
-                    loadBlogPost(issue);
-                });
-                
-                return postEl;
-            }
-
-            function getExcerpt(body, maxLength = 300) {
-                if (!body) return 'No content preview available.';
-                
-                // 改进 Markdown 转换，使用更全面的正则表达式
-                let plainText = body
-                    // 移除代码块
-                    .replace(/```[\s\S]*?```/g, '[Code Block]')
-                    // 移除行内代码
-                    .replace(/`([^`]+)`/g, '$1')
-                    // 移除图片
-                    .replace(/!\[([^\]]*)\]\([^)]+\)/g, '[Image: $1]')
-                    // 移除链接，保留文本
-                    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-                    // 移除粗体
-                    .replace(/\*\*([^*]+)\*\*/g, '$1')
-                    // 移除斜体
-                    .replace(/\*([^*]+)\*/g, '$1')
-                    // 移除标题标记
-                    .replace(/#{1,6}\s+/g, '')
-                    // 移除引用
-                    .replace(/>\s+/g, '')
-                    // 移除列表标记
-                    .replace(/^\s*[-*+]\s+/gm, '')
-                    // 移除数字列表
-                    .replace(/^\s*\d+\.\s+/gm, '')
-                    // 替换多个换行为空格
-                    .replace(/\n+/g, ' ')
-                    // 移除多余空格
-                    .replace(/\s+/g, ' ')
-                    .trim();
-                
-                if (plainText.length <= maxLength) {
-                    return plainText;
-                }
-                
-                // 在单词边界截断，避免截断单词
-                const truncated = plainText.substring(0, maxLength);
-                const lastSpaceIndex = truncated.lastIndexOf(' ');
-                
-                if (lastSpaceIndex > maxLength * 0.8) {
-                    return truncated.substring(0, lastSpaceIndex) + '...';
-                }
-                
-                return truncated + '...';
-            }
-
-            function formatDate(date) {
-                return date.toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'short',
-                    day: 'numeric'
-                });
-            }
-
-            function escapeHtml(text) {
-                const div = document.createElement('div');
-                div.textContent = text;
-                return div.innerHTML;
-            }
-
-            function showLoading() {
-                loadingEl.style.display = 'block';
-                errorEl.style.display = 'none';
-                blogPostsEl.style.display = 'none';
-                noPostsEl.style.display = 'none';
-            }
-
-            function showError(message) {
-                errorTextEl.textContent = message;
-                loadingEl.style.display = 'none';
-                errorEl.style.display = 'block';
-                blogPostsEl.style.display = 'none';
-                noPostsEl.style.display = 'none';
-            }
-
-            function showBlogPosts() {
-                loadingEl.style.display = 'none';
-                errorEl.style.display = 'none';
-                blogPostsEl.style.display = 'grid';
-                noPostsEl.style.display = 'none';
-            }
-
-            function showNoPosts() {
-                loadingEl.style.display = 'none';
-                errorEl.style.display = 'none';
-                blogPostsEl.style.display = 'none';
-                noPostsEl.style.display = 'block';
-            }
-
-            // Blog post detail functionality
-            async function loadBlogPost(issue) {
-                try {
-                    showBlogLoading();
-                    
-                    // Fetch the detailed issue content
-                    const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues/${issue.number}`;
-                    const response = await fetch(apiUrl, {
-                        method: 'GET',
-                        headers: {
-                            'Accept': 'application/vnd.github.v3+json'
-                        }
-                    });
-                    
-                    if (!response.ok) {
-                        throw new Error(`Failed to load blog post: ${response.status}`);
-                    }
-                    
-                    const detailedIssue = await response.json();
-                    renderBlogPost(detailedIssue);
-                    
-                } catch (error) {
-                    console.error('Error loading blog post:', error);
-                    showBlogError('Failed to load blog post. Please try again.');
-                }
-            }
-
-            function renderBlogPost(issue) {
-                const contentSections = document.querySelector('.content-sections');
-                
-                // Clean up any existing blog detail sections first
-                cleanupBlogSections();
-                
-                // Hide all sections first
-                const allSections = document.querySelectorAll('.content-section');
-                allSections.forEach(section => {
-                    section.style.display = 'none';
-                });
-                
-                // Also hide profile and portfolio containers
-                const profileContainer = document.getElementById('profile-container');
-                if (profileContainer) {
-                    profileContainer.style.display = 'none';
-                }
-                
-                const portfolioContainer = document.getElementById('portfolio-container');
-                if (portfolioContainer) {
-                    portfolioContainer.style.display = 'none';
-                }
-                
-                // Create blog post detail section
-                const blogDetailSection = document.createElement('section');
-                blogDetailSection.id = 'blog-detail';
-                blogDetailSection.className = 'content-section active';
-                blogDetailSection.style.display = 'block';
-                
-                // Format dates
-                const createdDate = formatDate(new Date(issue.created_at));
-                const updatedDate = formatDate(new Date(issue.updated_at));
-                
-                // Render markdown content
-                const markdownContent = marked.parse(issue.body || '');
-                
-                blogDetailSection.innerHTML = `
-                    <div class="blog-detail-container">
-                        <div class="blog-detail-header">
-                            <button onclick="backToBlogList()" class="back-to-blog-btn">
-                                <i class="fas fa-arrow-left"></i>
-                                Back to Blog
-                            </button>
-                            <div class="blog-detail-meta">
-                                <div class="blog-detail-date">
-                                    <i class="fas fa-calendar-alt"></i>
-                                    <span>Published: ${createdDate}</span>
-                                </div>
-                                ${issue.updated_at !== issue.created_at ? `
-                                <div class="blog-detail-date">
-                                    <i class="fas fa-edit"></i>
-                                    <span>Updated: ${updatedDate}</span>
-                                </div>
-                                ` : ''}
-                                <div class="blog-detail-labels">
-                                    ${issue.labels.map(label => 
-                                        `<span class="blog-detail-label" style="background: #${label.color}20; color: #${label.color};">${label.name}</span>`
-                                    ).join('')}
-                                </div>
-                            </div>
-                            <h1 class="blog-detail-title">${escapeHtml(issue.title)}</h1>
-                        </div>
-                        <div class="blog-detail-content">
-                            <div class="blog-detail-body">${markdownContent}</div>
-                        </div>
-                        <div class="blog-detail-footer">
-                            <a href="${issue.html_url}" target="_blank" class="view-on-github-btn">
-                                <i class="fab fa-github"></i>
-                                View on GitHub
-                            </a>
-                        </div>
-                    </div>
-                `;
-                
-                // Add the new section
-                contentSections.appendChild(blogDetailSection);
-                
-                // Update navigation
-                updateNavigation('blog');
-            }
-
-            function backToBlogList() {
-                // Clean up all blog-related sections
-                cleanupBlogSections();
-                
-                // Get the original blog section
-                const blogSection = document.getElementById('blog');
-                
-                // Hide all sections first
-                const allSections = document.querySelectorAll('.content-section');
-                allSections.forEach(section => {
-                    section.classList.remove('active');
-                    section.style.display = 'none';
-                });
-                
-                // Also hide profile and portfolio containers
-                const profileContainer = document.getElementById('profile-container');
-                if (profileContainer) {
-                    profileContainer.style.display = 'none';
-                }
-                
-                const portfolioContainer = document.getElementById('portfolio-container');
-                if (portfolioContainer) {
-                    portfolioContainer.style.display = 'none';
-                }
-                
-                // Show the original blog section
-                if (blogSection) {
-                    blogSection.classList.add('active');
-                    blogSection.style.display = 'block';
-                    
-                    // Reload blog posts
-                    setTimeout(() => {
-                        loadBlogPosts();
-                    }, 100);
-                }
-                
-                // Update navigation
-                updateNavigation('blog');
-            }
-
-            function showBlogLoading() {
-                // Hide all sections first
-                const allSections = document.querySelectorAll('.content-section');
-                allSections.forEach(section => {
-                    section.classList.remove('active');
-                    section.style.display = 'none';
-                });
-                
-                // Also hide profile and portfolio containers
-                const profileContainer = document.getElementById('profile-container');
-                if (profileContainer) {
-                    profileContainer.style.display = 'none';
-                }
-                
-                const portfolioContainer = document.getElementById('portfolio-container');
-                if (portfolioContainer) {
-                    portfolioContainer.style.display = 'none';
-                }
-                
-                // Create or update blog loading section
-                const contentSections = document.querySelector('.content-sections');
-                let blogLoadingSection = document.getElementById('blog-loading');
-                
-                if (!blogLoadingSection) {
-                    blogLoadingSection = document.createElement('section');
-                    blogLoadingSection.id = 'blog-loading';
-                    blogLoadingSection.className = 'content-section active';
-                    contentSections.appendChild(blogLoadingSection);
-                }
-                
-                blogLoadingSection.innerHTML = `
-                    <div class="blog-container">
-                        <div class="loading-container">
-                            <div class="loading-spinner"></div>
-                            <p style="margin-top: 1rem; color: #64748b;">Loading blog post...</p>
-                        </div>
-                    </div>
-                `;
-                
-                blogLoadingSection.classList.add('active');
-                blogLoadingSection.style.display = 'block';
-            }
-
-            function showBlogError(message) {
-                // Hide all sections first
-                const allSections = document.querySelectorAll('.content-section');
-                allSections.forEach(section => {
-                    section.classList.remove('active');
-                    section.style.display = 'none';
-                });
-                
-                // Also hide profile and portfolio containers
-                const profileContainer = document.getElementById('profile-container');
-                if (profileContainer) {
-                    profileContainer.style.display = 'none';
-                }
-                
-                const portfolioContainer = document.getElementById('portfolio-container');
-                if (portfolioContainer) {
-                    portfolioContainer.style.display = 'none';
-                }
-                
-                // Create or update blog error section
-                const contentSections = document.querySelector('.content-sections');
-                let blogErrorSection = document.getElementById('blog-error');
-                
-                if (!blogErrorSection) {
-                    blogErrorSection = document.createElement('section');
-                    blogErrorSection.id = 'blog-error';
-                    blogErrorSection.className = 'content-section active';
-                    contentSections.appendChild(blogErrorSection);
-                }
-                
-                blogErrorSection.innerHTML = `
-                    <div class="blog-container">
-                        <div class="error-message">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <span>${message}</span>
-                        </div>
-                    </div>
-                `;
-                
-                blogErrorSection.classList.add('active');
-                blogErrorSection.style.display = 'block';
-            }
-
-            function updateNavigation(activeSection) {
-                const navLinks = document.querySelectorAll('.nav__link');
-                navLinks.forEach(link => link.classList.remove('active'));
-                
-                const targetLink = document.querySelector(`a[href="#${activeSection}"]`);
-                if (targetLink) {
-                    targetLink.classList.add('active');
-                }
-            }
-
-            // ===== PROFILE AND COVERFLOW FUNCTIONALITY =====
-            // Profile and Cover Flow functionality is now handled by profile.js
         </script>
 
     </body>

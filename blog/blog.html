@@ -1,0 +1,32 @@
+<!-- Blog Section -->
+<section id="blog" class="content-section">
+    <div class="blog-container">
+        <!-- Loading State -->
+        <div class="loading-container" id="loading" style="display: none;">
+            <div class="loading-spinner"></div>
+            <p style="margin-top: 1rem; color: #64748b;">Loading blog posts...</p>
+            <p style="margin-top: 0.5rem; color: #9ca3af; font-size: 0.875rem;">🔍 Fetching content from GitHub Issues...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div class="error-message" id="error" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span id="error-text">Failed to load blog posts</span>
+        </div>
+
+        <!-- Blog Posts Container -->
+        <div class="blog-posts" id="blog-posts" style="display: none;">
+            <!-- Posts will be loaded here dynamically -->
+        </div>
+
+        <!-- No Posts Message -->
+        <div class="no-posts" id="no-posts" style="display: block;">
+            <i class="fas fa-blog" style="font-size: 3rem; margin-bottom: 1rem; color: #e1e4e8;"></i>
+            <h3>Welcome to My Blog</h3>
+            <p>This blog is powered by GitHub Issues with the "blog" label.</p>
+            <div style="margin-top: 1rem; padding: 1rem; background: #f8fafc; border-radius: 8px; color: #64748b; font-size: 0.875rem;">
+                💡 <strong>For developers:</strong> Create GitHub Issues in this repository with the label "blog" to publish new posts.
+            </div>
+        </div>
+    </div>
+</section>

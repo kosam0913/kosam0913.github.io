@@ -12,7 +12,7 @@ class ProfileManager {
     }
 
     init() {
-        console.log('Profile Manager initialized');
+        // Profile Manager initialized
     }
 
     /**
@@ -21,37 +21,26 @@ class ProfileManager {
      */
     async loadProfileSection(containerId) {
         try {
-            console.log('Loading profile section for container:', containerId);
             const response = await fetch('./profile/profile.html');
-            console.log('Fetch response status:', response.status);
             
             const html = await response.text();
-            console.log('HTML content length:', html.length);
             
             const container = document.getElementById(containerId);
-            console.log('Container found:', !!container);
             
             if (container) {
                 container.innerHTML = html;
-                console.log('HTML inserted into container');
                 
                 // 找到插入的profile section并激活它
                 const profileSection = container.querySelector('#profile');
                 if (profileSection) {
                     profileSection.classList.add('active');
                     profileSection.style.display = 'block';
-                    console.log('Profile section activated');
-                } else {
-                    console.log('Profile section not found in inserted HTML');
                 }
                 
                 // 加载完成后初始化Cover Flow
                 setTimeout(() => {
-                    console.log('Initializing coverflow...');
                     this.initializeCoverflow();
                 }, 100);
-            } else {
-                console.error('Container not found:', containerId);
             }
         } catch (error) {
             console.error('Error loading profile section:', error);
