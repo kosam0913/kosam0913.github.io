@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Xinjie Hu - Blog powered by GitHub Issues">
+        <meta name="author" content="Xinjie Hu">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="../assets/images/icons/favicon.ico">
+
+        <!-- Font Awesome for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <!-- Main Stylesheet -->
+        <link rel="stylesheet" href="../assets/css/main-style.css">
+        <!-- Blog Specific Styles -->
+        <style>
+            .blog-container {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            .blog-header {
+                text-align: center;
+                margin-bottom: 40px;
+                background: #fff;
+                padding: 30px;
+                border-radius: 12px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+
+            .blog-header h1 {
+                color: var(--primary-color);
+                font-size: 2.5rem;
+                margin-bottom: 10px;
+                font-weight: 700;
+            }
+
+            .blog-header p {
+                color: #666;
+                font-size: 1.1rem;
+            }
+
+            .blog-filters {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 30px;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+
+            .filter-label {
+                font-weight: 600;
+                color: var(--primary-color);
+            }
+
+            .filter-tag {
+                padding: 8px 16px;
+                background: #f8f9fa;
+                border: 1px solid #e0e0e0;
+                border-radius: 20px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-size: 0.9rem;
+            }
+
+            .filter-tag:hover,
+            .filter-tag.active {
+                background: var(--primary-color);
+                color: #fff;
+                border-color: var(--primary-color);
+            }
+
+            .loading {
+                text-align: center;
+                padding: 40px;
+                color: #666;
+                font-size: 1.1rem;
+            }
+
+            .loading i {
+                animation: spin 1s linear infinite;
+                margin-right: 10px;
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+
+            .blog-posts {
+                display: grid;
+                gap: 30px;
+            }
+
+            .blog-post {
+                background: #fff;
+                border-radius: 12px;
+                padding: 30px;
+                box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+
+            .blog-post:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            }
+
+            .post-header {
+                margin-bottom: 20px;
+            }
+
+            .post-title {
+                font-size: 1.8rem;
+                font-weight: 600;
+                color: var(--primary-color);
+                margin-bottom: 10px;
+                line-height: 1.3;
+            }
+
+            .post-meta {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                color: #888;
+                font-size: 0.9rem;
+                margin-bottom: 15px;
+                flex-wrap: wrap;
+            }
+
+            .post-meta i {
+                margin-right: 5px;
+            }
+
+            .post-tags {
+                display: flex;
+                gap: 8px;
+                margin-bottom: 15px;
+                flex-wrap: wrap;
+            }
+
+            .post-tag {
+                padding: 4px 12px;
+                background: var(--primary-color);
+                color: #fff;
+                border-radius: 15px;
+                font-size: 0.8rem;
+                font-weight: 500;
+            }
+
+            .post-content {
+                color: #555;
+                line-height: 1.7;
+                font-size: 1rem;
+            }
+
+            .post-content h1, .post-content h2, .post-content h3 {
+                color: var(--primary-color);
+                margin: 20px 0 10px 0;
+            }
+
+            .post-content pre {
+                background: #f8f9fa;
+                padding: 15px;
+                border-radius: 8px;
+                overflow-x: auto;
+                margin: 15px 0;
+            }
+
+            .post-content code {
+                background: #f8f9fa;
+                padding: 2px 6px;
+                border-radius: 4px;
+                font-family: 'Courier New', monospace;
+            }
+
+            .post-content blockquote {
+                border-left: 4px solid var(--primary-color);
+                padding-left: 20px;
+                margin: 15px 0;
+                font-style: italic;
+                color: #666;
+            }
+
+            .post-actions {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 20px;
+                padding-top: 20px;
+                border-top: 1px solid #eee;
+            }
+
+            .read-more {
+                color: var(--primary-color);
+                text-decoration: none;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                transition: all 0.3s ease;
+            }
+
+            .read-more:hover {
+                color: var(--secondary-color);
+            }
+
+            .post-stats {
+                display: flex;
+                gap: 15px;
+                color: #888;
+                font-size: 0.9rem;
+            }
+
+            .pagination {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                margin-top: 40px;
+            }
+
+            .pagination button {
+                padding: 10px 15px;
+                border: 1px solid #e0e0e0;
+                background: #fff;
+                color: var(--primary-color);
+                border-radius: 6px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .pagination button:hover:not(:disabled) {
+                background: var(--primary-color);
+                color: #fff;
+            }
+
+            .pagination button:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+
+            .pagination .current-page {
+                background: var(--primary-color);
+                color: #fff;
+            }
+
+            .error-message {
+                text-align: center;
+                padding: 40px;
+                background: #fff;
+                border-radius: 12px;
+                color: #d73527;
+                margin: 20px 0;
+            }
+
+            .error-message i {
+                font-size: 2rem;
+                margin-bottom: 10px;
+                display: block;
+            }
+
+            /* 响应式设计 */
+            @media (max-width: 768px) {
+                .blog-container {
+                    padding: 15px;
+                }
+
+                .blog-header h1 {
+                    font-size: 2rem;
+                }
+
+                .post-title {
+                    font-size: 1.5rem;
+                }
+
+                .post-meta {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 10px;
+                }
+
+                .post-actions {
+                    flex-direction: column;
+                    gap: 15px;
+                }
+
+                .blog-filters {
+                    justify-content: center;
+                }
+            }
+        </style>
+        
+        <!-- Widget Profile Component -->
+        <script src="../assets/components/widget-profile.js"></script>
+    </head>
+
+    <body>
+        <!-- Sidebar Component Container -->
+        <div id="widget-profile-container"></div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="blog-container">
+                <!-- Blog Header -->
+                <div class="blog-header">
+                    <h1><i class="fas fa-blog"></i> Tech Blog</h1>
+                    <p>Powered by GitHub Issues - 分享技术思考与实践经验</p>
+                </div>
+
+                <!-- Blog Filters -->
+                <div class="blog-filters">
+                    <span class="filter-label">标签筛选:</span>
+                    <div class="filter-tag active" data-tag="all">全部</div>
+                    <!-- 动态标签将在这里插入 -->
+                </div>
+
+                <!-- Loading State -->
+                <div class="loading" id="loading">
+                    <i class="fas fa-spinner"></i>
+                    正在加载博客文章...
+                </div>
+
+                <!-- Error State -->
+                <div class="error-message" id="error" style="display: none;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>加载失败</h3>
+                    <p>无法获取博客文章，请稍后重试或检查网络连接。</p>
+                </div>
+
+                <!-- Blog Posts Container -->
+                <div class="blog-posts" id="blog-posts"></div>
+
+                <!-- Pagination -->
+                <div class="pagination" id="pagination" style="display: none;">
+                    <button id="prev-page" disabled>
+                        <i class="fas fa-chevron-left"></i> 上一页
+                    </button>
+                    <span class="current-page" id="current-page">1</span>
+                    <button id="next-page">
+                        下一页 <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            class GitHubBlog {
+                constructor() {
+                    // 配置 GitHub 仓库信息
+                    this.config = {
+                        owner: 'kosam0913',  // 你的 GitHub 用户名
+                        repo: 'kosam0913.github.io',  // 你的仓库名
+                        apiBase: 'https://api.github.com'
+                    };
+                    
+                    this.currentPage = 1;
+                    this.perPage = 5;
+                    this.currentTag = 'all';
+                    this.allIssues = [];
+                    this.allTags = new Set();
+                    
+                    this.init();
+                }
+
+                async init() {
+                    try {
+                        await this.loadIssues();
+                        this.setupEventListeners();
+                    } catch (error) {
+                        this.showError();
+                        console.error('Blog initialization failed:', error);
+                    }
+                }
+
+                async loadIssues() {
+                    const loadingEl = document.getElementById('loading');
+                    const errorEl = document.getElementById('error');
+                    
+                    try {
+                        loadingEl.style.display = 'block';
+                        errorEl.style.display = 'none';
+
+                        // 获取所有已关闭的 issues (代表已发布的文章)
+                        const response = await fetch(
+                            `${this.config.apiBase}/repos/${this.config.owner}/${this.config.repo}/issues?state=closed&sort=created&direction=desc&per_page=100`
+                        );
+
+                        if (!response.ok) {
+                            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                        }
+
+                        this.allIssues = await response.json();
+                        
+                        // 收集所有标签
+                        this.allIssues.forEach(issue => {
+                            issue.labels.forEach(label => {
+                                this.allTags.add(label.name);
+                            });
+                        });
+
+                        this.renderTagFilters();
+                        this.renderPosts();
+                        this.setupPagination();
+                        
+                        loadingEl.style.display = 'none';
+                        
+                    } catch (error) {
+                        loadingEl.style.display = 'none';
+                        errorEl.style.display = 'block';
+                        throw error;
+                    }
+                }
+
+                renderTagFilters() {
+                    const filtersContainer = document.querySelector('.blog-filters');
+                    const existingTags = filtersContainer.querySelectorAll('.filter-tag:not([data-tag="all"])');
+                    existingTags.forEach(tag => tag.remove());
+
+                    this.allTags.forEach(tag => {
+                        const tagEl = document.createElement('div');
+                        tagEl.className = 'filter-tag';
+                        tagEl.dataset.tag = tag;
+                        tagEl.textContent = tag;
+                        tagEl.addEventListener('click', () => this.filterByTag(tag));
+                        filtersContainer.appendChild(tagEl);
+                    });
+                }
+
+                filterByTag(tag) {
+                    this.currentTag = tag;
+                    this.currentPage = 1;
+                    
+                    // 更新激活状态
+                    document.querySelectorAll('.filter-tag').forEach(el => {
+                        el.classList.remove('active');
+                    });
+                    document.querySelector(`[data-tag="${tag}"]`).classList.add('active');
+                    
+                    this.renderPosts();
+                    this.setupPagination();
+                }
+
+                getFilteredIssues() {
+                    if (this.currentTag === 'all') {
+                        return this.allIssues;
+                    }
+                    return this.allIssues.filter(issue => 
+                        issue.labels.some(label => label.name === this.currentTag)
+                    );
+                }
+
+                renderPosts() {
+                    const postsContainer = document.getElementById('blog-posts');
+                    postsContainer.innerHTML = '';
+
+                    const filteredIssues = this.getFilteredIssues();
+                    const startIdx = (this.currentPage - 1) * this.perPage;
+                    const endIdx = startIdx + this.perPage;
+                    const currentIssues = filteredIssues.slice(startIdx, endIdx);
+
+                    if (currentIssues.length === 0) {
+                        postsContainer.innerHTML = `
+                            <div style="text-align: center; padding: 40px; color: #666;">
+                                <i class="fas fa-search" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
+                                <h3>暂无文章</h3>
+                                <p>该标签下暂时没有文章，试试其他标签吧。</p>
+                            </div>
+                        `;
+                        return;
+                    }
+
+                    currentIssues.forEach(issue => {
+                        const postEl = this.createPostElement(issue);
+                        postsContainer.appendChild(postEl);
+                    });
+                }
+
+                createPostElement(issue) {
+                    const postEl = document.createElement('div');
+                    postEl.className = 'blog-post';
+                    
+                    const createdDate = new Date(issue.created_at).toLocaleDateString('zh-CN', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+
+                    const updatedDate = new Date(issue.updated_at).toLocaleDateString('zh-CN', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+
+                    // 处理文章内容预览
+                    const contentPreview = this.getContentPreview(issue.body);
+                    
+                    postEl.innerHTML = `
+                        <div class="post-header">
+                            <h2 class="post-title">${issue.title}</h2>
+                            <div class="post-meta">
+                                <span><i class="fas fa-calendar"></i> ${createdDate}</span>
+                                ${issue.updated_at !== issue.created_at ? `<span><i class="fas fa-edit"></i> 更新于 ${updatedDate}</span>` : ''}
+                                <span><i class="fas fa-user"></i> ${issue.user.login}</span>
+                            </div>
+                            <div class="post-tags">
+                                ${issue.labels.map(label => 
+                                    `<span class="post-tag" style="background-color: #${label.color}">${label.name}</span>`
+                                ).join('')}
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            ${contentPreview}
+                        </div>
+                        <div class="post-actions">
+                            <a href="${issue.html_url}" target="_blank" class="read-more">
+                                阅读全文 <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <div class="post-stats">
+                                <span><i class="fas fa-comments"></i> ${issue.comments}</span>
+                                <span><i class="fas fa-thumbs-up"></i> #{issue.number}</span>
+                            </div>
+                        </div>
+                    `;
+
+                    postEl.addEventListener('click', (e) => {
+                        if (!e.target.closest('.read-more')) {
+                            window.open(issue.html_url, '_blank');
+                        }
+                    });
+
+                    return postEl;
+                }
+
+                getContentPreview(content) {
+                    if (!content) return '<p>暂无内容预览</p>';
+                    
+                    // 简单的 Markdown 渲染
+                    let preview = content
+                        .replace(/^#{1,6}\s+(.+)$/gm, '<h3>$1</h3>')  // 标题
+                        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')  // 粗体
+                        .replace(/\*(.+?)\*/g, '<em>$1</em>')  // 斜体
+                        .replace(/`(.+?)`/g, '<code>$1</code>')  // 行内代码
+                        .replace(/```[\s\S]*?```/g, '<pre><code>代码块</code></pre>')  // 代码块
+                        .replace(/^>\s+(.+)$/gm, '<blockquote>$1</blockquote>')  // 引用
+                        .replace(/\n/g, '<br>');  // 换行
+
+                    // 限制预览长度
+                    const maxLength = 300;
+                    if (preview.length > maxLength) {
+                        preview = preview.substring(0, maxLength) + '...';
+                    }
+
+                    return preview;
+                }
+
+                setupPagination() {
+                    const filteredIssues = this.getFilteredIssues();
+                    const totalPages = Math.ceil(filteredIssues.length / this.perPage);
+                    
+                    const paginationEl = document.getElementById('pagination');
+                    const prevBtn = document.getElementById('prev-page');
+                    const nextBtn = document.getElementById('next-page');
+                    const currentPageEl = document.getElementById('current-page');
+
+                    if (totalPages <= 1) {
+                        paginationEl.style.display = 'none';
+                        return;
+                    }
+
+                    paginationEl.style.display = 'flex';
+                    currentPageEl.textContent = `${this.currentPage} / ${totalPages}`;
+                    
+                    prevBtn.disabled = this.currentPage === 1;
+                    nextBtn.disabled = this.currentPage === totalPages;
+                }
+
+                setupEventListeners() {
+                    const prevBtn = document.getElementById('prev-page');
+                    const nextBtn = document.getElementById('next-page');
+                    const allFilterBtn = document.querySelector('[data-tag="all"]');
+
+                    prevBtn.addEventListener('click', () => {
+                        if (this.currentPage > 1) {
+                            this.currentPage--;
+                            this.renderPosts();
+                            this.setupPagination();
+                        }
+                    });
+
+                    nextBtn.addEventListener('click', () => {
+                        const totalPages = Math.ceil(this.getFilteredIssues().length / this.perPage);
+                        if (this.currentPage < totalPages) {
+                            this.currentPage++;
+                            this.renderPosts();
+                            this.setupPagination();
+                        }
+                    });
+
+                    allFilterBtn.addEventListener('click', () => this.filterByTag('all'));
+                }
+
+                showError() {
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('error').style.display = 'block';
+                }
+            }
+
+            // 页面加载完成后初始化博客
+            document.addEventListener('DOMContentLoaded', () => {
+                new GitHubBlog();
+            });
+        </script>
+    </body>
+</html>
