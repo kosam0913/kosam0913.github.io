@@ -90,10 +90,6 @@
                                     <div class="photo-container">
                                         <img src="about/badminton.jpg" alt="Badminton" class="card-photo">
                                     </div>
-                                    <div class="photo-overlay">
-                                        <h3>Sports Enthusiast</h3>
-                                        <p>Badminton Champion</p>
-                                    </div>
                                 </div>
 
                                 <!-- Card 3: Industry Experience -->
@@ -113,10 +109,6 @@
                                 <div class="coverflow-card photo-card" data-index="3">
                                     <div class="photo-container">
                                         <img src="about/singer.jpg" alt="Music Performance" class="card-photo">
-                                    </div>
-                                    <div class="photo-overlay">
-                                        <h3>Music Lover</h3>
-                                        <p>Performing Arts</p>
                                     </div>
                                 </div>
 
@@ -138,10 +130,6 @@
                                     <div class="photo-container">
                                         <img src="about/ops.jpg" alt="Operations" class="card-photo">
                                     </div>
-                                    <div class="photo-overlay">
-                                        <h3>Team Player</h3>
-                                        <p>Collaborative Spirit</p>
-                                    </div>
                                 </div>
 
                                 <!-- Card 7: Project Achievements -->
@@ -162,10 +150,7 @@
                                     <div class="photo-container">
                                         <img src="about/diver.jpg" alt="Diving" class="card-photo">
                                     </div>
-                                    <div class="photo-overlay">
-                                        <h3>Adventure Seeker</h3>
-                                        <p>Deep Sea Explorer</p>
-                                    </div>
+
                                 </div>
 
                                 <!-- Card 9: Get In Touch -->
@@ -544,23 +529,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- About Section -->
-                <section id="about" class="content-section">
-                    <div class="about-redirect">
-                        <div class="redirect-content">
-                            <div class="redirect-icon">
-                                <i class="fas fa-user-circle"></i>
-                            </div>
-                            <h2>About Me</h2>
-                            <p>All about me content has been moved to the Profile section for a better interactive experience.</p>
-                            <button class="redirect-button" onclick="switchToProfile()">
-                                <i class="fas fa-arrow-right"></i>
-                                Go to Profile
-                            </button>
                         </div>
                     </div>
                 </section>
@@ -960,10 +928,6 @@
                 blogDetailSection.innerHTML = `
                     <div class="blog-detail-container">
                         <div class="blog-detail-header">
-                            <button class="back-to-blog-btn" onclick="backToBlogList()">
-                                <i class="fas fa-arrow-left"></i>
-                                Back to Blog
-                            </button>
                             <div class="blog-detail-meta">
                                 <div class="blog-detail-date">
                                     <i class="fas fa-calendar-alt"></i>
@@ -987,16 +951,6 @@
                             <div class="blog-detail-body">${markdownContent}</div>
                         </div>
                         <div class="blog-detail-footer">
-                            <div class="blog-detail-stats">
-                                <div class="blog-detail-stat">
-                                    <i class="fas fa-comments"></i>
-                                    <span>${issue.comments} comments</span>
-                                </div>
-                                <div class="blog-detail-stat">
-                                    <i class="fas fa-thumbs-up"></i>
-                                    <span>${issue.reactions ? issue.reactions['+1'] || 0 : 0} reactions</span>
-                                </div>
-                            </div>
                             <a href="${issue.html_url}" target="_blank" class="view-on-github-btn">
                                 <i class="fab fa-github"></i>
                                 View on GitHub
@@ -1019,50 +973,146 @@
             }
 
             function backToBlogList() {
-                // Hide blog detail section
+                // Remove any existing blog detail sections
                 const blogDetailSection = document.getElementById('blog-detail');
                 if (blogDetailSection) {
                     blogDetailSection.remove();
                 }
                 
+                const blogLoadingSection = document.getElementById('blog-loading');
+                if (blogLoadingSection) {
+                    blogLoadingSection.remove();
+                }
+                
+                const blogErrorSection = document.getElementById('blog-error');
+                if (blogErrorSection) {
+                    blogErrorSection.remove();
+                }
+                
+                // Check if blog section exists, if not recreate it
+                let blogSection = document.getElementById('blog');
+                if (!blogSection) {
+                    // Recreate the original blog section
+                    const contentSections = document.querySelector('.content-sections');
+                    blogSection = document.createElement('section');
+                    blogSection.id = 'blog';
+                    blogSection.className = 'content-section';
+                    blogSection.innerHTML = `
+                        <div class="blog-container">
+                            <!-- Loading State -->
+                            <div class="loading-container" id="loading" style="display: none;">
+                                <div class="loading-spinner"></div>
+                                <p style="margin-top: 1rem; color: #64748b;">Loading blog posts...</p>
+                                <p style="margin-top: 0.5rem; color: #9ca3af; font-size: 0.875rem;">🔍 Fetching content from GitHub Issues...</p>
+                            </div>
+
+                            <!-- Error Message -->
+                            <div class="error-message" id="error" style="display: none;">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span id="error-text">Failed to load blog posts</span>
+                            </div>
+
+                            <!-- Blog Posts Container -->
+                            <div class="blog-posts" id="blog-posts" style="display: none;">
+                                <!-- Posts will be loaded here dynamically -->
+                            </div>
+
+                            <!-- No Posts Message -->
+                            <div class="no-posts" id="no-posts" style="display: block;">
+                                <i class="fas fa-blog" style="font-size: 3rem; margin-bottom: 1rem; color: #e1e4e8;"></i>
+                                <h3>Welcome to My Blog</h3>
+                                <p>This blog is powered by GitHub Issues with the "blog" label.</p>
+                                <div style="margin-top: 1rem; padding: 1rem; background: #f8fafc; border-radius: 8px; color: #64748b; font-size: 0.875rem;">
+                                    💡 <strong>For developers:</strong> Create GitHub Issues in this repository with the label "blog" to publish new posts.
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    contentSections.appendChild(blogSection);
+                }
+                
+                // Hide all other sections
+                const allSections = document.querySelectorAll('.content-section');
+                allSections.forEach(section => {
+                    section.classList.remove('active');
+                    section.style.display = 'none';
+                });
+                
                 // Show blog section
-                const blogSection = document.getElementById('blog');
+                blogSection.classList.add('active');
                 blogSection.style.display = 'block';
+                
+                // Reload blog posts if needed
+                setTimeout(() => {
+                    loadBlogPosts();
+                }, 100);
                 
                 // Update navigation
                 updateNavigation('blog');
             }
 
             function showBlogLoading() {
+                // Hide all sections first
+                const allSections = document.querySelectorAll('.content-section');
+                allSections.forEach(section => {
+                    section.classList.remove('active');
+                    section.style.display = 'none';
+                });
+                
+                // Create or update blog loading section
                 const contentSections = document.querySelector('.content-sections');
-                contentSections.innerHTML = `
-                    <section id="blog-loading" class="content-section active" style="display: block;">
-                        <div class="blog-container">
-                            <div class="loading-container">
-                                <div class="loading-spinner"></div>
-                                <p style="margin-top: 1rem; color: #64748b;">Loading blog post...</p>
-                            </div>
+                let blogLoadingSection = document.getElementById('blog-loading');
+                
+                if (!blogLoadingSection) {
+                    blogLoadingSection = document.createElement('section');
+                    blogLoadingSection.id = 'blog-loading';
+                    blogLoadingSection.className = 'content-section active';
+                    contentSections.appendChild(blogLoadingSection);
+                }
+                
+                blogLoadingSection.innerHTML = `
+                    <div class="blog-container">
+                        <div class="loading-container">
+                            <div class="loading-spinner"></div>
+                            <p style="margin-top: 1rem; color: #64748b;">Loading blog post...</p>
                         </div>
-                    </section>
+                    </div>
                 `;
+                
+                blogLoadingSection.classList.add('active');
+                blogLoadingSection.style.display = 'block';
             }
 
             function showBlogError(message) {
+                // Hide all sections first
+                const allSections = document.querySelectorAll('.content-section');
+                allSections.forEach(section => {
+                    section.classList.remove('active');
+                    section.style.display = 'none';
+                });
+                
+                // Create or update blog error section
                 const contentSections = document.querySelector('.content-sections');
-                contentSections.innerHTML = `
-                    <section id="blog-error" class="content-section active" style="display: block;">
-                        <div class="blog-container">
-                            <div class="error-message">
-                                <i class="fas fa-exclamation-triangle"></i>
-                                <span>${message}</span>
-                            </div>
-                            <button class="back-to-blog-btn" onclick="backToBlogList()" style="margin-top: 1rem;">
-                                <i class="fas fa-arrow-left"></i>
-                                Back to Blog
-                            </button>
+                let blogErrorSection = document.getElementById('blog-error');
+                
+                if (!blogErrorSection) {
+                    blogErrorSection = document.createElement('section');
+                    blogErrorSection.id = 'blog-error';
+                    blogErrorSection.className = 'content-section active';
+                    contentSections.appendChild(blogErrorSection);
+                }
+                
+                blogErrorSection.innerHTML = `
+                    <div class="blog-container">
+                        <div class="error-message">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>${message}</span>
                         </div>
-                    </section>
+                    </div>
                 `;
+                
+                blogErrorSection.classList.add('active');
+                blogErrorSection.style.display = 'block';
             }
 
             function updateNavigation(activeSection) {
@@ -1160,15 +1210,43 @@
             function updateCoverflow() {
                 const cards = document.querySelectorAll('.coverflow-card');
                 
+                // 容器宽度估算 (根据viewport和卡片宽度)
+                const containerWidth = 1500; // 大致的可视区域宽度
+                const cardWidth = 320; // 单个卡片宽度
+                const maxOffset = Math.floor(totalCards / 2); // 最大偏移量
+                
                 cards.forEach((card, index) => {
                     const offset = index - currentIndex; // 当前卡片相对active的位置（左边负，右边正）
                     
                     let rotateY = 0;
-                    let translateX = offset * 120;  // 控制间距
+                    let translateX = 0;
+                    
+                    // 非线性压缩算法
+                    if (offset !== 0) {
+                        // 使用双曲正切函数实现非线性压缩
+                        // 近处间距大，远处间距逐渐压缩
+                        const baseSpacing = 120; // 基础间距
+                        const maxDistance = (containerWidth - cardWidth) / 2; // 最大允许距离
+                        
+                        // 归一化offset (-1 到 1)
+                        const normalizedOffset = offset / maxOffset;
+                        
+                        // 使用tanh函数进行非线性映射，确保不超出边界
+                        const compressedOffset = Math.tanh(normalizedOffset * 1.5); // 1.5为压缩系数
+                        
+                        // 最终位置 = 压缩后的偏移 * 最大允许距离
+                        translateX = compressedOffset * maxDistance * 0.8; // 0.8为安全系数
+                    }
+                    
                     let translateZ = -Math.abs(offset) * 50; // 控制深度层级
                     let scale = 1;
                     let zIndex = 10 - Math.abs(offset); // active卡片在最上面
                     let opacity = 1;
+                    
+                    // 远距离卡片透明度递减
+                    if (Math.abs(offset) > 3) {
+                        opacity = Math.max(0.3, 1 - (Math.abs(offset) - 3) * 0.2);
+                    }
                     
                     if (offset === 0) {
                         // 中心卡片：正对用户，无旋转
@@ -1176,14 +1254,14 @@
                         scale = 1;
                         card.classList.add('center');
                     } else if (offset < 0) {
-                        // 左边卡片：向右倾斜30°
-                        rotateY = 30;
-                        scale = 0.95;
+                        // 左边卡片：向右倾斜
+                        rotateY = Math.min(45, Math.abs(offset) * 15); // 根据距离调整旋转角度
+                        scale = Math.max(0.7, 1 - Math.abs(offset) * 0.05); // 根据距离调整缩放
                         card.classList.remove('center');
                     } else {
-                        // 右边卡片：向左倾斜-30°
-                        rotateY = -30;
-                        scale = 0.95;
+                        // 右边卡片：向左倾斜
+                        rotateY = -Math.min(45, Math.abs(offset) * 15); // 根据距离调整旋转角度
+                        scale = Math.max(0.7, 1 - Math.abs(offset) * 0.05); // 根据距离调整缩放
                         card.classList.remove('center');
                     }
                     

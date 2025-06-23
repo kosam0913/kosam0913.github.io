@@ -316,7 +316,7 @@
 }
 
 .blog-detail-content {
-    padding: 2rem;
+    padding: 1.5rem;
 }
 
 .blog-detail-body {
@@ -435,7 +435,7 @@
     border-top: 1px solid #e1e4e8;
     background: #f8fafc;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
@@ -526,7 +526,7 @@
     }
     
     .blog-detail-content {
-        padding: 1.5rem;
+        padding: 1rem;
     }
     
     .blog-detail-meta {
