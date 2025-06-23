@@ -7,7 +7,7 @@ class WidgetProfileComponent {
         this.options = {
             containerId: 'widget-profile-container',
             avatarPath: 'assets/images/profile/avatar_prev.jpg',
-            componentPath: 'components/widget-profile.html',
+            componentPath: 'assets/components/widget-profile.html',
             basePath: '', 
             ...options
         };
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.body.hasAttribute('data-auto-load-widget-profile')) {
         const options = {
             basePath: document.body.getAttribute('data-base-path') || '',
-            componentPath: document.body.getAttribute('data-component-path') || ''
+            componentPath: document.body.getAttribute('data-component-path') || 'assets/components/widget-profile.html'
         };
         window.loadWidgetProfile(options);
     }

@@ -16,8 +16,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <!-- Main Stylesheet -->
         <link rel="stylesheet" href="assets/css/main-style.css">
+        <link rel="stylesheet" href="assets/css/blog.css">
+
         <!-- Widget Profile Component -->
         <script src="assets/components/widget-profile.js"></script>
+        <!-- Marked.js for Markdown parsing -->
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     </head>
 
     <body>
@@ -48,7 +52,7 @@
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="blog/index.html" class="nav__link">
+                        <a href="#blog" class="nav__link">
                             <i class="fa fa-book"></i>
                             <span>Blog</span>
                         </a>
@@ -344,11 +348,7 @@
 
                                 <div class="project-card small-project" onclick="openProjectDetail('best')" style="grid-column: span 2;">
                                     <div class="project-image-small">
-<<<<<<< HEAD
                                         <img src="portfolio/best/logo.jpg" alt="BEST">
-=======
-                                        <img src="content/portfolio/best/logo.jpg" alt="BEST">
->>>>>>> db02ee3b4aacc28129b76589d8c36b9ca936aa5c
                                         <div class="project-image-overlay">
                                             <div class="project-zoom-icon">
                                                 <i class="fa fa-search"></i>
@@ -545,6 +545,39 @@
                         </div>
                     </div>
                 </section>
+
+                <!-- Blog Section -->
+                <section id="blog" class="content-section">
+                    <div class="blog-container">
+                        <!-- Loading State -->
+                        <div class="loading-container" id="loading" style="display: none;">
+                            <div class="loading-spinner"></div>
+                            <p style="margin-top: 1rem; color: #64748b;">Loading blog posts...</p>
+                            <p style="margin-top: 0.5rem; color: #9ca3af; font-size: 0.875rem;">🔍 Fetching content from GitHub Issues...</p>
+                        </div>
+
+                        <!-- Error Message -->
+                        <div class="error-message" id="error" style="display: none;">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span id="error-text">Failed to load blog posts</span>
+                        </div>
+
+                        <!-- Blog Posts Container -->
+                        <div class="blog-posts" id="blog-posts" style="display: none;">
+                            <!-- Posts will be loaded here dynamically -->
+                        </div>
+
+                        <!-- No Posts Message -->
+                        <div class="no-posts" id="no-posts" style="display: block;">
+                            <i class="fas fa-blog" style="font-size: 3rem; margin-bottom: 1rem; color: #e1e4e8;"></i>
+                            <h3>Welcome to My Blog</h3>
+                            <p>This blog is powered by GitHub Issues with the "blog" label.</p>
+                            <div style="margin-top: 1rem; padding: 1rem; background: #f8fafc; border-radius: 8px; color: #64748b; font-size: 0.875rem;">
+                                💡 <strong>For developers:</strong> Create GitHub Issues in this repository with the label "blog" to publish new posts.
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
 
@@ -580,6 +613,14 @@
                         if (targetSection) {
                             targetSection.classList.add('active');
                             targetSection.style.display = 'block';
+                            
+                            // If blog section is activated, load blog posts
+                            if (targetId === 'blog') {
+                                // Add a small delay to ensure DOM is ready
+                                setTimeout(() => {
+                                    loadBlogPosts();
+                                }, 100);
+                            }
                         }
                     });
                 });
@@ -601,6 +642,251 @@
                 } else {
                     window.open(`portfolio/${projectId}/index.html`, '_blank');
                 }
+            }
+
+            // Blog functionality
+            // GitHub repository information
+            const GITHUB_OWNER = 'kosam0913';
+            const GITHUB_REPO = 'kosam0913.github.io';
+            
+            // DOM elements
+            const loadingEl = document.getElementById('loading');
+            const errorEl = document.getElementById('error');
+            const errorTextEl = document.getElementById('error-text');
+            const blogPostsEl = document.getElementById('blog-posts');
+            const noPostsEl = document.getElementById('no-posts');
+
+            async function loadBlogPosts() {
+                try {
+                    showLoading();
+                
+                    const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues?state=open&sort=created&direction=desc&per_page=20`;
+                    
+                    const fetchResponse = await fetch(apiUrl, {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    });
+                    
+                    if (!fetchResponse.ok) {
+                        if (fetchResponse.status === 403) {
+                            throw new Error('GitHub API rate limit exceeded. Please try again later.');
+                        } else if (fetchResponse.status === 404) {
+                            throw new Error('Repository not found or no issues with "blog" label exist.');
+                        } else {
+                            throw new Error(`GitHub API error: ${fetchResponse.status} ${fetchResponse.statusText}`);
+                        }
+                    }
+                    
+                    const data = await fetchResponse.json();
+                    const filteredData = data.filter(issue => issue.labels.some(label => label.name === 'blog' || label.name === 'note'));
+                    response = { data: filteredData };
+
+                    const issues = response.data;
+                    
+                    if (issues.length === 0) {
+                        showNoPosts();
+                        return;
+                    }
+
+                    // Render blog posts
+                    renderBlogPosts(issues);
+                    
+                    showBlogPosts();
+                    
+                } catch (error) {
+                    console.error('Error loading blog posts:', error);
+                    
+                    let errorMessage = error.message;
+                    
+                    // 为不同类型的错误提供更有用的提示
+                    if (error.message.includes('rate limit')) {
+                        errorMessage += '\n\n💡 Tip: GitHub API allows 60 requests per hour for unauthenticated requests.';
+                    } else if (error.message.includes('no issues with "blog" label')) {
+                        errorMessage += '\n\n💡 Tip: Create GitHub Issues with the "blog" label to display them here.';
+                    } else if (error.message.includes('Failed to fetch')) {
+                        errorMessage = 'Network error: Please check your internet connection.';
+                    }
+                    showError(errorMessage);
+                }
+            }
+
+
+
+            function renderBlogPosts(issues) {
+                blogPostsEl.innerHTML = '';
+                
+                issues.forEach(issue => {
+                    const postEl = createBlogPostElement(issue);
+                    blogPostsEl.appendChild(postEl);
+                });
+            }
+
+            function extractThumbnail(body) {
+                if (!body) return null;
+                
+                // 提取第一张图片作为缩略图
+                const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/;
+                const match = body.match(imageRegex);
+                
+                if (match) {
+                    return {
+                        alt: match[1] || 'Blog thumbnail',
+                        src: match[2]
+                    };
+                }
+                
+                return null;
+            }
+
+            function createBlogPostElement(issue) {
+                const postEl = document.createElement('article');
+                postEl.className = 'blog-post';
+                
+                // Extract excerpt from issue body
+                const excerpt = getExcerpt(issue.body || '');
+                
+                // Extract thumbnail
+                const thumbnail = extractThumbnail(issue.body || '');
+                
+                // Format date
+                const createdDate = formatDate(new Date(issue.created_at));
+                const updatedDate = formatDate(new Date(issue.updated_at));
+                
+                postEl.innerHTML = `
+                    <div class="blog-post-layout">
+                        <div class="blog-post-thumbnail">
+                            ${thumbnail ? 
+                                `<img src="${thumbnail.src}" alt="${escapeHtml(thumbnail.alt)}" class="blog-thumbnail-img">` :
+                                `<div class="blog-thumbnail-placeholder">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>`
+                            }
+                        </div>
+                        <div class="blog-post-main">
+                            <div class="blog-post-header">
+                                <div class="blog-post-meta">
+                                    <div class="blog-post-date">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>Published: ${createdDate}</span>
+                                    </div>
+                                    ${issue.updated_at !== issue.created_at ? `
+                                    <div class="blog-post-date">
+                                        <i class="fas fa-edit"></i>
+                                        <span>Updated: ${updatedDate}</span>
+                                    </div>
+                                    ` : ''}
+                                    <div class="blog-post-labels">
+                                        ${issue.labels.map(label => 
+                                            `<span class="blog-post-label" style="background: #${label.color}20; color: #${label.color};">${label.name}</span>`
+                                        ).join('')}
+                                    </div>
+                                </div>
+                                <h2 class="blog-post-title">${escapeHtml(issue.title)}</h2>
+                            </div>
+                            <div class="blog-post-content">
+                                <div class="blog-post-excerpt">${excerpt}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Add click handler to open issue
+                postEl.addEventListener('click', (e) => {
+                    window.open(issue.html_url, '_blank');
+                });
+                
+                return postEl;
+            }
+
+            function getExcerpt(body, maxLength = 300) {
+                if (!body) return 'No content preview available.';
+                
+                // 改进 Markdown 转换，使用更全面的正则表达式
+                let plainText = body
+                    // 移除代码块
+                    .replace(/```[\s\S]*?```/g, '[Code Block]')
+                    // 移除行内代码
+                    .replace(/`([^`]+)`/g, '$1')
+                    // 移除图片
+                    .replace(/!\[([^\]]*)\]\([^)]+\)/g, '[Image: $1]')
+                    // 移除链接，保留文本
+                    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+                    // 移除粗体
+                    .replace(/\*\*([^*]+)\*\*/g, '$1')
+                    // 移除斜体
+                    .replace(/\*([^*]+)\*/g, '$1')
+                    // 移除标题标记
+                    .replace(/#{1,6}\s+/g, '')
+                    // 移除引用
+                    .replace(/>\s+/g, '')
+                    // 移除列表标记
+                    .replace(/^\s*[-*+]\s+/gm, '')
+                    // 移除数字列表
+                    .replace(/^\s*\d+\.\s+/gm, '')
+                    // 替换多个换行为空格
+                    .replace(/\n+/g, ' ')
+                    // 移除多余空格
+                    .replace(/\s+/g, ' ')
+                    .trim();
+                
+                if (plainText.length <= maxLength) {
+                    return plainText;
+                }
+                
+                // 在单词边界截断，避免截断单词
+                const truncated = plainText.substring(0, maxLength);
+                const lastSpaceIndex = truncated.lastIndexOf(' ');
+                
+                if (lastSpaceIndex > maxLength * 0.8) {
+                    return truncated.substring(0, lastSpaceIndex) + '...';
+                }
+                
+                return truncated + '...';
+            }
+
+            function formatDate(date) {
+                return date.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                });
+            }
+
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            function showLoading() {
+                loadingEl.style.display = 'block';
+                errorEl.style.display = 'none';
+                blogPostsEl.style.display = 'none';
+                noPostsEl.style.display = 'none';
+            }
+
+            function showError(message) {
+                errorTextEl.textContent = message;
+                loadingEl.style.display = 'none';
+                errorEl.style.display = 'block';
+                blogPostsEl.style.display = 'none';
+                noPostsEl.style.display = 'none';
+            }
+
+            function showBlogPosts() {
+                loadingEl.style.display = 'none';
+                errorEl.style.display = 'none';
+                blogPostsEl.style.display = 'grid';
+                noPostsEl.style.display = 'none';
+            }
+
+            function showNoPosts() {
+                loadingEl.style.display = 'none';
+                errorEl.style.display = 'none';
+                blogPostsEl.style.display = 'none';
+                noPostsEl.style.display = 'block';
             }
         </script>
 
