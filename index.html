@@ -46,12 +46,6 @@
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="#about" class="nav__link">
-                            <i class="fa fa-heart"></i>
-                            <span>About</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
                         <a href="#blog" class="nav__link">
                             <i class="fa fa-book"></i>
                             <span>Blog</span>
@@ -65,6 +59,130 @@
 
                 <!-- Profile Section -->
                 <section id="profile" class="content-section">
+
+                    <!-- Cover Flow About Cards -->
+                    <div class="coverflow-container">
+                        <div class="coverflow-navigation">
+                            <button class="coverflow-nav-btn prev" onclick="navigateCoverflow(-1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="coverflow-nav-btn next" onclick="navigateCoverflow(1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="coverflow-viewport">
+                            <div class="coverflow-stage">
+                                <!-- Card 1: Technical Expertise -->
+                                <div class="coverflow-card" data-index="0">
+                                    <div class="card-icon">
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                    <h3>Technical Expertise</h3>
+                                    <p>Specialized in AI/ML pipeline development, computer graphics, and motion capture technology. Experienced in building distributed computing systems and automation tools.</p>
+                                    <div class="card-meta">
+                                        <span>8+ Years Experience</span>
+                                        <span>Python • TensorFlow • Linux</span>
+                                    </div>
+                                </div>
+
+                                <!-- Card 2: Photo - Badminton -->
+                                <div class="coverflow-card photo-card" data-index="1">
+                                    <div class="photo-container">
+                                        <img src="about/badminton.jpg" alt="Badminton" class="card-photo">
+                                    </div>
+                                    <div class="photo-overlay">
+                                        <h3>Sports Enthusiast</h3>
+                                        <p>Badminton Champion</p>
+                                    </div>
+                                </div>
+
+                                <!-- Card 3: Industry Experience -->
+                                <div class="coverflow-card" data-index="2">
+                                    <div class="card-icon">
+                                        <i class="fas fa-film"></i>
+                                    </div>
+                                    <h3>Industry Experience</h3>
+                                    <p>Worked on major Hollywood productions including Red Notice, Aquaman, and Star Wars. Contributed to cutting-edge visual effects and pipeline development.</p>
+                                    <div class="card-meta">
+                                        <span>Hollywood Productions</span>
+                                        <span>VFX • Game • Pipeline</span>
+                                    </div>
+                                </div>
+
+                                <!-- Card 4: Photo - Singer -->
+                                <div class="coverflow-card photo-card" data-index="3">
+                                    <div class="photo-container">
+                                        <img src="about/singer.jpg" alt="Music Performance" class="card-photo">
+                                    </div>
+                                    <div class="photo-overlay">
+                                        <h3>Music Lover</h3>
+                                        <p>Performing Arts</p>
+                                    </div>
+                                </div>
+
+                                <!-- Card 5: Philosophy -->
+                                <div class="coverflow-card" data-index="4">
+                                    <div class="card-icon">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                    <h3>Philosophy</h3>
+                                    <p>Passionate about bridging technology and creativity. Believe that innovation in AI/ML can revolutionize the creative industry and improve production workflows.</p>
+                                    <div class="card-meta">
+                                        <span>Innovation • Creativity</span>
+                                        <span>AI/ML • Creative Tech</span>
+                                    </div>
+                                </div>
+
+                                <!-- Card 6: Photo - Operations -->
+                                <div class="coverflow-card photo-card" data-index="5">
+                                    <div class="photo-container">
+                                        <img src="about/ops.jpg" alt="Operations" class="card-photo">
+                                    </div>
+                                    <div class="photo-overlay">
+                                        <h3>Team Player</h3>
+                                        <p>Collaborative Spirit</p>
+                                    </div>
+                                </div>
+
+                                <!-- Card 7: Project Achievements -->
+                                <div class="coverflow-card" data-index="6">
+                                    <div class="card-icon">
+                                        <i class="fas fa-trophy"></i>
+                                    </div>
+                                    <h3>Project Achievements</h3>
+                                    <p>Led development of motion capture AI models achieving 20x iteration speed improvement. Built full-stack WeChat Mini Program serving 500+ users in UAE Chinese community.</p>
+                                    <div class="card-meta">
+                                        <span>20x Performance Boost</span>
+                                        <span>500+ Active Users</span>
+                                    </div>
+                                </div>
+
+                                <!-- Card 8: Photo - Diver -->
+                                <div class="coverflow-card photo-card" data-index="7">
+                                    <div class="photo-container">
+                                        <img src="about/diver.jpg" alt="Diving" class="card-photo">
+                                    </div>
+                                    <div class="photo-overlay">
+                                        <h3>Adventure Seeker</h3>
+                                        <p>Deep Sea Explorer</p>
+                                    </div>
+                                </div>
+
+                                <!-- Card 9: Get In Touch -->
+                                <div class="coverflow-card" data-index="8">
+                                    <div class="card-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <h3>Get In Touch</h3>
+                                    <p>Always open to discussing AI/ML, computer graphics, or any technology-related topics. Feel free to reach out for collaboration opportunities!</p>
+                                    <div class="card-meta">
+                                        <span>Abu Dhabi, UAE</span>
+                                        <span>Open to Remote</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- Experience -->
                     <div class="experience-section">
@@ -432,116 +550,17 @@
 
                 <!-- About Section -->
                 <section id="about" class="content-section">
-                    <!-- 个人介绍卡片 -->
-                    <div class="about-card personal-intro-card">
-                        <div class="personal-intro-content">
-                            <div class="intro-text">
-                                <p>🚀 A technically grounded creative thinker bridging pipelines, product strategy, and human-centered design with a passion for innovation and public impact.</p>
+                    <div class="about-redirect">
+                        <div class="redirect-content">
+                            <div class="redirect-icon">
+                                <i class="fas fa-user-circle"></i>
                             </div>
-                        </div>
-                    </div>
-                    <div class="about-cards">
-                        <!-- 第一行第一个：技术专长 -->
-                        <div class="about-card">
-                            <div class="about-card-header">
-                                <div class="about-card-icon">
-                                    <i class="fas fa-code"></i>
-                                </div>
-                                <h3>Technical Expertise</h3>
-                            </div>
-                            <p>Specialized in AI/ML pipeline development, computer graphics, and motion capture technology. Experienced in building distributed computing systems and automation tools.</p>
-                            <div class="about-card-meta">
-                                <span>8+ Years Experience</span>
-                                <span>Python • TensorFlow • Linux</span>
-                            </div>
-                        </div>
-
-                        <!-- 第一行第二个：照片1 -->
-                        <div class="about-card photo-card">
-                            <div class="about-photo-container">
-                                <img src="about/badminton.jpg" alt="Badminton" class="about-photo">
-                            </div>
-                        </div>
-
-                        <!-- 第一行第三个: 行业经验 -->
-                        <div class="about-card">
-                            <div class="about-card-header">
-                                <div class="about-card-icon">
-                                    <i class="fas fa-film"></i>
-                                </div>
-                                <h3>Industry Experience</h3>
-                            </div>
-                            <p>Worked on major Hollywood productions including Red Notice, Aquaman, and Star Wars. Contributed to cutting-edge visual effects and pipeline development.</p>
-                            <div class="about-card-meta">
-                                <span>Hollywood Productions</span>
-                                <span>VFX • Game • Pipeline</span>
-                            </div>
-                        </div>
-
-                        <!-- 第二行第一个：照片2 -->
-                        <div class="about-card photo-card">
-                            <div class="about-photo-container">
-                                <img src="about/singer.jpg" alt="Music Performance" class="about-photo">
-                            </div>
-                        </div>
-
-                        <!-- 第二行第二个：个人理念 -->
-                        <div class="about-card">
-                            <div class="about-card-header">
-                                <div class="about-card-icon">
-                                    <i class="fas fa-lightbulb"></i>
-                                </div>
-                                <h3>Philosophy</h3>
-                            </div>
-                            <p>Passionate about bridging technology and creativity. Believe that innovation in AI/ML can revolutionize the creative industry and improve production workflows.</p>
-                            <div class="about-card-meta">
-                                <span>Innovation • Creativity</span>
-                                <span>AI/ML • Creative Tech</span>
-                            </div>
-                        </div>
-
-                        <!-- 第二行第三个：照片3 -->
-                        <div class="about-card photo-card">
-                            <div class="about-photo-container">
-                                <img src="about/ops.jpg" alt="Operations" class="about-photo">
-                            </div>
-                        </div>
-
-                        <!-- 第三行第一个：项目成就 -->
-                        <div class="about-card">
-                            <div class="about-card-header">
-                                <div class="about-card-icon">
-                                    <i class="fas fa-trophy"></i>
-                                </div>
-                                <h3>Project Achievements</h3>
-                            </div>
-                            <p>Led development of motion capture AI models achieving 20x iteration speed improvement. Built full-stack WeChat Mini Program (on it way to) serving 500+ users in UAE Chinese community.</p>
-                            <div class="about-card-meta">
-                                <span>20x Performance Boost</span>
-                                <span>500+ Active Users</span>
-                            </div>
-                        </div>
-
-                        <!-- 第三行第二个：照片4 -->
-                        <div class="about-card photo-card">
-                            <div class="about-photo-container">
-                                <img src="about/diver.jpg" alt="Diving" class="about-photo">
-                            </div>
-                        </div>
-
-                        <!-- 第三行第三个：联系方式 -->
-                        <div class="about-card">
-                            <div class="about-card-header">
-                                <div class="about-card-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <h3>Get In Touch</h3>
-                            </div>
-                            <p>Always open to discussing AI/ML, computer graphics, or any technology-related topics. Feel free to reach out for collaboration opportunities!</p>
-                            <div class="about-card-meta">
-                                <span>Abu Dhabi, UAE</span>
-                                <span>Open to Remote</span>
-                            </div>
+                            <h2>About Me</h2>
+                            <p>All about me content has been moved to the Profile section for a better interactive experience.</p>
+                            <button class="redirect-button" onclick="switchToProfile()">
+                                <i class="fas fa-arrow-right"></i>
+                                Go to Profile
+                            </button>
                         </div>
                     </div>
                 </section>
@@ -659,7 +678,7 @@
             async function loadBlogPosts() {
                 try {
                     showLoading();
-                
+                    
                     const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues?state=open&sort=created&direction=desc&per_page=20`;
                     
                     const fetchResponse = await fetch(apiUrl, {
@@ -765,36 +784,36 @@
                             }
                         </div>
                         <div class="blog-post-main">
-                            <div class="blog-post-header">
-                                <div class="blog-post-meta">
-                                    <div class="blog-post-date">
-                                        <i class="fas fa-calendar-alt"></i>
-                                        <span>Published: ${createdDate}</span>
-                                    </div>
-                                    ${issue.updated_at !== issue.created_at ? `
-                                    <div class="blog-post-date">
-                                        <i class="fas fa-edit"></i>
-                                        <span>Updated: ${updatedDate}</span>
-                                    </div>
-                                    ` : ''}
-                                    <div class="blog-post-labels">
-                                        ${issue.labels.map(label => 
-                                            `<span class="blog-post-label" style="background: #${label.color}20; color: #${label.color};">${label.name}</span>`
-                                        ).join('')}
-                                    </div>
-                                </div>
-                                <h2 class="blog-post-title">${escapeHtml(issue.title)}</h2>
+                    <div class="blog-post-header">
+                        <div class="blog-post-meta">
+                            <div class="blog-post-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Published: ${createdDate}</span>
                             </div>
-                            <div class="blog-post-content">
-                                <div class="blog-post-excerpt">${excerpt}</div>
+                            ${issue.updated_at !== issue.created_at ? `
+                            <div class="blog-post-date">
+                                <i class="fas fa-edit"></i>
+                                <span>Updated: ${updatedDate}</span>
+                            </div>
+                            ` : ''}
+                            <div class="blog-post-labels">
+                                ${issue.labels.map(label => 
+                                    `<span class="blog-post-label" style="background: #${label.color}20; color: #${label.color};">${label.name}</span>`
+                                ).join('')}
+                            </div>
+                        </div>
+                        <h2 class="blog-post-title">${escapeHtml(issue.title)}</h2>
+                    </div>
+                    <div class="blog-post-content">
+                        <div class="blog-post-excerpt">${excerpt}</div>
                             </div>
                         </div>
                     </div>
                 `;
                 
-                // Add click handler to open issue
+                // Add click handler to load blog post
                 postEl.addEventListener('click', (e) => {
-                    window.open(issue.html_url, '_blank');
+                    loadBlogPost(issue);
                 });
                 
                 return postEl;
@@ -888,6 +907,342 @@
                 blogPostsEl.style.display = 'none';
                 noPostsEl.style.display = 'block';
             }
+
+            // Blog post detail functionality
+            async function loadBlogPost(issue) {
+                try {
+                    showBlogLoading();
+                    
+                    // Fetch the detailed issue content
+                    const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues/${issue.number}`;
+                    const response = await fetch(apiUrl, {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error(`Failed to load blog post: ${response.status}`);
+                    }
+                    
+                    const detailedIssue = await response.json();
+                    renderBlogPost(detailedIssue);
+                    
+                } catch (error) {
+                    console.error('Error loading blog post:', error);
+                    showBlogError('Failed to load blog post. Please try again.');
+                }
+            }
+
+            function renderBlogPost(issue) {
+                const contentSections = document.querySelector('.content-sections');
+                
+                // Hide all sections first
+                const allSections = document.querySelectorAll('.content-section');
+                allSections.forEach(section => {
+                    section.style.display = 'none';
+                });
+                
+                // Create blog post detail section
+                const blogDetailSection = document.createElement('section');
+                blogDetailSection.id = 'blog-detail';
+                blogDetailSection.className = 'content-section active';
+                blogDetailSection.style.display = 'block';
+                
+                // Format dates
+                const createdDate = formatDate(new Date(issue.created_at));
+                const updatedDate = formatDate(new Date(issue.updated_at));
+                
+                // Render markdown content
+                const markdownContent = marked.parse(issue.body || '');
+                
+                blogDetailSection.innerHTML = `
+                    <div class="blog-detail-container">
+                        <div class="blog-detail-header">
+                            <button class="back-to-blog-btn" onclick="backToBlogList()">
+                                <i class="fas fa-arrow-left"></i>
+                                Back to Blog
+                            </button>
+                            <div class="blog-detail-meta">
+                                <div class="blog-detail-date">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Published: ${createdDate}</span>
+                                </div>
+                                ${issue.updated_at !== issue.created_at ? `
+                                <div class="blog-detail-date">
+                                    <i class="fas fa-edit"></i>
+                                    <span>Updated: ${updatedDate}</span>
+                                </div>
+                                ` : ''}
+                                <div class="blog-detail-labels">
+                                    ${issue.labels.map(label => 
+                                        `<span class="blog-detail-label" style="background: #${label.color}20; color: #${label.color};">${label.name}</span>`
+                                    ).join('')}
+                                </div>
+                            </div>
+                            <h1 class="blog-detail-title">${escapeHtml(issue.title)}</h1>
+                        </div>
+                        <div class="blog-detail-content">
+                            <div class="blog-detail-body">${markdownContent}</div>
+                        </div>
+                        <div class="blog-detail-footer">
+                            <div class="blog-detail-stats">
+                                <div class="blog-detail-stat">
+                                    <i class="fas fa-comments"></i>
+                                    <span>${issue.comments} comments</span>
+                                </div>
+                                <div class="blog-detail-stat">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    <span>${issue.reactions ? issue.reactions['+1'] || 0 : 0} reactions</span>
+                                </div>
+                            </div>
+                            <a href="${issue.html_url}" target="_blank" class="view-on-github-btn">
+                                <i class="fab fa-github"></i>
+                                View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                `;
+                
+                // Remove existing blog detail section if any
+                const existingDetail = document.getElementById('blog-detail');
+                if (existingDetail) {
+                    existingDetail.remove();
+                }
+                
+                // Add the new section
+                contentSections.appendChild(blogDetailSection);
+                
+                // Update navigation
+                updateNavigation('blog');
+            }
+
+            function backToBlogList() {
+                // Hide blog detail section
+                const blogDetailSection = document.getElementById('blog-detail');
+                if (blogDetailSection) {
+                    blogDetailSection.remove();
+                }
+                
+                // Show blog section
+                const blogSection = document.getElementById('blog');
+                blogSection.style.display = 'block';
+                
+                // Update navigation
+                updateNavigation('blog');
+            }
+
+            function showBlogLoading() {
+                const contentSections = document.querySelector('.content-sections');
+                contentSections.innerHTML = `
+                    <section id="blog-loading" class="content-section active" style="display: block;">
+                        <div class="blog-container">
+                            <div class="loading-container">
+                                <div class="loading-spinner"></div>
+                                <p style="margin-top: 1rem; color: #64748b;">Loading blog post...</p>
+                            </div>
+                        </div>
+                    </section>
+                `;
+            }
+
+            function showBlogError(message) {
+                const contentSections = document.querySelector('.content-sections');
+                contentSections.innerHTML = `
+                    <section id="blog-error" class="content-section active" style="display: block;">
+                        <div class="blog-container">
+                            <div class="error-message">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span>${message}</span>
+                            </div>
+                            <button class="back-to-blog-btn" onclick="backToBlogList()" style="margin-top: 1rem;">
+                                <i class="fas fa-arrow-left"></i>
+                                Back to Blog
+                            </button>
+                        </div>
+                    </section>
+                `;
+            }
+
+            function updateNavigation(activeSection) {
+                const navLinks = document.querySelectorAll('.nav__link');
+                navLinks.forEach(link => link.classList.remove('active'));
+                
+                const targetLink = document.querySelector(`a[href="#${activeSection}"]`);
+                if (targetLink) {
+                    targetLink.classList.add('active');
+                }
+            }
+
+            // ===== COVERFLOW FUNCTIONALITY =====
+            let currentIndex = 4; // Start with Philosophy card (middle)
+            let totalCards = 9;
+            let isTransitioning = false;
+
+            function initializeCoverflow() {
+                // Initialize indicators
+                const indicatorsContainer = document.querySelector('.indicators-container');
+                if (indicatorsContainer) {
+                    indicatorsContainer.innerHTML = '';
+                    for (let i = 0; i < totalCards; i++) {
+                        const indicator = document.createElement('div');
+                        indicator.className = 'indicator';
+                        indicator.onclick = () => goToCard(i);
+                        indicatorsContainer.appendChild(indicator);
+                    }
+                }
+                
+                // Add card click listeners
+                const cards = document.querySelectorAll('.coverflow-card');
+                cards.forEach((card, index) => {
+                    card.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        
+                        if (index !== currentIndex) {
+                            // Navigate to clicked card
+                            goToCard(index);
+                        }
+                    });
+                });
+                
+                // Initialize positions
+                updateCoverflow();
+                
+                // Add keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (document.getElementById('profile').classList.contains('active')) {
+                        if (e.key === 'ArrowLeft') {
+                            navigateCoverflow(-1);
+                        } else if (e.key === 'ArrowRight') {
+                            navigateCoverflow(1);
+                        }
+                    }
+                });
+            }
+
+            function navigateCoverflow(direction) {
+                if (isTransitioning) return;
+                
+                const newIndex = currentIndex + direction;
+                if (newIndex >= 0 && newIndex < totalCards) {
+                    goToCard(newIndex);
+                }
+                
+                // Update navigation button states
+                updateNavigationButtons();
+            }
+            
+            function updateNavigationButtons() {
+                const prevBtn = document.querySelector('.coverflow-nav-btn.prev');
+                const nextBtn = document.querySelector('.coverflow-nav-btn.next');
+                
+                if (prevBtn) {
+                    prevBtn.disabled = currentIndex === 0;
+                }
+                if (nextBtn) {
+                    nextBtn.disabled = currentIndex === totalCards - 1;
+                }
+            }
+
+            function goToCard(index) {
+                if (isTransitioning || index === currentIndex) return;
+                
+                isTransitioning = true;
+                currentIndex = index;
+                updateCoverflow();
+                
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 600);
+            }
+
+            function updateCoverflow() {
+                const cards = document.querySelectorAll('.coverflow-card');
+                
+                cards.forEach((card, index) => {
+                    const offset = index - currentIndex; // 当前卡片相对active的位置（左边负，右边正）
+                    
+                    let rotateY = 0;
+                    let translateX = offset * 120;  // 控制间距
+                    let translateZ = -Math.abs(offset) * 50; // 控制深度层级
+                    let scale = 1;
+                    let zIndex = 10 - Math.abs(offset); // active卡片在最上面
+                    let opacity = 1;
+                    
+                    if (offset === 0) {
+                        // 中心卡片：正对用户，无旋转
+                        rotateY = 0;
+                        scale = 1;
+                        card.classList.add('center');
+                    } else if (offset < 0) {
+                        // 左边卡片：向右倾斜30°
+                        rotateY = 30;
+                        scale = 0.95;
+                        card.classList.remove('center');
+                    } else {
+                        // 右边卡片：向左倾斜-30°
+                        rotateY = -30;
+                        scale = 0.95;
+                        card.classList.remove('center');
+                    }
+                    
+                    card.style.transform = `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`;
+                    card.style.zIndex = zIndex;
+                    card.style.opacity = opacity;
+                });
+                
+                // Update navigation button states
+                updateNavigationButtons();
+            }
+
+
+
+            // Redirect function for About section
+            function switchToProfile() {
+                // Remove active class from all links and sections
+                const navLinks = document.querySelectorAll('.nav__link');
+                const sections = document.querySelectorAll('.content-section');
+                
+                navLinks.forEach(l => l.classList.remove('active'));
+                sections.forEach(s => {
+                    s.classList.remove('active');
+                    s.style.display = 'none';
+                });
+                
+                // Activate profile section
+                const profileLink = document.querySelector('a[href="#profile"]');
+                const profileSection = document.getElementById('profile');
+                
+                if (profileLink) profileLink.classList.add('active');
+                if (profileSection) {
+                    profileSection.classList.add('active');
+                    profileSection.style.display = 'block';
+                }
+                
+                // Initialize Cover Flow if not already done
+                setTimeout(() => {
+                    if (!document.querySelector('.coverflow-card').style.transform) {
+                        initializeCoverflow();
+                    }
+                }, 100);
+            }
+
+            // Initialize Cover Flow when Profile section is shown
+            document.addEventListener('DOMContentLoaded', function() {
+                // Initialize Cover Flow on page load if profile is active
+                if (document.getElementById('profile').classList.contains('active')) {
+                    setTimeout(initializeCoverflow, 100);
+                }
+                
+                // Add listener for profile navigation
+                const profileNavLink = document.querySelector('a[href="#profile"]');
+                if (profileNavLink) {
+                    profileNavLink.addEventListener('click', function() {
+                        setTimeout(initializeCoverflow, 100);
+                    });
+                }
+            });
         </script>
 
     </body>
