@@ -9,9 +9,10 @@
     <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/icons/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <!-- Widget Profile Component -->
+    <script src="../../assets/components/widget-profile.js"></script>
 </head>
-<body class="treeview-page">
+<body data-auto-load-widget-profile data-base-path="../../" class="treeview-page">
     <!-- 移动端菜单按钮 -->
     <button class="mobile-menu-btn" onclick="toggleSidebar()">
         <i class="fas fa-bars"></i>
@@ -23,32 +24,7 @@
     </a>
 
     <!-- 左侧导航栏 -->
-    <div class="widget-profile">
-        <div class="row">
-            <!-- Profile Image -->
-            <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
-                <div class="profile__image">
-                    <img src="../../assets/images/profile/avatar_prev.jpg" alt="Xinjie Hu" class="img-responsive" />
-                </div>
-            </div>
-            
-            <!-- Profile Info -->
-            <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
-                <div class="profile__info">
-                    <h1 class="profile__name">Hu Xinjie</h1>
-                    <h4 class="profile__title">Full Stack Developer</h4>
-                    <h4 class="profile__title"> Technical Artist</h4>
-                    <h6 class="profile__location"><i class="fa fa-map-marker"></i> Abu Dhabi, UAE</h6>
-                </div>
-                <div class="profile__social">
-                    <a href="https://www.facebook.com/kosam0913" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.linkedin.com/in/xinjie-hu-574070125/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/kosam0913" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="mailto:kosam0913@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="widget-profile-container"></div>
 
     <!-- 右侧主内容区 -->
     <div class="main-content treenode-content">
@@ -91,15 +67,9 @@
                     </div>
                 </div>
                 
-                <!-- 产品展示图片 -->
-                <div class="content-card full-width image" style="padding: 0; margin-bottom: 2rem;">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: stretch;">
-                        <img src="2.1_cover.png" alt="TreeView 封面展示" style="width: 100%; height: auto; display: block; border-radius: 8px; object-fit: cover;">
-                        <img src="2.1_screenshot.png" alt="TreeView 应用截图" style="width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); object-fit: fill;">
-                    </div>
-                </div>
+
                 
-                <!-- Chrome商店链接 + 版本时间轴 -->
+                <!-- 第一行：Chrome商店链接 + 版本时间轴 -->
                 <div class="content-grid-timeline">
                     <div class="content-card chrome-store-card">
                         <div class="card-content">
@@ -172,8 +142,16 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 第二行：产品展示图片 -->
+                <div class="content-card full-width image" style="padding: 0; margin-bottom: 2rem;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: stretch;">
+                        <img src="2.1_cover.png" alt="TreeView 封面展示" style="width: 100%; height: auto; display: block; border-radius: 8px; object-fit: cover;">
+                        <img src="2.1_screenshot.png" alt="TreeView 应用截图" style="width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); object-fit: fill;">
+                    </div>
+                </div>
                 
-                <!-- 第一行：项目概述、技术架构、核心功能 -->
+                <!-- 第三行：项目概述、技术架构、核心功能 -->
                 <div class="content-grid-three">
                     <!-- 项目概述 -->
                     <div class="content-card">
@@ -223,7 +201,7 @@
                     </div>
                 </div>
 
-                <!-- 第二行：问题与解决方案 + 产品思考 -->
+                <!-- 第四行：问题与解决方案 + 产品思考 -->
                 <div class="content-grid">
                     <!-- 问题与解决方案 -->
                     <div class="content-card">

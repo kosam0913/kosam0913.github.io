@@ -1,0 +1,37 @@
+<div class="widget-profile">
+    <div class="row">
+        <!-- Profile Image -->
+        <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
+            <div class="profile__image">
+                <img src="{{avatarPath}}" alt="Xinjie Hu" class="img-responsive" />
+            </div>
+        </div>
+        
+        <!-- Profile Info -->
+        <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
+            <div class="profile__info">
+                <h1 class="profile__name">Hu Xinjie</h1>
+                <h4 class="profile__title">Full Stack Developer</h4>
+                <h4 class="profile__title"> Technical Artist</h4>
+                <h6 class="profile__location"><i class="fa fa-map-marker"></i> Abu Dhabi, UAE</h6>
+            </div>
+            <div class="profile__social">
+                <a href="https://www.facebook.com/kosam0913" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/xinjie-hu-574070125/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/kosam0913" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:kosam0913@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    if (document.body.hasAttribute('data-auto-load-widget-profile')) {
+        window.loadWidgetProfile({
+            basePath: './',
+            componentPath: './assets/components/widget-profile.html'
+        });
+    }
+});
+</script> 
