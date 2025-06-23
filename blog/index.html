@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Xinjie Hu</title>
+    <link rel="stylesheet" href="../assets/css/main-style.css">
+    <link rel="stylesheet" href="../assets/css/sub-style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/images/icons/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Widget Profile Component -->
+    <script src="../assets/components/widget-profile.js"></script>
+    <!-- Marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        /* Blog-specific styles */
+        .blog-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .blog-header {
+            text-align: center;
+            padding: 2rem 0;
+            background: linear-gradient(135deg, #f8fafc, #ffffff);
+            border-radius: var(--border-radius-card);
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .blog-subtitle {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .blog-stat {
+            text-align: center;
+        }
+        
+        .blog-stat-number {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .blog-stat-label {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-top: 0.25rem;
+        }
+        
+        .loading-container {
+            text-align: center;
+            padding: 3rem;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            border: 3px solid #e1e4e8;
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .blog-posts {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .blog-post {
+            background: #ffffff;
+            border-radius: var(--border-radius-card);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .blog-post:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .blog-post-header {
+            padding: 1.5rem 2rem 1rem;
+            border-bottom: 1px solid #e1e4e8;
+        }
+        
+        .blog-post-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+        
+        .blog-post-date {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .blog-post-labels {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .blog-post-label {
+            background: #eff6ff;
+            color: var(--primary-color);
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--border-radius-small);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .blog-post-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+        
+        .blog-post-content {
+            padding: 1rem 2rem 2rem;
+        }
+        
+        .blog-post-excerpt {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .blog-post-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .read-more-btn {
+            background: var(--primary-color);
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius-small);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .read-more-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-1px);
+        }
+        
+        .blog-post-stats {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+        
+        .blog-post-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .no-posts {
+            text-align: center;
+            padding: 3rem;
+            color: #64748b;
+        }
+        
+        .error-message {
+            background: #fef2f2;
+            color: #dc2626;
+            padding: 1rem;
+            border-radius: var(--border-radius-card);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .blog-title {
+                font-size: 2rem;
+            }
+            
+            .blog-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .blog-post-header,
+            .blog-post-content {
+                padding: 1rem 1.5rem;
+            }
+            
+            .blog-post-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            
+            .blog-post-actions {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body data-auto-load-widget-profile data-base-path="../" data-component-path="../assets/components/widget-profile.html">
+    <!-- 移动端菜单按钮 -->
+    <button class="mobile-menu-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- 圆形返回按钮 -->
+    <a href="../index.html#portfolio" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- 左侧导航栏 -->
+    <div id="widget-profile-container"></div>
+
+    <!-- 右侧主内容区 -->
+    <div class="main-content">
+        <div class="blog-container">
+            <!-- Blog Header -->
+            <div class="blog-header">
+                <h1 class="blog-title">
+                    <i class="fas fa-blog"></i>
+                    Personal Blog
+                </h1>
+                <p class="blog-subtitle">Thoughts, experiences, and technical insights</p>
+                <div class="blog-stats">
+                    <div class="blog-stat">
+                        <span class="blog-stat-number" id="total-posts">-</span>
+                        <span class="blog-stat-label">Total Posts</span>
+                    </div>
+                    <div class="blog-stat">
+                        <span class="blog-stat-number" id="latest-post-date">-</span>
+                        <span class="blog-stat-label">Latest Post</span>
+                    </div>
+                    <div class="blog-stat">
+                        <span class="blog-stat-number">GitHub</span>
+                        <span class="blog-stat-label">Powered by Issues</span>
+                    </div>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <button onclick="loadBlogPosts()" style="background: var(--primary-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;">
+                        🔄 Reload Posts
+                    </button>
+                    <button onclick="testAPI()" style="background: #6b7280; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; margin-left: 0.5rem;">
+                        🧪 Test API
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div class="loading-container" id="loading">
+                <div class="loading-spinner"></div>
+                <p style="margin-top: 1rem; color: #64748b;">Loading blog posts...</p>
+            </div>
+
+            <!-- Error Message -->
+            <div class="error-message" id="error" style="display: none;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span id="error-text">Failed to load blog posts</span>
+            </div>
+
+            <!-- Blog Posts Container -->
+            <div class="blog-posts" id="blog-posts" style="display: none;">
+                <!-- Posts will be loaded here dynamically -->
+            </div>
+
+            <!-- No Posts Message -->
+            <div class="no-posts" id="no-posts" style="display: none;">
+                <i class="fas fa-file-alt" style="font-size: 3rem; margin-bottom: 1rem; color: #e1e4e8;"></i>
+                <h3>No blog posts yet</h3>
+                <p>Check back later for new content!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // GitHub repository information
+        const GITHUB_OWNER = 'kosam0913';
+        const GITHUB_REPO = 'kosam0913.github.io';
+        
+        // Blog configuration
+        console.log('Blog page loaded, repository:', `${GITHUB_OWNER}/${GITHUB_REPO}`);
+        
+        // DOM elements
+        const loadingEl = document.getElementById('loading');
+        const errorEl = document.getElementById('error');
+        const errorTextEl = document.getElementById('error-text');
+        const blogPostsEl = document.getElementById('blog-posts');
+        const noPostsEl = document.getElementById('no-posts');
+        const totalPostsEl = document.getElementById('total-posts');
+        const latestPostDateEl = document.getElementById('latest-post-date');
+
+        // Load blog posts when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing blog...');
+            
+            // Add a small delay to ensure all resources are loaded
+            setTimeout(() => {
+                loadBlogPosts();
+            }, 500);
+        });
+
+        async function loadBlogPosts() {
+            try {
+                showLoading();
+                
+                // Try different API approaches for better compatibility
+                let response;
+                
+                // Always use fetch API for better reliability
+                console.log('Fetching issues from GitHub API...');
+                const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues?state=open&sort=created&direction=desc&per_page=100`;
+                
+                const fetchResponse = await fetch(apiUrl, {
+                    headers: {
+                        'Accept': 'application/vnd.github.v3+json',
+                        'User-Agent': 'kosam0913-blog'
+                    }
+                });
+                
+                if (!fetchResponse.ok) {
+                    throw new Error(`GitHub API error! status: ${fetchResponse.status} - ${fetchResponse.statusText}`);
+                }
+                
+                const data = await fetchResponse.json();
+                response = { data };
+
+                const issues = response.data;
+                console.log('Loaded issues:', issues.length);
+                
+                if (issues.length === 0) {
+                    showNoPosts();
+                    return;
+                }
+
+                // Update stats
+                updateBlogStats(issues);
+                
+                // Render blog posts
+                renderBlogPosts(issues);
+                
+                showBlogPosts();
+                
+            } catch (error) {
+                console.error('Error loading blog posts:', error);
+                console.error('Error details:', {
+                    message: error.message,
+                    stack: error.stack,
+                    repository: `${GITHUB_OWNER}/${GITHUB_REPO}`
+                });
+                
+                // Show detailed error message
+                let errorMessage = `Failed to load blog posts: ${error.message}`;
+                if (error.message.includes('API error')) {
+                    errorMessage += '\n\nThis might be due to GitHub API rate limits or repository access. Please try again later.';
+                }
+                showError(errorMessage);
+            }
+        }
+
+        function updateBlogStats(issues) {
+            totalPostsEl.textContent = issues.length;
+            
+            if (issues.length > 0) {
+                const latestDate = new Date(issues[0].created_at);
+                latestPostDateEl.textContent = formatDate(latestDate);
+            }
+        }
+
+        function renderBlogPosts(issues) {
+            blogPostsEl.innerHTML = '';
+            
+            issues.forEach(issue => {
+                const postEl = createBlogPostElement(issue);
+                blogPostsEl.appendChild(postEl);
+            });
+        }
+
+        function createBlogPostElement(issue) {
+            const postEl = document.createElement('article');
+            postEl.className = 'blog-post';
+            
+            // Extract excerpt from issue body
+            const excerpt = getExcerpt(issue.body || '');
+            
+            // Format date
+            const createdDate = formatDate(new Date(issue.created_at));
+            const updatedDate = formatDate(new Date(issue.updated_at));
+            
+            postEl.innerHTML = `
+                <div class="blog-post-header">
+                    <div class="blog-post-meta">
+                        <div class="blog-post-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Published: ${createdDate}</span>
+                        </div>
+                        ${issue.updated_at !== issue.created_at ? `
+                        <div class="blog-post-date">
+                            <i class="fas fa-edit"></i>
+                            <span>Updated: ${updatedDate}</span>
+                        </div>
+                        ` : ''}
+                        <div class="blog-post-labels">
+                            ${issue.labels.map(label => 
+                                `<span class="blog-post-label" style="background: #${label.color}20; color: #${label.color};">${label.name}</span>`
+                            ).join('')}
+                        </div>
+                    </div>
+                    <h2 class="blog-post-title">${escapeHtml(issue.title)}</h2>
+                </div>
+                <div class="blog-post-content">
+                    <div class="blog-post-excerpt">${excerpt}</div>
+                    <div class="blog-post-actions">
+                        <a href="${issue.html_url}" target="_blank" class="read-more-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            Read Full Post
+                        </a>
+                        <div class="blog-post-stats">
+                            <div class="blog-post-stat">
+                                <i class="fas fa-comments"></i>
+                                <span>${issue.comments}</span>
+                            </div>
+                            <div class="blog-post-stat">
+                                <i class="fas fa-thumbs-up"></i>
+                                <span>${issue.reactions ? issue.reactions['+1'] || 0 : 0}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Add click handler to open issue
+            postEl.addEventListener('click', (e) => {
+                if (!e.target.closest('.read-more-btn')) {
+                    window.open(issue.html_url, '_blank');
+                }
+            });
+            
+            return postEl;
+        }
+
+        function getExcerpt(body, maxLength = 300) {
+            if (!body) return 'No content preview available.';
+            
+            // Convert markdown to plain text (basic conversion)
+            let plainText = body
+                .replace(/```[\s\S]*?```/g, '[Code Block]') // Code blocks
+                .replace(/`([^`]+)`/g, '$1') // Inline code
+                .replace(/\*\*([^*]+)\*\*/g, '$1') // Bold
+                .replace(/\*([^*]+)\*/g, '$1') // Italic
+                .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Links
+                .replace(/#{1,6}\s+/g, '') // Headers
+                .replace(/>\s+/g, '') // Blockquotes
+                .replace(/\n+/g, ' ') // Newlines
+                .trim();
+            
+            if (plainText.length <= maxLength) {
+                return plainText;
+            }
+            
+            return plainText.substring(0, maxLength).trim() + '...';
+        }
+
+        function formatDate(date) {
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            });
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function showLoading() {
+            loadingEl.style.display = 'block';
+            errorEl.style.display = 'none';
+            blogPostsEl.style.display = 'none';
+            noPostsEl.style.display = 'none';
+        }
+
+        function showError(message) {
+            errorTextEl.textContent = message;
+            loadingEl.style.display = 'none';
+            errorEl.style.display = 'block';
+            blogPostsEl.style.display = 'none';
+            noPostsEl.style.display = 'none';
+        }
+
+        function showBlogPosts() {
+            loadingEl.style.display = 'none';
+            errorEl.style.display = 'none';
+            blogPostsEl.style.display = 'grid';
+            noPostsEl.style.display = 'none';
+        }
+
+        function showNoPosts() {
+            loadingEl.style.display = 'none';
+            errorEl.style.display = 'none';
+            blogPostsEl.style.display = 'none';
+            noPostsEl.style.display = 'block';
+            totalPostsEl.textContent = '0';
+            latestPostDateEl.textContent = 'N/A';
+        }
+
+        // Mobile menu functionality
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.widget-profile');
+            sidebar.classList.toggle('open');
+        }
+
+        // Close sidebar when clicking main content (mobile)
+        document.querySelector('.main-content').addEventListener('click', function() {
+            if (window.innerWidth <= 1024) {
+                document.querySelector('.widget-profile').classList.remove('open');
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 1024) {
+                document.querySelector('.widget-profile').classList.remove('open');
+            }
+        });
+
+        // Test API function for debugging
+        async function testAPI() {
+            console.log('Testing GitHub API...');
+            const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues?state=open&per_page=1`;
+            
+            try {
+                console.log('API URL:', apiUrl);
+                const response = await fetch(apiUrl, {
+                    headers: {
+                        'Accept': 'application/vnd.github.v3+json',
+                        'User-Agent': 'kosam0913-blog'
+                    }
+                });
+                
+                console.log('Response status:', response.status);
+                console.log('Response headers:', Object.fromEntries(response.headers.entries()));
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('API test successful!');
+                    console.log('Sample data:', data.length > 0 ? data[0] : 'No issues found');
+                    alert(`✅ API test successful!\nFound ${data.length} issue(s)\nCheck console for details`);
+                } else {
+                    console.error('API test failed:', response.status, response.statusText);
+                    alert(`❌ API test failed!\nStatus: ${response.status} ${response.statusText}\nCheck console for details`);
+                }
+            } catch (error) {
+                console.error('API test error:', error);
+                alert(`❌ API test error!\n${error.message}\nCheck console for details`);
+            }
+        }
+    </script>
+</body>
+</html>
