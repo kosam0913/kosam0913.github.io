@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>emoji</title>
+    <link rel="stylesheet" href="../../assets/css/main-style.css">
+    <link rel="stylesheet" href="../../assets/css/sub-style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/icons/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Widget Profile Component -->
+    <script src="../../assets/components/widget-profile.js"></script>
+</head>
+<body data-auto-load-widget-profile data-base-path="../../" data-component-path="../../assets/components/widget-profile.html">
+    <!-- 移动端菜单按钮 -->
+    <button class="mobile-menu-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- 圆形返回按钮 -->
+    <a href="../../index.html#portfolio" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- 左侧导航栏 -->
+    <div id="widget-profile-container"></div>
+
+    <!-- 右侧主内容区 -->
+    <div class="main-content">
+        <div class="project-container">
+            <!-- Content Sections 区域 -->
+            <div class="content-sections">
+                <!-- 项目标题区 -->
+                <div class="project-header">
+                    <div class="emoji-header-layout">
+                        <!-- 左侧：项目信息 (1份宽度) -->
+                        <div class="emoji-header-content">
+                            <div class="project-header-content">
+                                <!-- 左侧：图标 + 文字内容 -->
+                                <div class="project-info-section">
+                                    <div class="project-icon">
+                                        <i class="fas fa-laugh-beam"></i>
+                                    </div>
+                                    <div class="project-text">
+                                        <h1 class="project-title">原创表情包作品集</h1>
+                                        <p class="project-subtitle">原创设计的个人表情包系列</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- 右侧：统计数据 -->
+                                <div class="project-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-number">4</span>
+                                        <span class="stat-label">系列</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-number">80+</span>
+                                        <span class="stat-label">作品数量</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-number">原创</span>
+                                        <span class="stat-label">设计类型</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-number">GIF</span>
+                                        <span class="stat-label">文件格式</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 右侧：图片展示 (2份宽度) -->
+                        <div class="emoji-header-photo">
+                            <img src="photo.png" alt="表情包作品展示">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 表情包展示区域 -->
+                <div class="emoji-gallery">
+                    <!-- B1 系列 -->
+        <div class="emoji-group">
+                        <div class="emoji-group-title">
+                            <i class="fas fa-star" style="color: #f59e0b;"></i>
+                            B1 系列
+                        </div>
+            <div class="emoji-grid" id="b1-grid"></div>
+        </div>
+
+                    <!-- B2 系列 -->
+        <div class="emoji-group">
+                        <div class="emoji-group-title">
+                            <i class="fas fa-heart" style="color: #ef4444;"></i>
+                            B2 系列
+                        </div>
+            <div class="emoji-grid" id="b2-grid"></div>
+        </div>
+
+                    <!-- B3 系列 -->
+        <div class="emoji-group">
+                        <div class="emoji-group-title">
+                            <i class="fas fa-thumbs-up" style="color: #10b981;"></i>
+                            B3 系列
+                        </div>
+            <div class="emoji-grid" id="b3-grid"></div>
+        </div>
+
+                    <!-- B4 系列 -->
+        <div class="emoji-group">
+                        <div class="emoji-group-title">
+                            <i class="fas fa-smile-wink" style="color: #8b5cf6;"></i>
+                            B4 系列
+                        </div>
+            <div class="emoji-grid" id="b4-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <img class="lightbox-img" id="lightbox-img" src="" alt="表情大图">
+    </div>
+    
+    <script>
+        const emojiGroups = {
+            b1: {
+                count: 16,
+                format: (i) => String(i).padStart(2, '0') + '.gif' // 01.gif, 02.gif, ...
+            },
+            b2: {
+                count: 24,
+                format: (i) => i + '.gif' // 1.gif, 2.gif, ...
+            },
+            b3: {
+                files: ['1.gif', '2.gif', '3.gif', '4.gif', '5.gif', '6.gif', '7.gif', '8.gif', '9.gif', '9_1.gif', '10.gif', '11.gif', '11_1.gif', '12.gif', '13.gif', '14.gif', '15.gif', '16.gif']
+            },
+            b4: {
+                count: 24,
+                format: (i) => i + '.gif' // 1.gif, 2.gif, ...
+            }
+        };
+
+        for (const [group, config] of Object.entries(emojiGroups)) {
+            const grid = document.getElementById(group + '-grid');
+            
+            if (config.files) {
+                // 使用预定义的文件列表
+                config.files.forEach((filename) => {
+                    createEmojiItem(grid, group, filename);
+                });
+            } else {
+                // 使用计数和格式化函数
+                for (let i = 1; i <= config.count; i++) {
+                    const filename = config.format(i);
+                    createEmojiItem(grid, group, filename);
+                }
+            }
+        }
+
+        function createEmojiItem(grid, group, filename) {
+            const imgPath = `${group}/${filename}`;
+            const div = document.createElement('div');
+            div.className = 'emoji-item';
+            div.innerHTML = `<img class="emoji-img" src="${imgPath}" alt="${filename}" onerror="this.style.display='none'">`;
+            div.onclick = function() {
+                document.getElementById('lightbox-img').src = imgPath;
+                document.getElementById('lightbox').classList.add('active');
+            };
+            grid.appendChild(div);
+        }
+
+        // Lightbox关闭
+        document.getElementById('lightbox-close').onclick = function() {
+            document.getElementById('lightbox').classList.remove('active');
+        };
+        document.getElementById('lightbox').onclick = function(e) {
+            if (e.target === this) this.classList.remove('active');
+        };
+
+        // 移动端菜单功能
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.widget-profile');
+            sidebar.classList.toggle('open');
+        }
+
+        // 点击主内容区时关闭侧边栏（移动端）
+        document.querySelector('.main-content').addEventListener('click', function() {
+            if (window.innerWidth <= 1024) {
+                document.querySelector('.widget-profile').classList.remove('open');
+            }
+        });
+
+        // 窗口大小改变时的处理
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 1024) {
+                document.querySelector('.widget-profile').classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>设计作品集 | Hu Xinjie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/main-style.css">
+    <link rel="stylesheet" href="../../assets/css/sub-style.css">
+    <!-- Widget Profile Component -->
+    <script src="../../assets/components/widget-profile.js"></script>
+</head>
+<body data-auto-load-widget-profile data-base-path="../../" data-component-path="../../assets/components/widget-profile.html">
+    <!-- 移动端菜单按钮 -->
+    <button class="mobile-menu-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Sidebar Component Container -->
+    <div id="widget-profile-container"></div>
+
+    <!-- Back Button -->
+    <a href="../../index.html#portfolio" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="design-gallery-container"> 
+            <!-- Poster Design Group -->
+            <div class="design-group">
+                <div class="design-group-title">Poster Design</div>
+                <div class="design-grid" id="poster-grid"></div>
+            </div>
+            
+            <!-- Design Group -->
+            <div class="design-group">
+                <div class="design-group-title">Design Works</div>
+                <div class="design-grid" id="design-grid"></div>
+            </div>
+            
+            <!-- Photography Group -->
+            <div class="design-group">
+                <div class="design-group-title">Photography</div>
+                <div class="photo-grid" id="photo-grid"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <img class="lightbox-img" id="lightbox-img" src="" alt="作品大图">
+    </div>
+    
+    <script>
+        // 配置作品文件
+        const designWorks = {
+            poster: [
+                { file: 'poster1.jpg', title: 'Poster Design 1', description: '科技风格海报设计' },
+                { file: 'poster2.jpg', title: 'Poster Design 2', description: '创意视觉海报设计' },
+                { file: 'poster3.jpg', title: 'Poster Design 3', description: '品牌视觉海报设计' }
+            ],
+            design: [
+                { file: 'design_01.jpg', title: 'Design Work 1', description: '创意设计作品' },
+                { file: 'design_02.jpg', title: 'Design Work 2', description: '视觉设计作品' },
+                { file: 'design_03.jpg', title: 'Design Work 3', description: '平面设计作品' }
+            ],
+            photo: [
+                { file: 'photo_01.jpg', title: 'Photography 1', description: '创意摄影作品' },
+                { file: 'photo_02.jpg', title: 'Photography 2', description: '艺术摄影作品' },
+                { file: 'photo_03.jpg', title: 'Photography 3', description: '人像摄影作品' },
+                { file: 'photo_04.jpg', title: 'Photography 4', description: '风景摄影作品' },
+                { file: 'photo_05.jpg', title: 'Photography 5', description: '街头摄影作品' },
+                { file: 'photo_06.jpg', title: 'Photography 6', description: '建筑摄影作品' },
+                { file: 'photo_07.jpg', title: 'Photography 7', description: '纪实摄影作品' },
+                { file: 'photo_08.jpg', title: 'Photography 8', description: '生活摄影作品' },
+                { file: 'DSC08355.jpg', title: 'DSC Photography 1', description: '专业摄影作品' },
+                { file: 'DSC08378.JPG', title: 'DSC Photography 2', description: '城市风光摄影' },
+                { file: 'DSC08439.jpg', title: 'DSC Photography 3', description: '人像摄影作品' },
+                { file: 'DSC08473.jpg', title: 'DSC Photography 4', description: '环境人像摄影' },
+                { file: 'DSC08642.jpg', title: 'DSC Photography 5', description: '风景摄影作品' },
+                { file: 'DSC09038.JPG', title: 'DSC Photography 6', description: '建筑摄影作品' },
+                { file: 'DSC09126.JPG', title: 'DSC Photography 7', description: '现代建筑摄影' },
+                { file: 'DSC09346.JPG', title: 'DSC Photography 8', description: '自然风光摄影' }
+            ]
+        };
+
+        // 创建海报作品 - 修正路径，poster文件在当前目录
+        const posterGrid = document.getElementById('poster-grid');
+        designWorks.poster.forEach((work) => {
+            createDesignItem(posterGrid, '.', work, 'design-item');
+        });
+
+        // 创建设计作品
+        const designGrid = document.getElementById('design-grid');
+        designWorks.design.forEach((work) => {
+            createDesignItem(designGrid, 'design', work, 'design-item');
+        });
+
+        // 创建摄影作品
+        const photoGrid = document.getElementById('photo-grid');
+        designWorks.photo.forEach((work) => {
+            createPhotoItem(photoGrid, 'photo', work, 'photo-item');
+        });
+
+        function createDesignItem(grid, folder, work, itemClass) {
+            const imgPath = `${folder}/${work.file}`;
+            const div = document.createElement('div');
+            div.className = itemClass;
+            div.innerHTML = `
+                <div class="design-img-container">
+                    <img class="design-img" src="${imgPath}" alt="${work.title}" onerror="this.parent.style.display='none'">
+                </div>
+            `;
+            div.onclick = function() {
+                document.getElementById('lightbox-img').src = imgPath;
+                document.getElementById('lightbox').classList.add('active');
+            };
+            grid.appendChild(div);
+        }
+
+        function createPhotoItem(grid, folder, work, itemClass) {
+            const imgPath = `${folder}/${work.file}`;
+            const div = document.createElement('div');
+            div.className = itemClass;
+            div.innerHTML = `
+                <div class="photo-img-container">
+                    <img class="photo-img" src="${imgPath}" alt="${work.title}" onerror="this.parent.style.display='none'">
+                </div>
+            `;
+            div.onclick = function() {
+                document.getElementById('lightbox-img').src = imgPath;
+                document.getElementById('lightbox').classList.add('active');
+            };
+            grid.appendChild(div);
+        }
+
+        // Lightbox关闭
+        document.getElementById('lightbox-close').onclick = function() {
+            document.getElementById('lightbox').classList.remove('active');
+        };
+        document.getElementById('lightbox').onclick = function(e) {
+            if (e.target === this) this.classList.remove('active');
+        };
+
+        // 移动端侧边栏控制
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.widget-profile');
+            sidebar.classList.toggle('open');
+        }
+
+        // 点击主内容区时关闭侧边栏（移动端）
+        document.querySelector('.main-content').addEventListener('click', function() {
+            if (window.innerWidth <= 1024) {
+                document.querySelector('.widget-profile').classList.remove('open');
+            }
+        });
+
+        // 窗口大小改变时的处理
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 1024) {
+                document.querySelector('.widget-profile').classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html> 

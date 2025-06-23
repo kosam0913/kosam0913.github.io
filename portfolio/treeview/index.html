@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TreeView</title>
+    <link rel="stylesheet" href="../../assets/css/main-style.css">
+    <link rel="stylesheet" href="../../assets/css/sub-style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/icons/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Widget Profile Component -->
+    <script src="../../assets/components/widget-profile.js"></script>
+</head>
+<body data-auto-load-widget-profile data-base-path="../../" class="treeview-page">
+    <!-- 移动端菜单按钮 -->
+    <button class="mobile-menu-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- 圆形返回按钮 -->
+    <a href="../../index.html#portfolio" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- 左侧导航栏 -->
+    <div id="widget-profile-container"></div>
+
+    <!-- 右侧主内容区 -->
+    <div class="main-content treenode-content">
+        <div class="project-container">
+            <!-- Content Sections 区域 -->
+            <div class="content-sections">
+                <!-- 项目标题区 -->
+                <div class="project-header">
+                    <div class="project-header-content">
+                        <!-- 左侧：Logo + 文字内容 -->
+                        <div class="project-info-section">
+                            <div class="project-logo">
+                                <img src="logo.png" alt="TreeNode">
+                            </div>
+                            <div class="project-text">
+                                <h1 class="project-title">TreeNode</h1>
+                                <p class="project-subtitle">Notion数据库可视化Chrome扩展，将平面条目转换为直观的树状结构</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 右侧：2x2 统计数据 -->
+                        <div class="project-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">活跃用户</span>
+                                <span class="stat-number">100+</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">用户评分</span>
+                                <span class="stat-number">4.8/5</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">下载量</span>
+                                <span class="stat-number">120+</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">PH Daily Rank</span>
+                                <span class="stat-number">#9</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                
+                <!-- 第一行：Chrome商店链接 + 版本时间轴 -->
+                <div class="content-grid-timeline">
+                    <div class="content-card chrome-store-card">
+                        <div class="card-content">
+                            <div class="store-actions">
+                                <a href="https://chromewebstore.google.com/detail/ckoknomfbeadbnmkppidchmhmeaflbka?utm_source=item-share-cb" class="cta-button primary-button">
+                                    <i class="fab fa-chrome"></i>
+                                    Chrome Web Store
+                                </a>
+                                <a href="#" class="cta-button secondary-button">
+                                    <i class="fab fa-product-hunt"></i>
+                                    Product Hunt
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 版本发展时间轴 -->
+                    <div class="content-card timeline-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-code-branch" style="color: #10b981;"></i>
+                            版本
+                        </h2>
+                        <div class="card-content">
+                            <div class="simple-timeline">
+                                <div class="timeline-line"></div>
+                                <!-- v1.0 -->
+                                <div class="timeline-item">
+                                    <div class="timeline-dot">
+                                        <div class="version-tag">v1.0</div>
+                                        <div class="timeline-date">2025 April</div>
+                                    </div>
+                                    <ul class="feature-list">
+                                        <li>基础树状展示</li>
+                                        <li>Chrome扩展框架</li>
+                                    </ul>
+                                </div>
+                                <!-- v1.5 -->
+                                <div class="timeline-item">
+                                    <div class="timeline-dot">
+                                        <div class="version-tag">v1.5</div>
+                                        <div class="timeline-date">2025 May</div>
+                                    </div>
+                                    <ul class="feature-list">
+                                        <li>性能优化</li>
+                                        <li>支持多语言</li>
+                                    </ul>
+                                </div>
+                                <!-- v2.0 -->
+                                <div class="timeline-item">
+                                    <div class="timeline-dot">
+                                        <div class="version-tag">v2.0</div>
+                                        <div class="timeline-date">2025 May</div>
+                                    </div>
+                                    <ul class="feature-list">
+                                        <li>UI改为注入式，优化UI体验</li>
+                                        <li>发布product hunt</li>
+                                    </ul>
+                                </div>
+                                <!-- v2.1 -->
+                                <div class="timeline-item">
+                                    <div class="timeline-dot">
+                                        <div class="version-tag">v2.1</div>
+                                        <div class="timeline-date">2025 June</div>
+                                    </div>
+                                    <ul class="feature-list">
+                                        <li>添加搜索功能</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第二行：产品展示图片 -->
+                <div class="content-card full-width image" style="padding: 0; margin-bottom: 2rem;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: stretch;">
+                        <img src="2.1_cover.png" alt="TreeView 封面展示" style="width: 100%; height: auto; display: block; border-radius: 8px; object-fit: cover;">
+                        <img src="2.1_screenshot.png" alt="TreeView 应用截图" style="width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); object-fit: fill;">
+                    </div>
+                </div>
+                
+                <!-- 第三行：项目概述、技术架构、核心功能 -->
+                <div class="content-grid-three">
+                    <!-- 项目概述 -->
+                    <div class="content-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-info-circle" style="color: #10b981;"></i>
+                            项目概述
+                        </h2>
+                        <div class="card-content">
+                            <p>TreeView是一个专为Notion Database设计的Chrome扩展，解决了Database在展示层次化数据时的局限。</p>
+                            <p>通过将平面的数据库条目转换为直观的树状结构，提升项目管理和任务组织的效率。</p>
+                        </div>
+                    </div>
+
+                    <!-- 技术架构 -->
+                    <div class="content-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-code" style="color: #3b82f6;"></i>
+                            技术架构
+                        </h2>
+                        <div class="card-content">
+                            <div class="tech-tags">
+                                <span class="tech-tag">Chrome Extension API</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">Notion API</span>
+                                <span class="tech-tag">Webpack</span>
+                                <span class="tech-tag">Oauth2.0</span>
+                                <span class="tech-tag">Flask</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 核心功能精简版 -->
+                    <div class="content-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-star" style="color: #f59e0b;"></i>
+                            核心功能
+                        </h2>
+                        <div class="card-content">
+                            <div class="features-compact">
+                                <div class="feature-compact">🌳 智能树状转换</div>
+                                <div class="feature-compact">⚡ 实时同步</div>
+                                <div class="feature-compact">📱 响应式设计</div>
+                                <div class="feature-compact">🔍 快速搜索</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第四行：问题与解决方案 + 产品思考 -->
+                <div class="content-grid">
+                    <!-- 问题与解决方案 -->
+                    <div class="content-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-lightbulb" style="color: #f59e0b;"></i>
+                            问题与解决方案
+                        </h2>
+                        <div class="card-content">
+                            <h3 style="color: #1e293b; margin-bottom: 0.5rem; font-size: 1rem;">🎯 核心问题</h3>
+                            <ul>
+                                <li>项目管理时缺乏整体视图和进度跟踪</li>
+                                <li>多层级任务依赖关系不够清晰</li>
+                            </ul>
+                            
+                            <h3 style="color: #1e293b; margin: 1rem 0 0.5rem 0; font-size: 1rem;">💡 解决方案</h3>
+                            <ul>
+                                <li>参考linux tree命令，平铺展示数据库条目</li>
+                                <li>自动识别Notion数据库中的层次关系，实时生成树状视图</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 产品思考 -->
+                    <div class="content-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-brain" style="color: #ec4899;"></i>
+                            产品思考
+                        </h2>
+                        <div class="card-content">
+                            <ul>
+                                <li>把自己作为用户，创造自己想用的产品</li>
+                                <li>从最小可行产品开始，快速验证核心假设</li>
+                                <li>宣传和交付一样重要</li>
+                                <li>建立用户反馈收集机制</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.widget-profile');
+            sidebar.classList.toggle('open');
+        }
+
+        // 点击主内容区时关闭侧边栏（移动端）
+        document.querySelector('.main-content').addEventListener('click', function() {
+            if (window.innerWidth <= 1024) {
+                document.querySelector('.widget-profile').classList.remove('open');
+            }
+        });
+
+        // 窗口大小改变时的处理
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 1024) {
+                document.querySelector('.widget-profile').classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html> 
