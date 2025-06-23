@@ -20,6 +20,10 @@
 
         <!-- Widget Profile Component -->
         <script src="assets/components/widget-profile.js"></script>
+        <!-- Profile Module -->
+        <script src="profile/profile.js"></script>
+        <!-- Portfolio Module -->
+        <script src="portfolio/portfolio.js"></script>
         <!-- Marked.js for Markdown parsing -->
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     </head>
@@ -57,481 +61,15 @@
             <!-- Content Sections -->
             <div class="content-sections">
 
-                <!-- Profile Section -->
-                <section id="profile" class="content-section">
+                <!-- Profile Section Container -->
+                <div id="profile-container">
+                    <!-- Profile content will be loaded from profile/profile.html -->
+                </div>
 
-                    <!-- Cover Flow About Cards -->
-                    <div class="coverflow-container">
-                        <div class="coverflow-navigation">
-                            <button class="coverflow-nav-btn prev" onclick="navigateCoverflow(-1)">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <button class="coverflow-nav-btn next" onclick="navigateCoverflow(1)">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                        </div>
-                        <div class="coverflow-viewport">
-                            <div class="coverflow-stage">
-                                <!-- Card 1: Technical Expertise -->
-                                <div class="coverflow-card" data-index="0">
-                                    <div class="card-icon">
-                                        <i class="fas fa-code"></i>
-                                    </div>
-                                    <h3>Technical Expertise</h3>
-                                    <p>Specialized in AI/ML pipeline development, computer graphics, and motion capture technology. Experienced in building distributed computing systems and automation tools.</p>
-                                    <div class="card-meta">
-                                        <span>8+ Years Experience</span>
-                                        <span>Python • TensorFlow • Linux</span>
-                                    </div>
-                                </div>
-
-                                <!-- Card 2: Photo - Badminton -->
-                                <div class="coverflow-card photo-card" data-index="1">
-                                    <div class="photo-container">
-                                        <img src="about/badminton.jpg" alt="Badminton" class="card-photo">
-                                    </div>
-                                </div>
-
-                                <!-- Card 3: Industry Experience -->
-                                <div class="coverflow-card" data-index="2">
-                                    <div class="card-icon">
-                                        <i class="fas fa-film"></i>
-                                    </div>
-                                    <h3>Industry Experience</h3>
-                                    <p>Worked on major Hollywood productions including Red Notice, Aquaman, and Star Wars. Contributed to cutting-edge visual effects and pipeline development.</p>
-                                    <div class="card-meta">
-                                        <span>Hollywood Productions</span>
-                                        <span>VFX • Game • Pipeline</span>
-                                    </div>
-                                </div>
-
-                                <!-- Card 4: Photo - Singer -->
-                                <div class="coverflow-card photo-card" data-index="3">
-                                    <div class="photo-container">
-                                        <img src="about/singer.jpg" alt="Music Performance" class="card-photo">
-                                    </div>
-                                </div>
-
-                                <!-- Card 5: Philosophy -->
-                                <div class="coverflow-card" data-index="4">
-                                    <div class="card-icon">
-                                        <i class="fas fa-lightbulb"></i>
-                                    </div>
-                                    <h3>Philosophy</h3>
-                                    <p>Passionate about bridging technology and creativity. Believe that innovation in AI/ML can revolutionize the creative industry and improve production workflows.</p>
-                                    <div class="card-meta">
-                                        <span>Innovation • Creativity</span>
-                                        <span>AI/ML • Creative Tech</span>
-                                    </div>
-                                </div>
-
-                                <!-- Card 6: Photo - Operations -->
-                                <div class="coverflow-card photo-card" data-index="5">
-                                    <div class="photo-container">
-                                        <img src="about/ops.jpg" alt="Operations" class="card-photo">
-                                    </div>
-                                </div>
-
-                                <!-- Card 7: Project Achievements -->
-                                <div class="coverflow-card" data-index="6">
-                                    <div class="card-icon">
-                                        <i class="fas fa-trophy"></i>
-                                    </div>
-                                    <h3>Project Achievements</h3>
-                                    <p>Led development of motion capture AI models achieving 20x iteration speed improvement. Built full-stack WeChat Mini Program serving 500+ users in UAE Chinese community.</p>
-                                    <div class="card-meta">
-                                        <span>20x Performance Boost</span>
-                                        <span>500+ Active Users</span>
-                                    </div>
-                                </div>
-
-                                <!-- Card 8: Photo - Diver -->
-                                <div class="coverflow-card photo-card" data-index="7">
-                                    <div class="photo-container">
-                                        <img src="about/diver.jpg" alt="Diving" class="card-photo">
-                                    </div>
-
-                                </div>
-
-                                <!-- Card 9: Get In Touch -->
-                                <div class="coverflow-card" data-index="8">
-                                    <div class="card-icon">
-                                        <i class="fas fa-envelope"></i>
-                                    </div>
-                                    <h3>Get In Touch</h3>
-                                    <p>Always open to discussing AI/ML, computer graphics, or any technology-related topics. Feel free to reach out for collaboration opportunities!</p>
-                                    <div class="card-meta">
-                                        <span>Abu Dhabi, UAE</span>
-                                        <span>Open to Remote</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Experience -->
-                    <div class="experience-section">
-                        <div class="text_content">PROFESSIONAL EXPERIENCE</div>
-                        <ul class="attributes">
-                             <li>
-                                <h5>
-                                    <span class="duration">2025/01 - Present</span>
-                                    <div class="title-content">
-                                        <div class="title-with-icon">
-                                            <span class="fa fa-briefcase"></span>
-                                            <span>Indie Full Stack Developer @ Abu Dhabi, UAE</span>
-                                        </div>
-                                        <p>•<span style="margin-left: 12px;"/>Independently built and launched a WeChat Mini Program for Chinese community in UAE</p>
-                                        <p>•<span style="margin-left: 12px;"/>Independently built a Chrome Extension for Notion Database Visualization</p>
-                                    </div>
-                                </h5>
-                            </li>
-                            <li>
-                                <h5>
-                                    <span class="duration">2022/11 - 2024/12</span>
-                                    <div class="title-content">
-                                        <div class="title-with-icon">
-                                            <span class="fa fa-briefcase"></span>
-                                            <span>Motion Technical Director  @  miHoYo, Shanghai, China</span>
-                                        </div>
-                                        <p>•<span style="margin-left: 12px;"/>Developed and automated AI model training process with distributed computing cluster, achieving 20x iteration speed improvement</p>
-                                        <p>•<span style="margin-left: 12px;"/>Optimized model algorithms with feature engineering for production requirements</p>
-                                        <p>•<span style="margin-left: 12px;"/>Integrated MLflow for training and deployment tracking</p>
-                                        <p>•<span style="margin-left: 12px;"/>Implemented data validation and version control for model integrity</p>
-                                    </div>
-                                </h5>
-                            </li>
-                            
-                            <li>
-                                <h5>
-                                    <span class="duration">2021/08 - 2022/11</span>
-                                    <div class="title-content">
-                                        <div class="title-with-icon">
-                                            <span class="fa fa-briefcase"></span>
-                                            <span>Pipeline Technical Director  @  miHoYo, Shanghai, China</span>
-                                        </div>
-                                        <p>•<span style="margin-left: 12px;"/>Implemented automation pipeline for motion capture data processing</p>
-                                        <p>•<span style="margin-left: 12px;"/>Developed cross-team production pipelines using Shotgun and Rez packages</p>
-                                        <p>•<span style="margin-left: 12px;"/>Designed distributed computing cluster workflow with Kafka</p>
-                                        <p>•<span style="margin-left: 12px;"/>Developed delivery system with auto notifications</p>
-                                        <p>•<span style="margin-left: 12px;"/>Created specialized Unreal Engine launcher with Git CI/CD automation</p>
-                                    </div>
-                                </h5>
-                            </li>
-
-                            <li>
-                                <h5>
-                                    <span class="duration">2017/07 - 2021/07</span>
-                                    <div class="title-content">
-                                        <div class="title-with-icon">
-                                            <span class="fa fa-briefcase"></span>
-                                            <span>Associate Production Engineer  @  Industrial Light & Magic, Singapore</span>
-                                        </div>
-                                        <p>•<span style="margin-left: 12px;"/>Provided technical support and developed pipeline tools</p>
-                                        <p>•<span style="margin-left: 12px;"/>Implemented render data analytics and visualization with Elasticsearch and Kibana/Grafana</p>
-                                        <p>•<span style="margin-left: 12px;"/>Developed Clarisse resource allocation optimization</p>
-                                        <p>•<span style="margin-left: 12px;"/>Automated artist workflows with custom 3D tool scripts</p>
-                                        <p>•<span style="margin-left: 12px;"/>Projects: Red Notice, Aquaman, Solo: A Star Wars Story, Ready Player One</p>
-                                    </div>
-                                </h5>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Education -->
-                    <div class="education-section">
-                        <div class="text_content">EDUCATION</div>
-                        <ul class="attributes">
-                            <li class="first">
-                                <h5>
-                                    <span class="duration">2025/01 - Present</span>
-                                    <div class="title-content">
-                                        <div class="title-with-icon">
-                                            <span class="fa fa-book"></span>
-                                            <span>MSE. Data Science  @  University of Pennsylvania, USA</span>
-                                        </div>
-                                        <p>Specialization: Machine Learning</p>
-                                    </div>
-                                </h5>
-                            </li>
-
-                            <li>
-                                <h5>
-                                    <span class="duration">2016/07 - 2017/06</span>
-                                    <div class="title-content">
-                                        <div class="title-with-icon">
-                                            <span class="fa fa-book"></span>
-                                            <span>MSc. Digital Media Technology  @  Nanyang Technological University, Singapore</span>
-                                        </div>
-                                        <p>CGPA: 4.00 / 5.00</p>
-                                        <p>Specialization: Advanced Computer Graphics</p>
-                                    </div>
-                                </h5>
-                            </li>
-                            
-                            <li>
-                                <h5>
-                                    <span class="duration">2012/09 - 2016/06</span>
-                                    <div class="title-content">
-                                        <div class="title-with-icon">
-                                            <span class="fa fa-book"></span>
-                                            <span>BSc. Geographic Information System  @  Wuhan University, China</span>
-                                        </div>
-                                        <p>CGPA: 3.42 / 4.00 (Second Upper Honors)</p>
-                                        <p>Specialization: Computer Graphics & Digital Image Processing</p>
-                                    </div>
-                                </h5>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Certifications -->
-                    <div class="certifications-section">
-                        <div class="text_content">CERTIFICATIONS</div>
-                        <ul class="attributes certifications-list">
-                            <li>
-                                <h5>
-                                    <span class="duration">2024/05</span>
-                                    <div class="title-content">
-                                        <div class="title-with-icon">
-                                            <span class="fa fa-certificate"></span>
-                                            <span>Machine Learning Engineering for Production (MLOps) @ DeepLearning.AI on Coursera</span>
-                                        </div>
-                                    </div>
-                                </h5>
-                            </li>
-
-                            <li>
-                                <h5>
-                                    <span class="duration">2024/02</span>
-                                    <div class="title-content">
-                                        <div class="title-with-icon">
-                                            <span class="fa fa-certificate"></span>
-                                            <span>Deep Learning Certificate  @  DeepLearning.AI on Coursera</span>
-                                        </div>
-                                    </div>
-                                </h5>
-                            </li>
-
-                            <li>
-                                <h5>
-                                    <span class="duration">2024/01</span>
-                                    <div class="title-content">
-                                        <div class="title-with-icon">
-                                            <span class="fa fa-certificate"></span>
-                                            <span>TensorFlow Developer Certificate  @  DeepLearning.AI on Coursera</span>
-                                        </div>
-                                    </div>
-                                </h5>
-                            </li>
-
-                        </ul>
-                    </div>
-
-                    <!-- Technical Skills -->
-                    <div class="skills-section">
-                        <div class="text_content">SKILLS</div>
-                        <ul class="attributes skills-grid">
-                            <li>
-                                <h5>Programming</h5>
-                                <p>Python, TensorFlow (Keras), Git, Perforce, Linux, Shell scripting</p>
-                            </li>
-                            <li>
-                                <h5>Software</h5>
-                                <p>CorelDRAWX4, Autodesk DCC series, Adobe Creative Suitcase (AE PR PS)</p>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- Portfolio Section -->
-                <section id="portfolio" class="content-section active" style="display: block;">
-                    <div class="projects-showcase">
-                        <div class="projects-grid-4col">
-                            <!-- Data Science -->
-                            <div class="project-card large-project full-cover-image" onclick="openProjectDetail('datascience')" style="grid-column: span 2;">
-                                <div class="project-image">
-                                    <img src="portfolio/datascience/logo.jpg" alt="Data Science">
-                                    <div class="project-image-overlay">
-                                        <div class="project-zoom-icon">
-                                            <i class="fa fa-search"></i>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="project-info">
-                                    <h3>Big Data Analysis</h3>
-                                    <p>Ride Price Factors and Ride-sharing Demand Forecasting</p>
-                                    <div class="project-tags">
-                                        <span>Python</span>
-                                        <span>ML</span>
-                                        <span>Data Analysis</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- TreeView大项目 -->
-                            <div class="project-card large-project" onclick="openProjectDetail('treeview')" style="grid-column: span 2;">
-                                <div class="project-image">
-                                    <img src="portfolio/treeview/logo.jpg" alt="TreeView">
-                                    <div class="project-image-overlay">
-                                        <div class="project-zoom-icon">
-                                            <i class="fa fa-search"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="project-info">
-                                    <h3>Chrome Extension: TreeView</h3>
-                                    <p>Notion Database Visualization Chrome Extension</p>
-                                    <div class="project-tags">
-                                        <span>Product Design</span>
-                                        <span>React</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- UCG -->
-                            <div class="project-card large-project" onclick="openProjectDetail('ucg')" style="grid-column: span 2;">
-                                <div class="project-image">
-                                    <img src="portfolio/ucg/logo.jpg" alt="UCG微信小程序">
-                                    <div class="project-image-overlay">
-                                        <div class="project-zoom-icon">
-                                            <i class="fa fa-search"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="project-info">
-                                    <h3>UCG WeChat Mini Program</h3>
-                                    <p>A WeChat Mini Program for the UAE Chinese Community</p>
-                                    <div class="project-tags">
-                                        <span>JavaScript</span>
-                                        <span>MySQL</span>
-                                        <span>Flask</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- 其他小项目堆叠 -->
-                            <div class="small-projects-column" style="grid-column: span 2;">
-                                <div class="project-card small-project" onclick="openProjectDetail('design')" style="grid-column: span 2;">
-                                    <div class="project-image-small">
-                                        <img src="portfolio/design/design/design_03.jpg" alt="Design Works">
-                                        <div class="project-image-overlay">
-                                            <div class="project-zoom-icon">
-                                                <i class="fa fa-search"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="project-info-small">
-                                        <h4>Visual Design</h4>
-                                        <p>Graphic Portfolio</p>
-                                        <div class="project-tags-small">
-                                            <span>Graphic Design</span>
-                                            <span>Poster Design</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="project-card small-project" onclick="openProjectDetail('charity')" style="grid-column: span 2;">
-                                    <div class="project-image-small">
-                                        <img src="portfolio/public_welfare/logo.jpg" alt="公益活动">
-                                        <div class="project-image-overlay">
-                                            <div class="project-zoom-icon">
-                                                <i class="fa fa-search"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="project-info-small">
-                                        <h4>Public Welfare</h4>
-                                        <p>Rescue and Help</p>
-                                        <div class="project-tags-small">
-                                            <span>Public Welfare</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="project-card small-project" onclick="openProjectDetail('best')" style="grid-column: span 2;">
-                                    <div class="project-image-small">
-                                        <img src="portfolio/best/logo.jpg" alt="BEST">
-                                        <div class="project-image-overlay">
-                                            <div class="project-zoom-icon">
-                                                <i class="fa fa-search"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="project-info-small">
-                                        <h4>BEST Notion Template</h4>
-                                        <p>Apple Shortcuts Budget Expense Tracker</p>
-                                        <div class="project-tags-small">
-                                            <span>Apple Shortcuts</span>
-                                            <span>Notion Template</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- 第二行：Poster 项目 -->
-                        <div class="projects-grid-4col" style="margin-top: 30px;">
-                            <!-- Poster 1 -->
-                            <div class="project-card poster-project-small" onclick="openProjectDetail('poster1')" style="grid-column: span 3;">
-                                <div class="project-image">
-                                    <img src="portfolio/design/poster1.jpg" alt="Poster Design 1">
-                                    <div class="project-image-overlay">
-                                        <div class="project-zoom-icon">
-                                            <i class="fa fa-search"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="project-info">
-                                    <h3>Poster Design</h3>
-                                    <div class="project-tags">
-                                        <span>Graphic Design</span>
-                                        <span>CorelDRAW</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Poster 2 -->
-                            <div class="project-card poster-project-small" onclick="openProjectDetail('poster2')" style="grid-column: span 3;">
-                                <div class="project-image">
-                                    <img src="portfolio/design/poster2.jpg" alt="Poster Design 2">
-                                    <div class="project-image-overlay">
-                                        <div class="project-zoom-icon">
-                                            <i class="fa fa-search"></i>
-                                    </div>
-                                    </div>
-                                </div>
-                                <div class="project-info">
-                                    <h3>Poster Design</h3>
-                                    <div class="project-tags">
-                                        <span>Graphic Design</span>
-                                        <span>CorelDRAW</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- 表情包设计 - 大项目 -->
-                            <div class="project-card large-project full-cover-image" onclick="openProjectDetail('emoji')" style="grid-column: span 2;">
-                                <div class="project-image">
-                                    <img src="portfolio/emoji/logo.jpg" alt="表情包设计">
-                                    <div class="project-image-overlay">
-                                        <div class="project-zoom-icon">
-                                            <i class="fa fa-search"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="project-info">
-                                    <h3>Emoji Design</h3>
-                                    <p>Original Emoji Design Portfolio, inspired by my fighting fish</p>
-                                    <div class="project-tags">
-                                        <span>CorelDRAW</span>
-                                        <span>Original IP</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <!-- Portfolio Section Container -->
+                <div id="portfolio-container">
+                    <!-- Portfolio content will be loaded from portfolio/portfolio.html -->
+                </div>
 
                 <!-- Blog Section -->
                 <section id="blog" class="content-section">
@@ -573,6 +111,26 @@
             document.addEventListener('DOMContentLoaded', function() {
                 // Load the widget profile component
                 loadWidgetProfile();
+                
+                // Check if profile is the default active section and load it
+                const profileLink = document.querySelector('a[href="#profile"]');
+                if (profileLink && profileLink.classList.contains('active')) {
+                    const profileContainer = document.getElementById('profile-container');
+                    if (profileContainer) {
+                        window.profileManager.loadProfileSection('profile-container');
+                        profileContainer.style.display = 'block';
+                    }
+                }
+                
+                // Check if portfolio is the default active section and load it
+                const portfolioLink = document.querySelector('a[href="#portfolio"]');
+                if (portfolioLink && portfolioLink.classList.contains('active')) {
+                    const portfolioContainer = document.getElementById('portfolio-container');
+                    if (portfolioContainer) {
+                        window.portfolioManager.loadPortfolioSection('portfolio-container');
+                        portfolioContainer.style.display = 'block';
+                    }
+                }
             });
 
             // Navigation functionality
@@ -594,22 +152,103 @@
                             s.style.display = 'none';
                         });
                         
+                        // Also hide profile and portfolio containers
+                        const profileContainer = document.getElementById('profile-container');
+                        if (profileContainer) {
+                            profileContainer.style.display = 'none';
+                        }
+                        
+                        const portfolioContainer = document.getElementById('portfolio-container');
+                        if (portfolioContainer) {
+                            portfolioContainer.style.display = 'none';
+                        }
+                        
                         // Add active class to clicked link
                         this.classList.add('active');
                         
                         // Show corresponding section
                         const targetId = this.getAttribute('href').substring(1);
-                        const targetSection = document.getElementById(targetId);
-                        if (targetSection) {
-                            targetSection.classList.add('active');
-                            targetSection.style.display = 'block';
-                            
-                            // If blog section is activated, load blog posts
-                            if (targetId === 'blog') {
-                                // Add a small delay to ensure DOM is ready
-                                setTimeout(() => {
-                                    loadBlogPosts();
-                                }, 100);
+                        
+                        // Handle profile section dynamically
+                        if (targetId === 'profile') {
+                            console.log('Profile navigation clicked');
+                            const profileContainer = document.getElementById('profile-container');
+                            console.log('Profile container found:', !!profileContainer);
+                            if (profileContainer) {
+                                console.log('Profile container children count:', profileContainer.children.length);
+                                console.log('Profile container innerHTML length:', profileContainer.innerHTML.length);
+                                
+                                // Check if profile content needs to be loaded
+                                const profileSection = profileContainer.querySelector('#profile');
+                                const needsLoading = !profileSection || 
+                                                   profileContainer.children.length === 0 || 
+                                                   profileContainer.innerHTML.trim() === '' ||
+                                                   profileContainer.innerHTML.trim() === '<!-- Profile content will be loaded from profile/profile.html -->';
+                                
+                                console.log('Profile section exists:', !!profileSection);
+                                console.log('Needs loading:', needsLoading);
+                                
+                                if (needsLoading) {
+                                    console.log('Loading profile content...');
+                                    window.profileManager.loadProfileSection('profile-container');
+                                } else {
+                                    // Content already exists, just make sure it's properly activated
+                                    if (profileSection) {
+                                        profileSection.classList.add('active');
+                                        profileSection.style.display = 'block';
+                                        console.log('Profile section re-activated');
+                                    }
+                                }
+                                profileContainer.style.display = 'block';
+                                console.log('Profile container display set to block');
+                            }
+                        } 
+                        // Handle portfolio section dynamically
+                        else if (targetId === 'portfolio') {
+                            console.log('Portfolio navigation clicked');
+                            const portfolioContainer = document.getElementById('portfolio-container');
+                            console.log('Portfolio container found:', !!portfolioContainer);
+                            if (portfolioContainer) {
+                                console.log('Portfolio container children count:', portfolioContainer.children.length);
+                                console.log('Portfolio container innerHTML length:', portfolioContainer.innerHTML.length);
+                                
+                                // Check if portfolio content needs to be loaded
+                                const portfolioSection = portfolioContainer.querySelector('#portfolio');
+                                const needsLoading = !portfolioSection || 
+                                                   portfolioContainer.children.length === 0 || 
+                                                   portfolioContainer.innerHTML.trim() === '' ||
+                                                   portfolioContainer.innerHTML.trim() === '<!-- Portfolio content will be loaded from portfolio/portfolio.html -->';
+                                
+                                console.log('Portfolio section exists:', !!portfolioSection);
+                                console.log('Needs loading:', needsLoading);
+                                
+                                if (needsLoading) {
+                                    console.log('Loading portfolio content...');
+                                    window.portfolioManager.loadPortfolioSection('portfolio-container');
+                                } else {
+                                    // Content already exists, just make sure it's properly activated
+                                    if (portfolioSection) {
+                                        portfolioSection.classList.add('active');
+                                        portfolioSection.style.display = 'block';
+                                        console.log('Portfolio section re-activated');
+                                    }
+                                }
+                                portfolioContainer.style.display = 'block';
+                                console.log('Portfolio container display set to block');
+                            }
+                        } else {
+                            const targetSection = document.getElementById(targetId);
+                            if (targetSection) {
+                                targetSection.classList.add('active');
+                                targetSection.style.display = 'block';
+                                
+                                // If blog section is activated, load blog posts
+                                if (targetId === 'blog') {
+                                    // Add a small delay to ensure DOM is ready
+                                    setTimeout(() => {
+                                        loadBlogPosts();
+                                    }, 100);
+                                }
                             }
                         }
                     });
@@ -627,23 +266,7 @@
                 });
             }
 
-            // Project detail functionality
-            function openProjectDetail(projectId) {
-                if (projectId === 'datascience') {
-                    window.open('https://colab.research.google.com/drive/1A3DhtigtOnSK2Jkvbd3zkQkeWm7Pd1_x?usp=sharing', '_blank');
-                } else if (projectId === 'best') {
-                    window.open('https://www.notion.com/templates/budget-expense-smart-tracker', '_blank');
-                } else if (projectId === 'poster1' || projectId === 'poster2' || projectId === 'charity') {
-                    // Poster项目和公益活动暂时无跳转
-                    return;
-                } else if (projectId === 'design') {
-                    window.open(`portfolio/design/index.html`, '_blank');
-                } else if (projectId === 'treenode') {
-                    window.open('https://chromewebstore.google.com/detail/notion-treeview/ckoknomfbeadbnmkppidchmhmeaflbka', '_blank');
-                } else {
-                    window.open(`portfolio/${projectId}/index.html`, '_blank');
-                }
-            }
+            // Project detail functionality is now handled by portfolio.js
 
             // Blog functionality
             // GitHub repository information
@@ -929,6 +552,17 @@
                     section.style.display = 'none';
                 });
                 
+                // Also hide profile and portfolio containers
+                const profileContainer = document.getElementById('profile-container');
+                if (profileContainer) {
+                    profileContainer.style.display = 'none';
+                }
+                
+                const portfolioContainer = document.getElementById('portfolio-container');
+                if (portfolioContainer) {
+                    portfolioContainer.style.display = 'none';
+                }
+                
                 // Create blog post detail section
                 const blogDetailSection = document.createElement('section');
                 blogDetailSection.id = 'blog-detail';
@@ -1001,6 +635,17 @@
                     section.style.display = 'none';
                 });
                 
+                // Also hide profile and portfolio containers
+                const profileContainer = document.getElementById('profile-container');
+                if (profileContainer) {
+                    profileContainer.style.display = 'none';
+                }
+                
+                const portfolioContainer = document.getElementById('portfolio-container');
+                if (portfolioContainer) {
+                    portfolioContainer.style.display = 'none';
+                }
+                
                 // Show the original blog section
                 if (blogSection) {
                     blogSection.classList.add('active');
@@ -1023,6 +668,17 @@
                     section.classList.remove('active');
                     section.style.display = 'none';
                 });
+                
+                // Also hide profile and portfolio containers
+                const profileContainer = document.getElementById('profile-container');
+                if (profileContainer) {
+                    profileContainer.style.display = 'none';
+                }
+                
+                const portfolioContainer = document.getElementById('portfolio-container');
+                if (portfolioContainer) {
+                    portfolioContainer.style.display = 'none';
+                }
                 
                 // Create or update blog loading section
                 const contentSections = document.querySelector('.content-sections');
@@ -1055,6 +711,17 @@
                     section.classList.remove('active');
                     section.style.display = 'none';
                 });
+                
+                // Also hide profile and portfolio containers
+                const profileContainer = document.getElementById('profile-container');
+                if (profileContainer) {
+                    profileContainer.style.display = 'none';
+                }
+                
+                const portfolioContainer = document.getElementById('portfolio-container');
+                if (portfolioContainer) {
+                    portfolioContainer.style.display = 'none';
+                }
                 
                 // Create or update blog error section
                 const contentSections = document.querySelector('.content-sections');
@@ -1090,202 +757,8 @@
                 }
             }
 
-            // ===== COVERFLOW FUNCTIONALITY =====
-            let currentIndex = 4; // Start with Philosophy card (middle)
-            let totalCards = 9;
-            let isTransitioning = false;
-
-            function initializeCoverflow() {
-                // Initialize indicators
-                const indicatorsContainer = document.querySelector('.indicators-container');
-                if (indicatorsContainer) {
-                    indicatorsContainer.innerHTML = '';
-                    for (let i = 0; i < totalCards; i++) {
-                        const indicator = document.createElement('div');
-                        indicator.className = 'indicator';
-                        indicator.onclick = () => goToCard(i);
-                        indicatorsContainer.appendChild(indicator);
-                    }
-                }
-                
-                // Add card click listeners
-                const cards = document.querySelectorAll('.coverflow-card');
-                cards.forEach((card, index) => {
-                    card.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        
-                        if (index !== currentIndex) {
-                            // Navigate to clicked card
-                            goToCard(index);
-                        }
-                    });
-                });
-                
-                // Initialize positions
-                updateCoverflow();
-                
-                // Add keyboard navigation
-                document.addEventListener('keydown', (e) => {
-                    if (document.getElementById('profile').classList.contains('active')) {
-                        if (e.key === 'ArrowLeft') {
-                            navigateCoverflow(-1);
-                        } else if (e.key === 'ArrowRight') {
-                            navigateCoverflow(1);
-                        }
-                    }
-                });
-            }
-
-            function navigateCoverflow(direction) {
-                if (isTransitioning) return;
-                
-                const newIndex = currentIndex + direction;
-                if (newIndex >= 0 && newIndex < totalCards) {
-                    goToCard(newIndex);
-                }
-                
-                // Update navigation button states
-                updateNavigationButtons();
-            }
-            
-            function updateNavigationButtons() {
-                const prevBtn = document.querySelector('.coverflow-nav-btn.prev');
-                const nextBtn = document.querySelector('.coverflow-nav-btn.next');
-                
-                if (prevBtn) {
-                    prevBtn.disabled = currentIndex === 0;
-                }
-                if (nextBtn) {
-                    nextBtn.disabled = currentIndex === totalCards - 1;
-                }
-            }
-
-            function goToCard(index) {
-                if (isTransitioning || index === currentIndex) return;
-                
-                isTransitioning = true;
-                currentIndex = index;
-                updateCoverflow();
-                
-                setTimeout(() => {
-                    isTransitioning = false;
-                }, 600);
-            }
-
-            function updateCoverflow() {
-                const cards = document.querySelectorAll('.coverflow-card');
-                
-                // 容器宽度估算 (根据viewport和卡片宽度)
-                const containerWidth = 1500; // 大致的可视区域宽度
-                const cardWidth = 320; // 单个卡片宽度
-                const maxOffset = Math.floor(totalCards / 2); // 最大偏移量
-                
-                cards.forEach((card, index) => {
-                    const offset = index - currentIndex; // 当前卡片相对active的位置（左边负，右边正）
-                    
-                    let rotateY = 0;
-                    let translateX = 0;
-                    
-                    // 非线性压缩算法
-                    if (offset !== 0) {
-                        // 使用双曲正切函数实现非线性压缩
-                        // 近处间距大，远处间距逐渐压缩
-                        const baseSpacing = 120; // 基础间距
-                        const maxDistance = (containerWidth - cardWidth) / 2; // 最大允许距离
-                        
-                        // 归一化offset (-1 到 1)
-                        const normalizedOffset = offset / maxOffset;
-                        
-                        // 使用tanh函数进行非线性映射，确保不超出边界
-                        const compressedOffset = Math.tanh(normalizedOffset * 1.5); // 1.5为压缩系数
-                        
-                        // 最终位置 = 压缩后的偏移 * 最大允许距离
-                        translateX = compressedOffset * maxDistance * 0.8; // 0.8为安全系数
-                    }
-                    
-                    let translateZ = -Math.abs(offset) * 50; // 控制深度层级
-                    let scale = 1;
-                    let zIndex = 10 - Math.abs(offset); // active卡片在最上面
-                    let opacity = 1;
-                    
-                    // 远距离卡片透明度递减
-                    if (Math.abs(offset) > 3) {
-                        opacity = Math.max(0.3, 1 - (Math.abs(offset) - 3) * 0.2);
-                    }
-                    
-                    if (offset === 0) {
-                        // 中心卡片：正对用户，无旋转
-                        rotateY = 0;
-                        scale = 1;
-                        card.classList.add('center');
-                    } else if (offset < 0) {
-                        // 左边卡片：向右倾斜
-                        rotateY = Math.min(45, Math.abs(offset) * 15); // 根据距离调整旋转角度
-                        scale = Math.max(0.7, 1 - Math.abs(offset) * 0.05); // 根据距离调整缩放
-                        card.classList.remove('center');
-                    } else {
-                        // 右边卡片：向左倾斜
-                        rotateY = -Math.min(45, Math.abs(offset) * 15); // 根据距离调整旋转角度
-                        scale = Math.max(0.7, 1 - Math.abs(offset) * 0.05); // 根据距离调整缩放
-                        card.classList.remove('center');
-                    }
-                    
-                    card.style.transform = `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`;
-                    card.style.zIndex = zIndex;
-                    card.style.opacity = opacity;
-                });
-                
-                // Update navigation button states
-                updateNavigationButtons();
-            }
-
-
-
-            // Redirect function for About section
-            function switchToProfile() {
-                // Remove active class from all links and sections
-                const navLinks = document.querySelectorAll('.nav__link');
-                const sections = document.querySelectorAll('.content-section');
-                
-                navLinks.forEach(l => l.classList.remove('active'));
-                sections.forEach(s => {
-                    s.classList.remove('active');
-                    s.style.display = 'none';
-                });
-                
-                // Activate profile section
-                const profileLink = document.querySelector('a[href="#profile"]');
-                const profileSection = document.getElementById('profile');
-                
-                if (profileLink) profileLink.classList.add('active');
-                if (profileSection) {
-                    profileSection.classList.add('active');
-                    profileSection.style.display = 'block';
-                }
-                
-                // Initialize Cover Flow if not already done
-                setTimeout(() => {
-                    if (!document.querySelector('.coverflow-card').style.transform) {
-                        initializeCoverflow();
-                    }
-                }, 100);
-            }
-
-            // Initialize Cover Flow when Profile section is shown
-            document.addEventListener('DOMContentLoaded', function() {
-                // Initialize Cover Flow on page load if profile is active
-                if (document.getElementById('profile').classList.contains('active')) {
-                    setTimeout(initializeCoverflow, 100);
-                }
-                
-                // Add listener for profile navigation
-                const profileNavLink = document.querySelector('a[href="#profile"]');
-                if (profileNavLink) {
-                    profileNavLink.addEventListener('click', function() {
-                        setTimeout(initializeCoverflow, 100);
-                    });
-                }
-            });
+            // ===== PROFILE AND COVERFLOW FUNCTIONALITY =====
+            // Profile and Cover Flow functionality is now handled by profile.js
         </script>
 
     </body>
