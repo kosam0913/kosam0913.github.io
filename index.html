@@ -16,8 +16,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <!-- Main Stylesheet -->
         <link rel="stylesheet" href="assets/css/main-style.css">
+        <link rel="stylesheet" href="assets/css/blog.css">
+
         <!-- Widget Profile Component -->
         <script src="assets/components/widget-profile.js"></script>
+        <!-- Marked.js for Markdown parsing -->
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     </head>
 
     <body>
@@ -42,13 +46,7 @@
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="#about" class="nav__link">
-                            <i class="fa fa-heart"></i>
-                            <span>About</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="blog/index.html" class="nav__link">
+                        <a href="#blog" class="nav__link">
                             <i class="fa fa-book"></i>
                             <span>Blog</span>
                         </a>
@@ -61,6 +59,115 @@
 
                 <!-- Profile Section -->
                 <section id="profile" class="content-section">
+
+                    <!-- Cover Flow About Cards -->
+                    <div class="coverflow-container">
+                        <div class="coverflow-navigation">
+                            <button class="coverflow-nav-btn prev" onclick="navigateCoverflow(-1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="coverflow-nav-btn next" onclick="navigateCoverflow(1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="coverflow-viewport">
+                            <div class="coverflow-stage">
+                                <!-- Card 1: Technical Expertise -->
+                                <div class="coverflow-card" data-index="0">
+                                    <div class="card-icon">
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                    <h3>Technical Expertise</h3>
+                                    <p>Specialized in AI/ML pipeline development, computer graphics, and motion capture technology. Experienced in building distributed computing systems and automation tools.</p>
+                                    <div class="card-meta">
+                                        <span>8+ Years Experience</span>
+                                        <span>Python • TensorFlow • Linux</span>
+                                    </div>
+                                </div>
+
+                                <!-- Card 2: Photo - Badminton -->
+                                <div class="coverflow-card photo-card" data-index="1">
+                                    <div class="photo-container">
+                                        <img src="about/badminton.jpg" alt="Badminton" class="card-photo">
+                                    </div>
+                                </div>
+
+                                <!-- Card 3: Industry Experience -->
+                                <div class="coverflow-card" data-index="2">
+                                    <div class="card-icon">
+                                        <i class="fas fa-film"></i>
+                                    </div>
+                                    <h3>Industry Experience</h3>
+                                    <p>Worked on major Hollywood productions including Red Notice, Aquaman, and Star Wars. Contributed to cutting-edge visual effects and pipeline development.</p>
+                                    <div class="card-meta">
+                                        <span>Hollywood Productions</span>
+                                        <span>VFX • Game • Pipeline</span>
+                                    </div>
+                                </div>
+
+                                <!-- Card 4: Photo - Singer -->
+                                <div class="coverflow-card photo-card" data-index="3">
+                                    <div class="photo-container">
+                                        <img src="about/singer.jpg" alt="Music Performance" class="card-photo">
+                                    </div>
+                                </div>
+
+                                <!-- Card 5: Philosophy -->
+                                <div class="coverflow-card" data-index="4">
+                                    <div class="card-icon">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                    <h3>Philosophy</h3>
+                                    <p>Passionate about bridging technology and creativity. Believe that innovation in AI/ML can revolutionize the creative industry and improve production workflows.</p>
+                                    <div class="card-meta">
+                                        <span>Innovation • Creativity</span>
+                                        <span>AI/ML • Creative Tech</span>
+                                    </div>
+                                </div>
+
+                                <!-- Card 6: Photo - Operations -->
+                                <div class="coverflow-card photo-card" data-index="5">
+                                    <div class="photo-container">
+                                        <img src="about/ops.jpg" alt="Operations" class="card-photo">
+                                    </div>
+                                </div>
+
+                                <!-- Card 7: Project Achievements -->
+                                <div class="coverflow-card" data-index="6">
+                                    <div class="card-icon">
+                                        <i class="fas fa-trophy"></i>
+                                    </div>
+                                    <h3>Project Achievements</h3>
+                                    <p>Led development of motion capture AI models achieving 20x iteration speed improvement. Built full-stack WeChat Mini Program serving 500+ users in UAE Chinese community.</p>
+                                    <div class="card-meta">
+                                        <span>20x Performance Boost</span>
+                                        <span>500+ Active Users</span>
+                                    </div>
+                                </div>
+
+                                <!-- Card 8: Photo - Diver -->
+                                <div class="coverflow-card photo-card" data-index="7">
+                                    <div class="photo-container">
+                                        <img src="about/diver.jpg" alt="Diving" class="card-photo">
+                                    </div>
+
+                                </div>
+
+                                <!-- Card 9: Get In Touch -->
+                                <div class="coverflow-card" data-index="8">
+                                    <div class="card-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <h3>Get In Touch</h3>
+                                    <p>Always open to discussing AI/ML, computer graphics, or any technology-related topics. Feel free to reach out for collaboration opportunities!</p>
+                                    <div class="card-meta">
+                                        <span>Abu Dhabi, UAE</span>
+                                        <span>Open to Remote</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- Experience -->
                     <div class="experience-section">
@@ -344,11 +451,7 @@
 
                                 <div class="project-card small-project" onclick="openProjectDetail('best')" style="grid-column: span 2;">
                                     <div class="project-image-small">
-<<<<<<< HEAD
                                         <img src="portfolio/best/logo.jpg" alt="BEST">
-=======
-                                        <img src="content/portfolio/best/logo.jpg" alt="BEST">
->>>>>>> db02ee3b4aacc28129b76589d8c36b9ca936aa5c
                                         <div class="project-image-overlay">
                                             <div class="project-zoom-icon">
                                                 <i class="fa fa-search"></i>
@@ -430,117 +533,34 @@
                     </div>
                 </section>
 
-                <!-- About Section -->
-                <section id="about" class="content-section">
-                    <!-- 个人介绍卡片 -->
-                    <div class="about-card personal-intro-card">
-                        <div class="personal-intro-content">
-                            <div class="intro-text">
-                                <p>🚀 A technically grounded creative thinker bridging pipelines, product strategy, and human-centered design with a passion for innovation and public impact.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-cards">
-                        <!-- 第一行第一个：技术专长 -->
-                        <div class="about-card">
-                            <div class="about-card-header">
-                                <div class="about-card-icon">
-                                    <i class="fas fa-code"></i>
-                                </div>
-                                <h3>Technical Expertise</h3>
-                            </div>
-                            <p>Specialized in AI/ML pipeline development, computer graphics, and motion capture technology. Experienced in building distributed computing systems and automation tools.</p>
-                            <div class="about-card-meta">
-                                <span>8+ Years Experience</span>
-                                <span>Python • TensorFlow • Linux</span>
-                            </div>
+                <!-- Blog Section -->
+                <section id="blog" class="content-section">
+                    <div class="blog-container">
+                        <!-- Loading State -->
+                        <div class="loading-container" id="loading" style="display: none;">
+                            <div class="loading-spinner"></div>
+                            <p style="margin-top: 1rem; color: #64748b;">Loading blog posts...</p>
+                            <p style="margin-top: 0.5rem; color: #9ca3af; font-size: 0.875rem;">🔍 Fetching content from GitHub Issues...</p>
                         </div>
 
-                        <!-- 第一行第二个：照片1 -->
-                        <div class="about-card photo-card">
-                            <div class="about-photo-container">
-                                <img src="about/badminton.jpg" alt="Badminton" class="about-photo">
-                            </div>
+                        <!-- Error Message -->
+                        <div class="error-message" id="error" style="display: none;">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span id="error-text">Failed to load blog posts</span>
                         </div>
 
-                        <!-- 第一行第三个: 行业经验 -->
-                        <div class="about-card">
-                            <div class="about-card-header">
-                                <div class="about-card-icon">
-                                    <i class="fas fa-film"></i>
-                                </div>
-                                <h3>Industry Experience</h3>
-                            </div>
-                            <p>Worked on major Hollywood productions including Red Notice, Aquaman, and Star Wars. Contributed to cutting-edge visual effects and pipeline development.</p>
-                            <div class="about-card-meta">
-                                <span>Hollywood Productions</span>
-                                <span>VFX • Game • Pipeline</span>
-                            </div>
+                        <!-- Blog Posts Container -->
+                        <div class="blog-posts" id="blog-posts" style="display: none;">
+                            <!-- Posts will be loaded here dynamically -->
                         </div>
 
-                        <!-- 第二行第一个：照片2 -->
-                        <div class="about-card photo-card">
-                            <div class="about-photo-container">
-                                <img src="about/singer.jpg" alt="Music Performance" class="about-photo">
-                            </div>
-                        </div>
-
-                        <!-- 第二行第二个：个人理念 -->
-                        <div class="about-card">
-                            <div class="about-card-header">
-                                <div class="about-card-icon">
-                                    <i class="fas fa-lightbulb"></i>
-                                </div>
-                                <h3>Philosophy</h3>
-                            </div>
-                            <p>Passionate about bridging technology and creativity. Believe that innovation in AI/ML can revolutionize the creative industry and improve production workflows.</p>
-                            <div class="about-card-meta">
-                                <span>Innovation • Creativity</span>
-                                <span>AI/ML • Creative Tech</span>
-                            </div>
-                        </div>
-
-                        <!-- 第二行第三个：照片3 -->
-                        <div class="about-card photo-card">
-                            <div class="about-photo-container">
-                                <img src="about/ops.jpg" alt="Operations" class="about-photo">
-                            </div>
-                        </div>
-
-                        <!-- 第三行第一个：项目成就 -->
-                        <div class="about-card">
-                            <div class="about-card-header">
-                                <div class="about-card-icon">
-                                    <i class="fas fa-trophy"></i>
-                                </div>
-                                <h3>Project Achievements</h3>
-                            </div>
-                            <p>Led development of motion capture AI models achieving 20x iteration speed improvement. Built full-stack WeChat Mini Program (on it way to) serving 500+ users in UAE Chinese community.</p>
-                            <div class="about-card-meta">
-                                <span>20x Performance Boost</span>
-                                <span>500+ Active Users</span>
-                            </div>
-                        </div>
-
-                        <!-- 第三行第二个：照片4 -->
-                        <div class="about-card photo-card">
-                            <div class="about-photo-container">
-                                <img src="about/diver.jpg" alt="Diving" class="about-photo">
-                            </div>
-                        </div>
-
-                        <!-- 第三行第三个：联系方式 -->
-                        <div class="about-card">
-                            <div class="about-card-header">
-                                <div class="about-card-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <h3>Get In Touch</h3>
-                            </div>
-                            <p>Always open to discussing AI/ML, computer graphics, or any technology-related topics. Feel free to reach out for collaboration opportunities!</p>
-                            <div class="about-card-meta">
-                                <span>Abu Dhabi, UAE</span>
-                                <span>Open to Remote</span>
+                        <!-- No Posts Message -->
+                        <div class="no-posts" id="no-posts" style="display: block;">
+                            <i class="fas fa-blog" style="font-size: 3rem; margin-bottom: 1rem; color: #e1e4e8;"></i>
+                            <h3>Welcome to My Blog</h3>
+                            <p>This blog is powered by GitHub Issues with the "blog" label.</p>
+                            <div style="margin-top: 1rem; padding: 1rem; background: #f8fafc; border-radius: 8px; color: #64748b; font-size: 0.875rem;">
+                                💡 <strong>For developers:</strong> Create GitHub Issues in this repository with the label "blog" to publish new posts.
                             </div>
                         </div>
                     </div>
@@ -580,6 +600,14 @@
                         if (targetSection) {
                             targetSection.classList.add('active');
                             targetSection.style.display = 'block';
+                            
+                            // If blog section is activated, load blog posts
+                            if (targetId === 'blog') {
+                                // Add a small delay to ensure DOM is ready
+                                setTimeout(() => {
+                                    loadBlogPosts();
+                                }, 100);
+                            }
                         }
                     });
                 });
@@ -602,6 +630,697 @@
                     window.open(`portfolio/${projectId}/index.html`, '_blank');
                 }
             }
+
+            // Blog functionality
+            // GitHub repository information
+            const GITHUB_OWNER = 'kosam0913';
+            const GITHUB_REPO = 'kosam0913.github.io';
+            
+            // DOM elements
+            const loadingEl = document.getElementById('loading');
+            const errorEl = document.getElementById('error');
+            const errorTextEl = document.getElementById('error-text');
+            const blogPostsEl = document.getElementById('blog-posts');
+            const noPostsEl = document.getElementById('no-posts');
+
+            async function loadBlogPosts() {
+                try {
+                    showLoading();
+                    
+                    const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues?state=open&sort=created&direction=desc&per_page=20`;
+                    
+                    const fetchResponse = await fetch(apiUrl, {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    });
+                    
+                    if (!fetchResponse.ok) {
+                        if (fetchResponse.status === 403) {
+                            throw new Error('GitHub API rate limit exceeded. Please try again later.');
+                        } else if (fetchResponse.status === 404) {
+                            throw new Error('Repository not found or no issues with "blog" label exist.');
+                        } else {
+                            throw new Error(`GitHub API error: ${fetchResponse.status} ${fetchResponse.statusText}`);
+                        }
+                    }
+                    
+                    const data = await fetchResponse.json();
+                    const filteredData = data.filter(issue => issue.labels.some(label => label.name === 'blog' || label.name === 'note'));
+                    response = { data: filteredData };
+
+                    const issues = response.data;
+                    
+                    if (issues.length === 0) {
+                        showNoPosts();
+                        return;
+                    }
+
+                    // Render blog posts
+                    renderBlogPosts(issues);
+                    
+                    showBlogPosts();
+                    
+                } catch (error) {
+                    console.error('Error loading blog posts:', error);
+                    
+                    let errorMessage = error.message;
+                    
+                    // 为不同类型的错误提供更有用的提示
+                    if (error.message.includes('rate limit')) {
+                        errorMessage += '\n\n💡 Tip: GitHub API allows 60 requests per hour for unauthenticated requests.';
+                    } else if (error.message.includes('no issues with "blog" label')) {
+                        errorMessage += '\n\n💡 Tip: Create GitHub Issues with the "blog" label to display them here.';
+                    } else if (error.message.includes('Failed to fetch')) {
+                        errorMessage = 'Network error: Please check your internet connection.';
+                    }
+                    showError(errorMessage);
+                }
+            }
+
+
+
+            function renderBlogPosts(issues) {
+                blogPostsEl.innerHTML = '';
+                
+                issues.forEach(issue => {
+                    const postEl = createBlogPostElement(issue);
+                    blogPostsEl.appendChild(postEl);
+                });
+            }
+
+            function extractThumbnail(body) {
+                if (!body) return null;
+                
+                // 提取第一张图片作为缩略图
+                const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/;
+                const match = body.match(imageRegex);
+                
+                if (match) {
+                    return {
+                        alt: match[1] || 'Blog thumbnail',
+                        src: match[2]
+                    };
+                }
+                
+                return null;
+            }
+
+            function createBlogPostElement(issue) {
+                const postEl = document.createElement('article');
+                postEl.className = 'blog-post';
+                
+                // Extract excerpt from issue body
+                const excerpt = getExcerpt(issue.body || '');
+                
+                // Extract thumbnail
+                const thumbnail = extractThumbnail(issue.body || '');
+                
+                // Format date
+                const createdDate = formatDate(new Date(issue.created_at));
+                const updatedDate = formatDate(new Date(issue.updated_at));
+                
+                postEl.innerHTML = `
+                    <div class="blog-post-layout">
+                        <div class="blog-post-thumbnail">
+                            ${thumbnail ? 
+                                `<img src="${thumbnail.src}" alt="${escapeHtml(thumbnail.alt)}" class="blog-thumbnail-img">` :
+                                `<div class="blog-thumbnail-placeholder">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>`
+                            }
+                        </div>
+                        <div class="blog-post-main">
+                    <div class="blog-post-header">
+                        <div class="blog-post-meta">
+                            <div class="blog-post-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Published: ${createdDate}</span>
+                            </div>
+                            ${issue.updated_at !== issue.created_at ? `
+                            <div class="blog-post-date">
+                                <i class="fas fa-edit"></i>
+                                <span>Updated: ${updatedDate}</span>
+                            </div>
+                            ` : ''}
+                            <div class="blog-post-labels">
+                                ${issue.labels.map(label => 
+                                    `<span class="blog-post-label" style="background: #${label.color}20; color: #${label.color};">${label.name}</span>`
+                                ).join('')}
+                            </div>
+                        </div>
+                        <h2 class="blog-post-title">${escapeHtml(issue.title)}</h2>
+                    </div>
+                    <div class="blog-post-content">
+                        <div class="blog-post-excerpt">${excerpt}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Add click handler to load blog post
+                postEl.addEventListener('click', (e) => {
+                    loadBlogPost(issue);
+                });
+                
+                return postEl;
+            }
+
+            function getExcerpt(body, maxLength = 300) {
+                if (!body) return 'No content preview available.';
+                
+                // 改进 Markdown 转换，使用更全面的正则表达式
+                let plainText = body
+                    // 移除代码块
+                    .replace(/```[\s\S]*?```/g, '[Code Block]')
+                    // 移除行内代码
+                    .replace(/`([^`]+)`/g, '$1')
+                    // 移除图片
+                    .replace(/!\[([^\]]*)\]\([^)]+\)/g, '[Image: $1]')
+                    // 移除链接，保留文本
+                    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+                    // 移除粗体
+                    .replace(/\*\*([^*]+)\*\*/g, '$1')
+                    // 移除斜体
+                    .replace(/\*([^*]+)\*/g, '$1')
+                    // 移除标题标记
+                    .replace(/#{1,6}\s+/g, '')
+                    // 移除引用
+                    .replace(/>\s+/g, '')
+                    // 移除列表标记
+                    .replace(/^\s*[-*+]\s+/gm, '')
+                    // 移除数字列表
+                    .replace(/^\s*\d+\.\s+/gm, '')
+                    // 替换多个换行为空格
+                    .replace(/\n+/g, ' ')
+                    // 移除多余空格
+                    .replace(/\s+/g, ' ')
+                    .trim();
+                
+                if (plainText.length <= maxLength) {
+                    return plainText;
+                }
+                
+                // 在单词边界截断，避免截断单词
+                const truncated = plainText.substring(0, maxLength);
+                const lastSpaceIndex = truncated.lastIndexOf(' ');
+                
+                if (lastSpaceIndex > maxLength * 0.8) {
+                    return truncated.substring(0, lastSpaceIndex) + '...';
+                }
+                
+                return truncated + '...';
+            }
+
+            function formatDate(date) {
+                return date.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                });
+            }
+
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            function showLoading() {
+                loadingEl.style.display = 'block';
+                errorEl.style.display = 'none';
+                blogPostsEl.style.display = 'none';
+                noPostsEl.style.display = 'none';
+            }
+
+            function showError(message) {
+                errorTextEl.textContent = message;
+                loadingEl.style.display = 'none';
+                errorEl.style.display = 'block';
+                blogPostsEl.style.display = 'none';
+                noPostsEl.style.display = 'none';
+            }
+
+            function showBlogPosts() {
+                loadingEl.style.display = 'none';
+                errorEl.style.display = 'none';
+                blogPostsEl.style.display = 'grid';
+                noPostsEl.style.display = 'none';
+            }
+
+            function showNoPosts() {
+                loadingEl.style.display = 'none';
+                errorEl.style.display = 'none';
+                blogPostsEl.style.display = 'none';
+                noPostsEl.style.display = 'block';
+            }
+
+            // Blog post detail functionality
+            async function loadBlogPost(issue) {
+                try {
+                    showBlogLoading();
+                    
+                    // Fetch the detailed issue content
+                    const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues/${issue.number}`;
+                    const response = await fetch(apiUrl, {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error(`Failed to load blog post: ${response.status}`);
+                    }
+                    
+                    const detailedIssue = await response.json();
+                    renderBlogPost(detailedIssue);
+                    
+                } catch (error) {
+                    console.error('Error loading blog post:', error);
+                    showBlogError('Failed to load blog post. Please try again.');
+                }
+            }
+
+            function renderBlogPost(issue) {
+                const contentSections = document.querySelector('.content-sections');
+                
+                // Hide all sections first
+                const allSections = document.querySelectorAll('.content-section');
+                allSections.forEach(section => {
+                    section.style.display = 'none';
+                });
+                
+                // Create blog post detail section
+                const blogDetailSection = document.createElement('section');
+                blogDetailSection.id = 'blog-detail';
+                blogDetailSection.className = 'content-section active';
+                blogDetailSection.style.display = 'block';
+                
+                // Format dates
+                const createdDate = formatDate(new Date(issue.created_at));
+                const updatedDate = formatDate(new Date(issue.updated_at));
+                
+                // Render markdown content
+                const markdownContent = marked.parse(issue.body || '');
+                
+                blogDetailSection.innerHTML = `
+                    <div class="blog-detail-container">
+                        <div class="blog-detail-header">
+                            <div class="blog-detail-meta">
+                                <div class="blog-detail-date">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Published: ${createdDate}</span>
+                                </div>
+                                ${issue.updated_at !== issue.created_at ? `
+                                <div class="blog-detail-date">
+                                    <i class="fas fa-edit"></i>
+                                    <span>Updated: ${updatedDate}</span>
+                                </div>
+                                ` : ''}
+                                <div class="blog-detail-labels">
+                                    ${issue.labels.map(label => 
+                                        `<span class="blog-detail-label" style="background: #${label.color}20; color: #${label.color};">${label.name}</span>`
+                                    ).join('')}
+                                </div>
+                            </div>
+                            <h1 class="blog-detail-title">${escapeHtml(issue.title)}</h1>
+                        </div>
+                        <div class="blog-detail-content">
+                            <div class="blog-detail-body">${markdownContent}</div>
+                        </div>
+                        <div class="blog-detail-footer">
+                            <a href="${issue.html_url}" target="_blank" class="view-on-github-btn">
+                                <i class="fab fa-github"></i>
+                                View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                `;
+                
+                // Remove existing blog detail section if any
+                const existingDetail = document.getElementById('blog-detail');
+                if (existingDetail) {
+                    existingDetail.remove();
+                }
+                
+                // Add the new section
+                contentSections.appendChild(blogDetailSection);
+                
+                // Update navigation
+                updateNavigation('blog');
+            }
+
+            function backToBlogList() {
+                // Remove any existing blog detail sections
+                const blogDetailSection = document.getElementById('blog-detail');
+                if (blogDetailSection) {
+                    blogDetailSection.remove();
+                }
+                
+                const blogLoadingSection = document.getElementById('blog-loading');
+                if (blogLoadingSection) {
+                    blogLoadingSection.remove();
+                }
+                
+                const blogErrorSection = document.getElementById('blog-error');
+                if (blogErrorSection) {
+                    blogErrorSection.remove();
+                }
+                
+                // Check if blog section exists, if not recreate it
+                let blogSection = document.getElementById('blog');
+                if (!blogSection) {
+                    // Recreate the original blog section
+                    const contentSections = document.querySelector('.content-sections');
+                    blogSection = document.createElement('section');
+                    blogSection.id = 'blog';
+                    blogSection.className = 'content-section';
+                    blogSection.innerHTML = `
+                        <div class="blog-container">
+                            <!-- Loading State -->
+                            <div class="loading-container" id="loading" style="display: none;">
+                                <div class="loading-spinner"></div>
+                                <p style="margin-top: 1rem; color: #64748b;">Loading blog posts...</p>
+                                <p style="margin-top: 0.5rem; color: #9ca3af; font-size: 0.875rem;">🔍 Fetching content from GitHub Issues...</p>
+                            </div>
+
+                            <!-- Error Message -->
+                            <div class="error-message" id="error" style="display: none;">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span id="error-text">Failed to load blog posts</span>
+                            </div>
+
+                            <!-- Blog Posts Container -->
+                            <div class="blog-posts" id="blog-posts" style="display: none;">
+                                <!-- Posts will be loaded here dynamically -->
+                            </div>
+
+                            <!-- No Posts Message -->
+                            <div class="no-posts" id="no-posts" style="display: block;">
+                                <i class="fas fa-blog" style="font-size: 3rem; margin-bottom: 1rem; color: #e1e4e8;"></i>
+                                <h3>Welcome to My Blog</h3>
+                                <p>This blog is powered by GitHub Issues with the "blog" label.</p>
+                                <div style="margin-top: 1rem; padding: 1rem; background: #f8fafc; border-radius: 8px; color: #64748b; font-size: 0.875rem;">
+                                    💡 <strong>For developers:</strong> Create GitHub Issues in this repository with the label "blog" to publish new posts.
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    contentSections.appendChild(blogSection);
+                }
+                
+                // Hide all other sections
+                const allSections = document.querySelectorAll('.content-section');
+                allSections.forEach(section => {
+                    section.classList.remove('active');
+                    section.style.display = 'none';
+                });
+                
+                // Show blog section
+                blogSection.classList.add('active');
+                blogSection.style.display = 'block';
+                
+                // Reload blog posts if needed
+                setTimeout(() => {
+                    loadBlogPosts();
+                }, 100);
+                
+                // Update navigation
+                updateNavigation('blog');
+            }
+
+            function showBlogLoading() {
+                // Hide all sections first
+                const allSections = document.querySelectorAll('.content-section');
+                allSections.forEach(section => {
+                    section.classList.remove('active');
+                    section.style.display = 'none';
+                });
+                
+                // Create or update blog loading section
+                const contentSections = document.querySelector('.content-sections');
+                let blogLoadingSection = document.getElementById('blog-loading');
+                
+                if (!blogLoadingSection) {
+                    blogLoadingSection = document.createElement('section');
+                    blogLoadingSection.id = 'blog-loading';
+                    blogLoadingSection.className = 'content-section active';
+                    contentSections.appendChild(blogLoadingSection);
+                }
+                
+                blogLoadingSection.innerHTML = `
+                    <div class="blog-container">
+                        <div class="loading-container">
+                            <div class="loading-spinner"></div>
+                            <p style="margin-top: 1rem; color: #64748b;">Loading blog post...</p>
+                        </div>
+                    </div>
+                `;
+                
+                blogLoadingSection.classList.add('active');
+                blogLoadingSection.style.display = 'block';
+            }
+
+            function showBlogError(message) {
+                // Hide all sections first
+                const allSections = document.querySelectorAll('.content-section');
+                allSections.forEach(section => {
+                    section.classList.remove('active');
+                    section.style.display = 'none';
+                });
+                
+                // Create or update blog error section
+                const contentSections = document.querySelector('.content-sections');
+                let blogErrorSection = document.getElementById('blog-error');
+                
+                if (!blogErrorSection) {
+                    blogErrorSection = document.createElement('section');
+                    blogErrorSection.id = 'blog-error';
+                    blogErrorSection.className = 'content-section active';
+                    contentSections.appendChild(blogErrorSection);
+                }
+                
+                blogErrorSection.innerHTML = `
+                    <div class="blog-container">
+                        <div class="error-message">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>${message}</span>
+                        </div>
+                    </div>
+                `;
+                
+                blogErrorSection.classList.add('active');
+                blogErrorSection.style.display = 'block';
+            }
+
+            function updateNavigation(activeSection) {
+                const navLinks = document.querySelectorAll('.nav__link');
+                navLinks.forEach(link => link.classList.remove('active'));
+                
+                const targetLink = document.querySelector(`a[href="#${activeSection}"]`);
+                if (targetLink) {
+                    targetLink.classList.add('active');
+                }
+            }
+
+            // ===== COVERFLOW FUNCTIONALITY =====
+            let currentIndex = 4; // Start with Philosophy card (middle)
+            let totalCards = 9;
+            let isTransitioning = false;
+
+            function initializeCoverflow() {
+                // Initialize indicators
+                const indicatorsContainer = document.querySelector('.indicators-container');
+                if (indicatorsContainer) {
+                    indicatorsContainer.innerHTML = '';
+                    for (let i = 0; i < totalCards; i++) {
+                        const indicator = document.createElement('div');
+                        indicator.className = 'indicator';
+                        indicator.onclick = () => goToCard(i);
+                        indicatorsContainer.appendChild(indicator);
+                    }
+                }
+                
+                // Add card click listeners
+                const cards = document.querySelectorAll('.coverflow-card');
+                cards.forEach((card, index) => {
+                    card.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        
+                        if (index !== currentIndex) {
+                            // Navigate to clicked card
+                            goToCard(index);
+                        }
+                    });
+                });
+                
+                // Initialize positions
+                updateCoverflow();
+                
+                // Add keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (document.getElementById('profile').classList.contains('active')) {
+                        if (e.key === 'ArrowLeft') {
+                            navigateCoverflow(-1);
+                        } else if (e.key === 'ArrowRight') {
+                            navigateCoverflow(1);
+                        }
+                    }
+                });
+            }
+
+            function navigateCoverflow(direction) {
+                if (isTransitioning) return;
+                
+                const newIndex = currentIndex + direction;
+                if (newIndex >= 0 && newIndex < totalCards) {
+                    goToCard(newIndex);
+                }
+                
+                // Update navigation button states
+                updateNavigationButtons();
+            }
+            
+            function updateNavigationButtons() {
+                const prevBtn = document.querySelector('.coverflow-nav-btn.prev');
+                const nextBtn = document.querySelector('.coverflow-nav-btn.next');
+                
+                if (prevBtn) {
+                    prevBtn.disabled = currentIndex === 0;
+                }
+                if (nextBtn) {
+                    nextBtn.disabled = currentIndex === totalCards - 1;
+                }
+            }
+
+            function goToCard(index) {
+                if (isTransitioning || index === currentIndex) return;
+                
+                isTransitioning = true;
+                currentIndex = index;
+                updateCoverflow();
+                
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 600);
+            }
+
+            function updateCoverflow() {
+                const cards = document.querySelectorAll('.coverflow-card');
+                
+                // 容器宽度估算 (根据viewport和卡片宽度)
+                const containerWidth = 1500; // 大致的可视区域宽度
+                const cardWidth = 320; // 单个卡片宽度
+                const maxOffset = Math.floor(totalCards / 2); // 最大偏移量
+                
+                cards.forEach((card, index) => {
+                    const offset = index - currentIndex; // 当前卡片相对active的位置（左边负，右边正）
+                    
+                    let rotateY = 0;
+                    let translateX = 0;
+                    
+                    // 非线性压缩算法
+                    if (offset !== 0) {
+                        // 使用双曲正切函数实现非线性压缩
+                        // 近处间距大，远处间距逐渐压缩
+                        const baseSpacing = 120; // 基础间距
+                        const maxDistance = (containerWidth - cardWidth) / 2; // 最大允许距离
+                        
+                        // 归一化offset (-1 到 1)
+                        const normalizedOffset = offset / maxOffset;
+                        
+                        // 使用tanh函数进行非线性映射，确保不超出边界
+                        const compressedOffset = Math.tanh(normalizedOffset * 1.5); // 1.5为压缩系数
+                        
+                        // 最终位置 = 压缩后的偏移 * 最大允许距离
+                        translateX = compressedOffset * maxDistance * 0.8; // 0.8为安全系数
+                    }
+                    
+                    let translateZ = -Math.abs(offset) * 50; // 控制深度层级
+                    let scale = 1;
+                    let zIndex = 10 - Math.abs(offset); // active卡片在最上面
+                    let opacity = 1;
+                    
+                    // 远距离卡片透明度递减
+                    if (Math.abs(offset) > 3) {
+                        opacity = Math.max(0.3, 1 - (Math.abs(offset) - 3) * 0.2);
+                    }
+                    
+                    if (offset === 0) {
+                        // 中心卡片：正对用户，无旋转
+                        rotateY = 0;
+                        scale = 1;
+                        card.classList.add('center');
+                    } else if (offset < 0) {
+                        // 左边卡片：向右倾斜
+                        rotateY = Math.min(45, Math.abs(offset) * 15); // 根据距离调整旋转角度
+                        scale = Math.max(0.7, 1 - Math.abs(offset) * 0.05); // 根据距离调整缩放
+                        card.classList.remove('center');
+                    } else {
+                        // 右边卡片：向左倾斜
+                        rotateY = -Math.min(45, Math.abs(offset) * 15); // 根据距离调整旋转角度
+                        scale = Math.max(0.7, 1 - Math.abs(offset) * 0.05); // 根据距离调整缩放
+                        card.classList.remove('center');
+                    }
+                    
+                    card.style.transform = `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`;
+                    card.style.zIndex = zIndex;
+                    card.style.opacity = opacity;
+                });
+                
+                // Update navigation button states
+                updateNavigationButtons();
+            }
+
+
+
+            // Redirect function for About section
+            function switchToProfile() {
+                // Remove active class from all links and sections
+                const navLinks = document.querySelectorAll('.nav__link');
+                const sections = document.querySelectorAll('.content-section');
+                
+                navLinks.forEach(l => l.classList.remove('active'));
+                sections.forEach(s => {
+                    s.classList.remove('active');
+                    s.style.display = 'none';
+                });
+                
+                // Activate profile section
+                const profileLink = document.querySelector('a[href="#profile"]');
+                const profileSection = document.getElementById('profile');
+                
+                if (profileLink) profileLink.classList.add('active');
+                if (profileSection) {
+                    profileSection.classList.add('active');
+                    profileSection.style.display = 'block';
+                }
+                
+                // Initialize Cover Flow if not already done
+                setTimeout(() => {
+                    if (!document.querySelector('.coverflow-card').style.transform) {
+                        initializeCoverflow();
+                    }
+                }, 100);
+            }
+
+            // Initialize Cover Flow when Profile section is shown
+            document.addEventListener('DOMContentLoaded', function() {
+                // Initialize Cover Flow on page load if profile is active
+                if (document.getElementById('profile').classList.contains('active')) {
+                    setTimeout(initializeCoverflow, 100);
+                }
+                
+                // Add listener for profile navigation
+                const profileNavLink = document.querySelector('a[href="#profile"]');
+                if (profileNavLink) {
+                    profileNavLink.addEventListener('click', function() {
+                        setTimeout(initializeCoverflow, 100);
+                    });
+                }
+            });
         </script>
 
     </body>
