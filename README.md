@@ -1,11 +1,16 @@
 # Xinjie Hu - Personal Website
 
-A modern, minimalist personal website showcasing my experience as a Technical Product Manager and Full Stack Developer.
+A modern personal website showcasing my experience as a Technical Artist and Full Stack Developer.
 
 ## 🚀 Live Site
 Visit: [kosam0913.github.io](https://kosam0913.github.io)
 
-## 📁 Project Structure
+## 🛠️ Tech Stack
+- HTML5, CSS3, Vanilla JavaScript
+- Font Awesome icons
+- GitHub Pages hosting
+
+## 📁 Key Files
 
 ```
 kosam0913.github.io/
@@ -30,13 +35,6 @@ kosam0913.github.io/
 └── README.md           # This file
 ```
 
-## 🛠️ Technology Stack
-
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript
-- **Design**: Modern glass-morphism with responsive grid layout
-- **Icons**: Font Awesome 6.0
-- **Hosting**: GitHub Pages
-
 ## 🎨 Design Features
 
 - **Three-column layout**: Personal info sidebar, main content, navigation sidebar
@@ -60,30 +58,12 @@ For manual deployment:
 ./deploy.bat
 ```
 
-## 📝 Content Management
-
-### Adding Blog Posts
-1. Create new `.md` file in `blog/`
-2. Update blog section in `index.html`
-
-### Adding Portfolio Projects
-1. Create project folder in `portfolio/`
-2. Add project images to `assets/images/portfolio/`
-3. Update portfolio section in `index.html`
-
-## 🔧 Development
-
-1. Clone the repository
-2. Open `index.html` in a browser
-3. Make changes to HTML/CSS files
-4. Test responsiveness across different screen sizes
-
 ## 📄 License
 
 © 2025 Xinjie Hu. All rights reserved.
 
 ## 📞 Contact
 
-- **Email**: xinjie.hu@gmail.com
+- **Email**: kosam0913@gmail.com
 - **LinkedIn**: [linkedin.com/in/xinjie-hu-574070125](https://www.linkedin.com/in/xinjie-hu-574070125/)
 - **GitHub**: [github.com/kosam0913](https://github.com/kosam0913) 
