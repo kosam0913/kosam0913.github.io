@@ -6,54 +6,45 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Xinjie Hu - Technical Artist & Full Stack Developer">
         <meta name="author" content="Xinjie Hu">
+        <title>Xinjie Hu - Portfolio</title>
 
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="assets/images/icons/favicon.ico">
 
-        <!-- Font Awesome for icons -->
+        <!-- External Resources -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-        <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        <!-- Main Stylesheet -->
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        
+        <!-- Stylesheets -->
         <link rel="stylesheet" href="assets/css/main-style.css">
         <link rel="stylesheet" href="assets/css/blog.css">
-
-        <!-- Widget Profile Component -->
-        <script src="assets/components/widget-profile.js"></script>
-        <!-- Profile Module -->
-        <script src="profile/profile.js"></script>
-        <!-- Portfolio Module -->
-        <script src="portfolio/portfolio.js"></script>
-        <!-- Blog Module -->
-        <script src="blog/blog.js"></script>
-        <!-- Marked.js for Markdown parsing -->
-        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     </head>
 
     <body>
-        <!-- Sidebar Component Container -->
-        <div id="widget-profile-container"></div>
+        <!-- Sidebar Profile Widget -->
+        <aside id="widget-profile-container" role="complementary" aria-label="Profile sidebar"></aside>
         
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Navigation -->
-            <nav>
+        <!-- Main Content Area -->
+        <main class="main-content" role="main">
+            <!-- Primary Navigation -->
+            <nav role="navigation" aria-label="Main navigation">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="#profile" class="nav__link">
-                            <i class="fa fa-user"></i>
+                        <a href="#profile" class="nav__link" role="button" aria-controls="profile-container">
+                            <i class="fa fa-user" aria-hidden="true"></i>
                             <span>Profile</span>
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="#portfolio" class="nav__link active">
-                            <i class="fa fa-briefcase"></i>
+                        <a href="#portfolio" class="nav__link active" role="button" aria-controls="portfolio-container">
+                            <i class="fa fa-briefcase" aria-hidden="true"></i>
                             <span>Portfolio</span>
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="#blog" class="nav__link">
-                            <i class="fa fa-book"></i>
+                        <a href="#blog" class="nav__link" role="button" aria-controls="blog-container">
+                            <i class="fa fa-book" aria-hidden="true"></i>
                             <span>Blog</span>
                         </a>
                     </li>
@@ -62,182 +53,28 @@
 
             <!-- Content Sections -->
             <div class="content-sections">
-
                 <!-- Profile Section Container -->
-                <div id="profile-container">
-                    <!-- Profile content will be loaded from profile/profile.html -->
-                </div>
+                <section id="profile-container" aria-labelledby="profile-heading" class="content-container">
+                    <!-- Profile content will be loaded dynamically -->
+                </section>
 
                 <!-- Portfolio Section Container -->
-                <div id="portfolio-container">
-                    <!-- Portfolio content will be loaded from portfolio/portfolio.html -->
-                </div>
+                <section id="portfolio-container" aria-labelledby="portfolio-heading" class="content-container">
+                    <!-- Portfolio content will be loaded dynamically -->
+                </section>
 
                 <!-- Blog Section Container -->
-                <div id="blog-container">
-                    <!-- Blog content will be loaded from blog/blog.html -->
-                </div>
+                <section id="blog-container" aria-labelledby="blog-heading" class="content-container">
+                    <!-- Blog content will be loaded dynamically -->
+                </section>
             </div>
-        </div>
+        </main>
 
-        <script>
-            // Load Widget Profile Component
-            document.addEventListener('DOMContentLoaded', function() {
-                // Load the widget profile component
-                loadWidgetProfile();
-                
-                // Check if profile is the default active section and load it
-                const profileLink = document.querySelector('a[href="#profile"]');
-                if (profileLink && profileLink.classList.contains('active')) {
-                    const profileContainer = document.getElementById('profile-container');
-                    if (profileContainer) {
-                        window.profileManager.loadProfileSection('profile-container');
-                        profileContainer.style.display = 'block';
-                    }
-                }
-                
-                // Check if portfolio is the default active section and load it
-                const portfolioLink = document.querySelector('a[href="#portfolio"]');
-                if (portfolioLink && portfolioLink.classList.contains('active')) {
-                    const portfolioContainer = document.getElementById('portfolio-container');
-                    if (portfolioContainer) {
-                        window.portfolioManager.loadPortfolioSection('portfolio-container');
-                        portfolioContainer.style.display = 'block';
-                    }
-                }
-            });
-
-            // Navigation functionality
-            document.addEventListener('DOMContentLoaded', function() {
-                const navLinks = document.querySelectorAll('.nav__link');
-                const sections = document.querySelectorAll('.content-section');
-
-                navLinks.forEach(link => {
-                    link.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        
-                        // Clean up any blog detail/loading/error sections first
-                        if (window.blogManager) {
-                            window.blogManager.cleanupBlogSections();
-                        }
-                        
-                        // Remove active class from all links and sections
-                        navLinks.forEach(l => l.classList.remove('active'));
-                        sections.forEach(s => {
-                            s.classList.remove('active');
-                            s.style.display = 'none';
-                        });
-                        
-                        // Also hide profile, portfolio and blog containers
-                        const profileContainer = document.getElementById('profile-container');
-                        if (profileContainer) {
-                            profileContainer.style.display = 'none';
-                        }
-                        
-                        const portfolioContainer = document.getElementById('portfolio-container');
-                        if (portfolioContainer) {
-                            portfolioContainer.style.display = 'none';
-                        }
-                        
-                        const blogContainer = document.getElementById('blog-container');
-                        if (blogContainer) {
-                            blogContainer.style.display = 'none';
-                        }
-                        
-                        // Add active class to clicked link
-                        this.classList.add('active');
-                        
-                        // Show corresponding section
-                        const targetId = this.getAttribute('href').substring(1);
-                        
-                        // Handle profile section dynamically
-                        if (targetId === 'profile') {
-                            const profileContainer = document.getElementById('profile-container');
-                            if (profileContainer) {
-                                // Check if profile content needs to be loaded
-                                const profileSection = profileContainer.querySelector('#profile');
-                                const needsLoading = !profileSection || 
-                                                   profileContainer.children.length === 0 || 
-                                                   profileContainer.innerHTML.trim() === '' ||
-                                                   profileContainer.innerHTML.trim() === '<!-- Profile content will be loaded from profile/profile.html -->';
-                                
-                                if (needsLoading) {
-                                    window.profileManager.loadProfileSection('profile-container');
-                                } else {
-                                    // Content already exists, just make sure it's properly activated
-                                    if (profileSection) {
-                                        profileSection.classList.add('active');
-                                        profileSection.style.display = 'block';
-                                    }
-                                }
-                                profileContainer.style.display = 'block';
-                            }
-                        } 
-                        // Handle portfolio section dynamically
-                        else if (targetId === 'portfolio') {
-                            const portfolioContainer = document.getElementById('portfolio-container');
-                            if (portfolioContainer) {
-                                // Check if portfolio content needs to be loaded
-                                const portfolioSection = portfolioContainer.querySelector('#portfolio');
-                                const needsLoading = !portfolioSection || 
-                                                   portfolioContainer.children.length === 0 || 
-                                                   portfolioContainer.innerHTML.trim() === '' ||
-                                                   portfolioContainer.innerHTML.trim() === '<!-- Portfolio content will be loaded from portfolio/portfolio.html -->';
-                                
-                                if (needsLoading) {
-                                    window.portfolioManager.loadPortfolioSection('portfolio-container');
-                                } else {
-                                    // Content already exists, just make sure it's properly activated
-                                    if (portfolioSection) {
-                                        portfolioSection.classList.add('active');
-                                        portfolioSection.style.display = 'block';
-                                    }
-                                }
-                                portfolioContainer.style.display = 'block';
-                            }
-                        }
-                        // Handle blog section dynamically
-                        else if (targetId === 'blog') {
-                            const blogContainer = document.getElementById('blog-container');
-                            if (blogContainer) {
-                                // Check if blog content needs to be loaded
-                                const blogSection = blogContainer.querySelector('#blog');
-                                const needsLoading = !blogSection || 
-                                                   blogContainer.children.length === 0 || 
-                                                   blogContainer.innerHTML.trim() === '' ||
-                                                   blogContainer.innerHTML.trim() === '<!-- Blog content will be loaded from blog/blog.html -->';
-                                
-                                if (needsLoading) {
-                                    window.blogManager.loadBlogSection('blog-container');
-                                } else {
-                                    // Content already exists, just make sure it's properly activated
-                                    if (blogSection) {
-                                        blogSection.classList.add('active');
-                                        blogSection.style.display = 'block';
-                                    }
-                                }
-                                blogContainer.style.display = 'block';
-                            }
-                        } else {
-                            const targetSection = document.getElementById(targetId);
-                            if (targetSection) {
-                                targetSection.classList.add('active');
-                                targetSection.style.display = 'block';
-                            }
-                        }
-                    });
-                });
-            });
-        </script>
-
+        <!-- JavaScript Modules -->
+        <script src="assets/components/widget-profile.js"></script>
+        <script src="profile/profile.js"></script>
+        <script src="portfolio/portfolio.js"></script>
+        <script src="blog/blog.js"></script>
+        <script src="assets/js/app.js"></script>
     </body>
-
-    <script>
-        window.addEventListener('DOMContentLoaded', function () {
-            window.loadWidgetProfile({
-                basePath: './',
-                componentPath: './assets/components/widget-profile.html'
-            });
-        });
-    </script>
 </html>
