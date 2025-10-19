@@ -3,7 +3,7 @@
 A modern personal website showcasing my experience as a Technical Artist and Full Stack Developer.
 
 ## 🚀 Live Site
-Visit: [kosam0913.github.io](https://kosam0913.github.io)
+Visit: [xhu088.github.io](https://xhu088.github.io)
 
 ## 🛠️ Tech Stack
 - HTML5, CSS3, Vanilla JavaScript
@@ -66,4 +66,4 @@ For manual deployment:
 
 - **Email**: kosam0913@gmail.com
 - **LinkedIn**: [linkedin.com/in/xinjie-hu-574070125](https://www.linkedin.com/in/xinjie-hu-574070125/)
-- **GitHub**: [github.com/kosam0913](https://github.com/kosam0913) 
+- **GitHub**: [github.com/xhu088](https://github.com/xhu088) 
