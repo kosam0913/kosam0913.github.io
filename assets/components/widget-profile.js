@@ -6,7 +6,7 @@ class WidgetProfileComponent {
     constructor(options = {}) {
         this.options = {
             containerId: 'widget-profile-container',
-            avatarPath: 'assets/images/profile/avatar_prev.jpg',
+            avatarPath: 'assets/images/profile/avatar.jpg',
             componentPath: 'assets/components/widget-profile.html',
             basePath: '', 
             ...options

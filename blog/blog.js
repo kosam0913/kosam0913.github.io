@@ -151,8 +151,9 @@ class BlogManager {
     extractThumbnail(body) {
         if (!body) return null;
         
+        console.log("BODY:", body);
         // 提取第一张图片作为缩略图
-        const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/;
+        const imageRegex = /<img[^>]*alt="([^"]*)"[^>]*src="([^"]+)"[^>]*\/?>/i;
         const match = body.match(imageRegex);
         
         if (match) {
@@ -188,7 +189,7 @@ class BlogManager {
             <div class="blog-post-layout">
                 <div class="blog-post-thumbnail">
                     ${thumbnail ? 
-                        `<img src="${thumbnail.src}" alt="${this.escapeHtml(thumbnail.alt)}" class="blog-thumbnail-img">` :
+                        `<img src="${thumbnail.src}" alt="${this.escapeHtml(thumbnail.alt)}" class="blog-thumbnail-img" style="width: 100%; height: 100px; object-fit: cover;">` :
                         `<div class="blog-thumbnail-placeholder">
                             <i class="fas fa-file-alt"></i>
                         </div>`
@@ -236,7 +237,7 @@ class BlogManager {
      * @param {number} maxLength - 最大长度
      * @returns {string} 摘要
      */
-    getExcerpt(body, maxLength = 300) {
+    getExcerpt(body, maxLength = 100) {
         if (!body) return 'No content preview available.';
         
         // 改进 Markdown 转换，使用更全面的正则表达式
@@ -245,8 +246,10 @@ class BlogManager {
             .replace(/```[\s\S]*?```/g, '[Code Block]')
             // 移除行内代码
             .replace(/`([^`]+)`/g, '$1')
-            // 移除图片
-            .replace(/!\[([^\]]*)\]\([^)]+\)/g, '[Image: $1]')
+            // 移除Markdown格式图片
+            .replace(/!\[([^\]]*)\]\([^)]+\)/g, '')
+            // 移除HTML格式图片
+            .replace(/<img[^>]*alt="([^"]*)"[^>]*\/?>/gi, '')
             // 移除链接，保留文本
             .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
             // 移除粗体
