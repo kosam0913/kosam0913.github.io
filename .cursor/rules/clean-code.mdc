@@ -1,0 +1,107 @@
+---
+name: clean-code
+description: Clean Code
+---
+
+## 0. Core Law
+
+**If code is not obvious, it is wrong.**
+
+---
+
+## 1. Naming
+
+* Names explain intent. No comments to explain names.
+* One concept = one word. Never mix synonyms.
+* No vague names: `data / info / util / manager / handler`.
+* Classes = nouns. Functions = verbs.
+
+---
+
+## 2. Functions
+
+* Do **one thing**.
+* ≤ 20 lines. Prefer ≤ 10.
+* ≤ 2 indentation levels.
+* ≤ 2 parameters. More → object.
+* No side effects unless name says so.
+* Command **or** query, never both.
+
+---
+
+## 3. Control Flow
+
+* Happy path first.
+* Early return.
+* No deep nesting.
+* No boolean flags to change behavior.
+
+---
+
+## 4. Comments
+
+* Comments explain **why**, never **what**.
+* No commented-out code.
+* If a comment is needed, refactor.
+
+---
+
+## 5. Formatting
+
+* One concept per block.
+* Blank lines separate concepts.
+* Read top → down.
+
+---
+
+## 6. Data & Objects
+
+* Objects hide data, expose behavior.
+* Data structures expose data, no logic.
+* No chained calls (`a.getB().getC()`).
+
+---
+
+## 7. Errors
+
+* No error codes.
+* Throw exceptions with context.
+* Never return `null` silently.
+
+---
+
+## 8. Duplication
+
+* Duplication is forbidden.
+* Third repetition = mandatory refactor.
+
+---
+
+## 9. Tests
+
+* Tests are production code.
+* One concept per test.
+* Readable test names.
+* If code is hard to test, redesign.
+
+---
+
+## 10. Agent Rules
+
+* No speculative abstraction.
+* No guessing.
+* Explicit > clever.
+* Leave TODOs instead of assumptions.
+
+---
+
+## Final Check (Mandatory)
+
+Before output, answer **YES**:
+
+1. Can this be understood in 60s?
+2. Does every function do one thing?
+3. Any duplication?
+4. Any misleading name?
+
+If **NO** → rewrite.
