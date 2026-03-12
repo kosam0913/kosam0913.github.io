@@ -12,14 +12,14 @@
 
 /* ===== RESET AND BASE STYLES ===== */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  line-height: 1.6;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    line-height: 1.6;
     background-image: url(../images/backgrounds/main-bg.png);
     background-repeat: repeat;
     background-position: center center;
@@ -31,16 +31,16 @@ body {
 
 /* ===== SIDEBAR PROFILE ===== */
 .widget-profile {
-  position: fixed;
-  left: 0;
+    position: fixed;
+    left: 0;
     top: 0;
     width: 180px;
-  height: 100vh;
+    height: 100vh;
     background: var(--sidebar-bg);
     color: #fff;
     padding: 20px;
     padding-top: 50px;
-  overflow-y: auto;
+    overflow-y: auto;
     z-index: 100;
 }
 
@@ -147,7 +147,7 @@ body {
 }
 
 .profile__contact a:hover {
-  color: #28a745;
+    color: #28a745;
     background: #fff;
 }
 
@@ -164,7 +164,7 @@ body {
 
 /* ===== NAVIGATION ===== */
 .nav__list {
-  display: flex;
+    display: flex;
     list-style: none;
     padding: 0;
     margin: 0 0 20px 0;
@@ -181,8 +181,8 @@ body {
     display: block;
     padding: 15px;
     color: #666;
-  text-decoration: none;
-  transition: all 0.3s ease;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 .nav__link i {
@@ -209,7 +209,7 @@ body {
     padding: 20px;
     background: #fff;
     border-radius: 12px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 100%;
     z-index: 1;
     box-sizing: border-box;
@@ -219,18 +219,19 @@ body {
     display: block;
     opacity: 1;
     animation: fadeIn 0.3s ease;
-  position: relative;
+    position: relative;
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(20px);
-}
+    }
+
     to {
         opacity: 1;
         transform: translateY(0);
-}
+    }
 }
 
 /* ===== PROFILE SECTION STYLES ===== */
@@ -327,7 +328,7 @@ body {
     line-height: 1.5;
     margin-bottom: 5px;
     margin-left: 5px;
-  }
+}
 
 .skills-grid {
     display: grid;
@@ -374,11 +375,11 @@ body {
 }
 
 .projects-grid-4col {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  gap: 20px;
-  margin: 10px;
-  /* margin-bottom: 30px; */
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 20px;
+    margin: 10px;
+    /* margin-bottom: 30px; */
 }
 
 .project-card {
@@ -416,7 +417,7 @@ body {
 }
 
 .large-project .project-image {
-    height: 220px;
+    height: 200px;
     overflow: hidden;
     position: relative;
 }
@@ -424,10 +425,8 @@ body {
 .large-project .project-image img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     transition: transform 0.3s ease;
-    padding: 10px;
-    background: #fff;
 }
 
 /* 特定项目图片铺满样式 */
@@ -446,7 +445,8 @@ body {
 
 .large-project .project-info {
     padding: 20px;
-    height: 140px;
+    padding-top: 10px;
+    height: 160px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -468,8 +468,8 @@ body {
 }
 
 .project-tags {
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
     gap: 6px;
     margin-bottom: 12px;
 }
@@ -491,7 +491,7 @@ body {
 }
 
 .project-stats span {
-  display: flex;
+    display: flex;
     align-items: center;
     gap: 4px;
 }
@@ -502,11 +502,11 @@ body {
 
 /* Small projects column */
 .small-projects-column {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  height: 360px;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 360px;
+    justify-content: space-between;
 }
 
 /* ===== POSTER PROJECT CARDS - SPECIAL STYLE ===== */
@@ -524,11 +524,14 @@ body {
 .poster-project .project-image img,
 .poster-project-small .project-image img {
     width: 100%;
-  height: 100%;
-    object-fit: contain; /* 改为contain确保完整显示 */
+    height: 100%;
+    object-fit: contain;
+    /* 改为contain确保完整显示 */
     transition: transform 0.3s ease;
-    padding: 2px; /* 添加内边距 */
-    background: #fff; /* 白色背景 */
+    padding: 2px;
+    /* 添加内边距 */
+    background: #fff;
+    /* 白色背景 */
 }
 
 .poster-project:hover .project-image img,
@@ -538,12 +541,17 @@ body {
 
 .poster-project .project-info,
 .poster-project-small .project-info {
-    padding: 10px 20px; /* 减少padding */
-    height: 60px; /* 更小的信息区域 */
+    padding: 10px 20px;
+    /* 减少padding */
+    height: 60px;
+    /* 更小的信息区域 */
     display: flex;
-    flex-direction: row; /* 改为横向布局 */
-    align-items: center; /* 垂直居中 */
-    justify-content: space-between; /* 两端对齐 */
+    flex-direction: row;
+    /* 改为横向布局 */
+    align-items: center;
+    /* 垂直居中 */
+    justify-content: space-between;
+    /* 两端对齐 */
 }
 
 .poster-project .project-info h3,
@@ -551,13 +559,16 @@ body {
     font-size: 16px;
     font-weight: 600;
     color: #24292e;
-    margin: 0; /* 移除边距 */
-    flex-shrink: 0; /* 防止压缩 */
+    margin: 0;
+    /* 移除边距 */
+    flex-shrink: 0;
+    /* 防止压缩 */
 }
 
 .poster-project .project-info p,
 .poster-project-small .project-info p {
-    display: none; /* 隐藏描述文字 */
+    display: none;
+    /* 隐藏描述文字 */
 }
 
 .poster-project .project-tags,
@@ -565,7 +576,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
-    margin: 0; /* 移除边距 */
+    margin: 0;
+    /* 移除边距 */
 }
 
 .poster-project .project-tags span,
@@ -580,7 +592,8 @@ body {
 
 .poster-project .project-stats,
 .poster-project-small .project-stats {
-    display: none; /* 继续隐藏stats */
+    display: none;
+    /* 继续隐藏stats */
 }
 
 .small-project {
@@ -630,7 +643,7 @@ body {
 }
 
 .project-tags-small {
-  display: flex;
+    display: flex;
     flex-wrap: wrap;
     gap: 4px;
 }
@@ -646,10 +659,10 @@ body {
 
 /* Portfolio overlay and search icons */
 .project-image-overlay {
-  position: absolute;
+    position: absolute;
     top: 0;
-  left: 0;
-  right: 0;
+    left: 0;
+    right: 0;
     bottom: 0;
     background: rgba(59, 89, 152, 0.8);
     display: flex;
@@ -660,8 +673,8 @@ body {
 }
 
 .project-zoom-icon {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
     justify-content: center;
     width: 50px;
     height: 50px;
@@ -701,9 +714,9 @@ body {
 }
 
 .personal-intro-content {
-  display: flex;
+    display: flex;
     gap: 25px;
-  align-items: center;
+    align-items: center;
 }
 
 .intro-avatar {
@@ -756,86 +769,90 @@ body {
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 1024px) {
-  .projects-grid-4col {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .poster-project {
+    .projects-grid-4col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .poster-project {
         grid-column: unset;
     }
 
     .poster-project-small {
         grid-column: unset;
-  }
-  
-  .small-projects-column {
+    }
+
+    .small-projects-column {
         grid-column: 1 / -1;
-    display: grid;
+        display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 15px;
-  }
-  
+    }
+
     .skills-grid {
-    grid-template-columns: 1fr;
-  }
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 768px) {
     .widget-profile {
         width: 160px;
-  }
-  
-  .main-content {
+    }
+
+    .main-content {
         margin-left: 170px;
         padding: 20px 15px;
-  }
-  
+    }
+
     .nav__list {
         flex-direction: column;
-  }
-  
+    }
+
     .nav__link {
         padding: 10px;
-  }
-  
-  .projects-grid-4col {
-    grid-template-columns: 1fr;
+    }
+
+    .projects-grid-4col {
+        grid-template-columns: 1fr;
         gap: 15px;
-  }
-  
+    }
+
     .poster-project {
         grid-column: unset;
-        height: 350px; /* 减少高度 */
-  }
-  
+        height: 350px;
+        /* 减少高度 */
+    }
+
     .poster-project-small {
         grid-column: unset;
-        height: 350px; /* 减少高度 */
-  }
-  
+        height: 350px;
+        /* 减少高度 */
+    }
+
     .poster-project .project-image {
-        height: 280px; /* 对应调整图片高度 */
-  }
-  
+        height: 280px;
+        /* 对应调整图片高度 */
+    }
+
     .poster-project-small .project-image {
-        height: 280px; /* 对应调整图片高度 */
-  }
-  
+        height: 280px;
+        /* 对应调整图片高度 */
+    }
+
     .attributes h5 {
-    flex-direction: column;
+        flex-direction: column;
         align-items: flex-start;
-  }
-  
+    }
+
     .duration {
         margin-top: 5px;
-  }
+    }
 }
 
 @media (max-width: 480px) {
     .widget-profile {
         width: 140px;
-  }
-  
+    }
+
     .main-content {
         margin-left: 150px;
         padding: 15px 10px;
@@ -847,7 +864,7 @@ body {
 .coverflow-container {
     background: #ffffff;
     padding: 1rem;
-    perspective: 1000px; 
+    perspective: 1000px;
     border-radius: 12px;
     margin-bottom: 2rem;
     overflow: visible;
@@ -1035,7 +1052,7 @@ body {
     .coverflow-viewport {
         height: 280px;
     }
-    
+
     .coverflow-card {
         width: 240px;
         height: 240px;
@@ -1052,17 +1069,16 @@ body {
         margin-top: -100px;
         padding: 1rem;
     }
-    
+
     .card-icon {
         font-size: 2rem;
     }
-    
+
     .coverflow-card h3 {
         font-size: 1rem;
     }
-    
+
     .coverflow-card p {
         font-size: 0.75rem;
     }
 }
-

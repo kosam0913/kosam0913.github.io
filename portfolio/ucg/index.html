@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,9 @@
     <!-- Widget Profile Component -->
     <script src="../../assets/components/widget-profile.js"></script>
 </head>
-<body data-auto-load-widget-profile data-base-path="../../" data-component-path="../../assets/components/widget-profile.html" class="ucg-page">
+
+<body data-auto-load-widget-profile data-base-path="../../"
+    data-component-path="../../assets/components/widget-profile.html" class="ucg-page">
     <!-- 移动端菜单按钮 -->
     <button class="mobile-menu-btn" onclick="toggleSidebar()">
         <i class="fas fa-bars"></i>
@@ -31,7 +34,7 @@
         <div class="project-container">
             <!-- Content Sections 区域 -->
             <div class="content-sections">
-                 <!-- 项目标题区 -->
+                <!-- 项目标题区 -->
                 <div class="project-header">
                     <div class="project-header-content">
                         <!-- 左侧：Logo + 文字内容 -->
@@ -44,16 +47,16 @@
                                 <p class="project-subtitle">阿联酋华人社区综合服务平台，为海外华人提供本地化服务和社区交流</p>
                             </div>
                         </div>
-                        
+
                         <!-- 右侧：2x2 统计数据 -->
                         <div class="project-stats">
                             <div class="stat-item">
-                                <span class="stat-label">测试版本</span>
-                                <span class="stat-number">Beta</span>
+                                <span class="stat-label">当前版本</span>
+                                <span class="stat-number">v1.2</span>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-label">项目状态</span>
-                                <span class="stat-number">审核中</span>
+                                <span class="stat-number">已上线</span>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-label">产品形态</span>
@@ -66,8 +69,8 @@
                         </div>
                     </div>
                 </div>
-                
-                 <!-- 第一行：项目概述、技术架构、核心功能 -->
+
+                <!-- 第一行：项目概述、技术架构、核心功能 -->
                 <div class="content-grid-three">
                     <!-- 项目概述 -->
                     <div class="content-card">
@@ -146,48 +149,6 @@
                         </div> -->
                     </div>
                 </div>
-
-                <!-- 第二行：Poster展示 + 项目亮点 -->
-                <div class="content-grid">
-                    <!-- Poster展示 -->
-                    <div class="content-card">
-                        <h2 class="card-title">
-                            <i class="fas fa-image" style="color: #ec4899;"></i>
-                            产品宣传海报
-                        </h2>
-                        <div class="poster-showcase-compact">
-                            <img src="beta.jpg" alt="UCG Beta版宣传海报">
-                        </div>
-                    </div>
-
-                    <!-- 项目亮点 -->
-                    <div class="content-card">
-                        <h2 class="card-title">
-                            <i class="fas fa-lightbulb" style="color: #8b5cf6;"></i>
-                            项目亮点
-                        </h2>
-                        <div class="card-content">
-                            <div class="highlights-compact">
-                                <div class="highlight-item">
-                                    <strong>用户导向</strong>
-                                    <span>深入用户调研，功能设计贴合实际需求</span>
-                                </div>
-                                <div class="highlight-item">
-                                    <strong>本地化</strong>
-                                    <span>针对阿联酋当地环境定制</span>
-                                </div>
-                                <div class="highlight-item">
-                                    <strong>全栈开发</strong>
-                                    <span>独立完成产品设计到技术实现</span>
-                                </div>
-                                <div class="highlight-item">
-                                    <strong>商业运营</strong>
-                                    <span>建立可持续的商业模式</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -199,18 +160,19 @@
         }
 
         // 点击主内容区时关闭侧边栏（移动端）
-        document.querySelector('.main-content').addEventListener('click', function() {
+        document.querySelector('.main-content').addEventListener('click', function () {
             if (window.innerWidth <= 1024) {
                 document.querySelector('.widget-profile').classList.remove('open');
             }
         });
 
         // 窗口大小改变时的处理
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
             if (window.innerWidth > 1024) {
                 document.querySelector('.widget-profile').classList.remove('open');
             }
         });
     </script>
 </body>
-</html> 
+
+</html>

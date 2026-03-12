@@ -2,8 +2,11 @@
 <section id="portfolio" class="content-section active" style="display: block;">
     <div class="projects-showcase">
         <div class="projects-grid-4col">
+            <!-- === Row 1: Data Science + TreeView + UCG + Echo === -->
+
             <!-- Data Science -->
-            <div class="project-card large-project full-cover-image" onclick="openProjectDetail('datascience')" style="grid-column: span 2;">
+            <div class="project-card large-project full-cover-image" onclick="openProjectDetail('datascience')"
+                style="grid-column: span 2;">
                 <div class="project-image">
                     <img src="./portfolio/datascience/logo.jpg" alt="Data Science">
                     <div class="project-image-overlay">
@@ -12,7 +15,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="project-info">
                     <h3>Big Data Analysis</h3>
                     <p>Ride Price Factors and Ride-sharing Demand Forecasting</p>
@@ -24,10 +26,11 @@
                 </div>
             </div>
 
-            <!-- TreeView大项目 -->
-            <div class="project-card large-project" onclick="openProjectDetail('treeview')" style="grid-column: span 2;">
+            <!-- TreeView -->
+            <div class="project-card large-project" onclick="openProjectDetail('treeview')"
+                style="grid-column: span 2;">
                 <div class="project-image">
-                    <img src="./portfolio/treeview/logo.jpg" alt="TreeView">
+                    <img src="./portfolio/treeview/cover.png" alt="TreeView">
                     <div class="project-image-overlay">
                         <div class="project-zoom-icon">
                             <i class="fa fa-search"></i>
@@ -35,9 +38,10 @@
                     </div>
                 </div>
                 <div class="project-info">
-                    <h3>Chrome Extension: TreeView</h3>
-                    <p>Notion Database Visualization Chrome Extension</p>
+                    <h3>TreeView</h3>
+                    <p>Structural Visualization of Notion Database</p>
                     <div class="project-tags">
+                        <span>Chrome Extension</span>
                         <span>Product Design</span>
                         <span>React</span>
                     </div>
@@ -47,7 +51,7 @@
             <!-- UCG -->
             <div class="project-card large-project" onclick="openProjectDetail('ucg')" style="grid-column: span 2;">
                 <div class="project-image">
-                    <img src="./portfolio/ucg/logo.jpg" alt="UCG微信小程序">
+                    <img src="./portfolio/ucg/cover.png" alt="UCG微信小程序">
                     <div class="project-image-overlay">
                         <div class="project-zoom-icon">
                             <i class="fa fa-search"></i>
@@ -56,7 +60,7 @@
                 </div>
                 <div class="project-info">
                     <h3>UCG WeChat Mini Program</h3>
-                    <p>A WeChat Mini Program for the UAE Chinese Community</p>
+                    <p>A Platform for the UAE Chinese Community</p>
                     <div class="project-tags">
                         <span>JavaScript</span>
                         <span>MySQL</span>
@@ -65,71 +69,10 @@
                 </div>
             </div>
 
-            <!-- 其他小项目堆叠 -->
-            <div class="small-projects-column" style="grid-column: span 2;">
-                <div class="project-card small-project" onclick="openProjectDetail('design')" style="grid-column: span 2;">
-                    <div class="project-image-small">
-                        <img src="./portfolio/design/design/design_03.jpg" alt="Design Works">
-                        <div class="project-image-overlay">
-                            <div class="project-zoom-icon">
-                                <i class="fa fa-search"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info-small">
-                        <h4>Visual Design</h4>
-                        <p>Graphic Portfolio</p>
-                        <div class="project-tags-small">
-                            <span>Graphic Design</span>
-                            <span>Poster Design</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card small-project" onclick="openProjectDetail('charity')" style="grid-column: span 2;">
-                    <div class="project-image-small">
-                        <img src="./portfolio/public_welfare/logo.jpg" alt="公益活动">
-                        <div class="project-image-overlay">
-                            <div class="project-zoom-icon">
-                                <i class="fa fa-search"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info-small">
-                        <h4>Public Welfare</h4>
-                        <p>Rescue and Help</p>
-                        <div class="project-tags-small">
-                            <span>Public Welfare</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card small-project" onclick="openProjectDetail('best')" style="grid-column: span 2;">
-                    <div class="project-image-small">
-                        <img src="./portfolio/best/logo.jpg" alt="BEST">
-                        <div class="project-image-overlay">
-                            <div class="project-zoom-icon">
-                                <i class="fa fa-search"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info-small">
-                        <h4>BEST Notion Template</h4>
-                        <p>Apple Shortcuts Budget Expense Tracker</p>
-                        <div class="project-tags-small">
-                            <span>Apple Shortcuts</span>
-                            <span>Notion Template</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 第二行：Poster 项目 -->
-        <div class="projects-grid-4col" style="margin-top: 30px;">
-            <!-- Poster 1 -->
-            <div class="project-card poster-project-small" onclick="openProjectDetail('poster1')" style="grid-column: span 3;">
+            <!-- Echo -->
+            <div class="project-card large-project" onclick="openProjectDetail('echo')" style="grid-column: span 2;">
                 <div class="project-image">
-                    <img src="./portfolio/design/poster1.jpg" alt="Poster Design 1">
+                    <img src="./portfolio/echo/cover.png" alt="Notion Echo">
                     <div class="project-image-overlay">
                         <div class="project-zoom-icon">
                             <i class="fa fa-search"></i>
@@ -137,35 +80,21 @@
                     </div>
                 </div>
                 <div class="project-info">
-                    <h3>Poster Design</h3>
+                    <h3>Notion Echo</h3>
+                    <p>Bubble up history notes in Notion</p>
                     <div class="project-tags">
-                        <span>Graphic Design</span>
-                        <span>CorelDRAW</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Poster 2 -->
-            <div class="project-card poster-project-small" onclick="openProjectDetail('poster2')" style="grid-column: span 3;">
-                <div class="project-image">
-                    <img src="./portfolio/design/poster2.jpg" alt="Poster Design 2">
-                    <div class="project-image-overlay">
-                        <div class="project-zoom-icon">
-                            <i class="fa fa-search"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <h3>Poster Design</h3>
-                    <div class="project-tags">
-                        <span>Graphic Design</span>
-                        <span>CorelDRAW</span>
+                        <span>Chrome Extension</span>
+                        <span>TypeScript</span>
+                        <span>Notion API</span>
                     </div>
                 </div>
             </div>
 
-            <!-- 表情包设计 - 大项目 -->
-            <div class="project-card large-project full-cover-image" onclick="openProjectDetail('emoji')" style="grid-column: span 2;">
+            <!-- === Row 2: Design Column (Emoji 2/3 + Design 1/3) + Poster 1 + Poster 2 === -->
+
+            <!-- Emoji Design -->
+            <div class="project-card large-project full-cover-image" onclick="openProjectDetail('emoji')"
+                style="grid-column: span 2;">
                 <div class="project-image">
                     <img src="./portfolio/emoji/logo.jpg" alt="表情包设计">
                     <div class="project-image-overlay">
@@ -178,8 +107,87 @@
                     <h3>Emoji Design</h3>
                     <p>Original Emoji Design Portfolio, inspired by my fighting fish</p>
                     <div class="project-tags">
-                        <span>CorelDRAW</span>
                         <span>Original IP</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Poster 1 -->
+            <div class="project-card poster-project-small" onclick="openProjectDetail('design')"
+                style="grid-column: span 3; cursor: pointer;">
+                <div class="project-image">
+                    <img src="./portfolio/design/design/poster1.jpg" alt="Poster Design 1">
+                    <div class="project-image-overlay">
+                        <div class="project-zoom-icon">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Design</h3>
+                    <div class="project-tags">
+                        <span>Graphic Design</span>
+                        <span>CorelDRAW</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photography -->
+            <div class="project-card poster-project-small" onclick="openProjectDetail('poster2')"
+                style="grid-column: span 3;">
+                <div class="project-image">
+                    <img src="./portfolio/design/photo/photo_11.jpg" alt="Photography">
+                    <div class="project-image-overlay">
+                        <div class="project-zoom-icon">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Photography</h3>
+                    <div class="project-tags">
+                        <span>Photography</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- === Row 3: Public Welfare + BEST === -->
+
+            <!-- Public Welfare -->
+            <div class="project-card large-project" onclick="openProjectDetail('charity')" style="grid-column: span 4;">
+                <div class="project-image">
+                    <img src="./portfolio/public_welfare/logo.jpg" alt="公益活动">
+                    <div class="project-image-overlay">
+                        <div class="project-zoom-icon">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Public Welfare</h3>
+                    <p>Rescue and Help</p>
+                    <div class="project-tags">
+                        <span>Public Welfare</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BEST -->
+            <div class="project-card large-project" onclick="openProjectDetail('best')" style="grid-column: span 4;">
+                <div class="project-image">
+                    <img src="./portfolio/best/logo.jpg" alt="BEST">
+                    <div class="project-image-overlay">
+                        <div class="project-zoom-icon">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>BEST Notion Template</h3>
+                    <p>Apple Shortcuts Budget Expense Tracker</p>
+                    <div class="project-tags">
+                        <span>Apple Shortcuts</span>
+                        <span>Notion Template</span>
                     </div>
                 </div>
             </div>
