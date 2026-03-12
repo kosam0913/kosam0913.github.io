@@ -27,8 +27,9 @@ class PortfolioManager {
             window.open('https://colab.research.google.com/drive/1A3DhtigtOnSK2Jkvbd3zkQkeWm7Pd1_x?usp=sharing', '_blank');
         } else if (projectId === 'best') {
             window.open('https://kosam0913.gumroad.com/l/notion-budget-expense-smart-tracker', '_blank');
-        } else if (projectId === 'poster1' || projectId === 'poster2' || projectId === 'charity') {
-            // Poster项目和公益活动暂时无跳转
+        } else if (projectId === 'charity') {
+            window.open('portfolio/public_welfare/logo.jpg', '_blank');
+        } else if (projectId === 'poster1' || projectId === 'poster2') {
             return;
         } else if (projectId === 'design') {
             window.open(`portfolio/design/index.html`, '_blank');
