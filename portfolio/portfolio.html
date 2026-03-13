@@ -112,7 +112,7 @@
                 </div>
             </div>
 
-            <!-- Poster 1 -->
+            <!-- Design -->
             <div class="project-card poster-project-small" onclick="openProjectDetail('design')"
                 style="grid-column: span 3; cursor: pointer;">
                 <div class="project-image">
@@ -154,7 +154,7 @@
             <!-- === Row 3: Public Welfare + BEST === -->
 
             <!-- Public Welfare -->
-            <div class="project-card large-project" onclick="openProjectDetail('charity')" style="grid-column: span 4;">
+            <div class="project-card large-project" onclick="openProjectDetail('charity')" style="grid-column: span 2;">
                 <div class="project-image">
                     <img src="./portfolio/public_welfare/logo.jpg" alt="公益活动">
                     <div class="project-image-overlay">
@@ -173,7 +173,7 @@
             </div>
 
             <!-- BEST -->
-            <div class="project-card large-project" onclick="openProjectDetail('best')" style="grid-column: span 4;">
+            <div class="project-card large-project" onclick="openProjectDetail('best')" style="grid-column: span 2;">
                 <div class="project-image">
                     <img src="./portfolio/best/cover.png" alt="BEST">
                     <div class="project-image-overlay">
@@ -192,5 +192,44 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Lightbox -->
+    <style>
+        #portfolio-lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            align-items: center;
+            justify-content: center;
+        }
+        #portfolio-lightbox.active { display: flex; }
+        #portfolio-lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        #portfolio-lightbox .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 50px;
+            font-size: 2.5rem;
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 10000;
+            transition: opacity 0.3s ease;
+        }
+        #portfolio-lightbox .lightbox-close:hover { opacity: 0.7; }
+    </style>
+    <div id="portfolio-lightbox" onclick="if(event.target===this)this.classList.remove('active')">
+        <span class="lightbox-close" onclick="document.getElementById('portfolio-lightbox').classList.remove('active')">&times;</span>
+        <img id="portfolio-lightbox-img" src="" alt="大图">
     </div>
 </section>

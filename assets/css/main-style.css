@@ -517,7 +517,7 @@ body {
 
 /* 小版本的poster项目 - 在第二行使用 */
 .poster-project-small {
-    height: 380px;
+    height: 360px;
     grid-column: unset;
 }
 
