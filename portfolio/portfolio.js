@@ -28,9 +28,10 @@ class PortfolioManager {
         } else if (projectId === 'best') {
             window.open('https://kosam0913.gumroad.com/l/notion-budget-expense-smart-tracker', '_blank');
         } else if (projectId === 'charity') {
-            window.open('portfolio/public_welfare/logo.jpg', '_blank');
-        } else if (projectId === 'poster1' || projectId === 'poster2') {
-            return;
+            document.getElementById('portfolio-lightbox-img').src = 'portfolio/public_welfare/logo.jpg';
+            document.getElementById('portfolio-lightbox').classList.add('active');
+        } else if (projectId === 'poster2') {
+            window.open('portfolio/design/index.html#photo-section', '_blank');
         } else if (projectId === 'design') {
             window.open(`portfolio/design/index.html`, '_blank');
         } else if (projectId === 'treenode') {

@@ -51,37 +51,93 @@
         <img class="lightbox-img" id="lightbox-img" src="" alt="作品大图">
     </div>
 
-    <script>
-        function gen(prefix, count, pad = 2) {
-            return Array.from({ length: count }, (_, i) => ({
-                file: `${prefix}${pad ? String(i + 1).padStart(pad, '0') : i + 1}.jpg`
-            }));
+    <style>
+        .design-item-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            background: #fafbfc;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(59, 89, 152, 0.08);
+            overflow: hidden;
+            padding: 12px;
         }
 
-        const works = {
-            design: { folder: 'design', items: [...gen('poster', 3, 0), ...gen('design_', 3)] },
-            photo: { folder: 'photo', items: gen('photo_', 11) }
-        };
+        .design-item-group .mini-item {
+            cursor: pointer;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .design-item-group .mini-item:hover {
+            transform: scale(1.03);
+        }
+
+        .design-item-group .mini-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    </style>
+    <script>
+        const designItems = [
+            { file: 'poster1.jpg' },
+            { file: 'poster2.jpg' },
+            { file: 'poster3.jpg' },
+            { file: 'product_01.png' },
+            { file: 'product_02.png' },
+            { group: ['design_02.jpg', 'design_03.jpg'] }
+        ];
+
+        const photoItems = [
+            'photo_01.jpg', 'photo_02.jpg', 'photo_03.jpg',
+            'photo_05.jpg', 'photo_06.jpg', 'photo_07.jpg',
+            'photo_08.jpg', 'photo_09.jpg', 'photo_10.jpg', 'photo_11.jpg'
+        ].map(f => ({ file: f }));
 
         const designGrid = document.getElementById('design-grid');
-        works.design.items.forEach(w => createDesignItem(designGrid, works.design.folder, w, 'design-item'));
+        designItems.forEach(item => {
+            if (item.group) {
+                createGroupItem(designGrid, 'design', item.group);
+            } else {
+                createDesignItem(designGrid, 'design', item);
+            }
+        });
 
         const photoGrid = document.getElementById('photo-grid');
-        works.photo.items.forEach(w => createPhotoItem(photoGrid, works.photo.folder, w, 'photo-item'));
+        photoItems.forEach(w => createPhotoItem(photoGrid, 'photo', w, 'photo-item'));
 
-        function createDesignItem(grid, folder, work, itemClass) {
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        function createDesignItem(grid, folder, work) {
             const imgPath = `${folder}/${work.file}`;
             const div = document.createElement('div');
-            div.className = itemClass;
+            div.className = 'design-item';
             div.innerHTML = `
                 <div class="design-img-container">
                     <img class="design-img" src="${imgPath}" alt="${work.file}" onerror="this.closest('.design-item').style.display='none'">
                 </div>
             `;
-            div.onclick = function () {
-                document.getElementById('lightbox-img').src = imgPath;
-                document.getElementById('lightbox').classList.add('active');
-            };
+            div.onclick = function () { openLightbox(imgPath); };
+            grid.appendChild(div);
+        }
+
+        function createGroupItem(grid, folder, files) {
+            const div = document.createElement('div');
+            div.className = 'design-item-group';
+            files.forEach(f => {
+                const imgPath = `${folder}/${f}`;
+                const mini = document.createElement('div');
+                mini.className = 'mini-item';
+                mini.innerHTML = `<img src="${imgPath}" alt="${f}">`;
+                mini.onclick = function () { openLightbox(imgPath); };
+                div.appendChild(mini);
+            });
             grid.appendChild(div);
         }
 
