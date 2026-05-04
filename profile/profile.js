@@ -99,13 +99,8 @@ class ProfileManager {
     navigateCoverflow(direction) {
         if (this.isTransitioning) return;
         
-        const newIndex = this.currentIndex + direction;
-        if (newIndex >= 0 && newIndex < this.totalCards) {
-            this.goToCard(newIndex);
-        }
-        
-        // Update navigation button states
-        this.updateNavigationButtons();
+        const newIndex = (this.currentIndex + direction + this.totalCards) % this.totalCards;
+        this.goToCard(newIndex);
     }
     
     /**
@@ -115,12 +110,8 @@ class ProfileManager {
         const prevBtn = document.querySelector('.coverflow-nav-btn.prev');
         const nextBtn = document.querySelector('.coverflow-nav-btn.next');
         
-        if (prevBtn) {
-            prevBtn.disabled = this.currentIndex === 0;
-        }
-        if (nextBtn) {
-            nextBtn.disabled = this.currentIndex === this.totalCards - 1;
-        }
+        if (prevBtn) prevBtn.disabled = false;
+        if (nextBtn) nextBtn.disabled = false;
     }
 
     /**
@@ -140,72 +131,99 @@ class ProfileManager {
     }
 
     /**
-     * 更新Cover Flow显示
+     * 计算卡片的变换参数
+     */
+    computeCardTransform(offset) {
+        const containerWidth = 1500;
+        const cardWidth = 320;
+        const maxOffset = Math.floor(this.totalCards / 2);
+
+        let rotateY = 0;
+        let translateX = 0;
+
+        if (offset !== 0) {
+            const maxDistance = (containerWidth - cardWidth) / 2;
+            const normalizedOffset = offset / maxOffset;
+            const compressedOffset = Math.tanh(normalizedOffset * 1.5);
+            translateX = compressedOffset * maxDistance * 0.8;
+        }
+
+        let translateZ = -Math.abs(offset) * 50;
+        let scale = 1;
+        let zIndex = 10 - Math.abs(offset);
+        let opacity = 1;
+
+        if (Math.abs(offset) > 3) {
+            opacity = Math.max(0.3, 1 - (Math.abs(offset) - 3) * 0.2);
+        }
+
+        if (offset === 0) {
+            rotateY = 0;
+            scale = 1;
+        } else if (offset < 0) {
+            rotateY = Math.min(45, Math.abs(offset) * 15);
+            scale = Math.max(0.7, 1 - Math.abs(offset) * 0.05);
+        } else {
+            rotateY = -Math.min(45, Math.abs(offset) * 15);
+            scale = Math.max(0.7, 1 - Math.abs(offset) * 0.05);
+        }
+
+        return { translateX, translateZ, rotateY, scale, zIndex, opacity };
+    }
+
+    /**
+     * 计算循环偏移量
+     */
+    wrapOffset(rawOffset) {
+        if (rawOffset > this.totalCards / 2) return rawOffset - this.totalCards;
+        if (rawOffset < -this.totalCards / 2) return rawOffset + this.totalCards;
+        return rawOffset;
+    }
+
+    /**
+     * 更新Cover Flow显示（支持循环）
      */
     updateCoverflow() {
         const cards = document.querySelectorAll('.coverflow-card');
-        
-        // 容器宽度估算 (根据viewport和卡片宽度)
-        const containerWidth = 1500; // 大致的可视区域宽度
-        const cardWidth = 320; // 单个卡片宽度
-        const maxOffset = Math.floor(this.totalCards / 2); // 最大偏移量
-        
+        const half = this.totalCards / 2;
+
         cards.forEach((card, index) => {
-            const offset = index - this.currentIndex; // 当前卡片相对active的位置（左边负，右边正）
-            
-            let rotateY = 0;
-            let translateX = 0;
-            
-            // 非线性压缩算法
-            if (offset !== 0) {
-                // 使用双曲正切函数实现非线性压缩
-                // 近处间距大，远处间距逐渐压缩
-                const baseSpacing = 120; // 基础间距
-                const maxDistance = (containerWidth - cardWidth) / 2; // 最大允许距离
-                
-                // 归一化offset (-1 到 1)
-                const normalizedOffset = offset / maxOffset;
-                
-                // 使用tanh函数进行非线性映射，确保不超出边界
-                const compressedOffset = Math.tanh(normalizedOffset * 1.5); // 1.5为压缩系数
-                
-                // 最终位置 = 压缩后的偏移 * 最大允许距离
-                translateX = compressedOffset * maxDistance * 0.8; // 0.8为安全系数
+            const rawOffset = index - this.currentIndex;
+            const offset = this.wrapOffset(rawOffset);
+            const prevOffset = this._prevOffsets ? this._prevOffsets[index] : offset;
+
+            const crossed = (prevOffset > half - 1 && offset < -(half - 1)) ||
+                            (prevOffset < -(half - 1) && offset > (half - 1));
+
+            if (crossed) {
+                card.style.transition = 'none';
             }
-            
-            let translateZ = -Math.abs(offset) * 50; // 控制深度层级
-            let scale = 1;
-            let zIndex = 10 - Math.abs(offset); // active卡片在最上面
-            let opacity = 1;
-            
-            // 远距离卡片透明度递减
-            if (Math.abs(offset) > 3) {
-                opacity = Math.max(0.3, 1 - (Math.abs(offset) - 3) * 0.2);
-            }
-            
+
+            const t = this.computeCardTransform(offset);
+
+            card.style.transform = `translateX(${t.translateX}px) translateZ(${t.translateZ}px) rotateY(${t.rotateY}deg) scale(${t.scale})`;
+            card.style.zIndex = t.zIndex;
+            card.style.opacity = t.opacity;
+
             if (offset === 0) {
-                // 中心卡片：正对用户，无旋转
-                rotateY = 0;
-                scale = 1;
                 card.classList.add('center');
-            } else if (offset < 0) {
-                // 左边卡片：向右倾斜
-                rotateY = Math.min(45, Math.abs(offset) * 15); // 根据距离调整旋转角度
-                scale = Math.max(0.7, 1 - Math.abs(offset) * 0.05); // 根据距离调整缩放
-                card.classList.remove('center');
             } else {
-                // 右边卡片：向左倾斜
-                rotateY = -Math.min(45, Math.abs(offset) * 15); // 根据距离调整旋转角度
-                scale = Math.max(0.7, 1 - Math.abs(offset) * 0.05); // 根据距离调整缩放
                 card.classList.remove('center');
             }
-            
-            card.style.transform = `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`;
-            card.style.zIndex = zIndex;
-            card.style.opacity = opacity;
+
+            if (crossed) {
+                // Force reflow then re-enable transition
+                void card.offsetWidth;
+                card.style.transition = '';
+            }
         });
-        
-        // Update navigation button states
+
+        // Store offsets for next update
+        this._prevOffsets = [];
+        cards.forEach((_, index) => {
+            this._prevOffsets[index] = this.wrapOffset(index - this.currentIndex);
+        });
+
         this.updateNavigationButtons();
     }
 
