@@ -230,8 +230,7 @@ body {
 .attributes li {
     margin-bottom: 20px;
     margin-top: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #e1e4e8;
+    /* border-bottom: 1px solid #e1e4e8; */
 }
 
 .attributes li:last-child {
@@ -291,7 +290,7 @@ body {
 
 .attributes p {
     font-size: 14px;
-    color: #586069;
+    color: #9da3aa;
     line-height: 1.5;
     margin-bottom: 5px;
     margin-left: 5px;
