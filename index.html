@@ -103,7 +103,7 @@
             if (portfolioLink && portfolioLink.classList.contains('active')) {
                 const portfolioContainer = document.getElementById('portfolio-container');
                 if (portfolioContainer) {
-                    window.portfolioManager.loadPortfolioSection('portfolio-container');
+                    loadPortfolioSection('portfolio-container');
                     portfolioContainer.style.display = 'block';
                 }
             }
@@ -187,7 +187,7 @@
                                 portfolioContainer.innerHTML.trim() === '<!-- Portfolio content will be loaded from portfolio/portfolio.html -->';
 
                             if (needsLoading) {
-                                window.portfolioManager.loadPortfolioSection('portfolio-container');
+                                loadPortfolioSection('portfolio-container');
                             } else {
                                 // Content already exists, just make sure it's properly activated
                                 if (portfolioSection) {
