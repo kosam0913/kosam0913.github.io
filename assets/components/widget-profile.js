@@ -8,7 +8,7 @@ class WidgetProfileComponent {
             containerId: 'widget-profile-container',
             avatarPath: 'assets/images/profile/avatar.jpg',
             componentPath: 'assets/components/widget-profile.html',
-            basePath: '', 
+            basePath: '',
             ...options
         };
     }
@@ -34,16 +34,16 @@ class WidgetProfileComponent {
         try {
             const componentPath = this.getComponentPath();
             const response = await fetch(componentPath);
-            
+
             if (!response.ok) {
                 throw new Error(`Failed to load component: ${response.status}`);
             }
-            
+
             let html = await response.text();
-            
+
             // 替换模板变量
             html = html.replace('{{avatarPath}}', this.getAvatarPath());
-            
+
             // 查找容器并插入HTML
             const container = document.getElementById(this.options.containerId);
             if (container) {
@@ -52,10 +52,10 @@ class WidgetProfileComponent {
                 // 如果没有指定容器，直接插入到body的开始位置
                 document.body.insertAdjacentHTML('afterbegin', html);
             }
-            
+
             // 触发组件加载完成事件
             this.onLoaded();
-            
+
         } catch (error) {
             console.error('Error loading widget-profile component:', error);
             // 提供fallback
@@ -89,8 +89,8 @@ class WidgetProfileComponent {
                     <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
                         <div class="profile__info">
                             <h1 class="profile__name">Hu Xinjie</h1>
-                            <h4 class="profile__title">Full Stack Developer</h4>
-                            <h4 class="profile__title"> Technical Artist</h4>
+                            <h4 class="profile__title">Full Stack Builder</h4>
+                            <h4 class="profile__title">Product Manager</h4>
                             <h6 class="profile__location"><i class="fa fa-map-pin"></i> Abu Dhabi, UAE</h6>
                         </div>
                         <div class="profile__social">
@@ -103,14 +103,14 @@ class WidgetProfileComponent {
                 </div>
             </div>
         `;
-        
+
         const container = document.getElementById(this.options.containerId);
         if (container) {
             container.innerHTML = fallbackHTML;
         } else {
             document.body.insertAdjacentHTML('afterbegin', fallbackHTML);
         }
-        
+
         this.onLoaded();
     }
 }
@@ -118,7 +118,7 @@ class WidgetProfileComponent {
 /**
  * 全局便利函数：快速加载组件
  */
-window.loadWidgetProfile = function(options) {
+window.loadWidgetProfile = function (options) {
     const component = new WidgetProfileComponent(options);
     return component.load();
 };
@@ -126,7 +126,7 @@ window.loadWidgetProfile = function(options) {
 /**
  * 自动加载：如果页面包含 data-auto-load-widget-profile 属性，自动加载组件
  */
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     if (document.body.hasAttribute('data-auto-load-widget-profile')) {
         const options = {
             basePath: document.body.getAttribute('data-base-path') || '',
