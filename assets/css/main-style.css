@@ -93,7 +93,6 @@ body {
     display: flex;
     justify-content: center;
     gap: 2px;
-    gap: 2px;
     flex-wrap: nowrap;
 }
 
@@ -118,38 +117,11 @@ body {
     padding: 0;
 }
 
-.profile__social a i {
-    font-size: 22px;
-    display: block;
-}
-
 .profile__social a:hover {
     color: var(--primary-color);
     background: #fff;
 }
 
-.profile__contact {
-    text-align: center;
-    padding-top: 15px;
-}
-
-.profile__contact a {
-    display: inline-block;
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-    border-radius: 50%;
-    background: #28a745;
-    color: #fff;
-    text-align: center;
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-
-.profile__contact a:hover {
-    color: #28a745;
-    background: #fff;
-}
 
 /* ===== MAIN CONTENT AREA ===== */
 .main-content {
@@ -316,11 +288,6 @@ body {
     flex-shrink: 0;
 }
 
-.attributes h6 {
-    font-size: 16px;
-    color: #586069;
-    margin-bottom: 5px;
-}
 
 .attributes p {
     font-size: 14px;
@@ -399,18 +366,6 @@ body {
     border-color: var(--primary-color);
 }
 
-/* 在第二行的大项目卡片 - 与poster项目同行时的特殊样式 */
-.projects-grid-4col:nth-of-type(2) .large-project {
-    height: 380px;
-}
-
-.projects-grid-4col:nth-of-type(2) .large-project .project-image {
-    height: 240px;
-}
-
-.projects-grid-4col:nth-of-type(2) .large-project .project-info {
-    height: 140px;
-}
 
 .large-project {
     height: 360px;
@@ -483,179 +438,6 @@ body {
     font-weight: 500;
 }
 
-.project-stats {
-    display: flex;
-    gap: 15px;
-    font-size: 11px;
-    color: #586069;
-}
-
-.project-stats span {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.project-stats i {
-    font-size: 10px;
-}
-
-/* Small projects column */
-.small-projects-column {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    height: 360px;
-    justify-content: space-between;
-}
-
-/* ===== POSTER PROJECT CARDS - SPECIAL STYLE ===== */
-.poster-project {
-    height: 380px;
-    grid-column: unset;
-}
-
-/* 小版本的poster项目 - 在第二行使用 */
-.poster-project-small {
-    height: 360px;
-    grid-column: unset;
-}
-
-.poster-project .project-image img,
-.poster-project-small .project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    /* 改为contain确保完整显示 */
-    transition: transform 0.3s ease;
-    padding: 2px;
-    /* 添加内边距 */
-    background: #fff;
-    /* 白色背景 */
-}
-
-.poster-project:hover .project-image img,
-.poster-project-small:hover .project-image img {
-    transform: scale(1.00);
-}
-
-.poster-project .project-info,
-.poster-project-small .project-info {
-    padding: 10px 20px;
-    /* 减少padding */
-    height: 60px;
-    /* 更小的信息区域 */
-    display: flex;
-    flex-direction: row;
-    /* 改为横向布局 */
-    align-items: center;
-    /* 垂直居中 */
-    justify-content: space-between;
-    /* 两端对齐 */
-}
-
-.poster-project .project-info h3,
-.poster-project-small .project-info h3 {
-    font-size: 16px;
-    font-weight: 600;
-    color: #24292e;
-    margin: 0;
-    /* 移除边距 */
-    flex-shrink: 0;
-    /* 防止压缩 */
-}
-
-.poster-project .project-info p,
-.poster-project-small .project-info p {
-    display: none;
-    /* 隐藏描述文字 */
-}
-
-.poster-project .project-tags,
-.poster-project-small .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    margin: 0;
-    /* 移除边距 */
-}
-
-.poster-project .project-tags span,
-.poster-project-small .project-tags span {
-    background: rgba(59, 89, 152, 0.08);
-    color: var(--primary-color);
-    padding: 2px 6px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 500;
-}
-
-.poster-project .project-stats,
-.poster-project-small .project-stats {
-    display: none;
-    /* 继续隐藏stats */
-}
-
-.small-project {
-    height: 120px;
-    display: flex;
-    padding: 15px;
-    gap: 15px;
-    grid-column: unset;
-    align-items: center;
-}
-
-.project-image-small {
-    width: 75px;
-    height: 75px;
-    border-radius: 8px;
-    overflow: hidden;
-    flex-shrink: 0;
-    position: relative;
-}
-
-.project-image-small img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.project-info-small {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 6px;
-}
-
-.project-info-small h4 {
-    font-size: 14px;
-    font-weight: 600;
-    color: #24292e;
-    margin-bottom: 4px;
-}
-
-.project-info-small p {
-    font-size: 14px;
-    color: #586069;
-    line-height: 1.3;
-    margin-bottom: 6px;
-}
-
-.project-tags-small {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-}
-
-.project-tags-small span {
-    background: rgba(59, 89, 152, 0.08);
-    color: var(--primary-color);
-    padding: 2px 6px;
-    border-radius: 8px;
-    font-size: 9px;
-    font-weight: 500;
-}
 
 /* Portfolio overlay and search icons */
 .project-image-overlay {
@@ -691,53 +473,8 @@ body {
     transform: scale(1.1);
 }
 
-.large-project:hover .project-image-overlay,
-.small-project:hover .project-image-overlay {
+.large-project:hover .project-image-overlay {
     opacity: 1;
-}
-
-.small-project .project-image-overlay {
-    border-radius: 8px;
-}
-
-.small-project .project-zoom-icon {
-    width: 35px;
-    height: 35px;
-    font-size: 18px;
-}
-
-.personal-intro-card {
-    grid-column: 1 / -1;
-    margin: 0 20px;
-    background: linear-gradient(135deg, #f8f9fa, #fff);
-    border: 2px solid var(--primary-color);
-}
-
-.personal-intro-content {
-    display: flex;
-    gap: 25px;
-    align-items: center;
-}
-
-.intro-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid var(--primary-color);
-    flex-shrink: 0;
-}
-
-.intro-text {
-    flex: 1;
-}
-
-
-.intro-text p {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #666;
-    margin: 0;
 }
 
 /* Photo cards specific styles */
@@ -745,47 +482,10 @@ body {
     position: relative;
 }
 
-.about-photo-container {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    border-radius: 8px;
-    background: #f8f9fa;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.about-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.photo-card:hover .about-photo {
-    transform: scale(1.05);
-}
-
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 1024px) {
     .projects-grid-4col {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .poster-project {
-        grid-column: unset;
-    }
-
-    .poster-project-small {
-        grid-column: unset;
-    }
-
-    .small-projects-column {
-        grid-column: 1 / -1;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 15px;
     }
 
     .skills-grid {
@@ -816,28 +516,6 @@ body {
         gap: 15px;
     }
 
-    .poster-project {
-        grid-column: unset;
-        height: 350px;
-        /* 减少高度 */
-    }
-
-    .poster-project-small {
-        grid-column: unset;
-        height: 350px;
-        /* 减少高度 */
-    }
-
-    .poster-project .project-image {
-        height: 280px;
-        /* 对应调整图片高度 */
-    }
-
-    .poster-project-small .project-image {
-        height: 280px;
-        /* 对应调整图片高度 */
-    }
-
     .attributes h5 {
         flex-direction: column;
         align-items: flex-start;
@@ -857,6 +535,47 @@ body {
         margin-left: 150px;
         padding: 15px 10px;
     }
+}
+
+/* ===== PORTFOLIO LIGHTBOX ===== */
+#portfolio-lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    align-items: center;
+    justify-content: center;
+}
+
+#portfolio-lightbox.active {
+    display: flex;
+}
+
+#portfolio-lightbox img {
+    max-width: 90vw;
+    max-height: 85vh;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+#portfolio-lightbox .lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 10000;
+    transition: opacity 0.3s ease;
+}
+
+#portfolio-lightbox .lightbox-close:hover {
+    opacity: 0.7;
 }
 
 /* ===== COVERFLOW STYLES ===== */
@@ -987,16 +706,6 @@ body {
     transition: transform 0.3s ease;
 }
 
-.photo-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-    color: #ffffff;
-    padding: 2rem 1.5rem 1.5rem;
-    text-align: center;
-}
 
 /* Card Content */
 .card-icon {

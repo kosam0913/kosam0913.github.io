@@ -174,40 +174,7 @@
         </div>
     </div>
 
-    <!-- Lightbox -->
-    <style>
-        #portfolio-lightbox {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.85);
-            align-items: center;
-            justify-content: center;
-        }
-        #portfolio-lightbox.active { display: flex; }
-        #portfolio-lightbox img {
-            max-width: 90vw;
-            max-height: 85vh;
-            border-radius: 8px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-        #portfolio-lightbox .lightbox-close {
-            position: absolute;
-            top: 30px;
-            right: 50px;
-            font-size: 2.5rem;
-            color: #fff;
-            cursor: pointer;
-            font-weight: bold;
-            z-index: 10000;
-            transition: opacity 0.3s ease;
-        }
-        #portfolio-lightbox .lightbox-close:hover { opacity: 0.7; }
-    </style>
+    <!-- Lightbox (styles in main-style.css) -->
     <div id="portfolio-lightbox" onclick="if(event.target===this)this.classList.remove('active')">
         <span class="lightbox-close" onclick="document.getElementById('portfolio-lightbox').classList.remove('active')">&times;</span>
         <img id="portfolio-lightbox-img" src="" alt="大图">
