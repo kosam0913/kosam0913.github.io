@@ -19,51 +19,6 @@
     padding: 0 1rem;
 }
 
-.blog-header {
-    text-align: center;
-    padding: 2rem 0;
-    background: linear-gradient(135deg, #f8fafc, #ffffff);
-    border-radius: var(--border-radius-card);
-    margin-bottom: 2rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.blog-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
-.blog-subtitle {
-    font-size: 1.1rem;
-    color: #64748b;
-    margin-bottom: 1rem;
-}
-
-.blog-stats {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 1.5rem;
-}
-
-.blog-stat {
-    text-align: center;
-}
-
-.blog-stat-number {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-}
-
-.blog-stat-label {
-    font-size: 0.875rem;
-    color: #64748b;
-    margin-top: 0.25rem;
-}
 
 .loading-container {
     text-align: center;
@@ -255,26 +210,6 @@
     background: linear-gradient(135deg, #f8fafc, #ffffff);
 }
 
-.back-to-blog-btn {
-    background: var(--primary-color);
-    color: #ffffff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: var(--border-radius-small);
-    font-size: 0.875rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.back-to-blog-btn:hover {
-    background: var(--secondary-color);
-    transform: translateY(-1px);
-}
 
 .blog-detail-meta {
     display: flex;
@@ -441,18 +376,6 @@
     gap: 1rem;
 }
 
-.blog-detail-stats {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.blog-detail-stat {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #64748b;
-    font-size: 0.875rem;
-}
 
 .view-on-github-btn {
     background: #24292e;
@@ -475,15 +398,6 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .blog-title {
-        font-size: 2rem;
-    }
-    
-    .blog-stats {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
     .blog-post-layout {
         flex-direction: column;
         min-height: auto;
@@ -539,11 +453,6 @@
         padding: 1rem 1.5rem;
         flex-direction: column;
         align-items: stretch;
-    }
-    
-    .blog-detail-stats {
-        justify-content: center;
-        margin-bottom: 1rem;
     }
     
     .view-on-github-btn {
